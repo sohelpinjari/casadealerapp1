@@ -41,7 +41,7 @@ class _loginState extends State<login> {
                     //   width: 20.h,
                     // ),
                     Padding(
-                      padding: EdgeInsets.only(right: 38.h, top: 1.h),
+                      padding: EdgeInsets.only(right: 36.h, top: 1.h),
                       child: Container(
                         // alignment: Alignment.centerLeft,
                         child: Text("LogIn",
@@ -180,7 +180,7 @@ class _loginState extends State<login> {
                         },
                         child: Text(
                           'Login',
-                          style: TextStyle(fontSize: 2.5.h),
+                          style: TextStyle(fontSize: 2.3.h),
                         ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xfff333389),

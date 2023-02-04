@@ -78,7 +78,7 @@ class _get_startedState extends State<get_started> {
             child: Container(
 
               width: MediaQuery.of(context).size.width * 0.5,
-              height: MediaQuery.of(context).size.height * 0.06,
+              height: MediaQuery.of(context).size.height * 0.07,
               // color: Color(0xfff333389),
               // padding:
               //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
@@ -114,7 +114,7 @@ class _get_startedState extends State<get_started> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xfff333389),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15),
 
                   ),
                 ),

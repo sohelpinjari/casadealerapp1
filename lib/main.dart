@@ -1,4 +1,6 @@
 import 'package:casadealerapp/getstarted.dart';
+import 'package:casadealerapp/loginsuccess.dart';
+import 'package:casadealerapp/products_1.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -8,6 +10,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   // This widget is the root of your application.
   @override

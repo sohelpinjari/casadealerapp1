@@ -340,7 +340,7 @@ class _registerState extends State<register> {
                           },
                           child: Text(
                             'Login',
-                            style: TextStyle(fontSize: 2.5.h),
+                            style: TextStyle(fontSize: 2.3.h),
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xfff333389),
