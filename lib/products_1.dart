@@ -1,4 +1,5 @@
 import 'package:casadealerapp/drawer.dart';
+import 'package:casadealerapp/product_2.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -12,16 +13,35 @@ class products_1 extends StatefulWidget {
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+class products {
+  String? image;
+  String? Brand_Name;
+  String? Street_Wear;
+  String? Artist_Name;
+  String? Price;
+
+  products(this.image, this.Brand_Name, this.Street_Wear, this.Artist_Name,
+      this.Price);
+}
+
 class _products_1State extends State<products_1> {
-  List<String> images = [
-    "assets/pexels-lumn-167699.jpg",
-    "assets/pexels-sam-kolder-2387873.jpg",
-    "assets/pexels-roberto-nickson-2559941.jpg",
-    "assets/pexels-rodrigo-souza-2531709.jpg",
-    "assets/pexels-sean-valentine-3592627.jpg",
-    "assets/pexels-taha-samet-arslan-13534714.jpg",
-    "assets/pexels-tima-miroshnichenko-6322806.jpg",
-    "assets/pexels-aarti-vijay-2693529.jpg"
+  List<products> images = [
+    products("assets/product_1_img.png", "Brand Name", "Street Wear",
+        "Artist Name", "\₹125"),
+    products("assets/product_1_img2.png", "Brand Name", "Street Wear",
+        "Artist Name", "\₹125"),
+    products("assets/product_1_img3.png", "Brand Name", "Street Wear",
+        "Artist Name", "\₹125"),
+    products("assets/product_1_img4.png", "Brand Name", "Street Wear",
+        "Artist Name", "\₹125"),
+    products("assets/product_1_img5.png", "Brand Name", "Street Wear",
+        "Artist Name", "\₹125"),
+    products("assets/product_1img6.png", "Brand Name", "Street Wear",
+        "Artist Name", "\₹125"),
+    products("assets/product_1_img.png", "Brand Name", "Street Wear",
+        "Artist Name", "\₹125"),
+    products("assets/product_1_img2.png", "Brand Name", "Street Wear",
+        "Artist Name", "\₹125"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -39,23 +59,7 @@ class _products_1State extends State<products_1> {
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.all(15),
-              child: GridView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: images.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 5.0,
-                    mainAxisSpacing: 5.0),
-                itemBuilder: (BuildContext context, int index) {
-                  return Image.asset(
-                    images[index],
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    fit: BoxFit.cover,
-                  );
-                },
-              ),
+              height: MediaQuery.of(context).size.height,
               color: Color(0xfffFFFFFF),
             ),
             Positioned(
@@ -158,7 +162,134 @@ class _products_1State extends State<products_1> {
                   ),
                 ),
               ),
-            )
+            ),
+            Positioned(
+              top: 20.h,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => product_2()));
+                },
+                child: Container(
+                  // height: MediaQuery.of(context).size.height,
+                  height:70.h,
+                  width: MediaQuery.of(context).size.width,
+
+                  padding: EdgeInsets.all(15),
+                  child: GridView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: images.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 19.0,
+                        childAspectRatio: 6 / 13.3,
+                        mainAxisSpacing: 15),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              (images[index].image).toString(),
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              height: MediaQuery.of(context).size.height * 0.3,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                right: MediaQuery.of(context).size.width * 0.2,
+                                top: MediaQuery.of(context).size.height * 0.007),
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width * 0.2,
+                              height: MediaQuery.of(context).size.height * 0.02,
+                              decoration: BoxDecoration(
+                                color: Colors.grey.shade200,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5),
+                                ),
+                              ),
+                              child: Text(
+                                images[index].Brand_Name.toString(),
+                                style: TextStyle(
+                                  fontSize: 1.3.h,
+                                  color: Color(0xfff333389),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 1.h,
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(left: 0.8.h),
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              images[index].Street_Wear.toString(),
+                              style: TextStyle(
+                                  fontSize: 2.3.h, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(left: 0.8.h),
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              images[index].Artist_Name.toString(),
+                              style: TextStyle(
+                                  fontSize: 1.6.h,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey.shade500),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 0.5.h,
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.only(left: 0.8.h),
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  images[index].Price.toString(),
+                                  style: TextStyle(
+                                    fontSize: 2.3.h,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xfff333389),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 9.h,
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width * 0.1,
+                                height: MediaQuery.of(context).size.height * 0.04,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade200,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(15),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.shopping_cart_outlined,
+                                  color: Color(0xfff333389),
+                                  size: 2.5.h,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  color: Color(0xfffFFFFFF),
+                ),
+              ),
+            ),
           ],
         ),
       ),

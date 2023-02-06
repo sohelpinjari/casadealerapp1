@@ -74,9 +74,8 @@ class _get_startedState extends State<get_started> {
 
           Positioned(
             top: 85.h,
-                left: 11.h,
+            left: 11.h,
             child: Container(
-
               width: MediaQuery.of(context).size.width * 0.5,
               height: MediaQuery.of(context).size.height * 0.07,
               // color: Color(0xfff333389),
@@ -84,44 +83,35 @@ class _get_startedState extends State<get_started> {
               //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
               child: ElevatedButton(
                 onPressed: () {
-
-
-
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => login()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => login()));
                 },
                 child: Row(
                   children: [
                     Padding(
-                      padding:  EdgeInsets.all(2.h
-                      ),
-                      child: Text('Get Started' , style: TextStyle(fontSize: 2.h),
-
+                      padding: EdgeInsets.all(2.h),
+                      child: Text(
+                        'Get Started',
+                        style: TextStyle(fontSize: 2.h),
                       ),
                     ),
-                Icon(
-                                Icons.arrow_forward,
-                                color: Colors.white,
-                                size: 24.0,
-                                semanticLabel:
-                                    'Text to announce in accessibility modes',
-                              ),
-
+                    Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 24.0,
+                      semanticLabel: 'Text to announce in accessibility modes',
+                    ),
                   ],
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xfff333389),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
-
                   ),
                 ),
               ),
             ),
           ),
-
         ]),
       ),
     );

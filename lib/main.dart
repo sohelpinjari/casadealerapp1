@@ -1,5 +1,6 @@
 import 'package:casadealerapp/getstarted.dart';
 import 'package:casadealerapp/loginsuccess.dart';
+import 'package:casadealerapp/product_2.dart';
 import 'package:casadealerapp/products_1.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: get_started(),
+        home: products_1(),
       );
     },
 
