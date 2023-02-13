@@ -1,53 +1,317 @@
-import 'package:flutter/cupertino.dart';
+
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class drawer extends StatefulWidget {
-  const drawer({Key? key}) : super(key: key);
-
+  final BuildContext context;
+  const drawer(this.context, {Key? key}) : super(key: key);
   @override
   State<drawer> createState() => _drawerState();
 }
 
 class _drawerState extends State<drawer> {
+  List<bool> index = [false, false, false, false, false, false, false];
+  // ViewModel? viewmodel;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // view();
+    index = [false, false, false, false, false, false, false];
+  }
+
   @override
   Widget build(BuildContext context) {
+    double widthDrawer = MediaQuery.of(context).size.width * 0.75;
     return SafeArea(
-        child: Scaffold(
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+      child: Drawer(
+        child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: widthDrawer,
+            // color: Colors.black,
+            child: ListView(
+              //padding: EdgeInsets.all(2.w),
+              children: [
+                Container(
+                  height: 13.h,
+                  padding: EdgeInsets.all(5.w),
+                  width: widthDrawer,
+                  // color: Colors.black.withOpacity(0.3),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(.0)),
+                      // image: DecorationImage(
+                      //     fit: BoxFit.fill,
+                      //     // image: AssetImage("assets/splash2.jpg")
+                      // )
+                      // image: NetworkImage(
+                      //     'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
+                      ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 8.w,
+
+                        child: ClipOval(
+
+                        child: Image.asset('assets/profile.jpg',
+                                                  width: 20.w,
+                                                  height: 20.w,
+                          fit: BoxFit.cover,
+
+
+                                                ),
+                          // child: Image.network(
+                          //   (viewmodel?.data?.profileImg).toString(),
+                          //   fit: BoxFit.cover,
+                          //   width: 16.w,
+                          //   height: 16.w,
+                          // ),
+                        ),
+                      ),
+                      SizedBox(width: 5.w,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 0.5.h,),
+                          Text( "Hi John",style:TextStyle(
+                              color:Colors.black,
+                              fontSize: 12.sp,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600) ,),
+                          SizedBox(height: 0.5.h,),
+                          Text("+919876543210",
+                              style: TextStyle(
+                                  color: Color(0xfff8484b8),
+
+                                  fontWeight: FontWeight.w600)),
+
+                        ],
+                      ),
+                      SizedBox(width: 10.w,),
+                      Icon(Icons.settings_outlined,
+                          // color: Color(0xffb4776e6),
+                          color: index[1] ? Color(0xffb4776e6) :  Color(0xff8484b8),
+                      size: 5.h,
+                      ),
+                    ],
+                  )
+                ),
+                Divider(color: Colors.black,),
+
+                // Divider(color: Colors.black,),
+                Container(
+                  color: index[1]
+                      ? Color(0xffb4776e6).withOpacity(0.2)
+                      : Colors.transparent,
+                  child: ListTile(
+                    // trailing: Icon(
+                    //   Icons.arrow_forward_ios,
+                    //   // color: Color(0xffb4776e6),
+                    //   color: index[1] ? Color(0xffb4776e6) : Colors.black,
+                    // ),
+                    leading: Icon(Icons.shopping_bag_outlined,
+                        // color: Color(0xffb4776e6),
+                        color: index[1] ? Color(0xffb4776e6) :  Color(0xff8484b8)),
+                    title: Text(
+                      'Home',
+                      style: TextStyle(
+                          // color: Color(0xffb4776e6),
+                          color: index[1] ? Color(0xffb4776e6) : Colors.black,
+                          fontSize: 12.sp,
+
+                          fontWeight: FontWeight.w600),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        index[1] = !index[1];
+                      });
+                      // Navigator.of(context).pop();
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>mytrips1()));
+                    },
+                  ),
+                ),
+                // Divider(color: Colors.black,),
+
+                Container(
+                  color: index[2]
+                      ? Color(0xffb4776e6).withOpacity(0.2)
+                      : Colors.transparent,
+                  child: ListTile(
+                    // trailing: Icon(
+                    //   Icons.arrow_forward_ios,
+                    //   // color: Color(0xffb4776e6),
+                    //   color: index[2] ? Color(0xffb4776e6) : Colors.black,
+                    // ),
+                    leading: Icon(
+                      Icons.library_books,
+                      // color: Color(0xffb4776e6),
+                      color: index[2] ? Color(0xffb4776e6) :  Color(0xff8484b8),
+                    ),
+                    title: Text(
+                      'Order History',
+                      style: TextStyle(
+                          // color: Color(0xffb4776e6),
+                          color: index[2] ? Color(0xffb4776e6) : Colors.black,
+                          fontSize: 12.sp,
+
+                          fontWeight: FontWeight.w600),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        index[2] = !index[2];
+                      });
+                      // Navigator.of(context).pop();
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>favouritelist()));
+                    },
+                  ),
+                ),
+                Container(
+                  color: index[3]
+                      ? Color(0xffb4776e6).withOpacity(0.2)
+                      : Colors.transparent,
+                  child: ListTile(
+                    // trailing: Icon(
+                    //   Icons.arrow_forward_ios,
+                    //   // color: Color(0xffb4776e6),
+                    //   color: index[3] ? Color(0xffb4776e6) : Colors.black,
+                    // ),
+                    leading: Icon(
+                      Icons.check_box_outline_blank,
+                      // color: Color(0xffb4776e6),
+                      color: index[3] ? Color(0xffb4776e6) : Color(0xff8484b8),
+                    ),
+                    title: Text(
+                      'Blocked Order',
+                      style: TextStyle(
+                          // color: Color(0xffb4776e6),
+                          color: index[3] ? Color(0xffb4776e6) : Colors.black,
+                          fontSize: 12.sp,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        index[3] = !index[3];
+                      });
+                      // Navigator.of(context).pop();
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>requestlist()));
+                    },
+                  ),
+                ),
+                // Divider(color: Colors.black,),
+                Container(
+                  color: index[4]
+                      ? Color(0xffb4776e6).withOpacity(0.2)
+                      : Colors.transparent,
+                  child: ListTile(
+                    // trailing: Icon(
+                    //   Icons.arrow_forward_ios,
+                    //   // color: Color(0xffb4776e6),
+                    //   color: index[4] ? Color(0xffb4776e6) : Colors.black,
+                    // ),
+                    leading: Icon(
+                      Icons.headphones_outlined,
+                      // color: Color(0xffb4776e6),
+                      color: index[4] ? Color(0xffb4776e6) : Color(0xff8484b8),
+                    ),
+                    title: Text(
+                      'Help & Support',
+                      style: TextStyle(
+                          // color: Color(0xffb4776e6),
+                          color: index[4] ? Color(0xffb4776e6) : Colors.black,
+                          fontSize: 12.sp,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        index[4] = !index[4];
+                      });
+                      // Navigator.of(context).pop();
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>profile2()));
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 40.h,
+                ),
+                Container(
+                  color: index[5]
+                      ? Color(0xffb4776e6).withOpacity(0.2)
+                      : Colors.transparent,
+                  child: ListTile(
+                    // trailing: Icon(
+                    //   Icons.arrow_forward_ios,
+                    //   // color: Color(0xffb4776e6),
+                    //   color: index[4] ? Color(0xffb4776e6) : Colors.black,
+                    // ),
+                    leading: Icon(
+                      Icons.circle_outlined,
+                      // color: Color(0xffb4776e6),
+                      color: index[5] ? Color(0xffb4776e6) : Color(0xff8484b8),
+                    ),
+                    title: Text(
+                      'Logout',
+                      style: TextStyle(
+                        // color: Color(0xffb4776e6),
+                          color: index[5] ? Color(0xffb4776e6) : Colors.black,
+                          fontSize: 12.sp,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        index[5] = !index[5];
+                      });
+                      // Navigator.of(context).pop();
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>profile2()));
+                    },
+                  ),
+                ),
+                // Divider(color: Colors.black,),
+
+              ],
+            )),
       ),
-    ));
+    );
   }
+
+  TextStyle textStyle = TextStyle(
+      color: Colors.black,
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w600);
+  // view(){
+  //   final Map<String, String> data = {
+  //   };
+  //   data['action']="view_profile";
+  //   data['user_id'] = (userData?.data?.uId).toString();
+  //   checkInternet().then((internet) async {
+  //     if (internet) {
+  //       authprovider().viewapi(data).then((Response response) async {
+  //         viewmodel = ViewModel.fromJson(json.decode(response.body));
+  //         if (response.statusCode == 200 && viewmodel?.status == "1") {
+  //           setState(() {
+  //             // isLoading = false;
+  //           });
+  //
+  //           if (kDebugMode) {
+  //           }
+  //
+  //         }
+  //         else{
+  //         }
+  //       });
+  //     } else {
+  //       setState(() {
+  //         // isLoading = false;
+  //       });
+  //       buildErrorDialog(context, 'Error',"Internate Required");
+  //     }
+  //   });
+  // }
 }

@@ -47,7 +47,7 @@ class _products_1State extends State<products_1> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: drawer(),
+        drawer: drawer(context),
         key: _scaffoldKey,
         // appBar: AppBar(
         //   toolbarHeight: 15.h, // Set this height
@@ -139,7 +139,7 @@ class _products_1State extends State<products_1> {
                 child: TextFormField(
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Please enter your full name";
+                      return "";
                     }
                     return null;
                   },
@@ -174,7 +174,7 @@ class _products_1State extends State<products_1> {
                 },
                 child: Container(
                   // height: MediaQuery.of(context).size.height,
-                  height:70.h,
+                  height:80.h,
                   width: MediaQuery.of(context).size.width,
 
                   padding: EdgeInsets.all(15),

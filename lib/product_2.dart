@@ -12,7 +12,6 @@ class product_2 extends StatefulWidget {
   State<product_2> createState() => _product_2State();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class products {
   String? image;
@@ -26,11 +25,14 @@ class products {
 }
 
 class _product_2State extends State<product_2> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   bool _customTileExpanded = false;
 
   int selectindex = 0;
   int btn = 0;
   int gen = 0;
+  int cart = 0;
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
@@ -71,7 +73,7 @@ class _product_2State extends State<product_2> {
       child: Scaffold(
         backgroundColor: Color(0xfffFFFFFF),
 
-        drawer: drawer(),
+        drawer: drawer(context),
         key: _scaffoldKey,
         // appBar: AppBar(
         //   toolbarHeight: 15.h, // Set this height
@@ -90,15 +92,24 @@ class _product_2State extends State<product_2> {
                 child: Row(
                   children: [
                     IconButton(
-                      onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu,
-                        color: Colors.white,
-                        size: 4.h,
-                      ),
-                    ),
+                    onPressed: () {
+              _scaffoldKey.currentState?.openDrawer();
+              },
+                icon: Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                ),
+              ),
+                    // IconButton(
+                    //   onPressed: () {
+                    //     _scaffoldKey.currentState?.openDrawer();
+                    //   },
+                    //   icon: Icon(
+                    //     Icons.menu,
+                    //     color: Colors.white,
+                    //     size: 4.h,
+                    //   ),
+                    // ),
                     SizedBox(
                       width: 2.3.h,
                     ),
@@ -305,7 +316,8 @@ class _product_2State extends State<product_2> {
                               ),
                             ),
                           ),
-                        ]),
+                        ]
+                        ),
                         Padding(
                           padding: EdgeInsets.all(2.h),
                           child: Container(
@@ -1164,8 +1176,789 @@ class _product_2State extends State<product_2> {
                                 ),
                               )
                             : Container(
-                                child: Text("6546514"),
-                              )
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    margin: EdgeInsets.only(top: 0.h),
+                                    child: Text(
+                                      "Select Color",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 3.h,
+                                      ),
+                                    )),
+                              ),
+                              // SizedBox(
+                              //   height: 1.4.h,
+                              // ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: 2.h, right: 2.h),
+                                child:
+                                Divider(color: Colors.grey.shade400),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                    height: 20.h,
+                                    width: 50.h,
+                                    padding: EdgeInsets.all(9.0),
+                                    child: GridView.builder(
+                                      itemCount: tripur.length,
+                                      gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 7,
+                                          crossAxisSpacing: 12.0,
+                                          childAspectRatio: 3 / 3,
+                                          mainAxisSpacing: 10.0),
+                                      itemBuilder: (BuildContext context,
+                                          int index) {
+                                        return GestureDetector(
+                                            onTap: () {
+                                              setState(() {
+                                                btn = index;
+                                              });
+                                            },
+                                            child: Stack(
+                                              children: [
+                                                Container(
+                                                  height: 10.h,
+                                                  width: 20.w,
+                                                  decoration:
+                                                  BoxDecoration(
+                                                      shape: BoxShape
+                                                          .circle,
+                                                      color: tripur[
+                                                      index]),
+                                                ),
+                                                (btn == index)
+                                                    ? Container(
+                                                  height: 10.h,
+                                                  width: 20.w,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape
+                                                          .circle,
+                                                      color: Colors
+                                                          .transparent),
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    color: Colors
+                                                        .white,
+                                                    size: 15.sp,
+                                                  ),
+                                                )
+                                                    : Container()
+                                              ],
+                                            ));
+                                      },
+                                    )),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Select Gender",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 3.h,
+                                      ),
+                                    )),
+                              ),
+                              // SizedBox(
+                              //   height: 2.h,
+                              // ),
+                              Divider(color: Colors.grey.shade400),
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            gen = 1;
+                                          });
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.all(0.1.h),
+                                          alignment: Alignment.center,
+                                          width: 13.h,
+                                          height: 5.5.h,
+                                          decoration: BoxDecoration(
+                                              color: (gen == 0)
+                                                  ? Colors.white
+                                                  : Color(0xfff333389),
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  10),
+                                              border: Border.all(
+                                                  color:
+                                                  Color(0xff333389))),
+                                          child: Text(
+                                            'Men',
+                                            style: TextStyle(
+                                                color: (gen == 0)
+                                                    ? Color(0xff333389)
+                                                    : Colors.white,
+                                                fontWeight:
+                                                FontWeight.bold,
+                                                fontSize: 2.5.h),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 0.6.h,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            gen = 0;
+                                          });
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.all(0.1.h),
+                                          alignment: Alignment.center,
+                                          width: 15.h,
+                                          height: 5.5.h,
+                                          decoration: BoxDecoration(
+                                              color: (gen == 1)
+                                                  ? Colors.white
+                                                  : Color(0xfff333389),
+                                              // color:_selectedColor,
+
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  10),
+                                              border: Border.all(
+                                                  color:
+                                                  Color(0xff333389))),
+                                          child: Text(
+                                            'Women',
+                                            style: TextStyle(
+                                                color: (gen == 1)
+                                                    ? Color(0xff333389)
+                                                    : Colors.white,
+                                                fontWeight:
+                                                FontWeight.bold,
+                                                fontSize: 2.5.h),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 3.h),
+                              Container(
+                                  alignment: Alignment.center,
+                                  height: 6.h,
+                                  width:
+                                  MediaQuery.of(context).size.width,
+                                  color: Color(0xfffeaeaf3),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(1.h),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "Color:",
+                                          style: TextStyle(
+                                            fontSize: 3.h,
+                                          ),
+                                        ),
+                                        Text(
+                                          " Red",
+                                          style: TextStyle(
+                                              fontSize: 3.h,
+                                              color: Color(0xfff333389)),
+                                        ),
+                                        SizedBox(
+                                          width: 6.h,
+                                        ),
+                                        Text(
+                                          "|",
+                                          style: TextStyle(
+                                              fontSize: 3.h,
+                                              color: Color(0xfff333389)),
+                                        ),
+                                        SizedBox(
+                                          width: 7.h,
+                                        ),
+                                        Text(
+                                          "Price:",
+                                          style: TextStyle(
+                                            fontSize: 3.h,
+                                          ),
+                                        ),
+                                        Text(
+                                          " ₹125",
+                                          style: TextStyle(
+                                              fontSize: 3.h,
+                                              color: Color(0xfff333389)),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
+                              SizedBox(
+                                height: 1.h,
+                              ),
+
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "Size",
+                                        style: TextStyle(fontSize: 2.h),
+                                      ),
+                                      SizedBox(width: 1.8.h),
+                                      Text("Stock in Mumbai",
+                                          style:
+                                          TextStyle(fontSize: 2.h)),
+                                      SizedBox(width: 1.8.h),
+                                      Text("Stock in Tirpur",
+                                          style:
+                                          TextStyle(fontSize: 2.h)),
+                                      SizedBox(width: 1.8.h),
+                                      Text("Total",
+                                          style:
+                                          TextStyle(fontSize: 2.h)),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child:
+                                Divider(color: Colors.grey.shade400),
+                              ),
+
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "S ",
+                                        style: TextStyle(
+                                            fontSize: 2.5.h,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 5.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                      SizedBox(width: 12.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                      SizedBox(width: 5.w),
+                                      Text("1200",
+                                          style: TextStyle(
+                                              fontSize: 2.5.h,
+                                              color: Color(0xfff333389),
+                                              fontWeight:
+                                              FontWeight.bold)),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "M",
+                                        style: TextStyle(
+                                            fontSize: 2.5.h,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 5.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                      SizedBox(width: 12.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                      SizedBox(width: 5.w),
+                                      Text("1200",
+                                          style: TextStyle(
+                                              fontSize: 2.5.h,
+                                              color: Color(0xfff333389),
+                                              fontWeight:
+                                              FontWeight.bold)),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "L",
+                                        style: TextStyle(
+                                            fontSize: 2.5.h,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 3.h),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                      SizedBox(width: 12.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                      SizedBox(width: 5.w),
+                                      Text("1200",
+                                          style: TextStyle(
+                                              fontSize: 2.5.h,
+                                              color: Color(0xfff333389),
+                                              fontWeight:
+                                              FontWeight.bold)),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "XL",
+                                        style: TextStyle(
+                                            fontSize: 2.5.h,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 3.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                      SizedBox(width: 12.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                      SizedBox(width: 5.w),
+                                      Text("1200",
+                                          style: TextStyle(
+                                              fontSize: 2.5.h,
+                                              color: Color(0xfff333389),
+                                              fontWeight:
+                                              FontWeight.bold)),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "Available Qty",
+                                        style: TextStyle(
+                                            fontSize: 2.5.h,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 5.w),
+                                      Container(
+                                        width: 20.w,
+                                        child: Divider(
+                                            thickness: 2,
+                                            color: Color(0xfff333389)),
+                                      ),
+                                      SizedBox(width: 5.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 11.8.h,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                  color:
+                                                  Color(0xfff333389),
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "Enter Quantity",
+                                        style: TextStyle(
+                                            fontSize: 2.5.h,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 5.w),
+                                      // Container(
+                                      //   width: 20.w,
+                                      //   child: Divider(
+                                      //       thickness: 2,
+                                      //       color: Color(0xfff333389)),
+                                      // ),
+                                      SizedBox(width: 5.w),
+                                      Container(
+                                          alignment: Alignment.center,
+                                          width: 45.w,
+                                          height: 5.8.h,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xfff333389),
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  10),
+                                              border: Border.all(
+                                                  color: Color(
+                                                      0xfff333389))),
+                                          child: Text("550",
+                                              style: TextStyle(
+                                                  fontSize: 2.h,
+                                                  color: Colors.white,
+                                                  fontWeight:
+                                                  FontWeight.bold))),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+                              Padding(
+                                padding: EdgeInsets.all(2.h),
+                                child: ExpansionTile(
+                                  title: Text('Size Chart'),
+                                  children: <Widget>[
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        height: 100.h,
+                                        child: ListTile(
+                                            title: Column(
+                                              children: [
+                                                Text(
+                                                  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                                                  style: TextStyle(
+                                                      fontSize: 2.h,
+                                                      color: Colors
+                                                          .grey.shade600),
+                                                ),
+                                                SizedBox(
+                                                  height: 2.h,
+                                                ),
+                                                Container(
+                                                    alignment:
+                                                    Alignment.centerLeft,
+                                                    child: Text("Size Chart",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                            FontWeight
+                                                                .bold))),
+                                                SizedBox(height: 1.h),
+                                                Divider(
+                                                    color:
+                                                    Colors.grey.shade400),
+                                                Container(
+                                                  alignment: Alignment.center,
+                                                  child: Image.asset(
+                                                    'assets/product_2_img2.png',
+                                                    fit: BoxFit.fill,
+                                                    height: 40.h,
+                                                    width:
+                                                    MediaQuery.of(context)
+                                                        .size
+                                                        .width,
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width:
+                                                  MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                      0.9,
+                                                  height:
+                                                  MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                      0.07,
+                                                  // color: Color(0xfff333389),
+                                                  // padding:
+                                                  //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
+                                                  child: ElevatedButton(
+                                                    onPressed: () {
+                                                      // Navigator.push(
+                                                      //     context,
+                                                      //     MaterialPageRoute(
+                                                      //         builder: (context) => products_1()));
+                                                    },
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      backgroundColor:
+                                                      Color(0xfff333389),
+                                                      shape:
+                                                      RoundedRectangleBorder(
+                                                        borderRadius:
+                                                        BorderRadius
+                                                            .circular(8),
+                                                      ),
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                          EdgeInsets.only(
+                                                              left: 15.h),
+                                                          child: Text(
+                                                            'Image',
+                                                            style: TextStyle(
+                                                                fontSize:
+                                                                2.h),
+                                                          ),
+                                                        ),
+                                                        // Icon(
+                                                        //   Icons.arrow_forward,
+                                                        //   color: Colors.white,
+                                                        //   size: 24.0,
+                                                        //   semanticLabel:
+                                                        //   'Text to announce in accessibility modes',
+                                                        // ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(height: 1.h),
+                                                Container(
+                                                  alignment: Alignment.center,
+
+                                                  width:
+                                                  MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height:
+                                                  MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                      0.09,
+                                                  // color: Color(0xfff333389),
+                                                  // padding:
+                                                  //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
+                                                  child: Row(
+                                                    crossAxisAlignment:
+                                                    CrossAxisAlignment
+                                                        .center,
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .center,
+                                                    children: [
+                                                      ElevatedButton(
+                                                        onPressed: () {
+                                                          // Navigator.push(
+                                                          //     context,
+                                                          //     MaterialPageRoute(
+                                                          //         builder: (context) => products_1()));
+                                                        },
+                                                        style: ElevatedButton
+                                                            .styleFrom(
+                                                          minimumSize: Size(
+                                                              40.w, 6.5.h),
+                                                          backgroundColor:
+                                                          Color(
+                                                              0xfff333389),
+                                                          shape:
+                                                          RoundedRectangleBorder(
+                                                            borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                8),
+                                                          ),
+                                                        ),
+                                                        child: Text(
+                                                          'Catalog',
+                                                          style: TextStyle(
+                                                              fontSize: 2.h),
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 3.w,
+                                                      ),
+                                                      ElevatedButton(
+                                                        onPressed: () {
+                                                          // Navigator.push(
+                                                          //     context,
+                                                          //     MaterialPageRoute(
+                                                          //         builder: (context) => products_1()));
+                                                        },
+                                                        style: ElevatedButton
+                                                            .styleFrom(
+                                                          minimumSize: Size(
+                                                              40.w, 6.5.h),
+                                                          backgroundColor:
+                                                          Color(
+                                                              0xfff333389),
+                                                          shape:
+                                                          RoundedRectangleBorder(
+                                                            borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                8),
+                                                          ),
+                                                        ),
+                                                        child: Text(
+                                                          'Video',
+                                                          style: TextStyle(
+                                                              fontSize: 2.h),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            )),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ],
@@ -1186,7 +1979,7 @@ class _product_2State extends State<product_2> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            gen = 1;
+                            cart = 1;
                           });
                         },
                         child: Container(
@@ -1195,15 +1988,15 @@ class _product_2State extends State<product_2> {
                           width: 45.w,
                           height: 5.5.h,
                           decoration: BoxDecoration(
-                              color: (gen == 0)
+                              color: (cart == 0)
                                   ? Color(0xfff333389)
                                   : Colors.white,
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(color: Colors.white)),
                           child: Text(
-                            'Men',
+                            'Block 25',
                             style: TextStyle(
-                                color: (gen == 0)
+                                color: (cart == 0)
                                     ? Colors.white
                                     : Color(0xff333389),
                                 fontWeight: FontWeight.bold,
@@ -1217,7 +2010,7 @@ class _product_2State extends State<product_2> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            gen = 0;
+                            cart = 0;
                           });
                         },
                         child: Container(
@@ -1226,7 +2019,7 @@ class _product_2State extends State<product_2> {
                           width: 45.w,
                           height: 5.5.h,
                           decoration: BoxDecoration(
-                              color: (gen == 1)
+                              color: (cart == 1)
                                   ? Color(0xfff333389)
                                   : Colors.white,
                               // color:_selectedColor,
@@ -1234,9 +2027,9 @@ class _product_2State extends State<product_2> {
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(color: Colors.white)),
                           child: Text(
-                            'Women',
+                            'Add to cart 18',
                             style: TextStyle(
-                                color: (gen == 1)
+                                color: (cart == 1)
                                     ? Colors.white
                                     : Color(0xff333389),
                                 fontWeight: FontWeight.bold,
