@@ -70,53 +70,62 @@ class _products_1State extends State<products_1> {
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 5.h, left: 2.h),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                        onPressed: () {
-                          _scaffoldKey.currentState?.openDrawer();
-                        },
-                        icon: Icon(
-                          Icons.menu,
-                          color: Colors.white,
-                          size: 4.h,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 2.3.h,
-                      ),
-                      Container(
-                        // padding: EdgeInsets.only(top: 1.5.h),
-                        // alignment: Alignment.center,
-                        child: Text(
-                          "Products",
-                          style: TextStyle(fontSize: 2.h, color: Colors.white),
-                        ),
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              _scaffoldKey.currentState?.openDrawer();
+                            },
+                            icon: Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                              size: 4.h,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 2.3.h,
+                          ),
+                          Container(
+                            // padding: EdgeInsets.only(top: 1.5.h),
+                            // alignment: Alignment.center,
+                            child: Text(
+                              "Products",
+                              style: TextStyle(fontSize: 2.h, color: Colors.white),
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         width: 14.h,
                       ),
-                      IconButton(
-                        onPressed: () {
-                          // _scaffoldKey.currentState?.openDrawer();
-                        },
-                        icon: Icon(
-                          Icons.check_box_outline_blank,
-                          color: Colors.white,
-                          size: 3.h,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 1.h,
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          // _scaffoldKey.currentState?.openDrawer();
-                        },
-                        icon: Icon(
-                          Icons.shopping_bag_outlined,
-                          color: Colors.white,
-                          size: 3.h,
-                        ),
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              // _scaffoldKey.currentState?.openDrawer();
+                            },
+                            icon: Icon(
+                              Icons.check_box_outline_blank,
+                              color: Colors.white,
+                              size: 3.h,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 1.h,
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              // _scaffoldKey.currentState?.openDrawer();
+                            },
+                            icon: Icon(
+                              Icons.shopping_bag_outlined,
+                              color: Colors.white,
+                              size: 3.h,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -167,14 +176,12 @@ class _products_1State extends State<products_1> {
               top: 20.h,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => product_2()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => product_2()));
                 },
                 child: Container(
                   // height: MediaQuery.of(context).size.height,
-                  height:80.h,
+                  height: 80.h,
                   width: MediaQuery.of(context).size.width,
 
                   padding: EdgeInsets.all(15),
@@ -201,7 +208,8 @@ class _products_1State extends State<products_1> {
                           Padding(
                             padding: EdgeInsets.only(
                                 right: MediaQuery.of(context).size.width * 0.2,
-                                top: MediaQuery.of(context).size.height * 0.007),
+                                top:
+                                    MediaQuery.of(context).size.height * 0.007),
                             child: Container(
                               alignment: Alignment.center,
                               width: MediaQuery.of(context).size.width * 0.2,
@@ -250,10 +258,12 @@ class _products_1State extends State<products_1> {
                           Row(
                             children: [
                               Container(
+                                width: 15.w,
                                 padding: EdgeInsets.only(left: 0.8.h),
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   images[index].Price.toString(),
+                                  maxLines: 3,
                                   style: TextStyle(
                                     fontSize: 2.3.h,
                                     fontWeight: FontWeight.bold,
@@ -262,12 +272,13 @@ class _products_1State extends State<products_1> {
                                 ),
                               ),
                               SizedBox(
-                                width: 9.h,
+                                width: 16.w,
                               ),
                               Container(
                                 alignment: Alignment.center,
                                 width: MediaQuery.of(context).size.width * 0.1,
-                                height: MediaQuery.of(context).size.height * 0.04,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.04,
                                 decoration: BoxDecoration(
                                   color: Colors.grey.shade200,
                                   borderRadius: BorderRadius.all(

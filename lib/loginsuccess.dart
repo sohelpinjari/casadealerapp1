@@ -74,13 +74,12 @@ class _loginsuccessState extends State<loginsuccess> {
                   ),
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 12.6.h),
-                      child: Text('Back to Login' , style: TextStyle(fontSize: 2.h),
+                    Text('Back to Login' , style: TextStyle(fontSize: 2.h),
 
 
-                      ),
                     ),
                     // Icon(
                     //   Icons.arrow_forward,

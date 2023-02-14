@@ -87,14 +87,14 @@ class _get_startedState extends State<get_started> {
                       MaterialPageRoute(builder: (context) => login()));
                 },
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(2.h),
-                      child: Text(
-                        'Get Started',
-                        style: TextStyle(fontSize: 2.h),
-                      ),
+                    Text(
+                      'Get Started',
+                      style: TextStyle(fontSize: 2.h),
                     ),
+                    SizedBox(width: 4.w,),
                     Icon(
                       Icons.arrow_forward,
                       color: Colors.white,

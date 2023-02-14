@@ -1,3 +1,4 @@
+import 'package:casadealerapp/summary.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -11,7 +12,6 @@ class product_2 extends StatefulWidget {
   @override
   State<product_2> createState() => _product_2State();
 }
-
 
 class products {
   String? image;
@@ -90,62 +90,63 @@ class _product_2State extends State<product_2> {
               child: Padding(
                 padding: EdgeInsets.only(bottom: 0.h, left: 2.h),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                    onPressed: () {
-              _scaffoldKey.currentState?.openDrawer();
-              },
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                ),
-              ),
-                    // IconButton(
-                    //   onPressed: () {
-                    //     _scaffoldKey.currentState?.openDrawer();
-                    //   },
-                    //   icon: Icon(
-                    //     Icons.menu,
-                    //     color: Colors.white,
-                    //     size: 4.h,
-                    //   ),
-                    // ),
-                    SizedBox(
-                      width: 2.3.h,
-                    ),
-                    Container(
-                      // padding: EdgeInsets.only(top: 1.5.h),
-                      // alignment: Alignment.center,
-                      child: Text(
-                        "Products",
-                        style: TextStyle(fontSize: 2.h, color: Colors.white),
-                      ),
+                    Row(
+
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            _scaffoldKey.currentState?.openDrawer();
+                          },
+                          icon: Icon(
+                            Icons.menu,
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        SizedBox(
+                          width: 2.3.h,
+                        ),
+                        Container(
+                          // padding: EdgeInsets.only(top: 1.5.h),
+                          // alignment: Alignment.center,
+                          child: Text(
+                            "Products",
+                            style: TextStyle(fontSize: 2.h, color: Colors.white),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       width: 14.h,
                     ),
-                    IconButton(
-                      onPressed: () {
-                        // _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.check_box_outline_blank,
-                        color: Colors.white,
-                        size: 3.h,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 1.h,
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        // _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.shopping_bag_outlined,
-                        color: Colors.white,
-                        size: 3.h,
-                      ),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            // _scaffoldKey.currentState?.openDrawer();
+                          },
+                          icon: Icon(
+                            Icons.check_box_outline_blank,
+                            color: Colors.white,
+                            size: 3.h,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 1.h,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            // _scaffoldKey.currentState?.openDrawer();
+                          },
+                          icon: Icon(
+                            Icons.shopping_bag_outlined,
+                            color: Colors.white,
+                            size: 3.h,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -170,8 +171,8 @@ class _product_2State extends State<product_2> {
                         Stack(children: <Widget>[
                           Padding(
                             padding: EdgeInsets.all(2.h),
-                            child: Stack(
-                              children:<Widget> [Container(
+                            child: Stack(children: <Widget>[
+                              Container(
                                 height: 50.h,
                                 width: MediaQuery.of(context).size.width,
                                 child: GridView.builder(
@@ -180,13 +181,15 @@ class _product_2State extends State<product_2> {
                                       SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 1,
                                   ),
-                                  itemBuilder: (BuildContext context, int index) {
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
                                     return ClipRRect(
                                       borderRadius: BorderRadius.circular(15.0),
                                       child: Image.asset(
                                         (images[index].image).toString(),
-                                        width: MediaQuery.of(context).size.width *
-                                            0.9,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.9,
                                         // height: MediaQuery.of(context).size.height * 1,
                                         fit: BoxFit.fill,
                                       ),
@@ -195,129 +198,149 @@ class _product_2State extends State<product_2> {
                                 ),
                                 color: Color(0xfffFFFFFF),
                               ),
-                                Positioned(
-                                  top: 34.h,
-                                  left: 4.w,
 
-                                  child: Row(
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                              Positioned(
+                                top: 34.h,
+                                left: 4.w,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width*0.80
+                                      ,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                                         children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                alignment: Alignment.center,
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.2,
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.03,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xfff7c7773),
+                                                  borderRadius: BorderRadius.all(
+                                                    Radius.circular(8),
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  "Brand Name",
+                                                  style: TextStyle(
+                                                    fontSize: 1.6.h,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 1.h,
+                                              ),
+                                              Container(
+                                                child: Text(
+                                                  "Street Wear",
+                                                  style: TextStyle(
+                                                      fontSize: 3.h,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                              Container(
+                                                child: Text(
+                                                  "Artist Name",
+                                                  style: TextStyle(
+                                                      fontSize: 1.9.h,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.grey.shade500),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+
+                                          // SizedBox(
+                                          //   width: 20.w,
+                                          // ),
+
                                           Container(
                                             alignment: Alignment.center,
-                                            width: MediaQuery.of(context).size.width * 0.2,
-                                            height: MediaQuery.of(context).size.height * 0.03,
+                                              height: 5.h,
+                                            width: 10.w,
                                             decoration: BoxDecoration(
-                                              color: Color(0xfff7c7773),
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(8),
+                                                borderRadius:
+                                                    BorderRadius.circular(25),
+                                                color: Colors.white),
+                                            child: IconButton(
+                                              icon: Icon(
+                                                Icons.favorite_border,
+                                                color: Colors.red,
+                                                size: 3.h,
                                               ),
-                                            ),
-                                            child: Text("Brand Name",
-
-                                              style: TextStyle(
-                                                fontSize: 1.6.h,
-                                                color: Colors.white,
-                                              ),
+                                              onPressed: () {},
                                             ),
                                           ),
-                                          SizedBox(height: 1.h,),
-                                          Container(
-                                            child: Text(
-                                             "Street Wear",
-                                              style: TextStyle(
-                                                  fontSize: 3.h, fontWeight: FontWeight.bold, color: Colors.white),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              "Artist Name",
-                                              style: TextStyle(
-                                                  fontSize: 1.9.h,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.grey.shade500),
-                                            ),
-                                          ),
+                                          // SizedBox(width: 3.w
+                                          //   ,),
+                                          // Container(
+                                          //   decoration: BoxDecoration(
+                                          //       borderRadius: BorderRadius.circular(25),
+                                          //       color: Colors.white
+                                          //   ),
+                                          //   child: IconButton(
+                                          //     icon: Icon(
+                                          //       Icons.arrow_forward_outlined,
+                                          //       color: Colors.grey,
+                                          //       size: 4.h,
+                                          //     ),
+                                          //     onPressed: () {},
+                                          //   ),
+                                          // ),
                                         ],
                                       ),
-
-                                      SizedBox(width: 20.w
-                                        ,),
-
-                                      Container(
+                                    ),
+                                    // SizedBox()
+                                    Padding(
+                                      padding: EdgeInsets.all(2.h),
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: MediaQuery.of(context).size.width * 0.2,
+                                        height:
+                                        MediaQuery.of(context).size.height * 0.02,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(25),
-                                          color: Colors.white
-                                        ),
-                                        child: IconButton(
-                                          icon: Icon(
-                                            Icons.favorite_border,
-                                            color: Colors.red,
-                                            size: 4.h,
+                                          // color: Colors.grey.shade200,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(5),
                                           ),
-                                          onPressed: () {},
+                                        ),
+                                        child: SmoothPageIndicator(
+                                          controller: controller,
+                                          count: 3,
+                                          axisDirection: Axis.horizontal,
+                                          effect: SlideEffect(
+                                              spacing: 8.0,
+                                              radius: 15.0,
+                                              dotWidth: 11.0,
+                                              dotHeight: 12.0,
+                                              paintStyle: PaintingStyle.fill,
+                                              strokeWidth: 1.5,
+                                              dotColor: Colors.grey.shade300,
+                                              activeDotColor: Colors.grey.shade300),
                                         ),
                                       ),
-                                      // SizedBox(width: 3.w
-                                      //   ,),
-                                      // Container(
-                                      //   decoration: BoxDecoration(
-                                      //       borderRadius: BorderRadius.circular(25),
-                                      //       color: Colors.white
-                                      //   ),
-                                      //   child: IconButton(
-                                      //     icon: Icon(
-                                      //       Icons.arrow_forward_outlined,
-                                      //       color: Colors.grey,
-                                      //       size: 4.h,
-                                      //     ),
-                                      //     onPressed: () {},
-                                      //   ),
-                                      // ),
-
-
-                                    ],
-                                  ),
-                                ),
-                              ]
-                            ),
-                          ),
-                          Positioned(
-                            top: 45.3.h,
-                            left: 16.h,
-                            child: Padding(
-                              padding: EdgeInsets.all(2.h),
-                              child: Container(
-                                alignment: Alignment.center,
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.02,
-                                decoration: BoxDecoration(
-                                  // color: Colors.grey.shade200,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(5),
-                                  ),
-                                ),
-                                child: SmoothPageIndicator(
-                                  controller: controller,
-                                  count: 3,
-                                  axisDirection: Axis.horizontal,
-                                  effect: SlideEffect(
-                                      spacing: 8.0,
-                                      radius: 15.0,
-                                      dotWidth: 11.0,
-                                      dotHeight: 12.0,
-                                      paintStyle: PaintingStyle.fill,
-                                      strokeWidth: 1.5,
-                                      dotColor: Colors.grey.shade300,
-                                      activeDotColor: Colors.grey.shade300),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ),
+                            ]),
                           ),
-                        ]
-                        ),
+
+                        ]),
                         Padding(
                           padding: EdgeInsets.all(2.h),
                           child: Container(
@@ -356,7 +379,7 @@ class _product_2State extends State<product_2> {
                                           ),
 
                                           height: 5.h,
-                                          width: 20.h,
+                                          width: 40.w,
                                           margin: EdgeInsets.only(
                                               right: 0.1.w, top: 0.6.h),
 
@@ -419,7 +442,7 @@ class _product_2State extends State<product_2> {
                                     Padding(
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
-                                          height: 20.h,
+                                          height: 25.h,
                                           width: 50.h,
                                           padding: EdgeInsets.all(9.0),
                                           child: GridView.builder(
@@ -626,20 +649,23 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                         child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround
+                                          ,
                                           children: [
                                             Text(
                                               "Size",
                                               style: TextStyle(fontSize: 2.h),
                                             ),
-                                            SizedBox(width: 1.8.h),
+                                            // SizedBox(width: 1.8.h),
                                             Text("Stock in Mumbai",
                                                 style:
                                                     TextStyle(fontSize: 2.h)),
-                                            SizedBox(width: 1.8.h),
+                                            // SizedBox(width: 1.8.h),
                                             Text("Stock in Tirpur",
                                                 style:
                                                     TextStyle(fontSize: 2.h)),
-                                            SizedBox(width: 1.8.h),
+                                            // SizedBox(width: 1.8.h),
                                             Text("Total",
                                                 style:
                                                     TextStyle(fontSize: 2.h)),
@@ -657,6 +683,8 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                         child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
                                             Text(
                                               "S ",
@@ -664,7 +692,7 @@ class _product_2State extends State<product_2> {
                                                   fontSize: 2.5.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -683,7 +711,7 @@ class _product_2State extends State<product_2> {
                                                             Color(0xfff333389),
                                                         fontWeight:
                                                             FontWeight.bold))),
-                                            SizedBox(width: 12.w),
+                                            // SizedBox(width: 12.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -702,7 +730,7 @@ class _product_2State extends State<product_2> {
                                                             Color(0xfff333389),
                                                         fontWeight:
                                                             FontWeight.bold))),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Text("1200",
                                                 style: TextStyle(
                                                     fontSize: 2.5.h,
@@ -717,6 +745,8 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                         child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
                                             Text(
                                               "M",
@@ -724,7 +754,7 @@ class _product_2State extends State<product_2> {
                                                   fontSize: 2.5.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -743,7 +773,7 @@ class _product_2State extends State<product_2> {
                                                             Color(0xfff333389),
                                                         fontWeight:
                                                             FontWeight.bold))),
-                                            SizedBox(width: 12.w),
+                                            // SizedBox(width: 12.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -762,7 +792,7 @@ class _product_2State extends State<product_2> {
                                                             Color(0xfff333389),
                                                         fontWeight:
                                                             FontWeight.bold))),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Text("1200",
                                                 style: TextStyle(
                                                     fontSize: 2.5.h,
@@ -777,6 +807,8 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                         child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
                                             Text(
                                               "L",
@@ -784,7 +816,7 @@ class _product_2State extends State<product_2> {
                                                   fontSize: 2.5.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            SizedBox(width: 3.h),
+                                            // SizedBox(width: 3.h),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -803,7 +835,7 @@ class _product_2State extends State<product_2> {
                                                             Color(0xfff333389),
                                                         fontWeight:
                                                             FontWeight.bold))),
-                                            SizedBox(width: 12.w),
+                                            // SizedBox(width: 12.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -822,7 +854,7 @@ class _product_2State extends State<product_2> {
                                                             Color(0xfff333389),
                                                         fontWeight:
                                                             FontWeight.bold))),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Text("1200",
                                                 style: TextStyle(
                                                     fontSize: 2.5.h,
@@ -837,6 +869,8 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                         child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
                                             Text(
                                               "XL",
@@ -844,7 +878,7 @@ class _product_2State extends State<product_2> {
                                                   fontSize: 2.5.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            SizedBox(width: 3.w),
+                                            // SizedBox(width: 3.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -863,7 +897,7 @@ class _product_2State extends State<product_2> {
                                                             Color(0xfff333389),
                                                         fontWeight:
                                                             FontWeight.bold))),
-                                            SizedBox(width: 12.w),
+                                            // SizedBox(width: 12.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -882,7 +916,7 @@ class _product_2State extends State<product_2> {
                                                             Color(0xfff333389),
                                                         fontWeight:
                                                             FontWeight.bold))),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Text("1200",
                                                 style: TextStyle(
                                                     fontSize: 2.5.h,
@@ -898,6 +932,8 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                         child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
                                             Text(
                                               "Available Qty",
@@ -905,14 +941,14 @@ class _product_2State extends State<product_2> {
                                                   fontSize: 2.5.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Container(
                                               width: 20.w,
                                               child: Divider(
                                                   thickness: 2,
                                                   color: Color(0xfff333389)),
                                             ),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 11.8.h,
@@ -939,6 +975,8 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                         child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
                                             Text(
                                               "Enter Quantity",
@@ -946,14 +984,14 @@ class _product_2State extends State<product_2> {
                                                   fontSize: 2.5.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             // Container(
                                             //   width: 20.w,
                                             //   child: Divider(
                                             //       thickness: 2,
                                             //       color: Color(0xfff333389)),
                                             // ),
-                                            SizedBox(width: 5.w),
+                                            // SizedBox(width: 5.w),
                                             Container(
                                                 alignment: Alignment.center,
                                                 width: 45.w,
@@ -1056,17 +1094,14 @@ class _product_2State extends State<product_2> {
                                                         ),
                                                       ),
                                                       child: Row(
+                                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                                        mainAxisAlignment: MainAxisAlignment.center,
                                                         children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    left: 15.h),
-                                                            child: Text(
-                                                              'Image',
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      2.h),
-                                                            ),
+                                                          Text(
+                                                            'Image',
+                                                            style: TextStyle(
+                                                                fontSize:
+                                                                    2.h),
                                                           ),
                                                           // Icon(
                                                           //   Icons.arrow_forward,
@@ -1203,7 +1238,7 @@ class _product_2State extends State<product_2> {
                               Padding(
                                 padding: EdgeInsets.all(2.h),
                                 child: Container(
-                                    height: 20.h,
+                                    height: 25.h,
                                     width: 50.h,
                                     padding: EdgeInsets.all(9.0),
                                     child: GridView.builder(
@@ -1410,6 +1445,9 @@ class _product_2State extends State<product_2> {
                                 padding: EdgeInsets.all(2.h),
                                 child: Container(
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround
+                                    ,
                                     children: [
                                       Text(
                                         "Size",
@@ -1441,6 +1479,8 @@ class _product_2State extends State<product_2> {
                                 padding: EdgeInsets.all(2.h),
                                 child: Container(
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         "S ",
@@ -1501,6 +1541,8 @@ class _product_2State extends State<product_2> {
                                 padding: EdgeInsets.all(2.h),
                                 child: Container(
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         "M",
@@ -1561,6 +1603,8 @@ class _product_2State extends State<product_2> {
                                 padding: EdgeInsets.all(2.h),
                                 child: Container(
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         "L",
@@ -1621,6 +1665,8 @@ class _product_2State extends State<product_2> {
                                 padding: EdgeInsets.all(2.h),
                                 child: Container(
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         "XL",
@@ -1682,6 +1728,8 @@ class _product_2State extends State<product_2> {
                                 padding: EdgeInsets.all(2.h),
                                 child: Container(
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         "Available Qty",
@@ -1723,6 +1771,8 @@ class _product_2State extends State<product_2> {
                                 padding: EdgeInsets.all(2.h),
                                 child: Container(
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         "Enter Quantity",
@@ -1840,17 +1890,14 @@ class _product_2State extends State<product_2> {
                                                       ),
                                                     ),
                                                     child: Row(
+                                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                                      mainAxisAlignment: MainAxisAlignment.center,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                          EdgeInsets.only(
-                                                              left: 15.h),
-                                                          child: Text(
-                                                            'Image',
-                                                            style: TextStyle(
-                                                                fontSize:
-                                                                2.h),
-                                                          ),
+                                                        Text(
+                                                          'Image',
+                                                          style: TextStyle(
+                                                              fontSize:
+                                                              2.h),
                                                         ),
                                                         // Icon(
                                                         //   Icons.arrow_forward,
@@ -1957,8 +2004,7 @@ class _product_2State extends State<product_2> {
                                 ),
                               ),
                             ],
-                          ),
-                        )
+                          ),                              )
                       ],
                     ),
                   ],
@@ -1985,7 +2031,7 @@ class _product_2State extends State<product_2> {
                         child: Container(
                           padding: EdgeInsets.all(0.1.h),
                           alignment: Alignment.center,
-                          width: 45.w,
+                          width: 44.w,
                           height: 5.5.h,
                           decoration: BoxDecoration(
                               color: (cart == 0)
@@ -1994,7 +2040,7 @@ class _product_2State extends State<product_2> {
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(color: Colors.white)),
                           child: Text(
-                            'Block 25',
+                            'Block',
                             style: TextStyle(
                                 color: (cart == 0)
                                     ? Colors.white
@@ -2009,6 +2055,10 @@ class _product_2State extends State<product_2> {
                       ),
                       GestureDetector(
                         onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => summary()));
                           setState(() {
                             cart = 0;
                           });
@@ -2016,7 +2066,7 @@ class _product_2State extends State<product_2> {
                         child: Container(
                           padding: EdgeInsets.all(0.1.h),
                           alignment: Alignment.center,
-                          width: 45.w,
+                          width: 44.w,
                           height: 5.5.h,
                           decoration: BoxDecoration(
                               color: (cart == 1)
@@ -2027,7 +2077,7 @@ class _product_2State extends State<product_2> {
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(color: Colors.white)),
                           child: Text(
-                            'Add to cart 18',
+                            'Add to cart',
                             style: TextStyle(
                                 color: (cart == 1)
                                     ? Colors.white

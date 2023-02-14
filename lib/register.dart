@@ -350,34 +350,35 @@ class _registerState extends State<register> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 9.h, top: 2.5.h),
-                        child: Container(
-                          child: Row(
-                            children: [
-                              Text(
-                                "Already have an account?",
-                                style: TextStyle(fontSize: 2.h),
-                              ),
-                              GestureDetector(
-                                  onTap: () {
+                      SizedBox(height: 2.h,),
+                      Container(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Already have an account?",
+                              style: TextStyle(fontSize: 2.h),
+                            ),
+                            GestureDetector(
+                                onTap: () {
 
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => register(),
-                                        ),
-                                      );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => register(),
+                                      ),
+                                    );
 
-                                  },
-                                  child: Text(
-                                    "   Login",
-                                    style: TextStyle(
-                                        color: Color(0xfff494996),
-                                        fontSize: 2.h),
-                                  ))
-                            ],
-                          ),
+                                },
+                                child: Text(
+                                  "   Login",
+                                  style: TextStyle(
+                                      color: Color(0xfff494996),
+                                      fontSize: 2.h),
+                                )
+                            )
+                          ],
                         ),
                       ),
                       SizedBox(

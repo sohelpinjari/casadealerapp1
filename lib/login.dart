@@ -1,3 +1,4 @@
+import 'package:casadealerapp/loginsuccess.dart';
 import 'package:casadealerapp/register.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -172,10 +173,10 @@ class _loginState extends State<login> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             print("Validate");
-                            // Navigator.push(
-                            // context,
-                            // MaterialPageRoute(
-                            // builder: (context) => const Dashboard()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => loginsuccess()));
                           }
                         },
                         child: Text(
@@ -190,30 +191,30 @@ class _loginState extends State<login> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 2.h),
 
-                    Padding(
-                      padding: EdgeInsets.only(left: 14.h, top: 2.5.h),
-                      child: Container(
-                        child: Row(
-                          children: [
-                            Text(
-                              "New Here?",
-                              style: TextStyle(fontSize: 2.h),
-                            ),
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => register()));
-                                },
-                                child: Text(
-                                  "   Register",
-                                  style: TextStyle(
-                                      color: Color(0xfff494996), fontSize: 2.h),
-                                ))
-                          ],
-                        ),
+                    Container(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "New Here?",
+                            style: TextStyle(fontSize: 2.h),
+                          ),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => register()));
+                              },
+                              child: Text(
+                                "   Register",
+                                style: TextStyle(
+                                    color: Color(0xfff494996), fontSize: 2.h),
+                              ))
+                        ],
                       ),
                     )
                   ]),
