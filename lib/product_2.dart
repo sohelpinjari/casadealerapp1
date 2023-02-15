@@ -172,42 +172,20 @@ class _product_2State extends State<product_2> {
                           Padding(
                             padding: EdgeInsets.all(2.h),
                             child: Stack(children: <Widget>[
-                              Container(
-                                height: 50.h,
-                                width: MediaQuery.of(context).size.width,
-                                child: GridView.builder(
-                                  itemCount: images.length,
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 1,
-                                  ),
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return ClipRRect(
-                                      borderRadius: BorderRadius.circular(15.0),
-                                      child: Image.asset(
-                                        (images[index].image).toString(),
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.9,
-                                        // height: MediaQuery.of(context).size.height * 1,
-                                        fit: BoxFit.fill,
-                                      ),
-                                    );
-                                  },
-                                ),
-                                color: Color(0xfffFFFFFF),
-                              ),
+                              ClipRRect(
+                                  child: Image.asset('assets/product_1_img2.png'),
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
 
-                              Positioned(
-                                top: 34.h,
-                                left: 4.w,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.of(context).size.width*0.80
-                                      ,
+                                  ),
+
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+
+                                children: [
+                                  Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Padding(
+                                      padding:  EdgeInsets.only(left:  2.w, right:  2.w, top: 36.h),
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
@@ -218,14 +196,8 @@ class _product_2State extends State<product_2> {
                                             children: [
                                               Container(
                                                 alignment: Alignment.center,
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.2,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                    0.03,
+                                                width: MediaQuery.of(context).size.width *0.2,
+                                                height: MediaQuery.of(context).size.height *0.03,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xfff7c7773),
                                                   borderRadius: BorderRadius.all(
@@ -268,87 +240,95 @@ class _product_2State extends State<product_2> {
                                           //   width: 20.w,
                                           // ),
 
-                                          Container(
-                                            alignment: Alignment.center,
-                                              height: 5.h,
-                                            width: 10.w,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(25),
-                                                color: Colors.white),
-                                            child: IconButton(
-                                              icon: Icon(
-                                                Icons.favorite_border,
-                                                color: Colors.red,
-                                                size: 3.h,
+                                          Row(
+                                            children: [
+                                              Container(
+                                                alignment: Alignment.center,
+                                                  height: 4.h,
+                                                width: 9.w,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(25),
+                                                    color: Colors.white),
+                                                child: IconButton(
+                                                  icon: Icon(
+                                                    Icons.favorite_border,
+                                                    color: Colors.red,
+                                                    size: 2.h,
+                                                  ),
+                                                  onPressed: () {},
+                                                ),
                                               ),
-                                              onPressed: () {},
-                                            ),
+                                              SizedBox(width: 3.w),
+                                              Container(
+                                                alignment: Alignment.center,
+                                                height: 4.h,
+                                                width: 9.w,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                    BorderRadius.circular(25),
+                                                    color: Colors.white),
+                                                child: IconButton(
+                                                  icon: Icon(
+                                                    Icons.share,
+                                                    color: Colors.grey,
+                                                    size: 2.h,
+                                                  ),
+                                                  onPressed: () {},
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          // SizedBox(width: 3.w
-                                          //   ,),
-                                          // Container(
-                                          //   decoration: BoxDecoration(
-                                          //       borderRadius: BorderRadius.circular(25),
-                                          //       color: Colors.white
-                                          //   ),
-                                          //   child: IconButton(
-                                          //     icon: Icon(
-                                          //       Icons.arrow_forward_outlined,
-                                          //       color: Colors.grey,
-                                          //       size: 4.h,
-                                          //     ),
-                                          //     onPressed: () {},
-                                          //   ),
-                                          // ),
+
                                         ],
                                       ),
                                     ),
-                                    // SizedBox()
-                                    Padding(
-                                      padding: EdgeInsets.all(2.h),
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        width: MediaQuery.of(context).size.width * 0.2,
-                                        height:
-                                        MediaQuery.of(context).size.height * 0.02,
-                                        decoration: BoxDecoration(
-                                          // color: Colors.grey.shade200,
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(5),
-                                          ),
-                                        ),
-                                        child: SmoothPageIndicator(
-                                          controller: controller,
-                                          count: 3,
-                                          axisDirection: Axis.horizontal,
-                                          effect: SlideEffect(
-                                              spacing: 8.0,
-                                              radius: 15.0,
-                                              dotWidth: 11.0,
-                                              dotHeight: 12.0,
-                                              paintStyle: PaintingStyle.fill,
-                                              strokeWidth: 1.5,
-                                              dotColor: Colors.grey.shade300,
-                                              activeDotColor: Colors.grey.shade300),
+                                  ),
+                                  // SizedBox()
+                                  Padding(
+                                    padding: EdgeInsets.all(2.h),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: MediaQuery.of(context).size.width * 0.2,
+                                      height:
+                                      MediaQuery.of(context).size.height * 0.02,
+                                      decoration: BoxDecoration(
+                                        // border: Border.all(color: Colors.grey.shade200,),
+                                        color: Color(0xff333389),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(8),
                                         ),
                                       ),
+                                      child: SmoothPageIndicator(
+                                        controller: controller,
+                                        count: 3,
+                                        axisDirection: Axis.horizontal,
+                                        effect: SlideEffect(
+                                            spacing: 8.0,
+                                            radius: 15.0,
+                                            dotWidth: 7.0,
+                                            dotHeight: 8.0,
+                                            paintStyle: PaintingStyle.fill,
+                                            strokeWidth: 1.5,
+                                            dotColor: Colors.grey.shade300,
+                                            activeDotColor: Colors.white),
+                                      ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ]),
                           ),
 
                         ]),
                         Padding(
-                          padding: EdgeInsets.all(2.h),
+                          padding: EdgeInsets.symmetric(horizontal:  2.h),
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
                                 border: Border.all(color: Color(0xfff9e9ec7))),
                             alignment: Alignment.center,
-                            height: 6.5.h,
+                            height: 6.h,
                             width: MediaQuery.of(context).size.width,
                             padding: EdgeInsets.symmetric(horizontal: 1.w),
                             child: ListView.builder(
@@ -378,8 +358,8 @@ class _product_2State extends State<product_2> {
                                                 : Color(0xfffFFFFFF),
                                           ),
 
-                                          height: 5.h,
-                                          width: 40.w,
+                                          height: 4.6.h,
+                                          width: 44.w,
                                           margin: EdgeInsets.only(
                                               right: 0.1.w, top: 0.6.h),
 
@@ -421,12 +401,12 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                           alignment: Alignment.centerLeft,
-                                          margin: EdgeInsets.only(top: 0.h),
+                                          margin: EdgeInsets.only(top: 1.h),
                                           child: Text(
                                             "Select Color",
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 3.h,
+                                              fontSize: 2.4.h,
                                             ),
                                           )),
                                     ),
@@ -440,10 +420,10 @@ class _product_2State extends State<product_2> {
                                           Divider(color: Colors.grey.shade400),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.all(2.h),
+                                      padding: EdgeInsets.symmetric(horizontal: 2.h),
                                       child: Container(
-                                          height: 25.h,
-                                          width: 50.h,
+                                          height: 18.h,
+                                          width: 90.w,
                                           padding: EdgeInsets.all(9.0),
                                           child: GridView.builder(
                                             itemCount: tripur.length,
@@ -503,7 +483,7 @@ class _product_2State extends State<product_2> {
                                             "Select Gender",
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 3.h,
+                                              fontSize: 2.4.h,
                                             ),
                                           )),
                                     ),
@@ -525,8 +505,8 @@ class _product_2State extends State<product_2> {
                                               child: Container(
                                                 padding: EdgeInsets.all(0.1.h),
                                                 alignment: Alignment.center,
-                                                width: 13.h,
-                                                height: 5.5.h,
+                                                width: 10.h,
+                                                height: 5.h,
                                                 decoration: BoxDecoration(
                                                     color: (gen == 0)
                                                         ? Colors.white
@@ -545,7 +525,7 @@ class _product_2State extends State<product_2> {
                                                           : Colors.white,
                                                       fontWeight:
                                                           FontWeight.bold,
-                                                      fontSize: 2.5.h),
+                                                      fontSize: 2.h),
                                                 ),
                                               ),
                                             ),
@@ -561,8 +541,8 @@ class _product_2State extends State<product_2> {
                                               child: Container(
                                                 padding: EdgeInsets.all(0.1.h),
                                                 alignment: Alignment.center,
-                                                width: 15.h,
-                                                height: 5.5.h,
+                                                width: 14.h,
+                                                height: 5.h,
                                                 decoration: BoxDecoration(
                                                     color: (gen == 1)
                                                         ? Colors.white
@@ -583,7 +563,7 @@ class _product_2State extends State<product_2> {
                                                           : Colors.white,
                                                       fontWeight:
                                                           FontWeight.bold,
-                                                      fontSize: 2.5.h),
+                                                      fontSize: 2.h),
                                                 ),
                                               ),
                                             ),
@@ -591,7 +571,7 @@ class _product_2State extends State<product_2> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 3.h),
+                                    SizedBox(height: 2.h),
                                     Container(
                                         alignment: Alignment.center,
                                         height: 6.h,
@@ -599,43 +579,44 @@ class _product_2State extends State<product_2> {
                                             MediaQuery.of(context).size.width,
                                         color: Color(0xfffeaeaf3),
                                         child: Padding(
-                                          padding: EdgeInsets.all(1.h),
+                                          padding: EdgeInsets.symmetric(horizontal: 2.h),
                                           child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
                                                 "Color:",
                                                 style: TextStyle(
-                                                  fontSize: 3.h,
+                                                  fontSize: 2.5.h,
                                                 ),
                                               ),
                                               Text(
                                                 " Red",
                                                 style: TextStyle(
-                                                    fontSize: 3.h,
+                                                    fontSize: 2.5.h,
                                                     color: Color(0xfff333389)),
                                               ),
-                                              SizedBox(
-                                                width: 6.h,
-                                              ),
+                                              // SizedBox(
+                                              //   width: 6.h,
+                                              // ),
                                               Text(
                                                 "|",
                                                 style: TextStyle(
-                                                    fontSize: 3.h,
+                                                    fontSize: 2.5.h,
                                                     color: Color(0xfff333389)),
                                               ),
-                                              SizedBox(
-                                                width: 7.h,
-                                              ),
+                                              // SizedBox(
+                                              //   width: 7.h,
+                                              // ),
                                               Text(
                                                 "Price:",
                                                 style: TextStyle(
-                                                  fontSize: 3.h,
+                                                  fontSize: 2.5.h,
                                                 ),
                                               ),
                                               Text(
                                                 " ₹125",
                                                 style: TextStyle(
-                                                    fontSize: 3.h,
+                                                    fontSize: 2.5.h,
                                                     color: Color(0xfff333389)),
                                               ),
                                             ],
@@ -645,39 +626,36 @@ class _product_2State extends State<product_2> {
                                       height: 1.h,
                                     ),
 
-                                    Padding(
-                                      padding: EdgeInsets.all(2.h),
-                                      child: Container(
-                                        child: Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround
-                                          ,
-                                          children: [
-                                            Text(
-                                              "Size",
-                                              style: TextStyle(fontSize: 2.h),
-                                            ),
-                                            // SizedBox(width: 1.8.h),
-                                            Text("Stock in Mumbai",
-                                                style:
-                                                    TextStyle(fontSize: 2.h)),
-                                            // SizedBox(width: 1.8.h),
-                                            Text("Stock in Tirpur",
-                                                style:
-                                                    TextStyle(fontSize: 2.h)),
-                                            // SizedBox(width: 1.8.h),
-                                            Text("Total",
-                                                style:
-                                                    TextStyle(fontSize: 2.h)),
-                                          ],
-                                        ),
+                                    Container(
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.spaceAround
+                                        ,
+                                        children: [
+                                          Text(
+                                            "Size",
+                                            style: TextStyle(fontSize: 2.h),
+                                          ),
+                                          // SizedBox(width: 1.8.h),
+                                          Text("Mumbai",
+                                              style:
+                                                  TextStyle(fontSize: 2.h)),
+                                          // SizedBox(width: 1.8.h),
+                                          Text("Tirpur",
+                                              style:
+                                                  TextStyle(fontSize: 2.h)),
+                                          // SizedBox(width: 1.8.h),
+                                          Text("Total",
+                                              style:
+                                                  TextStyle(fontSize: 2.h)),
+                                        ],
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child:
-                                          Divider(color: Colors.grey.shade400),
-                                    ),
+                                    // Padding(
+                                    //   padding: EdgeInsets.all(8.0),
+                                    //   child:
+                                    //       Divider(color: Colors.grey.shade400),
+                                    // ),
 
                                     Padding(
                                       padding: EdgeInsets.all(2.h),
@@ -689,54 +667,88 @@ class _product_2State extends State<product_2> {
                                             Text(
                                               "S ",
                                               style: TextStyle(
-                                                  fontSize: 2.5.h,
+                                                  fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             // SizedBox(width: 5.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                            Column(
+                                                
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                                Color(0xfff333389),
+                                                            fontWeight:
+                                                                FontWeight.bold))),
+                                              ],
+                                            ),
                                             // SizedBox(width: 12.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                            Column(
+                                                
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+                                                
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                                Color(0xfff333389),
+                                                            fontWeight:
+                                                                FontWeight.bold))),
+                                              ],
+                                            ),
                                             // SizedBox(width: 5.w),
-                                            Text("1200",
-                                                style: TextStyle(
-                                                    fontSize: 2.5.h,
-                                                    color: Color(0xfff333389),
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                            //
+                                            Column(
+                                              children: [
+                                                Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height: 1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -1136,7 +1148,7 @@ class _product_2State extends State<product_2> {
                                                               .center,
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
-                                                              .center,
+                                                              .spaceBetween,
                                                       children: [
                                                         ElevatedButton(
                                                           onPressed: () {
@@ -1166,9 +1178,9 @@ class _product_2State extends State<product_2> {
                                                                 fontSize: 2.h),
                                                           ),
                                                         ),
-                                                        SizedBox(
-                                                          width: 3.w,
-                                                        ),
+                                                        // SizedBox(
+                                                        //   width: 3.w,
+                                                        // ),
                                                         ElevatedButton(
                                                           onPressed: () {
                                                             // Navigator.push(

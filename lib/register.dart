@@ -40,9 +40,9 @@ class _registerState extends State<register> {
             Container(
               alignment: Alignment.topCenter,
               child: Image.asset(
-                'assets/download.png',
+                'assets/register_img.png',
                 fit: BoxFit.fill,
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: MediaQuery.of(context).size.height * 0.2,
                 width: MediaQuery.of(context).size.width * 2,
               ),
             ),
@@ -82,11 +82,11 @@ class _registerState extends State<register> {
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.all(2.h),
                             hintText: 'Full Name',
-                            suffixIcon: Icon(
-                              Icons.person_outline,
-                              color: Color(0xfff9696c1),
-                              size: 3.5.h,
-                            ),
+                            // suffixIcon: Icon(
+                            //   Icons.person_outline,
+                            //   color: Color(0xfff9696c1),
+                            //   size: 3.5.h,
+                            // ),
                           ),
                         ),
                         decoration: BoxDecoration(
@@ -114,11 +114,11 @@ class _registerState extends State<register> {
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.all(2.h),
                             hintText: 'Company Name',
-                            suffixIcon: Icon(
-                              Icons.shopping_bag_outlined,
-                              color: Color(0xfff9696c1),
-                              size: 3.5.h,
-                            ),
+                            // suffixIcon: Icon(
+                            //   Icons.shopping_bag_outlined,
+                            //   color: Color(0xfff9696c1),
+                            //   size: 3.5.h,
+                            // ),
                           ),
                         ),
                         decoration: BoxDecoration(
@@ -146,11 +146,11 @@ class _registerState extends State<register> {
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.all(2.h),
                             hintText: 'Company Address',
-                            suffixIcon: Icon(
-                              Icons.location_on_outlined,
-                              color: Color(0xfff9696c1),
-                              size: 3.5.h,
-                            ),
+                            // suffixIcon: Icon(
+                            //   Icons.location_on_outlined,
+                            //   color: Color(0xfff9696c1),
+                            //   size: 3.5.h,
+                            // ),
                           ),
                         ),
                         decoration: BoxDecoration(
@@ -180,11 +180,11 @@ class _registerState extends State<register> {
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.all(2.h),
                             hintText: 'Phone No. 1',
-                            suffixIcon: Icon(
-                              Icons.phone_outlined,
-                              color: Color(0xfff9696c1),
-                              size: 3.5.h,
-                            ),
+                            // suffixIcon: Icon(
+                            //   Icons.phone_outlined,
+                            //   color: Color(0xfff9696c1),
+                            //   size: 3.5.h,
+                            // ),
                           ),
                         ),
                         decoration: BoxDecoration(
@@ -214,11 +214,11 @@ class _registerState extends State<register> {
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.all(2.h),
                             hintText: 'Phone No. 2',
-                            suffixIcon: Icon(
-                              Icons.phone_outlined,
-                              color: Color(0xfff9696c1),
-                              size: 3.5.h,
-                            ),
+                            // suffixIcon: Icon(
+                            //   Icons.phone_outlined,
+                            //   color: Color(0xfff9696c1),
+                            //   size: 3.5.h,
+                            // ),
                           ),
                         ),
                         decoration: BoxDecoration(
@@ -264,8 +264,8 @@ class _registerState extends State<register> {
                                   color: Color(0xfff9696c1),
 
                                   _passwordVisible
-                                      ? Icons.lock_outline
-                                      : Icons.lock,
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                               ),
 
@@ -309,8 +309,8 @@ class _registerState extends State<register> {
                                   color: Color(0xfff9696c1),
 
                                   _passwordVisible1
-                                      ? Icons.lock_outline
-                                      : Icons.lock,
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                               ),
                               border: InputBorder.none,

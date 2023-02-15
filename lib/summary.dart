@@ -210,10 +210,12 @@ class _summaryState extends State<summary> {
                               margin: EdgeInsets.all(10.0),
                               decoration: BoxDecoration(
                                 color: Color(0xfffafafa),
-                                border: Border.all(),
+                                border: Border.all(color: Color(0xffe8e8e8)),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
@@ -224,13 +226,12 @@ class _summaryState extends State<summary> {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  SizedBox(
-                                    width: 5.w,
-                                  ),
+                                  // SizedBox(
+                                  //   width: 5.w,
+                                  // ),
                                   Container(
                                     width: MediaQuery.of(context).size.width*0.45,
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.all(1.h),
@@ -276,7 +277,7 @@ class _summaryState extends State<summary> {
                                                     style: TextStyle(
                                                         color: Color(0xffb9b9b9)),
                                                   ),
-                                                  SizedBox(width: 2.h),
+                                                  SizedBox(width: 3.w),
                                                   Container(
                                                     alignment: Alignment.center,
                                                     height: 4.h,
@@ -299,7 +300,6 @@ class _summaryState extends State<summary> {
                                             ],
                                           ),
                                         ),
-                                        SizedBox(width: 1.3.w),
                                       ],
                                     ),
                                   ),
@@ -361,7 +361,7 @@ class _summaryState extends State<summary> {
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 8.3.h,
+                        height: 10.h,
                         child: Padding(
                           padding: EdgeInsets.all(2.h),
                           child: Container(
@@ -379,7 +379,7 @@ class _summaryState extends State<summary> {
                                     padding: EdgeInsets.all(0.1.h),
                                     alignment: Alignment.center,
                                     width: 40.w,
-                                    height: 5.5.h,
+                                    height: 8.h,
                                     decoration: BoxDecoration(
                                         color: (cart == 0)
                                             ? Colors.white
@@ -415,7 +415,7 @@ class _summaryState extends State<summary> {
                                     padding: EdgeInsets.all(0.1.h),
                                     alignment: Alignment.center,
                                     width: 40.w,
-                                    height: 5.5.h,
+                                    height: 8.h,
                                     decoration: BoxDecoration(
                                         color: (cart == 1)
                                             ? Colors.white
@@ -473,10 +473,12 @@ class _summaryState extends State<summary> {
                                 margin: EdgeInsets.all(10.0),
                                 decoration: BoxDecoration(
                                   color: Color(0xfffafafa),
-                                  border: Border.all(),
+                                  border: Border.all(color: Color(0xffe8e8e8)),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
@@ -487,13 +489,12 @@ class _summaryState extends State<summary> {
                                         fit: BoxFit.cover,
                                       ),
                                     ),
-                                    SizedBox(
-                                      width: 5.w,
-                                    ),
+                                    // SizedBox(
+                                    //   width: 5.w,
+                                    // ),
                                     Container(
                                       width: MediaQuery.of(context).size.width*0.45,
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
                                             padding: EdgeInsets.all(1.h),
@@ -539,7 +540,7 @@ class _summaryState extends State<summary> {
                                                       style: TextStyle(
                                                           color: Color(0xffb9b9b9)),
                                                     ),
-                                                    SizedBox(width: 2.h),
+                                                    SizedBox(width: 3.w),
                                                     Container(
                                                       alignment: Alignment.center,
                                                       height: 4.h,
@@ -562,7 +563,7 @@ class _summaryState extends State<summary> {
                                               ],
                                             ),
                                           ),
-                                          SizedBox(width: 1.3.w),
+                                          // SizedBox(width: 1.3.w),
                                         ],
                                       ),
                                     ),
@@ -624,7 +625,7 @@ class _summaryState extends State<summary> {
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          height: 8.3.h,
+                          height: 10.h,
                           child: Padding(
                             padding: EdgeInsets.all(2.h),
                             child: Container(
@@ -642,7 +643,7 @@ class _summaryState extends State<summary> {
                                       padding: EdgeInsets.all(0.1.h),
                                       alignment: Alignment.center,
                                       width: 40.w,
-                                      height: 5.5.h,
+                                      height: 8.h,
                                       decoration: BoxDecoration(
                                           color: (cart == 0)
                                               ? Colors.white
@@ -674,7 +675,7 @@ class _summaryState extends State<summary> {
                                       padding: EdgeInsets.all(0.1.h),
                                       alignment: Alignment.center,
                                       width: 40.w,
-                                      height: 5.5.h,
+                                      height: 8.h,
                                       decoration: BoxDecoration(
                                           color: (cart == 1)
                                               ? Colors.white

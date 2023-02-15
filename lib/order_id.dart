@@ -151,7 +151,7 @@ class _order_idState extends State<order_id> {
                         margin: EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           color: Color(0xfffafafa),
-                          border: Border.all(),
+                          border: Border.all(color: Color(0xffe8e8e8)),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Row(

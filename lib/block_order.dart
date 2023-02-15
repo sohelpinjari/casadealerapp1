@@ -135,10 +135,12 @@ class _block_orderState extends State<block_order> {
                         margin: EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           color: Color(0xfffafafa),
-                          border: Border.all(),
+                          border: Border.all(color: Color(0xffe8e8e8)),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(12),
@@ -149,128 +151,124 @@ class _block_orderState extends State<block_order> {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width*0.63,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // SizedBox(
+                            //   width: 5.w,
+                            // ),
+                            Row(
 
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(1.h),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Text(
-                                              'Street Wear',
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.all(1.h),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            'Street Wear',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 2.3.h),
+                                          ),
+                                          SizedBox(width: 5.w),
+                                          Text(
+                                            '₹125',
+                                            style:
+                                                TextStyle(color: Color(0xff5a5a9f)),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 1.5.h),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Color : Red   Size : M',
+                                            style:
+                                                TextStyle(color: Color(0xff5a5a9f)),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 2.h),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Qty :',
+                                            style:
+                                                TextStyle(color: Color(0xff5a5a9f)),
+                                          ),
+                                          SizedBox(width: 2.h),
+                                          Container(
+                                            alignment: Alignment.center,
+                                            height: 4.h,
+                                            width: 25.w,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Color(0xff5a5a9f),
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
+                                            child: Text(
+                                              "1000",
                                               style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 2.3.h),
+                                                  color: Color(0xff5a5a9f)),
                                             ),
-                                            SizedBox(width: 5.w),
-                                            Text(
-                                              '₹125',
-                                              style:
-                                                  TextStyle(color: Color(0xff5a5a9f)),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(height: 1.5.h),
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Color : Red   Size : M',
-                                              style:
-                                                  TextStyle(color: Color(0xff5a5a9f)),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(height: 2.h),
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Qty :',
-                                              style:
-                                                  TextStyle(color: Color(0xff5a5a9f)),
-                                            ),
-                                            SizedBox(width: 2.h),
-                                            Container(
-                                              alignment: Alignment.center,
-                                              height: 4.h,
-                                              width: 25.w,
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: Color(0xff5a5a9f),
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: Text(
-                                                "1000",
-                                                style: TextStyle(
-                                                    color: Color(0xff5a5a9f)),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                          )
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(width: 1.3.w),
-                                  Padding(
-                                    padding: EdgeInsets.all(0.2.h),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          height: 5.h,
-                                          width: 18.w,
-                                          child: Checkbox(
-                                            // checkColor: Color(0xff333389),
-                                            activeColor: Color(0xff333389),
+                                ),
+                                SizedBox(width: 1.3.w),
+                                Padding(
+                                  padding: EdgeInsets.all(0.2.h),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 5.h,
+                                        width: 18.w,
+                                        child: Checkbox(
+                                          // checkColor: Color(0xff333389),
+                                          activeColor: Color(0xff333389),
 
-                                            value: checkbox[index],
-                                            onChanged: (value) {
-                                              setState(() {
-                                                checkbox[index] = value!;
-                                              });
+                                          value: checkbox[index],
+                                          onChanged: (value) {
+                                            setState(() {
+                                              checkbox[index] = value!;
+                                            });
 
-                                              // Handle checkbox value change
-                                            },
-                                          ),
+                                            // Handle checkbox value change
+                                          },
                                         ),
-                                        SizedBox(height: 3.h),
-                                        Container(
-                                          margin: EdgeInsets.only(left: 3.9.w),
-                                          decoration: BoxDecoration(
-                                            color: Color(0xffe2e2ed),
+                                      ),
+                                      SizedBox(height: 3.h),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 3.9.w),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xffe2e2ed),
 
-                                            // border: Border.all(
-                                            //   // color:  Color(0xff5a5a9f),
-                                            // ),
-                                            borderRadius: BorderRadius.circular(20),
-                                          ),
-                                          height: 5.h,
-                                          width: 10.w,
-                                          child: Icon(
-                                            Icons.more_vert,
-                                            color: Color(0xff5a5a9f),
-                                          ),
+                                          // border: Border.all(
+                                          //   // color:  Color(0xff5a5a9f),
+                                          // ),
+                                          borderRadius: BorderRadius.circular(20),
                                         ),
-                                      ],
-                                    ),
+                                        height: 5.h,
+                                        width: 10.w,
+                                        child: Icon(
+                                          Icons.more_vert,
+                                          color: Color(0xff5a5a9f),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -280,7 +278,7 @@ class _block_orderState extends State<block_order> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 8.3.h,
+                  height: 10.h,
                   child: Padding(
                     padding: EdgeInsets.all(2.h),
                     child: Container(
@@ -298,7 +296,7 @@ class _block_orderState extends State<block_order> {
                               padding: EdgeInsets.all(0.1.h),
                               alignment: Alignment.center,
                               width: 40.w,
-                              height: 5.5.h,
+                              height: 8.h,
                               decoration: BoxDecoration(
                                   color: (cart == 0)
                                       ? Colors.white
@@ -334,7 +332,7 @@ class _block_orderState extends State<block_order> {
                               padding: EdgeInsets.all(0.1.h),
                               alignment: Alignment.center,
                               width: 40.w,
-                              height: 5.5.h,
+                              height:8.h,
                               decoration: BoxDecoration(
                                   color: (cart == 1)
                                       ? Colors.white

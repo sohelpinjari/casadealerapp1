@@ -27,7 +27,7 @@ class _loginState extends State<login> {
             Container(
               alignment: Alignment.topCenter,
               child: Image.asset(
-                'assets/login-2.png',
+                'assets/login_img.png',
                 fit: BoxFit.fill,
                 height: MediaQuery.of(context).size.height * 0.5,
                 width: MediaQuery.of(context).size.width * 2,
@@ -45,7 +45,7 @@ class _loginState extends State<login> {
                       padding: EdgeInsets.only(right: 36.h, top: 1.h),
                       child: Container(
                         // alignment: Alignment.centerLeft,
-                        child: Text("LogIn",
+                        child: Text("Login",
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -85,11 +85,11 @@ class _loginState extends State<login> {
                         },
                         controller: _email,
                         decoration: InputDecoration(
-                          suffixIcon: Icon(
-                            Icons.person_outline,
-                            color: Color(0xfff9696c1),
-                            size: 3.5.h,
-                          ),
+                          // suffixIcon: Icon(
+                          //   Icons.person_outline,
+                          //   color: Color(0xfff9696c1),
+                          //   size: 3.5.h,
+                          // ),
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(2.h),
                           hintText: 'Phone Number or Email',
@@ -134,8 +134,8 @@ class _loginState extends State<login> {
                               },
                               icon: Icon(
                                 _passwordVisible
-                                    ? Icons.lock_outline
-                                    : Icons.lock,
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
                               ),
                             ),
                             border: InputBorder.none,
