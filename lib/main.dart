@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
             // is not restarted.
             primarySwatch: Colors.blue,
           ),
-          home: get_started(),
+          home: product_2(),
         );
       },
     );

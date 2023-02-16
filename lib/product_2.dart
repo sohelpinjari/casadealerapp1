@@ -34,8 +34,7 @@ class _product_2State extends State<product_2> {
   int gen = 0;
   int cart = 0;
 
-  final controller = PageController(viewportFraction: 0.8, keepPage: true);
-
+  final PageController controller = PageController(initialPage: 0);
   List<products> images = [
     products("assets/product_1_img2.png", "Brand Name", "Street Wear",
         "Artist Name", "\₹125"),
@@ -161,6 +160,7 @@ class _product_2State extends State<product_2> {
             SizedBox(
               height: 2.h,
             ),
+
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
@@ -168,6 +168,9 @@ class _product_2State extends State<product_2> {
                   children: [
                     Column(
                       children: [
+
+
+
                         Stack(children: <Widget>[
                           Padding(
                             padding: EdgeInsets.all(2.h),
@@ -321,6 +324,7 @@ class _product_2State extends State<product_2> {
                           ),
 
                         ]),
+
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal:  2.h),
                           child: Container(
@@ -626,29 +630,32 @@ class _product_2State extends State<product_2> {
                                       height: 1.h,
                                     ),
 
-                                    Container(
-                                      child: Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround
-                                        ,
-                                        children: [
-                                          Text(
-                                            "Size",
-                                            style: TextStyle(fontSize: 2.h),
-                                          ),
-                                          // SizedBox(width: 1.8.h),
-                                          Text("Mumbai",
-                                              style:
-                                                  TextStyle(fontSize: 2.h)),
-                                          // SizedBox(width: 1.8.h),
-                                          Text("Tirpur",
-                                              style:
-                                                  TextStyle(fontSize: 2.h)),
-                                          // SizedBox(width: 1.8.h),
-                                          Text("Total",
-                                              style:
-                                                  TextStyle(fontSize: 2.h)),
-                                        ],
+                                    Padding(
+                                      padding:  EdgeInsets.only(right: 18.w, left: 3.w, bottom:2.h) ,
+                                      child: Container(
+                                        child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween
+                                          ,
+                                          children: [
+                                            Text(
+                                              "Size",
+                                              style: TextStyle(fontSize: 2.h),
+                                            ),
+                                            // SizedBox(width: 1.8.h),
+                                            Text("Mumbai",
+                                                style:
+                                                    TextStyle(fontSize: 2.h)),
+                                            // SizedBox(width: 1.8.h),
+                                            Text("Tirpur",
+                                                style:
+                                                    TextStyle(fontSize: 2.h)),
+                                            // SizedBox(width: 1.8.h),
+                                            Text("Total",
+                                                style:
+                                                    TextStyle(fontSize: 2.h)),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     // Padding(
@@ -662,7 +669,7 @@ class _product_2State extends State<product_2> {
                                       child: Container(
                                         child: Row(
                                           crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               "S ",
@@ -672,6 +679,7 @@ class _product_2State extends State<product_2> {
                                             ),
                                             // SizedBox(width: 5.w),
                                             Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                                 
                                               children: [
                                                 Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
@@ -698,7 +706,7 @@ class _product_2State extends State<product_2> {
                                             ),
                                             // SizedBox(width: 12.w),
                                             Column(
-                                                
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
                                                 Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
                                                 SizedBox(height:1.h),
@@ -726,6 +734,109 @@ class _product_2State extends State<product_2> {
                                             // SizedBox(width: 5.w),
                                             //
                                             Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height: 1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      height: 12.h,
+                                        width: MediaQuery.of(context).size.width,
+                                      color: Color(0xfff9f9f9),
+                                      child: Padding(
+                                        padding:  EdgeInsets.all( 2.h),
+                                        child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "M ",
+                                              style: TextStyle(
+                                                  fontSize: 2.h,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            // SizedBox(width: 5.w),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 12.w),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 5.w),
+                                            //
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
                                                 Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
                                                 SizedBox(height: 1.h),
@@ -757,60 +868,398 @@ class _product_2State extends State<product_2> {
                                       padding: EdgeInsets.all(2.h),
                                       child: Container(
                                         child: Row(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "M",
+                                              "L ",
                                               style: TextStyle(
-                                                  fontSize: 2.5.h,
+                                                  fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             // SizedBox(width: 5.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
                                                         BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
                                                             Color(0xfff333389),
-                                                        fontWeight:
+                                                            fontWeight:
                                                             FontWeight.bold))),
+                                              ],
+                                            ),
                                             // SizedBox(width: 12.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
                                                         BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
                                                             Color(0xfff333389),
-                                                        fontWeight:
+                                                            fontWeight:
                                                             FontWeight.bold))),
+                                              ],
+                                            ),
                                             // SizedBox(width: 5.w),
-                                            Text("1200",
-                                                style: TextStyle(
-                                                    fontSize: 2.5.h,
-                                                    color: Color(0xfff333389),
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                            //
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height: 1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+        Container(
+          alignment: Alignment.center,
+          height: 12.h,
+          width: MediaQuery.of(context).size.width,
+          color: Color(0xfff9f9f9),
+          child: Padding(
+            padding:  EdgeInsets.all( 2.h),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "XL",
+                  style: TextStyle(
+                      fontSize: 2.h,
+                      fontWeight: FontWeight.bold),
+                ),
+                // SizedBox(width: 5.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+
+                  children: [
+                    Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                    SizedBox(height:1.h),
+                    Container(
+                        alignment: Alignment.center,
+                        width: 10.h,
+                        height: 4.h,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(
+                                8),
+                            border: Border.all(
+                                color: Color(
+                                    0xfff333389))),
+                        child: Text("",
+                            style: TextStyle(
+                                fontSize: 2.h,
+                                color:
+                                Color(0xfff333389),
+                                fontWeight:
+                                FontWeight.bold))),
+                  ],
+                ),
+                // SizedBox(width: 12.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                    SizedBox(height:1.h),
+
+                    Container(
+                        alignment: Alignment.center,
+                        width: 10.h,
+                        height: 4.h,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(
+                                8),
+                            border: Border.all(
+                                color: Color(
+                                    0xfff333389))),
+                        child: Text("",
+                            style: TextStyle(
+                                fontSize: 2.h,
+                                color:
+                                Color(0xfff333389),
+                                fontWeight:
+                                FontWeight.bold))),
+                  ],
+                ),
+                // SizedBox(width: 5.w),
+                //
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                    SizedBox(height: 1.h),
+                    Container(
+                        alignment: Alignment.center,
+                        width: 10.h,
+                        height: 4.h,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(
+                                8),
+                            border: Border.all(
+                                color: Color(
+                                    0xfff333389))),
+                        child: Text("",
+                            style: TextStyle(
+                                fontSize: 2.h,
+                                color:
+                                Color(0xfff333389),
+                                fontWeight:
+                                FontWeight.bold))),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+                                    Padding(
+                                      padding: EdgeInsets.all(2.h),
+                                      child: Container(
+                                        child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "2XL",
+                                              style: TextStyle(
+                                                  fontSize: 2.h,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            // SizedBox(width: 5.w),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 12.w),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 5.w),
+                                            //
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height: 1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      height: 12.h,
+                                      width: MediaQuery.of(context).size.width,
+                                      color: Color(0xfff9f9f9),
+                                      child: Padding(
+                                        padding:  EdgeInsets.all( 2.h),
+                                        child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "3XL",
+                                              style: TextStyle(
+                                                  fontSize: 2.h,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            // SizedBox(width: 5.w),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 12.w),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 5.w),
+                                            //
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height: 1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -820,212 +1269,288 @@ class _product_2State extends State<product_2> {
                                       child: Container(
                                         child: Row(
                                           crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "L",
+                                              "4XL",
                                               style: TextStyle(
-                                                  fontSize: 2.5.h,
+                                                  fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            // SizedBox(width: 3.h),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
-                                            // SizedBox(width: 12.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
                                             // SizedBox(width: 5.w),
-                                            Text("1200",
-                                                style: TextStyle(
-                                                    fontSize: 2.5.h,
-                                                    color: Color(0xfff333389),
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 12.w),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 5.w),
+                                            //
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height: 1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.all(2.h),
-                                      child: Container(
+                                    Container(
+                                      alignment: Alignment.center,
+                                      height: 12.h,
+                                      width: MediaQuery.of(context).size.width,
+                                      color: Color(0xfff9f9f9),
+                                      child: Padding(
+                                        padding:  EdgeInsets.all( 2.h),
                                         child: Row(
                                           crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "XL",
+                                              "5XL",
                                               style: TextStyle(
-                                                  fontSize: 2.5.h,
+                                                  fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            // SizedBox(width: 3.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
-                                            // SizedBox(width: 12.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
                                             // SizedBox(width: 5.w),
-                                            Text("1200",
-                                                style: TextStyle(
-                                                    fontSize: 2.5.h,
-                                                    color: Color(0xfff333389),
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 12.w),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('432', style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height:1.h),
+
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
+                                            // SizedBox(width: 5.w),
+                                            //
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("432", style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold),),
+                                                SizedBox(height: 1.h),
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    width: 10.h,
+                                                    height: 4.h,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xfff333389))),
+                                                    child: Text("",
+                                                        style: TextStyle(
+                                                            fontSize: 2.h,
+                                                            color:
+                                                            Color(0xfff333389),
+                                                            fontWeight:
+                                                            FontWeight.bold))),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),
                                     ),
 
-                                    Padding(
-                                      padding: EdgeInsets.all(2.h),
-                                      child: Container(
-                                        child: Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text(
-                                              "Available Qty",
-                                              style: TextStyle(
-                                                  fontSize: 2.5.h,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            // SizedBox(width: 5.w),
-                                            Container(
-                                              width: 20.w,
-                                              child: Divider(
-                                                  thickness: 2,
-                                                  color: Color(0xfff333389)),
-                                            ),
-                                            // SizedBox(width: 5.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 11.8.h,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.5.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(2.h),
-                                      child: Container(
-                                        child: Row(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text(
-                                              "Enter Quantity",
-                                              style: TextStyle(
-                                                  fontSize: 2.5.h,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            // SizedBox(width: 5.w),
-                                            // Container(
-                                            //   width: 20.w,
-                                            //   child: Divider(
-                                            //       thickness: 2,
-                                            //       color: Color(0xfff333389)),
-                                            // ),
-                                            // SizedBox(width: 5.w),
-                                            Container(
-                                                alignment: Alignment.center,
-                                                width: 45.w,
-                                                height: 5.8.h,
-                                                decoration: BoxDecoration(
-                                                    color: Color(0xfff333389),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    border: Border.all(
-                                                        color: Color(
-                                                            0xfff333389))),
-                                                child: Text("550",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold))),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
+                                    // Padding(
+                                    //   padding: EdgeInsets.all(2.h),
+                                    //   child: Container(
+                                    //     child: Row(
+                                    //       crossAxisAlignment: CrossAxisAlignment.center,
+                                    //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    //       children: [
+                                    //         Text(
+                                    //           "Available Qty",
+                                    //           style: TextStyle(
+                                    //               fontSize: 2.5.h,
+                                    //               fontWeight: FontWeight.bold),
+                                    //         ),
+                                    //         // SizedBox(width: 5.w),
+                                    //         Container(
+                                    //           width: 20.w,
+                                    //           child: Divider(
+                                    //               thickness: 2,
+                                    //               color: Color(0xfff333389)),
+                                    //         ),
+                                    //         // SizedBox(width: 5.w),
+                                    //         Container(
+                                    //             alignment: Alignment.center,
+                                    //             width: 11.8.h,
+                                    //             height: 5.8.h,
+                                    //             decoration: BoxDecoration(
+                                    //                 borderRadius:
+                                    //                     BorderRadius.circular(
+                                    //                         15),
+                                    //                 border: Border.all(
+                                    //                     color: Color(
+                                    //                         0xfff333389))),
+                                    //             child: Text("550",
+                                    //                 style: TextStyle(
+                                    //                     fontSize: 2.5.h,
+                                    //                     color:
+                                    //                         Color(0xfff333389),
+                                    //                     fontWeight:
+                                    //                         FontWeight.bold))),
+                                    //       ],
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                    // Padding(
+                                    //   padding: EdgeInsets.all(2.h),
+                                    //   child: Container(
+                                    //     child: Row(
+                                    //         crossAxisAlignment: CrossAxisAlignment.center,
+                                    //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    //       children: [
+                                    //         Text(
+                                    //           "Enter Quantity",
+                                    //           style: TextStyle(
+                                    //               fontSize: 2.5.h,
+                                    //               fontWeight: FontWeight.bold),
+                                    //         ),
+                                    //         // SizedBox(width: 5.w),
+                                    //         // Container(
+                                    //         //   width: 20.w,
+                                    //         //   child: Divider(
+                                    //         //       thickness: 2,
+                                    //         //       color: Color(0xfff333389)),
+                                    //         // ),
+                                    //         // SizedBox(width: 5.w),
+                                    //         Container(
+                                    //             alignment: Alignment.center,
+                                    //             width: 45.w,
+                                    //             height: 5.8.h,
+                                    //             decoration: BoxDecoration(
+                                    //                 color: Color(0xfff333389),
+                                    //                 borderRadius:
+                                    //                     BorderRadius.circular(
+                                    //                         10),
+                                    //                 border: Border.all(
+                                    //                     color: Color(
+                                    //                         0xfff333389))),
+                                    //             child: Text("550",
+                                    //                 style: TextStyle(
+                                    //                     fontSize: 2.h,
+                                    //                     color: Colors.white,
+                                    //                     fontWeight:
+                                    //                         FontWeight.bold))),
+                                    //       ],
+                                    //     ),
+                                    //   ),
+                                    // ),
 
                                     Padding(
                                       padding: EdgeInsets.all(2.h),
@@ -2170,4 +2695,18 @@ class _product_2State extends State<product_2> {
     );
     ;
   }
+}
+
+
+
+Widget _buildPageIndicator(int index) {
+  return Container(
+    width: 8,
+    height: 8,
+    margin: EdgeInsets.symmetric(horizontal: 4),
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      // color: controller.page.round() == index ? Colors.white : Colors.grey,
+    ),
+  );
 }
