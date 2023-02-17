@@ -1,3 +1,4 @@
+import 'package:casadealerapp/cart_order.dart';
 import 'package:casadealerapp/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -166,7 +167,7 @@ class _order_idState extends State<order_id> {
                               ),
                             ),
                             SizedBox(
-                              width: 5.w,
+                              width: 4.w,
                             ),
                             Padding(
                               padding: EdgeInsets.all(1.h),
@@ -191,7 +192,7 @@ class _order_idState extends State<order_id> {
                                       Text(
                                         'Color : Red   Size : M',
                                         style:
-                                            TextStyle(color: Color(0xff5a5a9f)),
+                                            TextStyle(color: Color(0xff5a5a9f), fontSize: 1.6.h),
                                       ),
                                     ],
                                   ),
@@ -236,25 +237,33 @@ class _order_idState extends State<order_id> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 2.h, left: 2.h),
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width,
-                    height: 7.h,
-                    decoration: BoxDecoration(
-                      color: Color(0xff333389),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => cart_order()));
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: MediaQuery.of(context).size.width,
+                      height: 7.h,
+                      decoration: BoxDecoration(
+                        color: Color(0xff333389),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     blurRadius: 10.0,
+                        //   ),
+                        //
+                        // ],
                       ),
-                      // boxShadow: [
-                      //   BoxShadow(
-                      //     blurRadius: 10.0,
-                      //   ),
-                      //
-                      // ],
-                    ),
-                    child: Text(
-                      'Cancle Request',
-                      style: TextStyle(fontSize: 2.h, color: Colors.white),
+                      child: Text(
+                        'Cancle Request',
+                        style: TextStyle(fontSize: 2.h, color: Colors.white),
+                      ),
                     ),
                   ),
                 ),

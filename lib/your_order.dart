@@ -177,12 +177,12 @@ class _your_orderState extends State<your_order> {
                                         Text(
                                           'No of Products :',
                                           style: TextStyle(
-                                              color: Color(0xff5a5858585)),
+                                              color: Color(0xff5a5858585), fontSize: 1.7.h),
                                         ),
                                         Text(
                                           '550',
                                           style: TextStyle(
-                                              color: Color(0xff5a5a9f)),
+                                              color: Color(0xff5a5a9f), fontSize: 1.7.h),
                                         ),
                                       ],
                                     ),

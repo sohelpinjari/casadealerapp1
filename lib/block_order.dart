@@ -120,7 +120,7 @@ class _block_orderState extends State<block_order> {
             Column(
               children: [
                 Container(
-                  height: 79.h,
+                  height: 78.h,
                   child: ListView.builder(
                     // padding: EdgeInsets.all(0),
                     // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
@@ -186,7 +186,7 @@ class _block_orderState extends State<block_order> {
                                           Text(
                                             'Color : Red   Size : M',
                                             style:
-                                                TextStyle(color: Color(0xff5a5a9f)),
+                                                TextStyle(color: Color(0xff5a5a9f), fontSize: 1.7.h),
                                           ),
                                         ],
                                       ),
@@ -278,7 +278,7 @@ class _block_orderState extends State<block_order> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 10.h,
+                  height: 9.1.h,
                   child: Padding(
                     padding: EdgeInsets.all(2.h),
                     child: Container(

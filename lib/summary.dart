@@ -158,7 +158,7 @@ class _summaryState extends State<summary> {
                               ),
 
                               height: 5.h,
-                              width: 40.w,
+                              width: 44.w,
                               margin: EdgeInsets.only(right: 0.1.w, top: 0.6.h),
 
                               // padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.h),
@@ -263,7 +263,7 @@ class _summaryState extends State<summary> {
                                                   Text(
                                                     'Color : Red   Size : M',
                                                     style: TextStyle(
-                                                        color: Color(0xff5a5a9f)),
+                                                        color: Color(0xff5a5a9f),  fontSize: 1.7.h),
                                                   ),
                                                 ],
                                               ),
@@ -356,12 +356,12 @@ class _summaryState extends State<summary> {
                           },
                         ),
                       ),
-                      SizedBox(
-                        height: 1.3.h,
-                      ),
+                      // SizedBox(
+                      //   height: 1.3.h,
+                      // ),
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 10.h,
+                        height: 9.1.h,
                         child: Padding(
                           padding: EdgeInsets.all(2.h),
                           child: Container(
@@ -526,7 +526,7 @@ class _summaryState extends State<summary> {
                                                     Text(
                                                       'Color : Red   Size : M',
                                                       style: TextStyle(
-                                                          color: Color(0xff5a5a9f)),
+                                                          color: Color(0xff5a5a9f), fontSize: 1.7.h),
                                                     ),
                                                   ],
                                                 ),
@@ -620,12 +620,12 @@ class _summaryState extends State<summary> {
                             },
                           ),
                         ),
-                        SizedBox(
-                          height: 1.3.h,
-                        ),
+                        // SizedBox(
+                        //   height: 1.h,
+                        // ),
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          height: 10.h,
+                          height: 9.1.h,
                           child: Padding(
                             padding: EdgeInsets.all(2.h),
                             child: Container(

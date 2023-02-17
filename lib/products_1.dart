@@ -378,7 +378,7 @@ class _products_1State extends State<products_1> {
                 },
                 child: Container(
                   // height: MediaQuery.of(context).size.height,
-                  height: 80.h,
+                  height: 75.h,
                   width: MediaQuery.of(context).size.width,
 
                   padding: EdgeInsets.all(15),
