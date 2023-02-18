@@ -1,7 +1,17 @@
+import 'dart:convert';
+
+import 'package:casadealerapp/login_model.dart';
 import 'package:casadealerapp/loginsuccess.dart';
 import 'package:casadealerapp/register.dart';
+import 'package:casadealerapp/shared_preference.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
+
+import 'CONST.dart';
+import 'login_authprovider.dart';
 
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
@@ -10,12 +20,12 @@ class login extends StatefulWidget {
   State<login> createState() => _loginState();
 }
 
-class _loginState extends State<login> {
-  TextEditingController _email = TextEditingController();
-  TextEditingController _password = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
-  bool _passwordVisible = false;
+TextEditingController _email = TextEditingController();
+TextEditingController _password = TextEditingController();
+final _formKey = GlobalKey<FormState>();
+bool _passwordVisible = false;
 
+class _loginState extends State<login> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -173,10 +183,7 @@ class _loginState extends State<login> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             print("Validate");
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => loginsuccess()));
+                            loginApi();
                           }
                         },
                         child: Text(
@@ -223,5 +230,68 @@ class _loginState extends State<login> {
         ),
       ),
     );
+  }
+
+  loginApi() async {
+    if (_formKey.currentState!.validate()) {
+      final Map<String, String> data = {};
+      data['loginEmail'] = _email.text.trim().toString();
+      data['loginPassword'] = _password.text.trim().toString();
+      data['action'] = 'login';
+
+      checkInternet().then((internet) async {
+        if (internet) {
+          Authprovider().loginapi(data).then((Response response) async {
+            SharedPreferences _sharedpreferences =
+                await SharedPreferences.getInstance();
+            print(response.statusCode);
+            userData = usermodal.fromJson(json.decode(response.body));
+
+            if (response.statusCode == 200 && userData!.status == "success") {
+             SaveDataLocal.saveLogInData(userData!);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => loginsuccess()));
+              // Fluttertoast.showToast(
+              //   msg: "Logged In Successfully",
+              //   textColor: Colors.white,
+              //   toastLength: Toast.LENGTH_SHORT,
+              //   timeInSecForIosWeb: 1,
+              //   gravity: ToastGravity.BOTTOM,
+              //   backgroundColor: Colors.indigo,
+              // );
+
+              if (kDebugMode) {}
+
+              _email.text = "";
+              _password.text = "";
+            } else {
+              // Fluttertoast.showToast(
+              //   msg: "Enter A Valid Email Address",
+              //   textColor: Colors.white,
+              //   toastLength: Toast.LENGTH_SHORT,
+              //   timeInSecForIosWeb: 1,
+              //   gravity: ToastGravity.BOTTOM,
+              //   backgroundColor: Colors.indigo,
+              // );
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [Container(
+
+                          child: Text('Invalid Login', style: TextStyle(color: Colors.red),)
+                      )],
+                    ),
+                  );
+                },
+              );
+            }
+          });
+        } else {}
+      });
+    }
   }
 }

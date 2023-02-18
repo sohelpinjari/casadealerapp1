@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/block_order.dart';
 import 'package:casadealerapp/login.dart';
 import 'package:casadealerapp/products_1.dart';
+import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -23,6 +25,13 @@ class _drawerState extends State<drawer> {
     super.initState();
     // view();
     index = [false, false, false, false, false, false, false];
+   getdata();
+  }
+  getdata()async{
+    userData=await SaveDataLocal.getDataFromLocal();
+    setState(() {
+      userData;
+    });
   }
 
   @override
@@ -84,8 +93,7 @@ class _drawerState extends State<drawer> {
                                 SizedBox(
                                   height: 0.5.h,
                                 ),
-                                Text(
-                                  "Hi John",
+                                Text(userData?.logindata?.fname ?? "",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 11.sp,
@@ -95,7 +103,7 @@ class _drawerState extends State<drawer> {
                                 SizedBox(
                                   height: 0.5.h,
                                 ),
-                                Text("+919876543210",
+                                Text(userData?.logindata?.mobileNo ?? "",
                                     style: TextStyle(
                                         color: Color(0xfff8484b8),
                                         fontWeight: FontWeight.w600)),
@@ -293,8 +301,10 @@ class _drawerState extends State<drawer> {
                           ),
                           onTap: () {
                             setState(() {
+                              SaveDataLocal.clearUserData();
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) => login()));
+
                               index[5] = !index[5];
                             });
                             // Navigator.of(context).pop();
