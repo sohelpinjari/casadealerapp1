@@ -3635,10 +3635,12 @@ class _product_2State extends State<product_2> {
           } else {
             CircularProgressIndicator();
           }
-        });
+        }
+        );
       } else {
         setState(() {});
       }
-    });
+    }
+    );
   }
 }
