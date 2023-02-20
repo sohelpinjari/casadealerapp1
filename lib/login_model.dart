@@ -14,7 +14,6 @@
 //   }
 // }
 
-
 class usermodal {
   String? status;
   String? data;
@@ -57,17 +56,17 @@ class Logindata {
 
   Logindata(
       {this.dId,
-        this.fname,
-        this.lname,
-        this.mobileNo,
-        this.emailId,
-        this.address,
-        this.password,
-        this.confirmPassword,
-        this.acIa,
-        this.lastLoginTime,
-        this.forgotPassKey,
-        this.createdTime});
+      this.fname,
+      this.lname,
+      this.mobileNo,
+      this.emailId,
+      this.address,
+      this.password,
+      this.confirmPassword,
+      this.acIa,
+      this.lastLoginTime,
+      this.forgotPassKey,
+      this.createdTime});
 
   Logindata.fromJson(Map<dynamic, dynamic> json) {
     dId = json['d_id'];

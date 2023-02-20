@@ -71,6 +71,7 @@ class _drawerState extends State<drawer> {
                               radius: 7.w,
                               child: ClipOval(
                                 child: Image.asset(
+
                                   'assets/profile.jpg',
                                   width: 13.w,
                                   height: 13.w,
@@ -155,6 +156,9 @@ class _drawerState extends State<drawer> {
                                 fontWeight: FontWeight.w600),
                           ),
                           onTap: () {
+                            Navigator.of(context).pop();
+
+
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -193,7 +197,10 @@ class _drawerState extends State<drawer> {
                                 fontWeight: FontWeight.w600),
                           ),
                           onTap: () {
+
                             setState(() {
+                              Navigator.of(context).pop();
+
                               index[2] = !index[2];
                             });
                             // Navigator.of(context).pop();
@@ -226,7 +233,10 @@ class _drawerState extends State<drawer> {
                                 fontWeight: FontWeight.w600),
                           ),
                           onTap: () {
+
                             setState(() {
+                              Navigator.of(context).pop();
+
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -264,7 +274,10 @@ class _drawerState extends State<drawer> {
                                 fontWeight: FontWeight.w600),
                           ),
                           onTap: () {
+
                             setState(() {
+                              Navigator.of(context).pop();
+
                               index[4] = !index[4];
                             });
                             // Navigator.of(context).pop();
@@ -301,6 +314,7 @@ class _drawerState extends State<drawer> {
                           ),
                           onTap: () {
                             setState(() {
+                              Navigator.of(context).pop();
                               SaveDataLocal.clearUserData();
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) => login()));

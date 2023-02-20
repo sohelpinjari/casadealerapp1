@@ -1,6 +1,14 @@
+import 'dart:convert';
+import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/drawer.dart';
+import 'package:casadealerapp/login_authprovider.dart';
 import 'package:casadealerapp/product_2.dart';
+import 'package:casadealerapp/productapiclass.dart';
+import 'package:casadealerapp/shared_preference.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
 class products_1 extends StatefulWidget {
@@ -24,8 +32,8 @@ class products {
 
   String? Price;
 
-  products(this.image, this.Brand_Name, this.Street_Wear, this.Artist_Name, this.size_s, this.size_m, this.size_l,
-      this.Price);
+  products(this.image, this.Brand_Name, this.Street_Wear, this.Artist_Name,
+      this.size_s, this.size_m, this.size_l, this.Price);
 }
 
 class _products_1State extends State<products_1> {
@@ -47,6 +55,25 @@ class _products_1State extends State<products_1> {
     products("assets/product_1_img2.png", "Brand Name", "Street Wear",
         "Artist Name", "S", "M", "L", "\₹125"),
   ];
+  productapi? productData;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // view();
+    productsapi();
+
+    getdata();
+  }
+
+  getdata() async {
+    userData = await SaveDataLocal.getDataFromLocal();
+    setState(() {
+      productData;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -96,7 +123,8 @@ class _products_1State extends State<products_1> {
                             // alignment: Alignment.center,
                             child: Text(
                               "Products",
-                              style: TextStyle(fontSize: 2.h, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 2.h, color: Colors.white),
                             ),
                           ),
                         ],
@@ -142,15 +170,13 @@ class _products_1State extends State<products_1> {
                 ),
               ),
             ),
-
-
             Positioned(
               top: 8.5.h,
               left: 0,
               right: 0,
               // left: 2.h,
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 4.w),
+                padding: EdgeInsets.symmetric(horizontal: 4.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -158,50 +184,7 @@ class _products_1State extends State<products_1> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width*0.17,
-                          height: MediaQuery.of(context).size.height * 0.10,
-                          // child: TextFormField(
-                          //   validator: (value) {
-                          //     if (value!.isEmpty) {
-                          //       return "";
-                          //     }
-                          //     return null;
-                          //   },
-                          //   // controller: _firstname,
-                          //   decoration: InputDecoration(
-                          //     border: InputBorder.none,
-                          //     contentPadding: EdgeInsets.all(3.h),
-                          //     hintText: 'Search by SKU/Brand',
-                          //     suffixIcon: Icon(
-                          //       Icons.search,
-                          //       color: Color(0xfff333389),
-                          //       size: 4.5.h,
-                          //     ),
-                          //   ),
-                          // ),
-                             
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.blueGrey,
-                            image: DecorationImage(image: AssetImage("assets/product_1_img4.png"),
-
-                                fit: BoxFit.fitWidth
-                            )
-                            // // borderRadius: BorderRadius.all(
-                            // //   Radius.circular(10),
-                            // ),
-                          ),
-                        ),
-
-                        Text('Men', style: TextStyle(fontSize: 2.h, color: Colors.black),  )
-
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width*0.17,
+                          width: MediaQuery.of(context).size.width * 0.17,
                           height: MediaQuery.of(context).size.height * 0.10,
                           // child: TextFormField(
                           //   validator: (value) {
@@ -226,24 +209,26 @@ class _products_1State extends State<products_1> {
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.blueGrey,
-                              image: DecorationImage(image: AssetImage("assets/product_1_img.png"),
-
-                                  fit: BoxFit.fitWidth
-                              )
-                            // // borderRadius: BorderRadius.all(
-                            // //   Radius.circular(10),
-                            // ),
-                          ),
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage("assets/product_1_img4.png"),
+                                  fit: BoxFit.fitWidth)
+                              // // borderRadius: BorderRadius.all(
+                              // //   Radius.circular(10),
+                              // ),
+                              ),
                         ),
-                        Text('Women', style: TextStyle(fontSize: 2.h, color: Colors.black),  )
-
+                        Text(
+                          'Men',
+                          style: TextStyle(fontSize: 2.h, color: Colors.black),
+                        )
                       ],
                     ),
                     Column(
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width*0.17,
+                          width: MediaQuery.of(context).size.width * 0.17,
                           height: MediaQuery.of(context).size.height * 0.10,
                           // child: TextFormField(
                           //   validator: (value) {
@@ -268,24 +253,25 @@ class _products_1State extends State<products_1> {
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.blueGrey,
-                              image: DecorationImage(image: AssetImage("assets/product_1_img5.png"),
-
-                                  fit: BoxFit.fitWidth
-                              )
-                            // // borderRadius: BorderRadius.all(
-                            // //   Radius.circular(10),
-                            // ),
-                          ),
+                              image: DecorationImage(
+                                  image: AssetImage("assets/product_1_img.png"),
+                                  fit: BoxFit.fitWidth)
+                              // // borderRadius: BorderRadius.all(
+                              // //   Radius.circular(10),
+                              // ),
+                              ),
                         ),
-                        Text('Kids', style: TextStyle(fontSize: 2.h, color: Colors.black),  )
-
+                        Text(
+                          'Women',
+                          style: TextStyle(fontSize: 2.h, color: Colors.black),
+                        )
                       ],
                     ),
                     Column(
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width*0.17,
+                          width: MediaQuery.of(context).size.width * 0.17,
                           height: MediaQuery.of(context).size.height * 0.10,
                           // child: TextFormField(
                           //   validator: (value) {
@@ -310,24 +296,26 @@ class _products_1State extends State<products_1> {
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.blueGrey,
-                              image: DecorationImage(image: AssetImage("assets/product_1_img2.png"),
-
-                                  fit: BoxFit.fitWidth
-                              )
-                            // // borderRadius: BorderRadius.all(
-                            // //   Radius.circular(10),
-                            // ),
-                          ),
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage("assets/product_1_img5.png"),
+                                  fit: BoxFit.fitWidth)
+                              // // borderRadius: BorderRadius.all(
+                              // //   Radius.circular(10),
+                              // ),
+                              ),
                         ),
-                        Text('Gift', style: TextStyle(fontSize: 2.h, color: Colors.black),  )
-
+                        Text(
+                          'Kids',
+                          style: TextStyle(fontSize: 2.h, color: Colors.black),
+                        )
                       ],
                     ),
                     Column(
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width*0.17,
+                          width: MediaQuery.of(context).size.width * 0.17,
                           height: MediaQuery.of(context).size.height * 0.10,
                           // child: TextFormField(
                           //   validator: (value) {
@@ -352,17 +340,63 @@ class _products_1State extends State<products_1> {
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.blueGrey,
-                              image: DecorationImage(image: AssetImage("assets/product_1_img3.png"),
-
-                                  fit: BoxFit.fitWidth
-                              )
-                            // // borderRadius: BorderRadius.all(
-                            // //   Radius.circular(10),
-                            // ),
-                          ),
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage("assets/product_1_img2.png"),
+                                  fit: BoxFit.fitWidth)
+                              // // borderRadius: BorderRadius.all(
+                              // //   Radius.circular(10),
+                              // ),
+                              ),
                         ),
-                        Text('Tiger', style: TextStyle(fontSize: 2.h, color: Colors.black),  )
+                        Text(
+                          'Gift',
+                          style: TextStyle(fontSize: 2.h, color: Colors.black),
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          width: MediaQuery.of(context).size.width * 0.17,
+                          height: MediaQuery.of(context).size.height * 0.10,
+                          // child: TextFormField(
+                          //   validator: (value) {
+                          //     if (value!.isEmpty) {
+                          //       return "";
+                          //     }
+                          //     return null;
+                          //   },
+                          //   // controller: _firstname,
+                          //   decoration: InputDecoration(
+                          //     border: InputBorder.none,
+                          //     contentPadding: EdgeInsets.all(3.h),
+                          //     hintText: 'Search by SKU/Brand',
+                          //     suffixIcon: Icon(
+                          //       Icons.search,
+                          //       color: Color(0xfff333389),
+                          //       size: 4.5.h,
+                          //     ),
+                          //   ),
+                          // ),
 
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.blueGrey,
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage("assets/product_1_img3.png"),
+                                  fit: BoxFit.fitWidth)
+                              // // borderRadius: BorderRadius.all(
+                              // //   Radius.circular(10),
+                              // ),
+                              ),
+                        ),
+                        Text(
+                          'Tiger',
+                          style: TextStyle(fontSize: 2.h, color: Colors.black),
+                        )
                       ],
                     ),
                   ],
@@ -371,27 +405,37 @@ class _products_1State extends State<products_1> {
             ),
             Positioned(
               top: 22.h,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => product_2()));
-                },
-                child: Container(
-                  // height: MediaQuery.of(context).size.height,
-                  height: 75.h,
-                  width: MediaQuery.of(context).size.width,
+              child: Container(
+                // height: MediaQuery.of(context).size.height,
+                height: 75.h,
+                width: MediaQuery.of(context).size.width,
 
-                  padding: EdgeInsets.all(15),
-                  child: GridView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: images.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 19.0,
-                        childAspectRatio: 3.h / 6.6.h,
-                        mainAxisSpacing: 15),
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
+                padding: EdgeInsets.all(15),
+                color: Color(0xfffFFFFFF),
+                child: GridView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: images.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 19.0,
+                      childAspectRatio: 3.h / 6.6.h,
+                      mainAxisSpacing: 15),
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => product_2(
+                                      imagenevigator:
+                                          (images[index].image).toString(),
+                                      pronamenevigatior:
+                                          '${productData?.productData![index].apName}',
+                                      coloridnevigator:
+                                          '${productData?.productData![index].apId}',
+                                    )));
+                      },
+                      child: Column(
                         children: [
                           Stack(
                             children: [
@@ -399,16 +443,19 @@ class _products_1State extends State<products_1> {
                                 borderRadius: BorderRadius.circular(10.0),
                                 child: Image.asset(
                                   (images[index].image).toString(),
-                                  width: MediaQuery.of(context).size.width * 0.6,
-                                  height: MediaQuery.of(context).size.height * 0.3,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.6,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.3,
                                   fit: BoxFit.cover,
                                 ),
                               ),
                               Padding(
                                 padding: EdgeInsets.only(
-                                    left: MediaQuery.of(context).size.width * 0.33,
-                                    top:
-                                    MediaQuery.of(context).size.height * 0.010),
+                                    left: MediaQuery.of(context).size.width *
+                                        0.33,
+                                    top: MediaQuery.of(context).size.height *
+                                        0.010),
                                 child: Container(
                                   alignment: Alignment.center,
                                   width: 8.5.w,
@@ -430,17 +477,22 @@ class _products_1State extends State<products_1> {
                                 ),
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
                                         // left: MediaQuery.of(context).size.width * 0.01,
                                         top:
-                                        MediaQuery.of(context).size.height * 0.26),
+                                            MediaQuery.of(context).size.height *
+                                                0.26),
                                     child: Container(
                                       alignment: Alignment.center,
-                                      width: MediaQuery.of(context).size.width * 0.18,
-                                      height: MediaQuery.of(context).size.height * 0.03,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.18,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.03,
                                       decoration: BoxDecoration(
                                         color: Colors.black,
                                         borderRadius: BorderRadius.all(
@@ -454,15 +506,16 @@ class _products_1State extends State<products_1> {
                                           color: Colors.white,
                                         ),
                                       ),
-
                                     ),
-
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        left: MediaQuery.of(context).size.width * 0.08,
+                                        left:
+                                            MediaQuery.of(context).size.width *
+                                                0.08,
                                         top:
-                                        MediaQuery.of(context).size.height * 0.24),
+                                            MediaQuery.of(context).size.height *
+                                                0.24),
                                     child: Container(
                                       alignment: Alignment.center,
                                       width: 8.4.w,
@@ -487,7 +540,6 @@ class _products_1State extends State<products_1> {
                               ),
                             ],
                           ),
-
                           SizedBox(
                             height: 1.h,
                           ),
@@ -495,7 +547,7 @@ class _products_1State extends State<products_1> {
                             padding: EdgeInsets.only(left: 0.8.h),
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              images[index].Street_Wear.toString(),
+                              '${productData?.productData![index].apName}',
                               style: TextStyle(
                                   fontSize: 2.3.h, fontWeight: FontWeight.bold),
                             ),
@@ -521,7 +573,8 @@ class _products_1State extends State<products_1> {
                               Container(
                                 alignment: Alignment.center,
                                 width: MediaQuery.of(context).size.width * 0.07,
-                                height: MediaQuery.of(context).size.height * 0.03,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.03,
                                 decoration: BoxDecoration(
                                   color: Color(0xffeaeaf3),
                                   borderRadius: BorderRadius.all(
@@ -531,17 +584,19 @@ class _products_1State extends State<products_1> {
                                 child: Text(
                                   images[index].size_s.toString(),
                                   style: TextStyle(
-                                    fontSize: 2.h,
-                                    color: Color(0xff3f3f90),
-                                    fontWeight: FontWeight.bold
-                                  ),
+                                      fontSize: 2.h,
+                                      color: Color(0xff3f3f90),
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              SizedBox(width: 1.w,),
+                              SizedBox(
+                                width: 1.w,
+                              ),
                               Container(
                                 alignment: Alignment.center,
                                 width: MediaQuery.of(context).size.width * 0.07,
-                                height: MediaQuery.of(context).size.height * 0.03,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.03,
                                 decoration: BoxDecoration(
                                   color: Color(0xffeaeaf3),
                                   borderRadius: BorderRadius.all(
@@ -551,17 +606,19 @@ class _products_1State extends State<products_1> {
                                 child: Text(
                                   images[index].size_m.toString(),
                                   style: TextStyle(
-                                    fontSize: 2.h,
-                                    color: Color(0xff3f3f90),
-                                      fontWeight: FontWeight.bold
-                                  ),
+                                      fontSize: 2.h,
+                                      color: Color(0xff3f3f90),
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              SizedBox(width: 1.w,),
+                              SizedBox(
+                                width: 1.w,
+                              ),
                               Container(
                                 alignment: Alignment.center,
                                 width: MediaQuery.of(context).size.width * 0.07,
-                                height: MediaQuery.of(context).size.height * 0.03,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.03,
                                 decoration: BoxDecoration(
                                   color: Color(0xffeaeaf3),
                                   borderRadius: BorderRadius.all(
@@ -571,15 +628,16 @@ class _products_1State extends State<products_1> {
                                 child: Text(
                                   images[index].size_l.toString(),
                                   style: TextStyle(
-                                    fontSize: 2.h,
-                                    color: Color(0xff3f3f90),
-                                      fontWeight: FontWeight.bold
-                                  ),
+                                      fontSize: 2.h,
+                                      color: Color(0xff3f3f90),
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 2,),
+                          SizedBox(
+                            height: 2,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -620,10 +678,9 @@ class _products_1State extends State<products_1> {
                             ],
                           ),
                         ],
-                      );
-                    },
-                  ),
-                  color: Color(0xfffFFFFFF),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
@@ -631,5 +688,30 @@ class _products_1State extends State<products_1> {
         ),
       ),
     );
+  }
+
+  productsapi() async {
+    SharedPreferences _sharedpreferences =
+        await SharedPreferences.getInstance();
+    final Map<String, String> data = {};
+    data['action'] = 'fetch_products';
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Authprovider().products(data).then((Response response) async {
+          productData = productapi.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && productData?.status == "success") {
+            SaveDataLocal.saveLogInData(userData!);
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {
+        setState(() {});
+      }
+    });
   }
 }
