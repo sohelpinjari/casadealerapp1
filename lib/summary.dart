@@ -195,7 +195,7 @@ class _summaryState extends State<summary> {
                 ? Column(
                     children: [
                       Container(
-                        height: 68.h,
+                        height: 70.h,
                         child: ListView.builder(
                           // padding: EdgeInsets.all(0),
                           // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
@@ -361,7 +361,7 @@ class _summaryState extends State<summary> {
                       // ),
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 9.1.h,
+                        height: 9.h,
                         child: Padding(
                           padding: EdgeInsets.all(2.h),
                           child: Container(
@@ -458,7 +458,7 @@ class _summaryState extends State<summary> {
                     child: Column(
                       children: [
                         Container(
-                          height: 68.h,
+                          height: 70.h,
                           child: ListView.builder(
                             // padding: EdgeInsets.all(0),
                             // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
@@ -625,7 +625,7 @@ class _summaryState extends State<summary> {
                         // ),
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          height: 9.1.h,
+                          height: 9.h,
                           child: Padding(
                             padding: EdgeInsets.all(2.h),
                             child: Container(

@@ -22,12 +22,7 @@ class product_2 extends StatefulWidget {
   String? pronamenevigatior;
   String? coloridnevigator;
 
-  product_2(
-      {Key? key,
-      this.imagenevigator,
-      this.pronamenevigatior,
-      this.coloridnevigator})
-      : super(key: key);
+  product_2({Key? key,this.imagenevigator,this.pronamenevigatior,this.coloridnevigator}): super(key: key);
 
   @override
   State<product_2> createState() => _product_2State();
@@ -285,11 +280,14 @@ class _product_2State extends State<product_2> {
                                                             Radius.circular(8),
                                                           ),
                                                         ),
-                                                        child: Text(
-                                                          "Brand Name",
-                                                          style: TextStyle(
-                                                            fontSize: 1.6.h,
-                                                            color: Colors.white,
+                                                        child: Padding(
+                                                          padding:  EdgeInsets.all(0.5.h),
+                                                          child: Text(
+                                                            "Brand Name",
+                                                            style: TextStyle(
+                                                              fontSize: 1.3.h,
+                                                              color: Colors.white,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -3282,6 +3280,7 @@ class _product_2State extends State<product_2> {
                                       SingleChildScrollView(
                                         scrollDirection: Axis.vertical,
                                         child: Container(
+
                                           height: 100.h,
                                           child: ListTile(
                                               title: Column(
@@ -3297,12 +3296,16 @@ class _product_2State extends State<product_2> {
                                                 height: 2.h,
                                               ),
                                               Container(
+
                                                   alignment:
                                                       Alignment.centerLeft,
                                                   child: Text("Size Chart",
                                                       style: TextStyle(
                                                           fontWeight: FontWeight
-                                                              .bold))),
+                                                              .bold)
+                                                              ),
+
+                                              ),
                                               SizedBox(height: 1.h),
                                               Divider(
                                                   color: Colors.grey.shade400),
