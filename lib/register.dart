@@ -1,4 +1,5 @@
 import 'package:casadealerapp/getstarted.dart';
+import 'package:casadealerapp/login.dart';
 import 'package:casadealerapp/loginsuccess.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -366,7 +367,7 @@ class _registerState extends State<register> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => register(),
+                                        builder: (context) => login(),
                                       ),
                                     );
 
