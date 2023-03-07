@@ -94,7 +94,7 @@ class _drawerState extends State<drawer> {
                                 SizedBox(
                                   height: 0.5.h,
                                 ),
-                                Text(userData?.logindata?.fname ?? "",
+                                Text(userData?.logindata?.fullName ?? "",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 11.sp,
@@ -104,7 +104,7 @@ class _drawerState extends State<drawer> {
                                 SizedBox(
                                   height: 0.5.h,
                                 ),
-                                Text(userData?.logindata?.mobileNo ?? "",
+                                Text(userData?.logindata?.phoneOne ?? "",
                                     style: TextStyle(
                                         color: Color(0xfff8484b8),
                                         fontWeight: FontWeight.w600)),

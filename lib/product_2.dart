@@ -53,6 +53,8 @@ class _product_2State extends State<product_2> {
   int gen = 0;
   int cart = 0;
   int sumindex = 0;
+  // int block = 1;
+  // int add_cart = 2;
 
   final PageController controller = PageController(initialPage: 0);
   List<products> images = [
@@ -440,79 +442,79 @@ class _product_2State extends State<product_2> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
+                    // SizedBox(
+                    //   height: 1.h,
+                    // ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 2.h),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(color: Color(0xfff9e9ec7))),
-                        alignment: Alignment.center,
-                        height: 6.h,
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.symmetric(horizontal: 1.w),
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            physics: BouncingScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: tabs.length,
-                            itemBuilder: (context, index) {
-                              return GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    selectindex = index;
-                                  });
-                                },
-                                child: Column(
-                                  // crossAxisAlignment: CrossAxisAlignment.center,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.center,
-
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: (selectindex == index)
-                                            ? Color(0xfff333389)
-                                            : Color(0xfffFFFFFF),
-                                      ),
-
-                                      height: 4.6.h,
-                                      width: 44.w,
-                                      margin: EdgeInsets.only(
-                                          right: 0.1.w, top: 0.6.h),
-
-                                      // padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.h),
-                                      child: Text(
-                                        tabs[index],
-                                        style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontWeight: FontWeight.bold,
-                                          color: (selectindex != index)
-                                              ? Colors.grey.shade600
-                                              : Color(0xffffffff),
-                                        ),
-                                      ),
-                                    ),
-                                    // (selectindex != index)
-                                    //     ? Container()
-                                    //     : Center(
-                                    //         child: Container(
-                                    //             height: 7.0,
-                                    //             width: 7.0,
-                                    //             decoration: BoxDecoration(
-                                    //                 shape: BoxShape.circle,
-                                    //                 color: Color(0xffb4776e6)
-                                    //             )
-                                    //         ),
-                                    //       ),
-                                  ],
-                                ),
-                              );
-                            }),
-                      ),
+                      // child: Container(
+                      //   decoration: BoxDecoration(
+                      //       borderRadius: BorderRadius.circular(25),
+                      //       border: Border.all(color: Color(0xfff9e9ec7))),
+                      //   alignment: Alignment.center,
+                      //   height: 6.h,
+                      //   width: MediaQuery.of(context).size.width,
+                      //   padding: EdgeInsets.symmetric(horizontal: 1.w),
+                      //   child: ListView.builder(
+                      //       scrollDirection: Axis.horizontal,
+                      //       physics: BouncingScrollPhysics(),
+                      //       shrinkWrap: true,
+                      //       itemCount: tabs.length,
+                      //       itemBuilder: (context, index) {
+                      //         return GestureDetector(
+                      //           onTap: () {
+                      //             setState(() {
+                      //               selectindex = index;
+                      //             });
+                      //           },
+                      //           child: Column(
+                      //             // crossAxisAlignment: CrossAxisAlignment.center,
+                      //             // mainAxisAlignment: MainAxisAlignment.center,
+                      //             children: [
+                      //               Container(
+                      //                 alignment: Alignment.center,
+                      //
+                      //                 decoration: BoxDecoration(
+                      //                   borderRadius: BorderRadius.circular(20),
+                      //                   color: (selectindex == index)
+                      //                       ? Color(0xfff333389)
+                      //                       : Color(0xfffFFFFFF),
+                      //                 ),
+                      //
+                      //                 height: 4.6.h,
+                      //                 width: 44.w,
+                      //                 margin: EdgeInsets.only(
+                      //                     right: 0.1.w, top: 0.6.h),
+                      //
+                      //                 // padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.h),
+                      //                 child: Text(
+                      //                   tabs[index],
+                      //                   style: TextStyle(
+                      //                     fontFamily: "Poppins",
+                      //                     fontWeight: FontWeight.bold,
+                      //                     color: (selectindex != index)
+                      //                         ? Colors.grey.shade600
+                      //                         : Color(0xffffffff),
+                      //                   ),
+                      //                 ),
+                      //               ),
+                      //               // (selectindex != index)
+                      //               //     ? Container()
+                      //               //     : Center(
+                      //               //         child: Container(
+                      //               //             height: 7.0,
+                      //               //             width: 7.0,
+                      //               //             decoration: BoxDecoration(
+                      //               //                 shape: BoxShape.circle,
+                      //               //                 color: Color(0xffb4776e6)
+                      //               //             )
+                      //               //         ),
+                      //               //       ),
+                      //             ],
+                      //           ),
+                      //         );
+                      //       }),
+                      // ),
                     ),
                     (selectindex == 0)
                         ? Container(
@@ -523,12 +525,37 @@ class _product_2State extends State<product_2> {
                                   child: Container(
                                       alignment: Alignment.centerLeft,
                                       margin: EdgeInsets.only(top: 1.h),
-                                      child: Text(
-                                        "Select Color",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 2.4.h,
-                                        ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Select Color",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 2.4.h,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Container(
+                                                height: 4.h,
+                                                width: 9.w,
+                                                decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    color:     Color(0xff9e0303),
+                                                ),
+                                              ),
+                                              SizedBox(width: 1.w),
+                                              Text(
+                                                "Red",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 2.4.h,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       )),
                                 ),
                                 // SizedBox(
@@ -605,12 +632,16 @@ class _product_2State extends State<product_2> {
                                           fontWeight: FontWeight.bold,
                                           fontSize: 2.4.h,
                                         ),
-                                      )),
+                                      )
+                                  ),
                                 ),
                                 // SizedBox(
                                 //   height: 2.h,
                                 // ),
-                                Divider(color: Colors.grey.shade400),
+                                Padding(
+                                  padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                                  child: Divider(color: Colors.grey.shade400),
+                                ),
                                 Padding(
                                   padding: EdgeInsets.all(2.h),
                                   child: Container(
@@ -687,52 +718,130 @@ class _product_2State extends State<product_2> {
                                 ),
                                 SizedBox(height: 2.h),
                                 Container(
-                                    alignment: Alignment.center,
-                                    height: 6.h,
+                                    // alignment: Alignment.centerLeft,
+                                    height: 10.h,
                                     width: MediaQuery.of(context).size.width,
                                     color: Color(0xfffeaeaf3),
                                     child: Padding(
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 2.h),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+
                                         children: [
-                                          Text(
-                                            "Color:",
-                                            style: TextStyle(
-                                              fontSize: 2.5.h,
-                                            ),
+
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                width: 18.w,
+
+                                                child: Text(
+                                                  "Color :",
+                                                  style: TextStyle(
+                                                    fontSize: 1.5.h,
+                                                  ),
+                                                ),
+                                              ),
+                                              // Text(
+                                              //   " Red",
+                                              //   style: TextStyle(
+                                              //       fontSize: 1.h,
+                                              //       color: Color(0xfff333389)),
+                                              // ),
+                                              // // SizedBox(
+                                              // //   width: 6.h,
+                                              // // ),
+                                              // Text(
+                                              //   "|",
+                                              //   style: TextStyle(
+                                              //       fontSize: 1.h,
+                                              //       color: Color(0xfff333389)),
+                                              // ),
+                                              // SizedBox(
+                                              //   width: 7.h,
+                                              // ),
+                                              Container(
+                                                  width: 18.w,
+                                                child: Text(
+                                                  "S - XL :",
+                                                  style: TextStyle(
+                                                    fontSize: 1.5.h,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                  width: 18.w,
+                                                child: Text(
+                                                  "2XL - 3XL :",
+                                                  style: TextStyle(
+                                                      fontSize: 1.5.h,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          Text(
-                                            " Red",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
-                                          ),
-                                          // SizedBox(
-                                          //   width: 6.h,
-                                          // ),
-                                          Text(
-                                            "|",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
-                                          ),
-                                          // SizedBox(
-                                          //   width: 7.h,
-                                          // ),
-                                          Text(
-                                            "Price:",
-                                            style: TextStyle(
-                                              fontSize: 2.5.h,
-                                            ),
-                                          ),
-                                          Text(
-                                            " ₹125",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
+                                          SizedBox(height: 1.h),
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                               
+                                                  width: 18.w,
+                                                child: Text(
+                                                  "Red",
+                                                  style: TextStyle(
+                                                      fontSize: 2.5.h,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Color(0xfff333389)),
+                                                ),
+                                              ),
+                                              // Text(
+                                              //   " Red",
+                                              //   style: TextStyle(
+                                              //       fontSize: 2.5.h,
+                                              //       color: Color(0xfff333389)),
+                                              // ),
+                                              // // SizedBox(
+                                              // //   width: 6.h,
+                                              // // ),
+                                              // Text(
+                                              //   "|",
+                                              //   style: TextStyle(
+                                              //       fontSize: 2.5.h,
+                                              //       color: Color(0xfff333389)),
+                                              // ),
+                                              // SizedBox(
+                                              //   width: 7.h,
+                                              // ),
+                                              Container(
+                                                  width: 18.w,
+                                                child: Text(
+                                                  "₹125",
+                                                  style: TextStyle(
+                                                    fontSize: 2.5.h,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Color(0xfff333389)
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                  width: 18.w,
+                                                child: Text(
+                                                  " ₹150",
+                                                  style: TextStyle(
+                                                      fontSize: 2.5.h,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Color(0xfff333389)),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
@@ -743,7 +852,7 @@ class _product_2State extends State<product_2> {
 
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      right: 18.w, left: 3.w, bottom: 2.h),
+                                      right: 12.w, left: 3.w, bottom: 2.h),
                                   child: Container(
                                     child: Row(
                                       crossAxisAlignment:
@@ -777,6 +886,7 @@ class _product_2State extends State<product_2> {
                                 Padding(
                                   padding: EdgeInsets.all(2.h),
                                   child: Container(
+                                    margin: EdgeInsets.only(left: 3.w),
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -786,13 +896,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "S ",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 2.5.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -838,7 +948,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -885,7 +995,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -933,6 +1043,7 @@ class _product_2State extends State<product_2> {
                                   ),
                                 ),
                                 Container(
+                                    margin: EdgeInsets.only(left: 3.w),
                                   alignment: Alignment.center,
                                   height: 12.h,
                                   width: MediaQuery.of(context).size.width,
@@ -948,13 +1059,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "M ",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 2.5.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1000,7 +1111,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1047,7 +1158,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1097,6 +1208,7 @@ class _product_2State extends State<product_2> {
                                 Padding(
                                   padding: EdgeInsets.all(2.h),
                                   child: Container(
+                                    margin: EdgeInsets.only(left: 3.w),
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -1106,13 +1218,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "L ",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 2.5.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1158,7 +1270,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1205,7 +1317,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1253,6 +1365,7 @@ class _product_2State extends State<product_2> {
                                   ),
                                 ),
                                 Container(
+                                    margin: EdgeInsets.only(left: 3.w),
                                   alignment: Alignment.center,
                                   height: 12.h,
                                   width: MediaQuery.of(context).size.width,
@@ -1268,13 +1381,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 2.5.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1320,7 +1433,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1367,7 +1480,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1417,6 +1530,7 @@ class _product_2State extends State<product_2> {
                                 Padding(
                                   padding: EdgeInsets.all(2.h),
                                   child: Container(
+                                      margin: EdgeInsets.only(left: 3.w),
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -1426,13 +1540,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "2XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 2.5.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1478,7 +1592,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1525,7 +1639,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1573,6 +1687,7 @@ class _product_2State extends State<product_2> {
                                   ),
                                 ),
                                 Container(
+                                    margin: EdgeInsets.only(left: 3.w),
                                   alignment: Alignment.center,
                                   height: 12.h,
                                   width: MediaQuery.of(context).size.width,
@@ -1588,13 +1703,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "3XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 2.5.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1640,7 +1755,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1687,7 +1802,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1737,6 +1852,7 @@ class _product_2State extends State<product_2> {
                                 Padding(
                                   padding: EdgeInsets.all(2.h),
                                   child: Container(
+                                      margin: EdgeInsets.only(left: 3.w),
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -1746,7 +1862,7 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "4XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 2.5.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
@@ -1798,7 +1914,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1845,7 +1961,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1893,6 +2009,7 @@ class _product_2State extends State<product_2> {
                                   ),
                                 ),
                                 Container(
+                                    margin: EdgeInsets.only(left: 3.w),
                                   alignment: Alignment.center,
                                   height: 12.h,
                                   width: MediaQuery.of(context).size.width,
@@ -1908,13 +2025,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "5XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 2.5.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1924,6 +2041,7 @@ class _product_2State extends State<product_2> {
                                             ),
                                             SizedBox(height: 1.h),
                                             Container(
+                                              
                                                 alignment: Alignment.center,
                                                 width: 10.h,
                                                 height: 4.h,
@@ -1960,7 +2078,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -2007,7 +2125,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -2185,60 +2303,7 @@ class _product_2State extends State<product_2> {
                                                       .width,
                                                 ),
                                               ),
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.9,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                    0.07,
-                                                // color: Color(0xfff333389),
-                                                // padding:
-                                                //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
-                                                child: ElevatedButton(
-                                                  onPressed: () {
-                                                    // Navigator.push(
-                                                    //     context,
-                                                    //     MaterialPageRoute(
-                                                    //         builder: (context) => products_1()));
-                                                  },
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    backgroundColor:
-                                                        Color(0xfff333389),
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                  ),
-                                                  child: Row(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        'Image',
-                                                        style: TextStyle(
-                                                            fontSize: 2.h),
-                                                      ),
-                                                      // Icon(
-                                                      //   Icons.arrow_forward,
-                                                      //   color: Colors.white,
-                                                      //   size: 24.0,
-                                                      //   semanticLabel:
-                                                      //   'Text to announce in accessibility modes',
-                                                      // ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
+
                                               SizedBox(height: 1.h),
                                               Container(
                                                 alignment: Alignment.center,
@@ -2281,7 +2346,7 @@ class _product_2State extends State<product_2> {
                                                         ),
                                                       ),
                                                       child: Text(
-                                                        'Catalog',
+                                                        'Image',
                                                         style: TextStyle(
                                                             fontSize: 2.h),
                                                       ),
@@ -2316,6 +2381,60 @@ class _product_2State extends State<product_2> {
                                                       ),
                                                     ),
                                                   ],
+                                                ),
+                                              ),
+                                              Container(
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                    0.9,
+                                                height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                    0.07,
+                                                // color: Color(0xfff333389),
+                                                // padding:
+                                                //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
+                                                child: ElevatedButton(
+                                                  onPressed: () {
+                                                    // Navigator.push(
+                                                    //     context,
+                                                    //     MaterialPageRoute(
+                                                    //         builder: (context) => products_1()));
+                                                  },
+                                                  style:
+                                                  ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                    Color(0xfff333389),
+                                                    shape:
+                                                    RoundedRectangleBorder(
+                                                      borderRadius:
+                                                      BorderRadius.circular(
+                                                          8),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    crossAxisAlignment:
+                                                    CrossAxisAlignment
+                                                        .center,
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .center,
+                                                    children: [
+                                                      Text(
+                                                        'Download Catalogue',
+                                                        style: TextStyle(
+                                                            fontSize: 2.h),
+                                                      ),
+                                                      // Icon(
+                                                      //   Icons.arrow_forward,
+                                                      //   color: Colors.white,
+                                                      //   size: 24.0,
+                                                      //   semanticLabel:
+                                                      //   'Text to announce in accessibility modes',
+                                                      // ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ],

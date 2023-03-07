@@ -70,29 +70,29 @@ class _loginState extends State<login> {
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.08,
                       child: TextFormField(
-                        validator: (value) {
-                          String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
-                              "\\@" +
-                              "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                              "(" +
-                              "\\." +
-                              "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                              ")+";
-                          //Convert string p to a RegE  x
-                          RegExp regExp = RegExp(p);
-
-                          if (value!.isEmpty) {
-                            return 'Please enter Your Email';
-                          } else {
-                            //If email address matches pattern
-                            if (regExp.hasMatch(value)) {
-                              return null;
-                            } else {
-                              //If it doesn't match
-                              return 'Email is not valid';
-                            }
-                          }
-                        },
+                        // validator: (value) {
+                        //   String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+                        //       "\\@" +
+                        //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                        //       "(" +
+                        //       "\\." +
+                        //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                        //       ")+";
+                        //   //Convert string p to a RegE  x
+                        //   RegExp regExp = RegExp(p);
+                        //
+                        //   if (value!.isEmpty) {
+                        //     return 'Please enter Your Email';
+                        //   } else {
+                        //     //If email address matches pattern
+                        //     if (regExp.hasMatch(value)) {
+                        //       return null;
+                        //     } else {
+                        //       //If it doesn't match
+                        //       return 'Email is not valid';
+                        //     }
+                        //   }
+                        // },
                         controller: _email,
                         decoration: InputDecoration(
                           // suffixIcon: Icon(
@@ -235,6 +235,7 @@ class _loginState extends State<login> {
   loginApi() async {
     if (_formKey.currentState!.validate()) {
       final Map<String, String> data = {};
+
       data['loginEmail'] = _email.text.trim().toString();
       data['loginPassword'] = _password.text.trim().toString();
       data['action'] = 'login';

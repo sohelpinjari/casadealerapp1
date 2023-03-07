@@ -22,6 +22,8 @@ class _registerState extends State<register> {
   // TextEditingController _email = TextEditingController();
   TextEditingController _password = TextEditingController();
   TextEditingController _password1 = TextEditingController();
+  TextEditingController _email = TextEditingController();
+
 
   final _formKey = GlobalKey<FormState>();
   bool _passwordVisible1 = false;
@@ -152,6 +154,56 @@ class _registerState extends State<register> {
                             //   color: Color(0xfff9696c1),
                             //   size: 3.5.h,
                             // ),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0xfffFBFBFB),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: MediaQuery.of(context).size.height * 0.08,
+                        child: TextFormField(
+                          validator: (value) {
+                            String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+                                "\\@" +
+                                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                                "(" +
+                                "\\." +
+                                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                                ")+";
+                            //Convert string p to a RegE  x
+                            RegExp regExp = RegExp(p);
+
+                            if (value!.isEmpty) {
+                              return 'Please enter Your Email';
+                            } else {
+                              //If email address matches pattern
+                              if (regExp.hasMatch(value)) {
+                                return null;
+                              } else {
+                                //If it doesn't match
+                                return 'Email is not valid';
+                              }
+                            }
+                          },
+                          controller: _email,
+                          decoration: InputDecoration(
+                            // suffixIcon: Icon(
+                            //   Icons.person_outline,
+                            //   color: Color(0xfff9696c1),
+                            //   size: 3.5.h,
+                            // ),
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.all(2.h),
+                            hintText: 'Email Address',
                           ),
                         ),
                         decoration: BoxDecoration(
@@ -396,5 +448,79 @@ class _registerState extends State<register> {
         ),
       ),
     );
+  }
+}
+
+loginApi() async {
+  if (_formKey.currentState!.validate()) {
+    final Map<String, String> data = {};
+
+    data['fullname'] = _firstname.text.trim().toString();
+    data['company_name'] = _password.text.trim().toString();
+    data['mobile_no_one'] = _password.text.trim().toString();
+    data['mobile_no_two'] = _password.text.trim().toString();
+    data['email_id'] = _password.text.trim().toString();
+    data['password'] = _password.text.trim().toString();
+    data['confirm_password'] = _confirm_password.text.trim().toString();
+
+
+
+    data['action'] = 'signup';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        Authprovider().loginapi(data).then((Response response) async {
+          SharedPreferences _sharedpreferences =
+          await SharedPreferences.getInstance();
+          print(response.statusCode);
+          userData = usermodal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && userData!.status == "success") {
+            SaveDataLocal.saveLogInData(userData!);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => loginsuccess()));
+            // Fluttertoast.showToast(
+            //   msg: "Logged In Successfully",
+            //   textColor: Colors.white,
+            //   toastLength: Toast.LENGTH_SHORT,
+            //   timeInSecForIosWeb: 1,
+            //   gravity: ToastGravity.BOTTOM,
+            //   backgroundColor: Colors.indigo,
+            // );
+
+            if (kDebugMode) {}
+
+            _email.text = "";
+            _password.text = "";
+          } else {
+            // Fluttertoast.showToast(
+            //   msg: "Enter A Valid Email Address",
+            //   textColor: Colors.white,
+            //   toastLength: Toast.LENGTH_SHORT,
+            //   timeInSecForIosWeb: 1,
+            //   gravity: ToastGravity.BOTTOM,
+            //   backgroundColor: Colors.indigo,
+            // );
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                          child: Text(
+                            'Invalid Login',
+                            style: TextStyle(color: Colors.red),
+                          ))
+                    ],
+                  ),
+                );
+              },
+            );
+          }
+        });
+      } else {}
+    });
   }
 }
