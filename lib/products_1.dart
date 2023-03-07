@@ -139,9 +139,9 @@ class _products_1State extends State<products_1> {
                               // _scaffoldKey.currentState?.openDrawer();
                             },
                             icon: Icon(
-                              Icons.check_box_outline_blank,
+                              Icons.search,
                               color: Colors.white,
-                              size: 3.h,
+                              size: 3.5.h,
                             ),
                           ),
                           SizedBox(
@@ -430,7 +430,7 @@ class _products_1State extends State<products_1> {
                                       imagenevigator:
                                           (images[index].image).toString(),
                                       pronamenevigatior:
-                                          '${productData?.productData![index].apName}',
+                                      images[index].Street_Wear.toString(),
                                       coloridnevigator:
                                           '${productData?.productData![index].apId}',
                                     )));
@@ -547,7 +547,7 @@ class _products_1State extends State<products_1> {
                             padding: EdgeInsets.only(left: 0.8.h),
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              '${productData?.productData![index].apName}',
+                              images[index].Street_Wear.toString(),
                               style: TextStyle(
                                   fontSize: 2.3.h, fontWeight: FontWeight.bold),
                             ),

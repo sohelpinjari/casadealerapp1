@@ -299,7 +299,7 @@ class _drawerState extends State<drawer> {
                           //   color: index[4] ? Color(0xffb4776e6) : Colors.black,
                           // ),
                           leading: Icon(
-                            Icons.circle_outlined,
+                            Icons.exit_to_app,
                             // color: Color(0xffb4776e6),
                             color: index[5] ? Color(0xffb4776e6) : Color(0xff8484b8),
                           ),

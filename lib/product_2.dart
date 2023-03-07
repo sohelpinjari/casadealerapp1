@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/login_authprovider.dart';
@@ -22,7 +21,12 @@ class product_2 extends StatefulWidget {
   String? pronamenevigatior;
   String? coloridnevigator;
 
-  product_2({Key? key,this.imagenevigator,this.pronamenevigatior,this.coloridnevigator}): super(key: key);
+  product_2(
+      {Key? key,
+      this.imagenevigator,
+      this.pronamenevigatior,
+      this.coloridnevigator})
+      : super(key: key);
 
   @override
   State<product_2> createState() => _product_2State();
@@ -48,6 +52,7 @@ class _product_2State extends State<product_2> {
   int btn = 0;
   int gen = 0;
   int cart = 0;
+  int sumindex = 0;
 
   final PageController controller = PageController(initialPage: 0);
   List<products> images = [
@@ -160,9 +165,9 @@ class _product_2State extends State<product_2> {
                             // _scaffoldKey.currentState?.openDrawer();
                           },
                           icon: Icon(
-                            Icons.check_box_outline_blank,
+                            Icons.search,
                             color: Colors.white,
-                            size: 3.h,
+                            size: 3.5.h,
                           ),
                         ),
                         SizedBox(
@@ -281,12 +286,15 @@ class _product_2State extends State<product_2> {
                                                           ),
                                                         ),
                                                         child: Padding(
-                                                          padding:  EdgeInsets.all(0.5.h),
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  0.5.h),
                                                           child: Text(
                                                             "Brand Name",
                                                             style: TextStyle(
                                                               fontSize: 1.3.h,
-                                                              color: Colors.white,
+                                                              color:
+                                                                  Colors.white,
                                                             ),
                                                           ),
                                                         ),
@@ -804,13 +812,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -836,13 +858,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -869,13 +905,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -924,13 +974,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -956,13 +1020,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -989,13 +1067,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -1040,13 +1132,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -1072,13 +1178,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -1105,13 +1225,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -1160,13 +1294,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -1192,13 +1340,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -1225,13 +1387,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -1276,13 +1452,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -1308,13 +1498,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -1341,13 +1545,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -1396,13 +1614,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -1428,13 +1660,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -1461,13 +1707,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -1512,13 +1772,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -1544,13 +1818,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -1577,13 +1865,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -1632,13 +1934,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -1664,13 +1980,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -1697,13 +2027,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -2278,13 +2622,26 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -2310,13 +2667,26 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -2343,13 +2713,26 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -2398,13 +2781,26 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -2430,13 +2826,26 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -2463,13 +2872,26 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -2514,13 +2936,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -2546,13 +2982,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -2579,13 +3029,26 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -2634,13 +3097,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -2666,13 +3143,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -2699,13 +3190,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -2750,13 +3255,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -2782,13 +3301,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -2815,13 +3348,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -2870,13 +3417,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -2902,13 +3463,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -2935,13 +3510,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -2986,13 +3575,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -3018,13 +3621,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -3051,13 +3668,26 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -3106,13 +3736,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -3138,13 +3782,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -3171,13 +3829,27 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-                                                child: Text("",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        color:
-                                                            Color(0xfff333389),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                                child: TextField(
+                                                  decoration:
+                                                  InputDecoration(
+                                                    border:
+                                                    InputBorder.none,
+                                                    hintText: '',
+                                                    // suffixIcon: Column(
+                                                    //
+                                                    //   children: [
+                                                    //     Icon(Icons.arrow_drop_up),
+                                                    //     Icon(Icons.arrow_drop_down),
+                                                    //   ],
+                                                    // )
+                                                  ),
+                                                  // child: Text(
+                                                  //   "1000",
+                                                  //   style: TextStyle(
+                                                  //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                  // ),
+                                                )
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -3280,7 +3952,6 @@ class _product_2State extends State<product_2> {
                                       SingleChildScrollView(
                                         scrollDirection: Axis.vertical,
                                         child: Container(
-
                                           height: 100.h,
                                           child: ListTile(
                                               title: Column(
@@ -3296,15 +3967,11 @@ class _product_2State extends State<product_2> {
                                                 height: 2.h,
                                               ),
                                               Container(
-
-                                                  alignment:
-                                                      Alignment.centerLeft,
-                                                  child: Text("Size Chart",
-                                                      style: TextStyle(
-                                                          fontWeight: FontWeight
-                                                              .bold)
-                                                              ),
-
+                                                alignment: Alignment.centerLeft,
+                                                child: Text("Size Chart",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold)),
                                               ),
                                               SizedBox(height: 1.h),
                                               Divider(
@@ -3480,9 +4147,14 @@ class _product_2State extends State<product_2> {
                     children: [
                       GestureDetector(
                         onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => summary()));
                           setState(() {
                             cart = 1;
-                          });
+
+                                                    });
                         },
                         child: Container(
                           padding: EdgeInsets.all(0.1.h),
@@ -3638,12 +4310,10 @@ class _product_2State extends State<product_2> {
           } else {
             CircularProgressIndicator();
           }
-        }
-        );
+        });
       } else {
         setState(() {});
       }
-    }
-    );
+    });
   }
 }
