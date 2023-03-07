@@ -1,4 +1,5 @@
 import 'package:casadealerapp/drawer.dart';
+import 'package:casadealerapp/summary.dart';
 import 'package:casadealerapp/your_block_order.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -30,6 +31,8 @@ class _block_orderState extends State<block_order> {
   ];
 
   int cart = 0;
+  int i = 1000;
+
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   @override
@@ -120,7 +123,7 @@ class _block_orderState extends State<block_order> {
             Column(
               children: [
                 Container(
-                  height: 78.h,
+                  height: 79.h,
                   child: ListView.builder(
                     // padding: EdgeInsets.all(0),
                     // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
@@ -202,21 +205,63 @@ class _block_orderState extends State<block_order> {
                                           ),
                                           SizedBox(width: 2.h),
                                           Container(
-                                            alignment: Alignment.center,
+                                            alignment:
+                                            Alignment.center,
                                             height: 4.h,
                                             width: 25.w,
                                             decoration: BoxDecoration(
                                               border: Border.all(
-                                                color: Color(0xff5a5a9f),
+                                                color:
+                                                Color(0xff5a5a9f),
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                              BorderRadius
+                                                  .circular(8),
                                             ),
-                                            child: Text(
-                                              "1000",
-                                              style: TextStyle(
-                                                  color: Color(0xff5a5a9f)),
+                                            child: Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+                                              children: [
+                                                GestureDetector(
+                                                    onTap: () {
+                                                      setState(() {
+                                                        if (i > 1) {
+                                                          i--;
+
+                                                        }
+
+                                                      });
+                                                    },
+
+                                                    child: Icon(Icons.remove,
+                                                      size: 2.h,
+                                                      color: Color(0xff5a5a9f),
+                                                    )),
+
+                                                Text(
+                                                  i.toString(),
+                                                  style: TextStyle(
+
+                                                      color: Color(
+                                                          0xff5a5a9f),
+                                                      fontWeight:
+                                                      FontWeight
+                                                          .bold),
+                                                ),
+                                                GestureDetector(
+                                                    onTap: () {
+                                                      setState(() {
+                                                        i++;
+                                                      });
+                                                    },
+                                                    child: Icon(Icons.add,
+                                                      size: 2.h,
+                                                      color: Color(0xff5a5a9f),
+                                                    ))
+                                              ],
                                             ),
+
                                           )
                                         ],
                                       ),
@@ -278,7 +323,7 @@ class _block_orderState extends State<block_order> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 9.1.h,
+                  height: 9.h,
                   child: Padding(
                     padding: EdgeInsets.all(2.h),
                     child: Container(
@@ -288,6 +333,10 @@ class _block_orderState extends State<block_order> {
                         children: [
                           GestureDetector(
                             onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => summary()));
                               setState(() {
                                 cart = 1;
                               });

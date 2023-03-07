@@ -1,6 +1,9 @@
 import 'dart:ffi';
 
+import 'package:casadealerapp/block_order.dart';
+import 'package:casadealerapp/cart_order.dart';
 import 'package:casadealerapp/drawer.dart';
+import 'package:casadealerapp/products_1.dart';
 import 'package:casadealerapp/your_order.dart';
 
 import 'package:flutter/material.dart';
@@ -17,7 +20,7 @@ class _summaryState extends State<summary> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool? check = false;
   int sum = 0;
-  int sumindex = 0;
+  int sumindex = 1;
   List<String> tabs = ["Blocked", "Cart"];
   List<bool> checkbox = [
     false,
@@ -33,6 +36,9 @@ class _summaryState extends State<summary> {
   ];
 
   int cart = 0;
+  int i = 1000;
+  int i2 = 1000;
+
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
@@ -66,7 +72,6 @@ class _summaryState extends State<summary> {
                             color: Colors.white,
                           ),
                         ),
-
                         SizedBox(
                           width: 2.3.h,
                         ),
@@ -75,7 +80,8 @@ class _summaryState extends State<summary> {
                           // alignment: Alignment.center,
                           child: Text(
                             "Summary",
-                            style: TextStyle(fontSize: 2.h, color: Colors.white),
+                            style:
+                                TextStyle(fontSize: 2.h, color: Colors.white),
                           ),
                         ),
                       ],
@@ -149,7 +155,6 @@ class _summaryState extends State<summary> {
                             Container(
                               alignment: Alignment.center,
 
-
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 color: (sumindex == index)
@@ -214,8 +219,8 @@ class _summaryState extends State<summary> {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
@@ -230,7 +235,8 @@ class _summaryState extends State<summary> {
                                   //   width: 5.w,
                                   // ),
                                   Container(
-                                    width: MediaQuery.of(context).size.width*0.45,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.45,
                                     child: Row(
                                       children: [
                                         Padding(
@@ -244,14 +250,18 @@ class _summaryState extends State<summary> {
                                                   Text(
                                                     'Street Wear',
                                                     style: TextStyle(
-                                                        fontWeight: FontWeight.bold,
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                         fontSize: 2.3.h),
                                                   ),
                                                   SizedBox(width: 5.w),
                                                   Text(
                                                     '₹125',
                                                     style: TextStyle(
-                                                        color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                        color:
+                                                            Color(0xff5a5a9f),
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ),
                                                 ],
                                               ),
@@ -263,7 +273,9 @@ class _summaryState extends State<summary> {
                                                   Text(
                                                     'Color : Red   Size : M',
                                                     style: TextStyle(
-                                                        color: Color(0xff5a5a9f),  fontSize: 1.7.h),
+                                                        color:
+                                                            Color(0xff5a5a9f),
+                                                        fontSize: 1.7.h),
                                                   ),
                                                 ],
                                               ),
@@ -275,25 +287,68 @@ class _summaryState extends State<summary> {
                                                   Text(
                                                     'Qty :',
                                                     style: TextStyle(
-                                                        color: Color(0xffb9b9b9)),
+                                                        color:
+                                                            Color(0xffb9b9b9)),
                                                   ),
                                                   SizedBox(width: 3.w),
                                                   Container(
-                                                    alignment: Alignment.center,
+                                                    alignment:
+                                                    Alignment.center,
                                                     height: 4.h,
                                                     width: 25.w,
                                                     decoration: BoxDecoration(
                                                       border: Border.all(
-                                                        color: Color(0xff5a5a9f),
+                                                        color:
+                                                        Color(0xff5a5a9f),
                                                       ),
                                                       borderRadius:
-                                                          BorderRadius.circular(8),
+                                                      BorderRadius
+                                                          .circular(8),
                                                     ),
-                                                    child: Text(
-                                                      "1000",
-                                                      style: TextStyle(
-                                                          color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                    child: Row(
+                                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+                                                      children: [
+                                                        GestureDetector(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                if (i2 > 1) {
+                                                                  i2--;
+
+                                                                }
+
+                                                              });
+                                                            },
+
+                                                            child: Icon(Icons.remove,
+                                                              size: 2.h,
+                                                              color: Color(0xff5a5a9f),
+                                                            )),
+
+                                                        Text(
+                                                          i2.toString(),
+                                                          style: TextStyle(
+
+                                                              color: Color(
+                                                                  0xff5a5a9f),
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold),
+                                                        ),
+                                                        GestureDetector(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                i2++;
+                                                              });
+                                                            },
+                                                            child: Icon(Icons.add,
+                                                              size: 2.h,
+                                                              color: Color(0xff5a5a9f),
+                                                            ))
+                                                      ],
                                                     ),
+
                                                   )
                                                 ],
                                               ),
@@ -371,6 +426,11 @@ class _summaryState extends State<summary> {
                               children: [
                                 GestureDetector(
                                   onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                products_1()));
                                     setState(() {
                                       cart = 1;
                                     });
@@ -406,7 +466,8 @@ class _summaryState extends State<summary> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => your_order()));
+                                            builder: (context) =>
+                                                block_order()));
                                     setState(() {
                                       cart = 0;
                                     });
@@ -477,8 +538,8 @@ class _summaryState extends State<summary> {
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
@@ -493,70 +554,120 @@ class _summaryState extends State<summary> {
                                     //   width: 5.w,
                                     // ),
                                     Container(
-                                      width: MediaQuery.of(context).size.width*0.45,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.45,
                                       child: Row(
                                         children: [
                                           Padding(
                                             padding: EdgeInsets.all(1.h),
                                             child: Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Row(
                                                   children: [
                                                     Text(
                                                       'Street Wear',
                                                       style: TextStyle(
-                                                          fontWeight: FontWeight.bold,
+                                                          fontWeight:
+                                                              FontWeight.bold,
                                                           fontSize: 2.3.h),
                                                     ),
                                                     SizedBox(width: 5.w),
                                                     Text(
                                                       '₹125',
                                                       style: TextStyle(
-                                                          color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                          color:
+                                                              Color(0xff5a5a9f),
+                                                          fontWeight:
+                                                              FontWeight.bold),
                                                     ),
                                                   ],
                                                 ),
                                                 SizedBox(height: 1.5.h),
                                                 Row(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       'Color : Red   Size : M',
                                                       style: TextStyle(
-                                                          color: Color(0xff5a5a9f), fontSize: 1.7.h),
+                                                          color:
+                                                              Color(0xff5a5a9f),
+                                                          fontSize: 1.7.h),
                                                     ),
                                                   ],
                                                 ),
                                                 SizedBox(height: 2.h),
                                                 Row(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       'Qty :',
                                                       style: TextStyle(
-                                                          color: Color(0xffb9b9b9)),
+                                                          color: Color(
+                                                              0xffb9b9b9)),
                                                     ),
                                                     SizedBox(width: 3.w),
                                                     Container(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       height: 4.h,
                                                       width: 25.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
-                                                          color: Color(0xff5a5a9f),
+                                                          color:
+                                                              Color(0xff5a5a9f),
                                                         ),
                                                         borderRadius:
-                                                        BorderRadius.circular(8),
+                                                            BorderRadius
+                                                                .circular(8),
                                                       ),
-                                                      child: Text(
-                                                        "1000",
-                                                        style: TextStyle(
-                                                            color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                                                      child: Row(
+                                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+                                                        children: [
+                                                          GestureDetector(
+                                                              onTap: () {
+                                                                setState(() {
+                                                                  if (i > 1) {
+                                                                    i--;
+
+                                                                  }
+
+                                                                });
+                                                              },
+
+                                                              child: Icon(Icons.remove,
+                                                               size: 2.h,
+                                                                color: Color(0xff5a5a9f),
+                                                              )),
+
+                                                          Text(
+                                                            i.toString(),
+                                                            style: TextStyle(
+
+                                                                color: Color(
+                                                                    0xff5a5a9f),
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          GestureDetector(
+                                                              onTap: () {
+                                                                setState(() {
+                                                                 i++;
+                                                                });
+                                                              },
+                                                              child: Icon(Icons.add,
+                                                              size: 2.h,
+                                                              color: Color(0xff5a5a9f),
+                                                              ))
+                                                        ],
                                                       ),
+                                                      
                                                     )
                                                   ],
                                                 ),
@@ -571,9 +682,9 @@ class _summaryState extends State<summary> {
                                       padding: EdgeInsets.all(0.2.h),
                                       child: Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                            MainAxisAlignment.start,
                                         children: [
                                           Container(
                                             height: 5.h,
@@ -594,7 +705,8 @@ class _summaryState extends State<summary> {
                                           ),
                                           SizedBox(height: 3.h),
                                           Container(
-                                            margin: EdgeInsets.only(left: 3.9.w),
+                                            margin:
+                                                EdgeInsets.only(left: 3.9.w),
                                             decoration: BoxDecoration(
                                               color: Color(0xffe2e2ed),
 
@@ -602,7 +714,7 @@ class _summaryState extends State<summary> {
                                               //   // color:  Color(0xff5a5a9f),
                                               // ),
                                               borderRadius:
-                                              BorderRadius.circular(20),
+                                                  BorderRadius.circular(20),
                                             ),
                                             height: 5.h,
                                             width: 10.w,
@@ -635,6 +747,11 @@ class _summaryState extends State<summary> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  products_1()));
                                       setState(() {
                                         cart = 1;
                                       });
@@ -648,9 +765,10 @@ class _summaryState extends State<summary> {
                                           color: (cart == 0)
                                               ? Colors.white
                                               : Color(0xfff333389),
-                                          borderRadius: BorderRadius.circular(20),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                           border:
-                                          Border.all(color: Colors.white)),
+                                              Border.all(color: Colors.white)),
                                       child: Text(
                                         'Exit',
                                         style: TextStyle(
@@ -667,6 +785,11 @@ class _summaryState extends State<summary> {
                                   ),
                                   GestureDetector(
                                     onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  cart_order()));
                                       setState(() {
                                         cart = 0;
                                       });
@@ -682,9 +805,10 @@ class _summaryState extends State<summary> {
                                               : Color(0xfff333389),
                                           // color:_selectedColor,
 
-                                          borderRadius: BorderRadius.circular(20),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                           border:
-                                          Border.all(color: Colors.white)),
+                                              Border.all(color: Colors.white)),
                                       child: Text(
                                         'Confirm',
                                         style: TextStyle(
