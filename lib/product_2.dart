@@ -445,74 +445,74 @@ class _product_2State extends State<product_2> {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 2.h),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(color: Color(0xfff9e9ec7))),
-                        alignment: Alignment.center,
-                        height: 6.h,
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.symmetric(horizontal: 1.w),
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            physics: BouncingScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: tabs.length,
-                            itemBuilder: (context, index) {
-                              return GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    selectindex = index;
-                                  });
-                                },
-                                child: Column(
-                                  // crossAxisAlignment: CrossAxisAlignment.center,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.center,
-
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: (selectindex == index)
-                                            ? Color(0xfff333389)
-                                            : Color(0xfffFFFFFF),
-                                      ),
-
-                                      height: 4.6.h,
-                                      width: 44.w,
-                                      margin: EdgeInsets.only(
-                                          right: 0.1.w, top: 0.6.h),
-
-                                      // padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.h),
-                                      child: Text(
-                                        tabs[index],
-                                        style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontWeight: FontWeight.bold,
-                                          color: (selectindex != index)
-                                              ? Colors.grey.shade600
-                                              : Color(0xffffffff),
-                                        ),
-                                      ),
-                                    ),
-                                    // (selectindex != index)
-                                    //     ? Container()
-                                    //     : Center(
-                                    //         child: Container(
-                                    //             height: 7.0,
-                                    //             width: 7.0,
-                                    //             decoration: BoxDecoration(
-                                    //                 shape: BoxShape.circle,
-                                    //                 color: Color(0xffb4776e6)
-                                    //             )
-                                    //         ),
-                                    //       ),
-                                  ],
-                                ),
-                              );
-                            }),
-                      ),
+                      // child: Container(
+                      //   decoration: BoxDecoration(
+                      //       borderRadius: BorderRadius.circular(25),
+                      //       border: Border.all(color: Color(0xfff9e9ec7))),
+                      //   alignment: Alignment.center,
+                      //   height: 6.h,
+                      //   width: MediaQuery.of(context).size.width,
+                      //   padding: EdgeInsets.symmetric(horizontal: 1.w),
+                      //   child: ListView.builder(
+                      //       scrollDirection: Axis.horizontal,
+                      //       physics: BouncingScrollPhysics(),
+                      //       shrinkWrap: true,
+                      //       itemCount: tabs.length,
+                      //       itemBuilder: (context, index) {
+                      //         return GestureDetector(
+                      //           onTap: () {
+                      //             setState(() {
+                      //               selectindex = index;
+                      //             });
+                      //           },
+                      //           child: Column(
+                      //             // crossAxisAlignment: CrossAxisAlignment.center,
+                      //             // mainAxisAlignment: MainAxisAlignment.center,
+                      //             children: [
+                      //               Container(
+                      //                 alignment: Alignment.center,
+                      //
+                      //                 decoration: BoxDecoration(
+                      //                   borderRadius: BorderRadius.circular(20),
+                      //                   color: (selectindex == index)
+                      //                       ? Color(0xfff333389)
+                      //                       : Color(0xfffFFFFFF),
+                      //                 ),
+                      //
+                      //                 height: 4.6.h,
+                      //                 width: 44.w,
+                      //                 margin: EdgeInsets.only(
+                      //                     right: 0.1.w, top: 0.6.h),
+                      //
+                      //                 // padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.h),
+                      //                 child: Text(
+                      //                   tabs[index],
+                      //                   style: TextStyle(
+                      //                     fontFamily: "Poppins",
+                      //                     fontWeight: FontWeight.bold,
+                      //                     color: (selectindex != index)
+                      //                         ? Colors.grey.shade600
+                      //                         : Color(0xffffffff),
+                      //                   ),
+                      //                 ),
+                      //               ),
+                      //               // (selectindex != index)
+                      //               //     ? Container()
+                      //               //     : Center(
+                      //               //         child: Container(
+                      //               //             height: 7.0,
+                      //               //             width: 7.0,
+                      //               //             decoration: BoxDecoration(
+                      //               //                 shape: BoxShape.circle,
+                      //               //                 color: Color(0xffb4776e6)
+                      //               //             )
+                      //               //         ),
+                      //               //       ),
+                      //             ],
+                      //           ),
+                      //         );
+                      //       }),
+                      // ),
                     ),
                     (selectindex == 0)
                         ? Container(
@@ -688,51 +688,100 @@ class _product_2State extends State<product_2> {
                                 SizedBox(height: 2.h),
                                 Container(
                                     alignment: Alignment.center,
-                                    height: 6.h,
+                                    height: 10.h,
                                     width: MediaQuery.of(context).size.width,
                                     color: Color(0xfffeaeaf3),
                                     child: Padding(
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 2.h),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+
+                                      child: Column(
+
                                         children: [
-                                          Text(
-                                            "Color:",
-                                            style: TextStyle(
-                                              fontSize: 2.5.h,
-                                            ),
+                                          Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                "Color:",
+                                                style: TextStyle(
+                                                  fontSize: 1.8.h,
+                                                ),
+                                              ),
+                                              Text(
+                                                " Red",
+                                                style: TextStyle(
+                                                    fontSize: 1.h,
+                                                    color: Color(0xfff333389)),
+                                              ),
+                                              // SizedBox(
+                                              //   width: 6.h,
+                                              // ),
+                                              Text(
+                                                "|",
+                                                style: TextStyle(
+                                                    fontSize: 1.h,
+                                                    color: Color(0xfff333389)),
+                                              ),
+                                              // SizedBox(
+                                              //   width: 7.h,
+                                              // ),
+                                              Text(
+                                                "Price:",
+                                                style: TextStyle(
+                                                  fontSize: 1.h,
+                                                ),
+                                              ),
+                                              Text(
+                                                " ₹125",
+                                                style: TextStyle(
+                                                    fontSize: 2.5.h,
+                                                    color: Color(0xfff333389)),
+                                              ),
+                                            ],
                                           ),
-                                          Text(
-                                            " Red",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
-                                          ),
-                                          // SizedBox(
-                                          //   width: 6.h,
-                                          // ),
-                                          Text(
-                                            "|",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
-                                          ),
-                                          // SizedBox(
-                                          //   width: 7.h,
-                                          // ),
-                                          Text(
-                                            "Price:",
-                                            style: TextStyle(
-                                              fontSize: 2.5.h,
-                                            ),
-                                          ),
-                                          Text(
-                                            " ₹125",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                " Red",
+                                                style: TextStyle(
+                                                    fontSize: 3.h,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xfff333389)),
+                                              ),
+                                              Text(
+                                                " Red",
+                                                style: TextStyle(
+                                                    fontSize: 2.5.h,
+                                                    color: Color(0xfff333389)),
+                                              ),
+                                              // SizedBox(
+                                              //   width: 6.h,
+                                              // ),
+                                              Text(
+                                                "|",
+                                                style: TextStyle(
+                                                    fontSize: 2.5.h,
+                                                    color: Color(0xfff333389)),
+                                              ),
+                                              // SizedBox(
+                                              //   width: 7.h,
+                                              // ),
+                                              Text(
+                                                "Price:",
+                                                style: TextStyle(
+                                                  fontSize: 2.5.h,
+                                                ),
+                                              ),
+                                              Text(
+                                                " ₹125",
+                                                style: TextStyle(
+                                                    fontSize: 2.5.h,
+                                                    color: Color(0xfff333389)),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
@@ -743,7 +792,7 @@ class _product_2State extends State<product_2> {
 
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      right: 18.w, left: 3.w, bottom: 2.h),
+                                      right: 10.w, left: 3.w, bottom: 2.h),
                                   child: Container(
                                     child: Row(
                                       crossAxisAlignment:
@@ -792,7 +841,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -838,7 +887,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -885,7 +934,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -954,7 +1003,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1000,7 +1049,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1047,7 +1096,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1112,7 +1161,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1158,7 +1207,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1205,7 +1254,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1274,7 +1323,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1320,7 +1369,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1367,7 +1416,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1432,7 +1481,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1478,7 +1527,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1525,7 +1574,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1594,7 +1643,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1640,7 +1689,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1687,7 +1736,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1798,7 +1847,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1845,7 +1894,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1914,7 +1963,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1960,7 +2009,7 @@ class _product_2State extends State<product_2> {
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -2007,7 +2056,7 @@ class _product_2State extends State<product_2> {
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
