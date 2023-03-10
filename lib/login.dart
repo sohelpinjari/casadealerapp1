@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:casadealerapp/login_model.dart';
 import 'package:casadealerapp/loginsuccess.dart';
+import 'package:casadealerapp/products_1.dart';
 import 'package:casadealerapp/register.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
@@ -37,10 +38,20 @@ class _loginState extends State<login> {
             Container(
               alignment: Alignment.topCenter,
               child: Image.asset(
-                'assets/login_img.png',
+                'assets/login2.png',
                 fit: BoxFit.fill,
-                height: MediaQuery.of(context).size.height * 0.5,
-                width: MediaQuery.of(context).size.width * 2,
+                // height: MediaQuery.of(context).size.height * 0.5,
+                // width: MediaQuery.of(context).size.width * 2,
+              ),
+            ),
+            SizedBox(height: 2.h),
+            Container(
+              alignment: Alignment.topCenter,
+              child: Image.asset(
+                'assets/get_started_logo.png',
+                fit: BoxFit.contain,
+                height: MediaQuery.of(context).size.height * 0.07,
+                // width: MediaQuery.of(context).size.width * 2,
               ),
             ),
             Form(
@@ -175,7 +186,7 @@ class _loginState extends State<login> {
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.07,
+                      height: MediaQuery.of(context).size.height * 0.06,
                       // color: Color(0xfff333389),
                       // padding:
                       //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
@@ -185,15 +196,19 @@ class _loginState extends State<login> {
                             print("Validate");
                             loginApi();
                           }
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => products_1()));
                         },
                         child: Text(
                           'Login',
-                          style: TextStyle(fontSize: 2.3.h),
+                          style: TextStyle(fontSize: 2.h),
                         ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xfff333389),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                       ),
@@ -220,13 +235,17 @@ class _loginState extends State<login> {
                                 "   Register",
                                 style: TextStyle(
                                     color: Color(0xfff494996), fontSize: 2.h),
-                              ))
+                              )
+                          )
                         ],
                       ),
-                    )
-                  ]),
+                    ),
+                    SizedBox(height: 2.h),
+                  ]
+              ),
             ),
-          ]),
+          ]
+          ),
         ),
       ),
     );
@@ -251,7 +270,7 @@ class _loginState extends State<login> {
             if (response.statusCode == 200 && userData!.status == "success") {
               SaveDataLocal.saveLogInData(userData!);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => loginsuccess()));
+                  MaterialPageRoute(builder: (context) => products_1()));
               // Fluttertoast.showToast(
               //   msg: "Logged In Successfully",
               //   textColor: Colors.white,
@@ -285,7 +304,8 @@ class _loginState extends State<login> {
                             child: Text(
                           'Invalid Login',
                           style: TextStyle(color: Colors.red),
-                        ))
+                        )
+                        )
                       ],
                     ),
                   );

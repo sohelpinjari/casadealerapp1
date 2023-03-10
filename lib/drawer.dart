@@ -94,7 +94,7 @@ class _drawerState extends State<drawer> {
                                 SizedBox(
                                   height: 0.5.h,
                                 ),
-                                Text(userData?.logindata?.fullName ?? "",
+                                Text('Hi ' +  (userData?.logindata?.fullName).toString() ,
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 11.sp,
@@ -106,7 +106,7 @@ class _drawerState extends State<drawer> {
                                 ),
                                 Text(userData?.logindata?.phoneOne ?? "",
                                     style: TextStyle(
-                                        color: Color(0xfff8484b8),
+                                        color: Color(0xff6161a3),
                                         fontWeight: FontWeight.w600)),
                               ],
                             ),
@@ -119,11 +119,12 @@ class _drawerState extends State<drawer> {
                           Icons.settings_outlined,
                           // color: Color(0xffb4776e6),
                           color:
-                              index[1] ? Color(0xffb4776e6) : Color(0xff8484b8),
+                              index[1] ? Color(0xff6161a3) : Color(0xff6161a3),
                           size: 3.h,
                         ),
                       ],
-                    )),
+                    )
+                ),
                 Divider(
                   color: Colors.black,
                 ),
@@ -146,7 +147,7 @@ class _drawerState extends State<drawer> {
                           leading: Icon(Icons.shopping_bag_outlined,
                               // color: Color(0xffb4776e6),
                               color:
-                                  index[1] ? Color(0xffb4776e6) : Color(0xff8484b8)),
+                                  index[1] ? Color(0xffb4776e6) : Color(0xff6161a3)),
                           title: Text(
                             'Home',
                             style: TextStyle(
@@ -186,7 +187,7 @@ class _drawerState extends State<drawer> {
                           leading: Icon(
                             Icons.library_books,
                             // color: Color(0xffb4776e6),
-                            color: index[2] ? Color(0xffb4776e6) : Color(0xff8484b8),
+                            color: index[2] ? Color(0xffb4776e6) : Color(0xff6161a3),
                           ),
                           title: Text(
                             'Order History',
@@ -221,7 +222,7 @@ class _drawerState extends State<drawer> {
                           leading: Icon(
                             Icons.check_box_outline_blank,
                             // color: Color(0xffb4776e6),
-                            color: index[3] ? Color(0xffb4776e6) : Color(0xff8484b8),
+                            color: index[3] ? Color(0xffb4776e6) : Color(0xff6161a3),
                           ),
                           title: Text(
                             'Blocked Order',
@@ -262,7 +263,7 @@ class _drawerState extends State<drawer> {
                           leading: Icon(
                             Icons.headphones_outlined,
                             // color: Color(0xffb4776e6),
-                            color: index[4] ? Color(0xffb4776e6) : Color(0xff8484b8),
+                            color: index[4] ? Color(0xffb4776e6) : Color(0xff6161a3),
                           ),
                           title: Text(
                             'Help & Support',
@@ -301,7 +302,7 @@ class _drawerState extends State<drawer> {
                           leading: Icon(
                             Icons.exit_to_app,
                             // color: Color(0xffb4776e6),
-                            color: index[5] ? Color(0xffb4776e6) : Color(0xff8484b8),
+                            color: index[5] ? Color(0xffb4776e6) : Color(0xff6161a3),
                           ),
                           title: Text(
                             'Logout',

@@ -1,7 +1,15 @@
+import 'dart:convert';
+
+import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/getstarted.dart';
 import 'package:casadealerapp/login.dart';
+import 'package:casadealerapp/login_authprovider.dart';
 import 'package:casadealerapp/loginsuccess.dart';
+import 'package:casadealerapp/shared_preference.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
 class register extends StatefulWidget {
@@ -40,13 +48,14 @@ class _registerState extends State<register> {
         backgroundColor: Color(0xfffFFFFFF),
         body: Column(
           children: [
+            SizedBox(height: 4.h),
             Container(
               alignment: Alignment.topCenter,
               child: Image.asset(
-                'assets/register_img.png',
-                fit: BoxFit.fill,
-                height: MediaQuery.of(context).size.height * 0.2,
-                width: MediaQuery.of(context).size.width * 2,
+                'assets/get_started_logo.png',
+                fit: BoxFit.contain,
+                height: MediaQuery.of(context).size.height * 0.07,
+                // width: MediaQuery.of(context).size.width * 2,
               ),
             ),
             Expanded(
@@ -56,6 +65,7 @@ class _registerState extends State<register> {
                   key: _formKey,
                   child: Column(
                     children: [
+                      SizedBox(height: 2.h),
                       Padding(
                         padding: EdgeInsets.only(right: 30.h),
                         child: Container(
@@ -67,7 +77,7 @@ class _registerState extends State<register> {
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 2.h,
                       ),
                       Container(
                         alignment: Alignment.center,
@@ -377,7 +387,7 @@ class _registerState extends State<register> {
 
                       Container(
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.07,
+                        height: MediaQuery.of(context).size.height * 0.06,
                         // color: Color(0xfff333389),
                         // padding:
                         //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
@@ -392,13 +402,13 @@ class _registerState extends State<register> {
                             }
                           },
                           child: Text(
-                            'Login',
-                            style: TextStyle(fontSize: 2.3.h),
+                            'Register',
+                            style: TextStyle(fontSize: 2.h),
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xfff333389),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                         ),
@@ -449,78 +459,85 @@ class _registerState extends State<register> {
       ),
     );
   }
-}
 
-loginApi() async {
-  if (_formKey.currentState!.validate()) {
+
+  registerApi() async {
     final Map<String, String> data = {};
-
     data['fullname'] = _firstname.text.trim().toString();
-    data['company_name'] = _password.text.trim().toString();
-    data['mobile_no_one'] = _password.text.trim().toString();
-    data['mobile_no_two'] = _password.text.trim().toString();
-    data['email_id'] = _password.text.trim().toString();
+    data['company_name'] = _companyname.text.trim().toString();
+    data['mobile_no_one'] = _phone.text.trim().toString();
+    data['mobile_no_two'] = _phone1.text.trim().toString();
+    data['email_id'] = _email.text.trim().toString();
     data['password'] = _password.text.trim().toString();
-    data['confirm_password'] = _confirm_password.text.trim().toString();
+
+    data['confirm_password'] = _password1.text.trim().toString();
 
 
 
     data['action'] = 'signup';
 
-    checkInternet().then((internet) async {
-      if (internet) {
-        Authprovider().loginapi(data).then((Response response) async {
-          SharedPreferences _sharedpreferences =
-          await SharedPreferences.getInstance();
-          print(response.statusCode);
-          userData = usermodal.fromJson(json.decode(response.body));
+    if (_formKey.currentState!.validate()) {
 
-          if (response.statusCode == 200 && userData!.status == "success") {
-            SaveDataLocal.saveLogInData(userData!);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => loginsuccess()));
-            // Fluttertoast.showToast(
-            //   msg: "Logged In Successfully",
-            //   textColor: Colors.white,
-            //   toastLength: Toast.LENGTH_SHORT,
-            //   timeInSecForIosWeb: 1,
-            //   gravity: ToastGravity.BOTTOM,
-            //   backgroundColor: Colors.indigo,
-            // );
 
-            if (kDebugMode) {}
 
-            _email.text = "";
-            _password.text = "";
-          } else {
-            // Fluttertoast.showToast(
-            //   msg: "Enter A Valid Email Address",
-            //   textColor: Colors.white,
-            //   toastLength: Toast.LENGTH_SHORT,
-            //   timeInSecForIosWeb: 1,
-            //   gravity: ToastGravity.BOTTOM,
-            //   backgroundColor: Colors.indigo,
-            // );
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                          child: Text(
-                            'Invalid Login',
-                            style: TextStyle(color: Colors.red),
-                          ))
-                    ],
-                  ),
-                );
-              },
-            );
-          }
-        });
-      } else {}
-    });
+
+      checkInternet().then((internet) async {
+        if (internet) {
+          Authprovider().loginapi(data).then((Response response) async {
+            SharedPreferences _sharedpreferences =
+            await SharedPreferences.getInstance();
+            print(response.statusCode);
+            // userData = usermodal.fromJson(json.decode(response.body));
+
+            if (response.statusCode == 200 && userData!.status == "success") {
+              SaveDataLocal.saveLogInData(userData!);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => loginsuccess()));
+              // Fluttertoast.showToast(
+              //   msg: "Logged In Successfully",
+              //   textColor: Colors.white,
+              //   toastLength: Toast.LENGTH_SHORT,
+              //   timeInSecForIosWeb: 1,
+              //   gravity: ToastGravity.BOTTOM,
+              //   backgroundColor: Colors.indigo,
+              // );
+
+              if (kDebugMode) {}
+
+              _email.text = "";
+              _password.text = "";
+            } else {
+              // Fluttertoast.showToast(
+              //   msg: "Enter A Valid Email Address",
+              //   textColor: Colors.white,
+              //   toastLength: Toast.LENGTH_SHORT,
+              //   timeInSecForIosWeb: 1,
+              //   gravity: ToastGravity.BOTTOM,
+              //   backgroundColor: Colors.indigo,
+              // );
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                            child: Text(
+                              'Invalid Login',
+                              style: TextStyle(color: Colors.red),
+                            ))
+                      ],
+                    ),
+                  );
+                },
+              );
+            }
+          });
+        } else {}
+      });
+    }
   }
+
+
 }

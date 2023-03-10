@@ -28,16 +28,35 @@ Timer?  _timer;
     return SafeArea(
 
       child: Scaffold(
+        backgroundColor: Color(0xffffffff),
         body: Stack(children: [
-          Container(
-            alignment: Alignment.center,
-            child: Image.asset(
-              'assets/getstarted_img.png',
-              fit: BoxFit.fill,
-              height: MediaQuery.of(context).size.height * 1,
-              width: MediaQuery.of(context).size.width * 2,
-            ),
+          Column(
+            children: [
+              Container(
+                height: 70.h,
+                alignment: Alignment.center,
+                child: Image.asset(
+                  'assets/get_started2.png',
+                  fit: BoxFit.fill,
+                  // height: MediaQuery.of(context).size.height * 1,
+                  // width: MediaQuery.of(context).size.width * 2,
+                ),
+              ),
+              SizedBox(height: 5.h),
+              Container(
+                height: 12.h,
+                alignment: Alignment.center,
+                child: Image.asset(
+                  'assets/get_started_logo.png',
+                  fit: BoxFit.contain,
+                  // height: MediaQuery.of(context).size.height * 1,
+                  // width: MediaQuery.of(context).size.width * 2,
+                ),
+              ),
+
+            ],
           ),
+
           // Positioned(
           //     top: 85.h,
           //     left: 11.5.h,

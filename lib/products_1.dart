@@ -515,7 +515,7 @@ class _products_1State extends State<products_1> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 19.0,
-                      childAspectRatio: 3.h / 5.8.h,
+                      childAspectRatio: 3.h / 5.9.h,
                       mainAxisSpacing: 15),
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
@@ -599,6 +599,7 @@ class _products_1State extends State<products_1> {
                                       child: Text(
                                         images[index].Brand_Name.toString(),
                                         style: TextStyle(
+                                          fontStyle: FontStyle.italic,
                                           fontSize: 1.3.h,
                                           color: Colors.white,
                                         ),
@@ -655,8 +656,9 @@ class _products_1State extends State<products_1> {
                             child: Text(
                               images[index].Artist_Name.toString(),
                               style: TextStyle(
-                                  fontSize: 1.6.h,
+                                  fontSize: 1.5.h,
                                   fontWeight: FontWeight.bold,
+                                  fontStyle: FontStyle.italic,
                                   color: Colors.grey.shade500),
                             ),
                           ),
@@ -740,12 +742,12 @@ class _products_1State extends State<products_1> {
                             children: [
                               Container(
 
-                                width: 25.w,
+                                width: 42.w,
                                 padding: EdgeInsets.only(left: 0.8.h),
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   images[index].Price.toString(),
-                                  maxLines: 2,
+                                  maxLines: 1,
                                   style: TextStyle(
                                     fontSize: 2.h,
                                     fontWeight: FontWeight.bold,

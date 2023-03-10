@@ -206,192 +206,234 @@ class _product_2State extends State<product_2> {
                     Stack(
                       children: [
                         Container(
-                          height: 48.h,
+                          height: 51.h,
                           width: MediaQuery.of(context).size.width,
                         ),
                         Positioned(
                           top: 0.0,
                           left: 0.0,
                           child: Container(
-                            height: 45.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            height: 55.h,
                             width: MediaQuery.of(context).size.width,
                             child: CarouselSlider(
                               items: image.map((e) {
-                                return Stack(
-                                  children: [
-                                    Container(
-                                      height: 45.h,
-                                      width: MediaQuery.of(context).size.width,
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 5.w),
-                                      child: ClipRRect(
+                                return ClipRRect(
+                                  borderRadius: BorderRadius.circular(28),
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(28),
+                                        ),
+                                        height: 50.h,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 5.w),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(28),
                                           child: Image.asset(
                                             e,
                                             fit: BoxFit.cover,
-                                            height: 35.h,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                          )),
-                                    ),
-                                    Positioned(
-                                      top: 30.h,
-                                      left: 8.w,
-                                      right: 8.w,
-                                      child: Container(
-                                        // height: 10.h,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        // color:Colors.red,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Container(
+                                            // height: 35.h,
+                                            // width: MediaQuery.of(context)
+                                            //     .size
+                                            //     .width,
+                                          ),
+                                        ),
+                                      ),
+                                      Opacity(
+                                        opacity: 0.8,
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 5.w),
+                                          child: Align(
+                                            alignment: Alignment.bottomCenter,
+                                            child: Container(
+                                              decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topRight,colors: [Colors.transparent,Colors.black]),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomRight:
+                                                      Radius.circular(28),
+                                                  bottomLeft:
+                                                      Radius.circular(28),
+                                                  topRight: Radius.circular(28),
+                                                  topLeft: Radius.circular(28),
+                                                ),
+                                              ),
+                                              height: 23.h,
                                               width: MediaQuery.of(context)
                                                   .size
                                                   .width,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Container(
-                                                        alignment:
-                                                            Alignment.center,
-                                                        width: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .width *
-                                                            0.2,
-                                                        height: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.03,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color(
-                                                              0xfff7c7773),
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                            Radius.circular(8),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        top: 30.h,
+                                        left: 8.w,
+                                        right: 8.w,
+                                        child: Container(
+                                          // height: 10.h,
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          // color:Colors.red,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.2,
+                                                          height: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.03,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xfff7c7773),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .all(
+                                                              Radius.circular(
+                                                                  8),
+                                                            ),
                                                           ),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  0.5.h),
-                                                          child: Text(
-                                                            "Brand Name",
-                                                            style: TextStyle(
-                                                              fontSize: 1.3.h,
-                                                              color:
-                                                                  Colors.white,
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    0.5.h),
+                                                            child: Text(
+                                                              "Brand Name",
+                                                              style: TextStyle(
+                                                                fontSize: 1.3.h,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: 1.h,
-                                                      ),
-                                                      Container(
-                                                        child: Text(
-                                                          widget
-                                                              .pronamenevigatior
-                                                              .toString(),
-                                                          style: TextStyle(
-                                                              fontSize: 3.h,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
+                                                        SizedBox(
+                                                          height: 1.h,
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            widget
+                                                                .pronamenevigatior
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                fontSize: 3.h,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "Artist Name",
+                                                            style: TextStyle(
+                                                                fontSize: 1.9.h,
+                                                                // fontWeight:
+                                                                //     FontWeight
+                                                                //         .bold,
+                                                                color: Colors
+                                                                    .grey
+                                                                    .shade300),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+
+                                                    // SizedBox(
+                                                    //   width: 20.w,
+                                                    // ),
+
+                                                    Row(
+                                                      children: [
+                                                        Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          height: 4.h,
+                                                          width: 9.w,
+                                                          decoration: BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          25),
                                                               color:
                                                                   Colors.white),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        child: Text(
-                                                          "Artist Name",
-                                                          style: TextStyle(
-                                                              fontSize: 1.9.h,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              color: Colors.grey
-                                                                  .shade500),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-
-                                                  // SizedBox(
-                                                  //   width: 20.w,
-                                                  // ),
-
-                                                  Row(
-                                                    children: [
-                                                      Container(
-                                                        alignment:
-                                                            Alignment.center,
-                                                        height: 4.h,
-                                                        width: 9.w,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        25),
-                                                            color:
-                                                                Colors.white),
-                                                        child: IconButton(
-                                                          icon: Icon(
-                                                            Icons
-                                                                .favorite_border,
-                                                            color: Colors.red,
-                                                            size: 2.h,
+                                                          child: IconButton(
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .favorite_border,
+                                                              color: Colors.red,
+                                                              size: 2.h,
+                                                            ),
+                                                            onPressed: () {},
                                                           ),
-                                                          onPressed: () {},
                                                         ),
-                                                      ),
-                                                      SizedBox(width: 3.w),
-                                                      Container(
-                                                        alignment:
-                                                            Alignment.center,
-                                                        height: 4.h,
-                                                        width: 9.w,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        25),
-                                                            color:
-                                                                Colors.white),
-                                                        child: IconButton(
-                                                          icon: Icon(
-                                                            Icons.share,
-                                                            color: Colors.grey,
-                                                            size: 2.h,
+                                                        SizedBox(width: 3.w),
+                                                        Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          height: 4.h,
+                                                          width: 9.w,
+                                                          decoration: BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          25),
+                                                              color:
+                                                                  Colors.white),
+                                                          child: IconButton(
+                                                            icon: Icon(
+                                                              Icons.share,
+                                                              color:
+                                                                  Colors.grey,
+                                                              size: 2.h,
+                                                            ),
+                                                            onPressed: () {},
                                                           ),
-                                                          onPressed: () {},
                                                         ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                            // SizedBox()
-                                          ],
+                                              // SizedBox()
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 );
                               }).toList(),
                               options: CarouselOptions(
@@ -409,7 +451,7 @@ class _product_2State extends State<product_2> {
                           ),
                         ),
                         Positioned(
-                          top: 44.h,
+                          top: 49.h,
                           left: 40.w,
                           child: Container(
                             alignment: Alignment.center,
@@ -445,74 +487,74 @@ class _product_2State extends State<product_2> {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 2.h),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(color: Color(0xfff9e9ec7))),
-                        alignment: Alignment.center,
-                        height: 6.h,
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.symmetric(horizontal: 1.w),
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            physics: BouncingScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: tabs.length,
-                            itemBuilder: (context, index) {
-                              return GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    selectindex = index;
-                                  });
-                                },
-                                child: Column(
-                                  // crossAxisAlignment: CrossAxisAlignment.center,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.center,
-
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: (selectindex == index)
-                                            ? Color(0xfff333389)
-                                            : Color(0xfffFFFFFF),
-                                      ),
-
-                                      height: 4.6.h,
-                                      width: 44.w,
-                                      margin: EdgeInsets.only(
-                                          right: 0.1.w, top: 0.6.h),
-
-                                      // padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.h),
-                                      child: Text(
-                                        tabs[index],
-                                        style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontWeight: FontWeight.bold,
-                                          color: (selectindex != index)
-                                              ? Colors.grey.shade600
-                                              : Color(0xffffffff),
-                                        ),
-                                      ),
-                                    ),
-                                    // (selectindex != index)
-                                    //     ? Container()
-                                    //     : Center(
-                                    //         child: Container(
-                                    //             height: 7.0,
-                                    //             width: 7.0,
-                                    //             decoration: BoxDecoration(
-                                    //                 shape: BoxShape.circle,
-                                    //                 color: Color(0xffb4776e6)
-                                    //             )
-                                    //         ),
-                                    //       ),
-                                  ],
-                                ),
-                              );
-                            }),
-                      ),
+                      // child: Container(
+                      //   decoration: BoxDecoration(
+                      //       borderRadius: BorderRadius.circular(25),
+                      //       border: Border.all(color: Color(0xfff9e9ec7))),
+                      //   alignment: Alignment.center,
+                      //   height: 6.h,
+                      //   width: MediaQuery.of(context).size.width,
+                      //   padding: EdgeInsets.symmetric(horizontal: 1.w),
+                      //   child: ListView.builder(
+                      //       scrollDirection: Axis.horizontal,
+                      //       physics: BouncingScrollPhysics(),
+                      //       shrinkWrap: true,
+                      //       itemCount: tabs.length,
+                      //       itemBuilder: (context, index) {
+                      //         return GestureDetector(
+                      //           onTap: () {
+                      //             setState(() {
+                      //               selectindex = index;
+                      //             });
+                      //           },
+                      //           child: Column(
+                      //             // crossAxisAlignment: CrossAxisAlignment.center,
+                      //             // mainAxisAlignment: MainAxisAlignment.center,
+                      //             children: [
+                      //               Container(
+                      //                 alignment: Alignment.center,
+                      //
+                      //                 decoration: BoxDecoration(
+                      //                   borderRadius: BorderRadius.circular(20),
+                      //                   color: (selectindex == index)
+                      //                       ? Color(0xfff333389)
+                      //                       : Color(0xfffFFFFFF),
+                      //                 ),
+                      //
+                      //                 height: 4.6.h,
+                      //                 width: 44.w,
+                      //                 margin: EdgeInsets.only(
+                      //                     right: 0.1.w, top: 0.6.h),
+                      //
+                      //                 // padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.h),
+                      //                 child: Text(
+                      //                   tabs[index],
+                      //                   style: TextStyle(
+                      //                     fontFamily: "Poppins",
+                      //                     fontWeight: FontWeight.bold,
+                      //                     color: (selectindex != index)
+                      //                         ? Colors.grey.shade600
+                      //                         : Color(0xffffffff),
+                      //                   ),
+                      //                 ),
+                      //               ),
+                      //               // (selectindex != index)
+                      //               //     ? Container()
+                      //               //     : Center(
+                      //               //         child: Container(
+                      //               //             height: 7.0,
+                      //               //             width: 7.0,
+                      //               //             decoration: BoxDecoration(
+                      //               //                 shape: BoxShape.circle,
+                      //               //                 color: Color(0xffb4776e6)
+                      //               //             )
+                      //               //         ),
+                      //               //       ),
+                      //             ],
+                      //           ),
+                      //         );
+                      //       }),
+                      // ),
                     ),
                     (selectindex == 0)
                         ? Container(
@@ -523,12 +565,36 @@ class _product_2State extends State<product_2> {
                                   child: Container(
                                       alignment: Alignment.centerLeft,
                                       margin: EdgeInsets.only(top: 1.h),
-                                      child: Text(
-                                        "Select Color",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 2.4.h,
-                                        ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Select Color",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 2.4.h,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Container(
+                                                height: 5.h,
+                                                width: 10.w,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: Color(0xff9e0303),
+                                                ),
+                                              ),
+                                              SizedBox(width: 4.w),
+                                              Text(
+                                                'Red',
+                                                style:
+                                                    TextStyle(fontSize: 2.5.h),
+                                              ),
+                                            ],
+                                          )
+                                        ],
                                       )),
                                 ),
                                 // SizedBox(
@@ -688,51 +754,101 @@ class _product_2State extends State<product_2> {
                                 SizedBox(height: 2.h),
                                 Container(
                                     alignment: Alignment.center,
-                                    height: 6.h,
+                                    height: 10.h,
                                     width: MediaQuery.of(context).size.width,
                                     color: Color(0xfffeaeaf3),
                                     child: Padding(
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 2.h),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                      child: Column(
                                         children: [
-                                          Text(
-                                            "Color:",
-                                            style: TextStyle(
-                                              fontSize: 2.5.h,
-                                            ),
+                                          SizedBox(height: 2.h),
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                width: 30.w,
+                                                child: Text(
+                                                  "Color:",
+                                                  style: TextStyle(
+                                                    fontSize: 2.h,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 30.w,
+                                                child: Text(
+                                                  "S - XL:",
+                                                  style: TextStyle(
+                                                    fontSize: 2.h,
+                                                  ),
+                                                ),
+                                              ),
+                                              // SizedBox(
+                                              //   width: 6.h,
+                                              // ),
+
+                                              Container(
+                                                width: 30.w,
+                                                child: Text(
+                                                  " 2XL - 3XL",
+                                                  style: TextStyle(
+                                                    fontSize: 2.5.h,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          Text(
-                                            " Red",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
-                                          ),
-                                          // SizedBox(
-                                          //   width: 6.h,
-                                          // ),
-                                          Text(
-                                            "|",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
-                                          ),
-                                          // SizedBox(
-                                          //   width: 7.h,
-                                          // ),
-                                          Text(
-                                            "Price:",
-                                            style: TextStyle(
-                                              fontSize: 2.5.h,
-                                            ),
-                                          ),
-                                          Text(
-                                            " ₹125",
-                                            style: TextStyle(
-                                                fontSize: 2.5.h,
-                                                color: Color(0xfff333389)),
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                width: 30.w,
+                                                child: Text(
+                                                  "Red",
+                                                  style: TextStyle(
+                                                      fontSize: 2.8.h,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color:
+                                                          Color(0xfff333389)),
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 30.w,
+                                                child: Text(
+                                                  "₹125",
+                                                  style: TextStyle(
+                                                      fontSize: 2.8.h,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color:
+                                                          Color(0xfff333389)),
+                                                ),
+                                              ),
+                                              // SizedBox(
+                                              //   width: 6.h,
+                                              // ),
+
+                                              Container(
+                                                width: 30.w,
+                                                child: Text(
+                                                  " ₹150",
+                                                  style: TextStyle(
+                                                      fontSize: 2.8.h,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color:
+                                                          Color(0xfff333389)),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
@@ -743,7 +859,7 @@ class _product_2State extends State<product_2> {
 
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      right: 18.w, left: 3.w, bottom: 2.h),
+                                      right: 7.w, left: 3.w, bottom: 2.h),
                                   child: Container(
                                     child: Row(
                                       crossAxisAlignment:
@@ -786,13 +902,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "S ",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 3.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -813,10 +929,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -831,14 +945,13 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -859,10 +972,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -877,15 +988,14 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -906,10 +1016,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -924,8 +1032,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -948,13 +1055,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "M ",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 3.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -975,10 +1082,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -993,14 +1098,13 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1021,10 +1125,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1039,15 +1141,14 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1068,10 +1169,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1086,8 +1185,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -1106,13 +1204,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "L ",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 3.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1133,10 +1231,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1151,14 +1247,13 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1179,10 +1274,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1197,15 +1290,14 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1226,10 +1318,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1244,8 +1334,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -1268,13 +1357,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 3.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1295,10 +1384,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1313,14 +1400,13 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1341,10 +1427,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1359,15 +1443,14 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1388,10 +1471,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1406,8 +1487,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -1426,13 +1506,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "2XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 3.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1453,10 +1533,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1471,14 +1549,13 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1499,10 +1576,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1517,15 +1592,14 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1546,10 +1620,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1564,8 +1636,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -1588,13 +1659,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "3XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 3.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1615,10 +1686,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1633,14 +1702,13 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1661,10 +1729,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1679,15 +1745,14 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1708,10 +1773,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1726,8 +1789,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -1746,13 +1808,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "4XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 3.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1773,10 +1835,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1791,14 +1851,13 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1819,10 +1878,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1837,15 +1894,14 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -1866,10 +1922,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1884,8 +1938,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -1908,13 +1961,13 @@ class _product_2State extends State<product_2> {
                                         Text(
                                           "5XL",
                                           style: TextStyle(
-                                              fontSize: 2.h,
+                                              fontSize: 3.h,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         // SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1935,10 +1988,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1953,14 +2004,13 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               '432',
@@ -1981,10 +2031,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -1999,15 +2047,14 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
                                         //
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "432",
@@ -2028,10 +2075,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -2046,8 +2091,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -2185,60 +2229,6 @@ class _product_2State extends State<product_2> {
                                                       .width,
                                                 ),
                                               ),
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.9,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                    0.07,
-                                                // color: Color(0xfff333389),
-                                                // padding:
-                                                //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
-                                                child: ElevatedButton(
-                                                  onPressed: () {
-                                                    // Navigator.push(
-                                                    //     context,
-                                                    //     MaterialPageRoute(
-                                                    //         builder: (context) => products_1()));
-                                                  },
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    backgroundColor:
-                                                        Color(0xfff333389),
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                  ),
-                                                  child: Row(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        'Image',
-                                                        style: TextStyle(
-                                                            fontSize: 2.h),
-                                                      ),
-                                                      // Icon(
-                                                      //   Icons.arrow_forward,
-                                                      //   color: Colors.white,
-                                                      //   size: 24.0,
-                                                      //   semanticLabel:
-                                                      //   'Text to announce in accessibility modes',
-                                                      // ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
                                               SizedBox(height: 1.h),
                                               Container(
                                                 alignment: Alignment.center,
@@ -2270,7 +2260,7 @@ class _product_2State extends State<product_2> {
                                                       style: ElevatedButton
                                                           .styleFrom(
                                                         minimumSize:
-                                                            Size(40.w, 6.5.h),
+                                                            Size(40.w, 6.h),
                                                         backgroundColor:
                                                             Color(0xfff333389),
                                                         shape:
@@ -2281,7 +2271,7 @@ class _product_2State extends State<product_2> {
                                                         ),
                                                       ),
                                                       child: Text(
-                                                        'Catalog',
+                                                        'Image',
                                                         style: TextStyle(
                                                             fontSize: 2.h),
                                                       ),
@@ -2299,7 +2289,7 @@ class _product_2State extends State<product_2> {
                                                       style: ElevatedButton
                                                           .styleFrom(
                                                         minimumSize:
-                                                            Size(40.w, 6.5.h),
+                                                            Size(40.w, 6.h),
                                                         backgroundColor:
                                                             Color(0xfff333389),
                                                         shape:
@@ -2316,6 +2306,60 @@ class _product_2State extends State<product_2> {
                                                       ),
                                                     ),
                                                   ],
+                                                ),
+                                              ),
+                                              Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.9,
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.065,
+                                                // color: Color(0xfff333389),
+                                                // padding:
+                                                //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
+                                                child: ElevatedButton(
+                                                  onPressed: () {
+                                                    // Navigator.push(
+                                                    //     context,
+                                                    //     MaterialPageRoute(
+                                                    //         builder: (context) => products_1()));
+                                                  },
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        Color(0xfff333389),
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        'Download Catalogue',
+                                                        style: TextStyle(
+                                                            fontSize: 2.h),
+                                                      ),
+                                                      // Icon(
+                                                      //   Icons.arrow_forward,
+                                                      //   color: Colors.white,
+                                                      //   size: 24.0,
+                                                      //   semanticLabel:
+                                                      //   'Text to announce in accessibility modes',
+                                                      // ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -2623,10 +2667,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -2668,10 +2710,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -2714,10 +2754,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -2782,10 +2820,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -2827,10 +2863,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -2873,10 +2907,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -2937,10 +2969,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -2955,8 +2985,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -2983,10 +3012,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3001,8 +3028,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -3030,10 +3056,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3098,10 +3122,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3116,8 +3138,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -3144,10 +3165,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3162,8 +3181,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -3191,10 +3209,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3209,8 +3225,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -3256,10 +3271,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3274,8 +3287,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -3302,10 +3314,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3320,8 +3330,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -3349,10 +3358,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3367,8 +3374,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -3418,10 +3424,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3436,8 +3440,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -3464,10 +3467,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3482,8 +3483,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -3511,10 +3511,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3529,8 +3527,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -3576,10 +3573,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3594,8 +3589,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -3622,10 +3616,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3640,8 +3632,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -3669,10 +3660,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3737,10 +3726,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3755,8 +3742,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 12.w),
@@ -3783,10 +3769,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3801,8 +3785,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                         // SizedBox(width: 5.w),
@@ -3830,10 +3813,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                  decoration:
-                                                  InputDecoration(
-                                                    border:
-                                                    InputBorder.none,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
                                                     hintText: '',
                                                     // suffixIcon: Column(
                                                     //
@@ -3848,8 +3829,7 @@ class _product_2State extends State<product_2> {
                                                   //   style: TextStyle(
                                                   //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
                                                   // ),
-                                                )
-                                            ),
+                                                )),
                                           ],
                                         ),
                                       ],
@@ -4153,8 +4133,7 @@ class _product_2State extends State<product_2> {
                                   builder: (context) => summary()));
                           setState(() {
                             cart = 1;
-
-                                                    });
+                          });
                         },
                         child: Container(
                           padding: EdgeInsets.all(0.1.h),
