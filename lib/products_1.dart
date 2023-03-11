@@ -547,32 +547,32 @@ class _products_1State extends State<products_1> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: MediaQuery.of(context).size.width *
-                                        0.33,
-                                    top: MediaQuery.of(context).size.height *
-                                        0.010),
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  width: 8.5.w,
-                                  height: 4.h,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(25),
-                                    ),
-                                  ),
-                                  child: IconButton(
-                                    icon: Icon(
-                                      Icons.favorite_border,
-                                      color: Colors.red,
-                                      size: 2.h,
-                                    ),
-                                    onPressed: () {},
-                                  ),
-                                ),
-                              ),
+                              // Padding(
+                              //   padding: EdgeInsets.only(
+                              //       left: MediaQuery.of(context).size.width *
+                              //           0.33,
+                              //       top: MediaQuery.of(context).size.height *
+                              //           0.010),
+                              //   child: Container(
+                              //     alignment: Alignment.center,
+                              //     width: 8.5.w,
+                              //     height: 4.h,
+                              //     decoration: BoxDecoration(
+                              //       color: Colors.white,
+                              //       borderRadius: BorderRadius.all(
+                              //         Radius.circular(25),
+                              //       ),
+                              //     ),
+                              //     child: IconButton(
+                              //       icon: Icon(
+                              //         Icons.favorite_border,
+                              //         color: Colors.red,
+                              //         size: 2.h,
+                              //       ),
+                              //       onPressed: () {},
+                              //     ),
+                              //   ),
+                              // ),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,

@@ -561,7 +561,7 @@ class _product_2State extends State<product_2> {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(2.h),
+                                  padding: EdgeInsets.symmetric(horizontal: 2.h),
                                   child: Container(
                                       alignment: Alignment.centerLeft,
                                       margin: EdgeInsets.only(top: 1.h),
@@ -590,7 +590,11 @@ class _product_2State extends State<product_2> {
                                               Text(
                                                 'Red',
                                                 style:
-                                                    TextStyle(fontSize: 2.5.h),
+                                                    TextStyle(fontSize: 2.5.h,
+                                                        fontWeight: FontWeight.bold,
+                                                      )
+                                               
+
                                               ),
                                             ],
                                           )
@@ -774,7 +778,7 @@ class _product_2State extends State<product_2> {
                                                 child: Text(
                                                   "Color:",
                                                   style: TextStyle(
-                                                    fontSize: 2.h,
+                                                    fontSize: 1.8.h,
                                                   ),
                                                 ),
                                               ),
@@ -783,7 +787,7 @@ class _product_2State extends State<product_2> {
                                                 child: Text(
                                                   "S - XL:",
                                                   style: TextStyle(
-                                                    fontSize: 2.h,
+                                                    fontSize: 1.8.h,
                                                   ),
                                                 ),
                                               ),
@@ -796,7 +800,7 @@ class _product_2State extends State<product_2> {
                                                 child: Text(
                                                   " 2XL - 3XL",
                                                   style: TextStyle(
-                                                    fontSize: 2.5.h,
+                                                    fontSize: 1.8.h,
                                                   ),
                                                 ),
                                               ),
@@ -813,7 +817,7 @@ class _product_2State extends State<product_2> {
                                                 child: Text(
                                                   "Red",
                                                   style: TextStyle(
-                                                      fontSize: 2.8.h,
+                                                      fontSize: 2.6.h,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color:
@@ -825,7 +829,7 @@ class _product_2State extends State<product_2> {
                                                 child: Text(
                                                   "₹125",
                                                   style: TextStyle(
-                                                      fontSize: 2.8.h,
+                                                      fontSize: 2.6.h,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color:
@@ -841,7 +845,7 @@ class _product_2State extends State<product_2> {
                                                 child: Text(
                                                   " ₹150",
                                                   style: TextStyle(
-                                                      fontSize: 2.8.h,
+                                                      fontSize: 2.6.h,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color:
@@ -854,7 +858,7 @@ class _product_2State extends State<product_2> {
                                       ),
                                     )),
                                 SizedBox(
-                                  height: 1.h,
+                                  height: 3.h,
                                 ),
 
                                 Padding(
@@ -2194,7 +2198,7 @@ class _product_2State extends State<product_2> {
                                       SingleChildScrollView(
                                         scrollDirection: Axis.vertical,
                                         child: Container(
-                                          height: 100.h,
+                                          // height: 100.h,
                                           child: ListTile(
                                               title: Column(
                                             children: [
@@ -2230,6 +2234,219 @@ class _product_2State extends State<product_2> {
                                                 ),
                                               ),
                                               SizedBox(height: 1.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(
+                                                        alignment: Alignment.center,
+                                                        child: Text('Label')
+                                                    ),
+                                                    Container(
+                                                        alignment: Alignment.center,
+                                                        child: Text('Brust')
+                                                    ),
+                                                    Container(
+                                                        alignment: Alignment.center,
+                                                        child: Text('Length')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('2XS')
+                                                    ),
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('30')
+                                                    ),
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('21')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('XS')
+                                                    ),
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('32')
+                                                    ),
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('22')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('S')
+                                                    ),
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('34')
+                                                    ),
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('23')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(  width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('M')
+                                                    ),
+                                                    Container(
+                                                        width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('38')
+                                                    ),
+                                                    Container(
+                                                        width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('24')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('L')
+                                                    ),
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('40')
+                                                    ),
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('25')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('XL')
+                                                    ),
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('42')
+                                                    ),
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('26')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('2XL')
+                                                    ),
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('44')
+                                                    ),
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('27')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Padding(
+                                                padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('3XL')
+                                                    ),
+                                                    Container(
+                                                            width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('46')
+                                                    ),
+                                                    Container(
+                                                      width: 10.w,
+                                                        alignment: Alignment.center,
+                                                        child: Text('28')
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+
+                                              SizedBox(height: 4.h ),
+
+                                              Container(
+
+                                                  alignment: Alignment.center,
+                                                  child: Text('Available Downloads')
+                                              ),
+
+                                              SizedBox(height: 4.h ),
+
                                               Container(
                                                 alignment: Alignment.center,
 
@@ -2592,7 +2809,7 @@ class _product_2State extends State<product_2> {
                                       ),
                                     )),
                                 SizedBox(
-                                  height: 1.h,
+                                  height: 4.h,
                                 ),
 
                                 Padding(
