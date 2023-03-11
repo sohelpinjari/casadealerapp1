@@ -240,7 +240,7 @@ class _product_2State extends State<product_2> {
                                           child: Image.asset(
                                             e,
                                             fit: BoxFit.cover,
-                                            // height: 35.h,
+                                            // height: 45.h,
                                             // width: MediaQuery.of(context)
                                             //     .size
                                             //     .width,
@@ -3960,13 +3960,33 @@ class _product_2State extends State<product_2> {
                                                 alignment: Alignment.center,
                                                 child: Image.asset(
                                                   'assets/product_2_img2.png',
-                                                  fit: BoxFit.fill,
+                                                  fit: BoxFit.cover,
                                                   height: 40.h,
                                                   width: MediaQuery.of(context)
                                                       .size
                                                       .width,
                                                 ),
                                               ),
+
+                                                      Container(
+                                                        height: 10.h
+                                                          ,
+                                                        width: 20.w,
+                                                        color: Colors.red,
+
+
+
+                                                        child: Text('djvvdv')
+                                                      ),
+
+
+
+
+
+
+
+
+
                                               Container(
                                                 width: MediaQuery.of(context)
                                                         .size
@@ -4101,7 +4121,8 @@ class _product_2State extends State<product_2> {
                                                 ),
                                               ),
                                             ],
-                                          )),
+                                          )
+                                          ),
                                         ),
                                       ),
                                     ],
