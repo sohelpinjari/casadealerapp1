@@ -132,7 +132,7 @@ class _your_block_orderState extends State<your_block_order> {
                                 // SizedBox(width: 5.w,),
 
                                 Padding(
-                                  padding: EdgeInsets.all(1.5.h),
+                                  padding: EdgeInsets.all(1.h),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
@@ -146,7 +146,7 @@ class _your_block_orderState extends State<your_block_order> {
                                           ),
                                         ],
                                       ),
-                                      SizedBox(height: 1.5.h),
+                                      // SizedBox(height: 1.h),
                                       Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -163,6 +163,21 @@ class _your_block_orderState extends State<your_block_order> {
                                           ),
                                         ],
                                       ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height: 3.4.h,
+                                        width: 20.w,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(15),
+                                          color: Color(0xfffaede7)
+                                        ),
+                                        child: Text(
+                                          'Placed',
+                                          style: TextStyle(color: Color(0xfff98346),
+                                          fontWeight: FontWeight.bold
+                                          ),
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),

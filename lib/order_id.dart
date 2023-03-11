@@ -146,19 +146,15 @@ class _order_idState extends State<order_id> {
                 return Column(
                   children: [
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
                       child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.start,
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Product Name',
-                              style: TextStyle(
-                                  color: Color(0xff848484))),
+                              style: TextStyle(color: Color(0xff848484))),
                           Text('Color',
-                              style: TextStyle(
-                                  color: Color(0xff848484))),
+                              style: TextStyle(color: Color(0xff848484))),
                         ],
                       ),
                     ),
@@ -166,541 +162,153 @@ class _order_idState extends State<order_id> {
                       height: 1.h,
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Ruffty Tipping',
-                            style: TextStyle(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Ruffty Tipping',
+                              style: TextStyle(
+                                  color: Color(0xff35358a),
+                                  fontSize: 2.h,
+                                  fontWeight: FontWeight.bold)),
+                          Text('Bottle Green',
+                              style: TextStyle(
                                 color: Color(0xff35358a),
                                 fontSize: 2.h,
-                                fontWeight: FontWeight.bold)),
-                        Text('Bottle Green',
-                            style: TextStyle(
-                              color: Color(0xff35358a),
-                              fontSize: 2.h,
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ],
-                    ),
+                                fontWeight: FontWeight.bold,
+                              )),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 3.h),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Price',
-                        style: TextStyle(
-                            color: Color(0xff848484)),
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Price',
+                          style: TextStyle(color: Color(0xff848484)),
+                        ),
                       ),
-                    ),
                     ),
                     SizedBox(
                       height: 1.h,
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                      // mainAxisAlignment:
-                      // MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.h,
-                          child: Row(
-                            children: [
-                              Text('XS - 3XL :',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight:
-                                      FontWeight.bold)),
-                              Text(' ₹250',
-                                  style: TextStyle(
-                                      color:
-                                      Color(0xff35358a),
-                                      fontWeight:
-                                      FontWeight.bold)),
-                            ],
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        // mainAxisAlignment:
+                        // MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.h,
+                            child: Row(
+                              children: [
+                                Text('XS - 3XL :',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold)),
+                                Text(' ₹250',
+                                    style: TextStyle(
+                                        color: Color(0xff35358a),
+                                        fontWeight: FontWeight.bold)),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(width: 10.w,),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.h,
-                          child: Row(
-                            children: [
-                              Text(
-                                '4XL- 5XL :',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.h,
+                            child: Row(
+                              children: [
+                                Text(
+                                  '4XL- 5XL :',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                ' ₹280',
-                                style: TextStyle(
+                                Text(
+                                  ' ₹280',
+                                  style: TextStyle(
+                                    color: Color(0xff35358a),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             summary_b_edit()));
+                            },
+                            child: Container(
+                                // alignment: Alignment.center,
+                                // height: 3.h,
+                                // width: 15.w,
+                                // child: Text(
+                                //   'Edit',
+                                //   style: TextStyle(
+                                //       color: Colors.white),
+                                // ),
+                                // decoration: BoxDecoration(
+                                //     color: Color(0xff333389),
+                                //     borderRadius:
+                                //     BorderRadius.circular(15)),
+                                ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Divider(
+                        height: 3.h,
+                        thickness: 0.3.w,
+                        color: Color(0xff50509a),
+                      ),
+                    ),
+                    SizedBox(height: 1.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Text('Gender'),
+                            SizedBox(
+                              width: 2.w,
+                            ),
+                            Text(
+                              'Male',
+                              style: TextStyle(
+                                  fontSize: 2.h,
                                   color: Color(0xff35358a),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) =>
-                            //             summary_b_edit()));
-
-                          },
-                          child: Container(
-                            // alignment: Alignment.center,
-                            // height: 3.h,
-                            // width: 15.w,
-                            // child: Text(
-                            //   'Edit',
-                            //   style: TextStyle(
-                            //       color: Colors.white),
-                            // ),
-                            // decoration: BoxDecoration(
-                            //     color: Color(0xff333389),
-                            //     borderRadius:
-                            //     BorderRadius.circular(15)),
-                          ),
-                        )
-                      ],
-                    ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),
-                      child: Divider(
-                        height: 3.h,
-                        thickness: 0.3.w,
-                        color: Color(0xff50509a),
                       ),
-                    ),
-                    SizedBox(height: 1.h),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Container(
-                      child: Row(
-                        children: [
-                          Text('Gender'),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          Text(
-                            'Male',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Color(0xff35358a),
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
                     ),
                     SizedBox(height: 2.h),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          // color: Colors.red,
-                          child: Text(
-                            'XS',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            'S',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            'M',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            'L',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            'XL',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '20000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '30000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '0',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '12500',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '13000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '2XL',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '3XL',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '4XL',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '5XL',
-                            style: TextStyle(
-                                fontSize: 2.3.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-                            color: Color(0Xffeaeaf3),
-                          ),
-                          child: Text(
-                            'TOTAL',
-                            style: TextStyle(
-                                fontSize: 1.5.h,
-                                color: Color(0XFF50509a),
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '20000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '50000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '75000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '10000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
-                            color: Color(0Xffeaeaf3),
-                          ),
-                          child: Text(
-                            '8888',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Color(0Xff50509a),
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                    ),
-                    SizedBox(height: 1.h),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),
-                      child: Divider(
-                        height: 3.h,
-                        thickness: 0.3.w,
-                        color: Color(0xff50509a),
-                      ),
-                    ),
-                    SizedBox(height: 1.h),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
                       child: Row(
-                        children: [
-                          Text('Gender'),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          Text(
-                            'Women',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Color(0xff35358a),
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
-                    ),
-                    SizedBox(height: 2.h),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),
-                      child: Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
                             height: 3.5.h,
                             width: 15.w,
+                            // color: Colors.red,
                             child: Text(
                               'XS',
                               style: TextStyle(
@@ -709,7 +317,8 @@ class _order_idState extends State<order_id> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          Container( alignment: Alignment.center,
+                          Container(
+                            alignment: Alignment.center,
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
@@ -720,7 +329,8 @@ class _order_idState extends State<order_id> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          Container( alignment: Alignment.center,
+                          Container(
+                            alignment: Alignment.center,
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
@@ -731,7 +341,8 @@ class _order_idState extends State<order_id> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          Container( alignment: Alignment.center,
+                          Container(
+                            alignment: Alignment.center,
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
@@ -742,7 +353,8 @@ class _order_idState extends State<order_id> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          Container( alignment: Alignment.center,
+                          Container(
+                            alignment: Alignment.center,
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
@@ -757,156 +369,50 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '20000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '30000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '0',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '12500',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '13000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                    ),
-
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
                       child: Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Container( alignment: Alignment.center,
-                            height: 3.5.h,
+                          Container(
+                            height: 0.1.h,
                             width: 15.w,
-                            child: Text(
-                              '2XL',
-                              style: TextStyle(
-                                  fontSize: 2.h,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            color: Colors.black,
                           ),
-                          Container( alignment: Alignment.center,
-                            height: 3.5.h,
+                          Container(
+                            height: 0.1.h,
                             width: 15.w,
-                            child: Text(
-                              '3XL',
-                              style: TextStyle(
-                                  fontSize: 2.h,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            color: Colors.black,
                           ),
-                          Container( alignment: Alignment.center,
-                            height: 3.5.h,
+                          Container(
+                            height: 0.1.h,
                             width: 15.w,
-                            child: Text(
-                              '4XL',
-                              style: TextStyle(
-                                  fontSize: 2.h,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            color: Colors.black,
                           ),
-                          Container( alignment: Alignment.center,
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '5XL',
+                              '20000',
                               style: TextStyle(
                                   fontSize: 2.h,
                                   color: Colors.black,
@@ -917,9 +423,117 @@ class _order_idState extends State<order_id> {
                             alignment: Alignment.center,
                             height: 3.5.h,
                             width: 15.w,
-
+                            child: Text(
+                              '30000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '0',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '12500',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '13000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '2XL',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '3XL',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '4XL',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '5XL',
+                              style: TextStyle(
+                                  fontSize: 2.3.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
                               color: Color(0Xffeaeaf3),
                             ),
                             child: Text(
@@ -934,161 +548,660 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                        Container(
-                          height: 0.1.h,
-                          width: 15.w,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),                                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '20000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '20000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '50000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '50000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '75000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '75000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          child: Text(
-                            '10000',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '10000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-                        ),
-                        Container(
-
-                          alignment: Alignment.center,
-                          height: 3.5.h,
-                          width: 15.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
-                            color: Color(0Xffeaeaf3),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10)),
+                              color: Color(0Xffeaeaf3),
+                            ),
+                            child: Text(
+                              '8888',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Color(0Xff50509a),
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-                          child: Text(
-                            '8888',
-                            style: TextStyle(
-                                fontSize: 2.h,
-                                color: Color(0Xff50509a),
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
+                    SizedBox(height: 1.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Divider(
+                        height: 3.h,
+                        thickness: 0.3.w,
+                        color: Color(0xff50509a),
+                      ),
                     ),
-
+                    SizedBox(height: 1.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Text('Gender'),
+                            SizedBox(
+                              width: 2.w,
+                            ),
+                            Text(
+                              'Women',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Color(0xff35358a),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 2.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              'XS',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              'S',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              'M',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              'L',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              'XL',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '20000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '30000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '0',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '12500',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '13000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '2XL',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '3XL',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '4XL',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '5XL',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
+                              color: Color(0Xffeaeaf3),
+                            ),
+                            child: Text(
+                              'TOTAL',
+                              style: TextStyle(
+                                  fontSize: 1.5.h,
+                                  color: Color(0XFF50509a),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            height: 0.1.h,
+                            width: 15.w,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '20000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '50000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '75000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            child: Text(
+                              '10000',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 3.5.h,
+                            width: 15.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10)),
+                              color: Color(0Xffeaeaf3),
+                            ),
+                            child: Text(
+                              '8888',
+                              style: TextStyle(
+                                  fontSize: 2.h,
+                                  color: Color(0Xff50509a),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     SizedBox(
                       height: 2.h,
                     ),
                     Container(
-                      alignment: Alignment.centerLeft,
-                      height: 6.h,
+                      height: 20.h,
                       width: MediaQuery.of(context).size.width,
-                      color: Color(0xfffeaeaf3),
+                      color: Color(0xfff5f5f5),
                       child: Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 2.h),
-                        child: Row(
-                          children: [
-                            Text(
-                              ' Grand Total :',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 2.h
+                        padding: EdgeInsets.symmetric(horizontal: 2.h),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 1.h),
+                          child: Column(
+                            children: [
+                              SizedBox(height: 2.h),
+                              Container(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  'Payment Summary',
+                                  style: TextStyle(
+                                      // fontWeight: FontWeight.bold,
+                                      fontSize: 1.8.h,
+                                      color: Color(0xff333389)),
+                                ),
                               ),
-                            ),
-
-                            Text(
-                              ' ₹99,99,999 + GST',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 2.h,
-                                  color: Color(0xff333389)
+                              Divider(
+                                height: 3.h,
+                                thickness: 0.3.w,
+                                color: Color(0xff50509a),
                               ),
-                            ),
-
-                          ],
+                              Container(
+                                alignment: Alignment.topLeft,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Sub Total :',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 1.8.h,
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      '₹99,99,999',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 1.8.h,
+                                        color: Color(0xff50509a),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 1.h),
+                              Container(
+                                alignment: Alignment.topLeft,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'GST',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 1.8.h,
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      '₹12,456',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 1.8.h,
+                                        color: Color(0xff50509a),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 1.h),
+                              Container(
+                                alignment: Alignment.topLeft,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Payable Amount',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 1.8.h,
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      '₹1,00,12,455',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 1.8.h,
+                                        color: Color(0xff50509a),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-
-
                     ),
                     SizedBox(height: 3.h),
                   ],
                 );
-
               },
             ),
-
           ),
+
+          Row(
+            children: [
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 3.h),
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Color(0xff333389),
+                  ),
+                  height: 6.h,
+                  width: 40.w,
+                  child: Text('Edit',
+                  style: TextStyle(color: Colors.white),
+                  ),
+
+
+
+                ),
+
+
+
+              ),
+              Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color(0xff333389),
+                ),
+                height: 6.h,
+                width: 40.w,
+                child: Text('Cancle Request',
+                  style: TextStyle(color: Colors.white),
+                ),
+
+
+
+              ),
+            ],
+          )
 
           //
         ],
       ),
-    ));
+
+    )
+    );
   }
 }
