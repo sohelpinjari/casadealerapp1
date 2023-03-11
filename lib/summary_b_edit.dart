@@ -1428,11 +1428,11 @@ class _summary_b_editState extends State<summary_b_edit> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //         builder: (context) =>
-                                      //             products_1()));
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  summary()));
                                       setState(() {
                                         cart = 1;
                                       });
@@ -1466,12 +1466,12 @@ class _summary_b_editState extends State<summary_b_edit> {
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      //                             Navigator.push(
-                                      //                                 context,
-                                      //                                 MaterialPageRoute(
-                                      //                                     builder: (context) =>
-                                      //                                         block_order())
-                                      // );
+                                                                  Navigator.push(
+                                                                      context,
+                                                                      MaterialPageRoute(
+                                                                          builder: (context) =>
+                                                                              summary())
+                                      );
                                       setState(() {
                                         cart = 0;
                                       });
