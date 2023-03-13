@@ -148,8 +148,8 @@ class _your_orderState extends State<your_order> {
                                 child: Image.asset(
                                   'assets/product_1_img2.png',
                                   height: 10.h,
-                                  width: 25.w,
-                                  fit: BoxFit.fill,
+                                  width: 20.w,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                               // SizedBox(width: 5.w,),

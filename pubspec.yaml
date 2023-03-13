@@ -38,6 +38,7 @@ dependencies:
   http: ^0.13.5
   shared_preferences: ^2.0.17
   connectivity:
+  dotted_line: ^3.1.0
 
 
 

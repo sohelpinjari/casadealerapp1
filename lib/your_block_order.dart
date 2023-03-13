@@ -116,7 +116,7 @@ class _your_block_orderState extends State<your_block_order> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Row(
                               children: [
@@ -125,11 +125,11 @@ class _your_block_orderState extends State<your_block_order> {
                                   child: Image.asset(
                                     'assets/product_1_img2.png',
                                     height: 10.h,
-                                    width: 25.w,
-                                    fit: BoxFit.fill,
+                                    width: 20.w,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                                // SizedBox(width: 5.w,),
+                                SizedBox(width: 2.w,),
 
                                 Padding(
                                   padding: EdgeInsets.all(1.h),
@@ -166,7 +166,7 @@ class _your_block_orderState extends State<your_block_order> {
                                       Container(
                                         alignment: Alignment.center,
                                         height: 3.4.h,
-                                        width: 20.w,
+                                        width: 18.w,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(15),
                                           color: Color(0xfffaede7)

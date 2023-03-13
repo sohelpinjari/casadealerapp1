@@ -1,10 +1,10 @@
-class all_category_display {
+class allcategorydisplay {
   String? status;
   List<Data>? data;
 
-  all_category_display({this.status, this.data});
+  allcategorydisplay({this.status, this.data});
 
-  all_category_display.fromJson(Map<String, dynamic> json) {
+  allcategorydisplay.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     if (json['data'] != null) {
       data = <Data>[];

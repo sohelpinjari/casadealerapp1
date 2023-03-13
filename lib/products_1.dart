@@ -21,7 +21,6 @@ class products_1 extends StatefulWidget {
   State<products_1> createState() => _products_1State();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class products {
   String? image;
@@ -39,7 +38,9 @@ class products {
 }
 
 class _products_1State extends State<products_1> {
-  all_category_display? allcategory;
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  allcategorydisplay? allproperty;
   List<products> images = [
     products("assets/product_1_img.png", "Brand Name", "Street Wear",
         "Artist Name", "S", "M", "L", "\₹125 - \₹150"),
@@ -60,13 +61,11 @@ class _products_1State extends State<products_1> {
   ];
   productapi? productData;
 
-  @override
+@override
   void initState() {
+  allcategorydisplayapi();
     // TODO: implement initState
     super.initState();
-    // view();
-    // productsapi();
-    all_category_displayapi();
 
   }
 
@@ -222,57 +221,63 @@ class _products_1State extends State<products_1> {
               right: 0,
               child: Container(
                 height: 13.h,
-                margin: EdgeInsets.symmetric(horizontal: 2.h),
+                // margin: EdgeInsets.symmetric(horizontal: 2.h),
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: allcategory?.data?.length,
+                    itemCount: allproperty?.data?.length,
+                    physics: BouncingScrollPhysics(),
+                    shrinkWrap: true,
                     itemBuilder: ( context,  index) {
-                      return Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 0.8.h),
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.17,
-                            height: MediaQuery.of(context).size.height * 0.10,
-                            // child: TextFormField(
-                            //   validator: (value) {
-                            //     if (value!.isEmpty) {
-                            //       return "";
-                            //     }
-                            //     return null;
-                            //   },
-                            //   // controller: _firstname,
-                            //   decoration: InputDecoration(
-                            //     border: InputBorder.none,
-                            //     contentPadding: EdgeInsets.all(3.h),
-                            //     hintText: 'Search by SKU/Brand',
-                            //     suffixIcon: Icon(
-                            //       Icons.search,
-                            //       color: Color(0xfff333389),
-                            //       size: 4.5.h,
-                            //     ),
-                            //   ),
-                            // ),
+                      return Container(
+                        height: 13.h,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 0.8.h),
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width * 0.17,
+                              height: MediaQuery.of(context).size.height * 0.10,
+                              // child: TextFormField(
+                              //   validator: (value) {
+                              //     if (value!.isEmpty) {
+                              //       return "";
+                              //     }
+                              //     return null;
+                              //   },
+                              //   // controller: _firstname,
+                              //   decoration: InputDecoration(
+                              //     border: InputBorder.none,
+                              //     contentPadding: EdgeInsets.all(3.h),
+                              //     hintText: 'Search by SKU/Brand',
+                              //     suffixIcon: Icon(
+                              //       Icons.search,
+                              //       color: Color(0xfff333389),
+                              //       size: 4.5.h,
+                              //     ),
+                              //   ),
+                              // ),
 
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blueGrey,
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        '${allcategory?.data?[index].categoryImg.toString()}'),
-                                    fit: BoxFit.fitWidth)
-                                // // borderRadius: BorderRadius.all(
-                                // //   Radius.circular(10),
-                                // ),
-                                ),
-                          ),
-                          Text(
-                            '${allcategory?.data?[index].categoryName.toString()}',
-                            style:
-                                TextStyle(fontSize: 2.h, color: Colors.black),
-                          )
-                        ],
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.blueGrey,
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          '${allproperty?.data?[index].categoryImg.toString()}'),
+                                      fit: BoxFit.fitWidth)
+                                  // borderRadius: BorderRadius.all(
+                                  //   Radius.circular(10),
+                                  ),
+                                  ),
+                              // child:Image.network( '${allproperty?.data?[index].categoryImg.toString()}')
+                            // ),
+                            Text(
+                              '${allproperty?.data?[index].categoryName.toString()}',
+                              style:
+                                  TextStyle(fontSize: 2.h, color: Colors.black),
+                            )
+                          ],
+                        ),
                       );
                     }),
               ),
@@ -589,8 +594,8 @@ class _products_1State extends State<products_1> {
                                           (images[index].image).toString(),
                                       pronamenevigatior:
                                           images[index].Street_Wear.toString(),
-                                      coloridnevigator:
-                                          '${productData?.productData![index].apId}',
+                                      // coloridnevigator:
+                                      //     '${productData?.productData![index].apId}',
                                     )));
                       },
                       child: Column(
@@ -849,7 +854,30 @@ class _products_1State extends State<products_1> {
       ),
     );
   }
+  allcategorydisplayapi() async {
+    final Map<String, String> data = {};
+    data['action'] = 'all_category_display';
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider().allcatogeryapi(data).then((Response response) async {
+          allproperty = allcategorydisplay.fromJson(json.decode(response.body));
 
+
+          if (response.statusCode == 200 && allproperty?.status == "success" ) {
+
+            print("img"+(allproperty?.data?.length).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {
+        setState(() {});
+      }
+    });
+  }
   // productsapi() async {
   //
   //   final Map<String, String> data = {};
@@ -873,29 +901,5 @@ class _products_1State extends State<products_1> {
   //   });
   // }
 
-  all_category_displayapi() async {
-    final Map<String, String> data = {};
-    data['action'] = 'all_category_display';
 
-    checkInternet().then((internet) async {
-      if (internet) {
-        Productprovider().allcatogeryapi(data).then((Response response) async {
-          allcategory =
-              all_category_display.fromJson(json.decode(response.body));
-
-          if (response.statusCode == 200 && allcategory?.status == "success" ) {
-
-            print("img"+(allcategory?.data?[0].categoryName).toString());
-            SaveDataLocal.saveLogInData(userData!);
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: (context) => loginsuccess()));
-
-            if (kDebugMode) {}
-          } else {}
-        });
-      } else {
-        setState(() {});
-      }
-    });
-  }
 }

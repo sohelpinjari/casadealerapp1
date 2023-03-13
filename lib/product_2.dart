@@ -601,9 +601,9 @@ class _product_2State extends State<product_2> {
                                         ],
                                       )),
                                 ),
-                                // SizedBox(
-                                //   height: 1.4.h,
-                                // ),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
                                 Padding(
                                   padding:
                                       EdgeInsets.only(left: 2.h, right: 2.h),
@@ -665,8 +665,9 @@ class _product_2State extends State<product_2> {
                                         },
                                       )),
                                 ),
+
                                 Padding(
-                                  padding: EdgeInsets.all(2.h),
+                                  padding:  EdgeInsets.symmetric(horizontal: 2.h),
                                   child: Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -677,10 +678,13 @@ class _product_2State extends State<product_2> {
                                         ),
                                       )),
                                 ),
-                                // SizedBox(
-                                //   height: 2.h,
-                                // ),
-                                Divider(color: Colors.grey.shade400),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Padding(
+                                  padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                                  child: Divider(color: Colors.grey.shade400),
+                                ),
                                 Padding(
                                   padding: EdgeInsets.all(2.h),
                                   child: Container(
@@ -776,7 +780,7 @@ class _product_2State extends State<product_2> {
                                               Container(
                                                 width: 30.w,
                                                 child: Text(
-                                                  "Color:",
+                                                  "Color :",
                                                   style: TextStyle(
                                                     fontSize: 1.8.h,
                                                   ),
@@ -785,7 +789,7 @@ class _product_2State extends State<product_2> {
                                               Container(
                                                 width: 30.w,
                                                 child: Text(
-                                                  "S - XL:",
+                                                  "S - XL :",
                                                   style: TextStyle(
                                                     fontSize: 1.8.h,
                                                   ),
@@ -798,7 +802,7 @@ class _product_2State extends State<product_2> {
                                               Container(
                                                 width: 30.w,
                                                 child: Text(
-                                                  " 2XL - 3XL",
+                                                  " 2XL - 3XL :",
                                                   style: TextStyle(
                                                     fontSize: 1.8.h,
                                                   ),
@@ -858,7 +862,7 @@ class _product_2State extends State<product_2> {
                                       ),
                                     )),
                                 SizedBox(
-                                  height: 3.h,
+                                  height: 3.5.h,
                                 ),
 
                                 Padding(
@@ -2226,8 +2230,8 @@ class _product_2State extends State<product_2> {
                                                 alignment: Alignment.center,
                                                 child: Image.asset(
                                                   'assets/product_2_img2.png',
-                                                  fit: BoxFit.fill,
-                                                  height: 40.h,
+                                                  fit: BoxFit.cover,
+                                                  height: 33.5.h,
                                                   width: MediaQuery.of(context)
                                                       .size
                                                       .width,
@@ -2254,7 +2258,10 @@ class _product_2State extends State<product_2> {
                                                   ],
                                                 ),
                                               ),
-                                              SizedBox(height: 2.h),
+                                              SizedBox(height: 1.h),
+                                              Divider(
+                                                  color: Colors.grey.shade400),
+                                              SizedBox(height: 1.h),
                                               Padding(
                                                 padding:  EdgeInsets.symmetric(horizontal : 4.h),
                                                 child: Row(
@@ -2445,7 +2452,7 @@ class _product_2State extends State<product_2> {
                                                   child: Text('Available Downloads')
                                               ),
 
-                                              SizedBox(height: 4.h ),
+                                              SizedBox(height: 3.h ),
 
                                               Container(
                                                 alignment: Alignment.center,

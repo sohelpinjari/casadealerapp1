@@ -2,6 +2,7 @@ import 'package:casadealerapp/cart_order.dart';
 import 'package:casadealerapp/drawer.dart';
 import 'package:casadealerapp/product_2.dart';
 import 'package:casadealerapp/products_1.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -146,15 +147,24 @@ class _order_idState extends State<order_id> {
                 return Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment:
+                        CrossAxisAlignment.start,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Product Name',
-                              style: TextStyle(color: Color(0xff848484))),
+                              style: TextStyle(
+                                color: Color(0xff848484),
+                                fontSize: 1.5.h,
+                              )),
                           Text('Color',
-                              style: TextStyle(color: Color(0xff848484))),
+                              style: TextStyle(
+                                color: Color(0xff848484),
+                                fontSize: 1.5.h,
+                              )),
                         ],
                       ),
                     ),
@@ -162,10 +172,13 @@ class _order_idState extends State<order_id> {
                       height: 1.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment:
+                        CrossAxisAlignment.start,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Ruffty Tipping',
                               style: TextStyle(
@@ -177,18 +190,21 @@ class _order_idState extends State<order_id> {
                                 color: Color(0xff35358a),
                                 fontSize: 2.h,
                                 fontWeight: FontWeight.bold,
-                              )),
+                              )
+                          ),
                         ],
                       ),
                     ),
                     SizedBox(height: 3.h),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Price',
-                          style: TextStyle(color: Color(0xff848484)),
+                          style:
+                          TextStyle(color: Color(0xff848484)),
                         ),
                       ),
                     ),
@@ -196,11 +212,13 @@ class _order_idState extends State<order_id> {
                       height: 1.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        // mainAxisAlignment:
-                        // MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment:
+                        CrossAxisAlignment.start,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -210,16 +228,15 @@ class _order_idState extends State<order_id> {
                                 Text('XS - 3XL :',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold)),
+                                        fontWeight:
+                                        FontWeight.bold)),
                                 Text(' ₹250',
                                     style: TextStyle(
                                         color: Color(0xff35358a),
-                                        fontWeight: FontWeight.bold)),
+                                        fontWeight:
+                                        FontWeight.bold)),
                               ],
                             ),
-                          ),
-                          SizedBox(
-                            width: 10.w,
                           ),
                           Container(
                             alignment: Alignment.center,
@@ -243,34 +260,37 @@ class _order_idState extends State<order_id> {
                               ],
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) =>
-                              //             summary_b_edit()));
-                            },
-                            child: Container(
-                                // alignment: Alignment.center,
-                                // height: 3.h,
-                                // width: 15.w,
-                                // child: Text(
-                                //   'Edit',
-                                //   style: TextStyle(
-                                //       color: Colors.white),
-                                // ),
-                                // decoration: BoxDecoration(
-                                //     color: Color(0xff333389),
-                                //     borderRadius:
-                                //     BorderRadius.circular(15)),
-                                ),
-                          )
+                          // GestureDetector(
+                          //   onTap: () {
+                          //     Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //             builder: (context) =>
+                          //                 summary_b_edit()));
+                          //   },
+                          //   child: Container(
+                          //     alignment: Alignment.center,
+                          //     height: 3.5.h,
+                          //     width: 20.5.w,
+                          //     child: Text(
+                          //       'Edit',
+                          //       style:
+                          //       TextStyle(color: Colors.white,
+                          //           fontSize: 1.5.h
+                          //       ),
+                          //     ),
+                          //     decoration: BoxDecoration(
+                          //         color: Color(0xff333389),
+                          //         borderRadius:
+                          //         BorderRadius.circular(15)),
+                          //   ),
+                          // )
                         ],
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Divider(
                         height: 3.h,
                         thickness: 0.3.w,
@@ -279,18 +299,22 @@ class _order_idState extends State<order_id> {
                     ),
                     SizedBox(height: 1.h),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Container(
                         child: Row(
                           children: [
-                            Text('Gender'),
+                            Text('Gender',
+                                style: TextStyle(  color: Color(0xff848484),)
+
+                            ),
                             SizedBox(
                               width: 2.w,
                             ),
                             Text(
                               'Male',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 2.3.h,
                                   color: Color(0xff35358a),
                                   fontWeight: FontWeight.bold),
                             ),
@@ -300,9 +324,11 @@ class _order_idState extends State<order_id> {
                     ),
                     SizedBox(height: 2.h),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -369,10 +395,13 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment:
+                        CrossAxisAlignment.center,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             height: 0.1.h,
@@ -403,9 +432,11 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -414,7 +445,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '20000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -426,7 +457,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '30000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -438,7 +469,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '0',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -450,7 +481,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '12500',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -462,7 +493,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '13000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -474,9 +505,11 @@ class _order_idState extends State<order_id> {
                       height: 2.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -521,7 +554,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '5XL',
                               style: TextStyle(
-                                  fontSize: 2.3.h,
+                                  fontSize: 2.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -548,10 +581,13 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment:
+                        CrossAxisAlignment.center,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             height: 0.1.h,
@@ -582,9 +618,11 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -593,7 +631,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '20000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -605,7 +643,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '50000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -617,7 +655,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '75000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -629,7 +667,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '10000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -655,29 +693,41 @@ class _order_idState extends State<order_id> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 1.h),
+                    SizedBox(height: 2.h),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
-                      child: Divider(
-                        height: 3.h,
-                        thickness: 0.3.w,
-                        color: Color(0xff50509a),
-                      ),
+                        padding:
+                        EdgeInsets.symmetric(horizontal: 3.h),
+                        child: DottedLine(
+                          direction: Axis.horizontal,
+                          lineLength: double.infinity,
+                          lineThickness: 1.0,
+                          dashLength: 5.0,
+                          dashColor: Color(0xff8d8d8d),
+                          // dashGradient: [Colors.red, Colors.blue],
+                          dashRadius: 0.0,
+                          dashGapLength: 4.0,
+                          dashGapColor: Colors.transparent,
+                          // dashGapGradient: [Colors.red, Colors.blue],
+                          dashGapRadius: 0.0,
+                        )
                     ),
-                    SizedBox(height: 1.h),
+                    SizedBox(height: 2.h),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Container(
                         child: Row(
                           children: [
-                            Text('Gender'),
+                            Text('Gender'
+                                ,style: TextStyle( color: Color(0xff848484),)
+                            ),
                             SizedBox(
                               width: 2.w,
                             ),
                             Text(
                               'Women',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 2.3.h,
                                   color: Color(0xff35358a),
                                   fontWeight: FontWeight.bold),
                             ),
@@ -687,9 +737,11 @@ class _order_idState extends State<order_id> {
                     ),
                     SizedBox(height: 2.h),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -755,10 +807,13 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment:
+                        CrossAxisAlignment.center,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             height: 0.1.h,
@@ -789,9 +844,11 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -800,7 +857,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '20000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -812,7 +869,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '30000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -824,7 +881,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '0',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -836,7 +893,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '12500',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -848,7 +905,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '13000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -860,9 +917,11 @@ class _order_idState extends State<order_id> {
                       height: 2.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -934,10 +993,13 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment:
+                        CrossAxisAlignment.center,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             height: 0.1.h,
@@ -968,9 +1030,11 @@ class _order_idState extends State<order_id> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2.h),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 3.h),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceAround,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -979,7 +1043,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '20000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -991,7 +1055,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '50000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -1003,7 +1067,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '75000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -1015,7 +1079,7 @@ class _order_idState extends State<order_id> {
                             child: Text(
                               '10000',
                               style: TextStyle(
-                                  fontSize: 2.h,
+                                  fontSize: 1.9.h,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -1049,103 +1113,110 @@ class _order_idState extends State<order_id> {
                       width: MediaQuery.of(context).size.width,
                       color: Color(0xfff5f5f5),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 2.h),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 1.h),
-                          child: Column(
-                            children: [
-                              SizedBox(height: 2.h),
-                              Container(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Payment Summary',
-                                  style: TextStyle(
-                                      // fontWeight: FontWeight.bold,
-                                      fontSize: 1.8.h,
-                                      color: Color(0xff333389)),
-                                ),
+                        padding: EdgeInsets.symmetric(horizontal: 3.h),
+                        child: Column(
+                          children: [
+                            SizedBox(height: 2.h),
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                'Payment Summary',
+                                style: TextStyle(
+                                    // fontWeight: FontWeight.bold,
+                                    fontSize: 1.8.h,
+                                    color: Color(0xff333389)),
                               ),
-                              Divider(
-                                height: 3.h,
-                                thickness: 0.3.w,
-                                color: Color(0xff50509a),
-                              ),
-                              Container(
-                                alignment: Alignment.topLeft,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Sub Total :',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 1.8.h,
-                                          color: Colors.black),
-                                    ),
-                                    Text(
-                                      '₹99,99,999',
-                                      style: TextStyle(
+                            ),
+                            SizedBox(height: 2.h),
+                            DottedLine(
+                              direction: Axis.horizontal,
+                              lineLength: double.infinity,
+                              lineThickness: 1.0,
+                              dashLength: 5.0,
+                              dashColor: Color(0xff8d8d8d),
+                              // dashGradient: [Colors.red, Colors.blue],
+                              dashRadius: 0.0,
+                              dashGapLength: 4.0,
+                              dashGapColor: Colors.transparent,
+                              // dashGapGradient: [Colors.red, Colors.blue],
+                              dashGapRadius: 0.0,
+                            ),
+                            SizedBox(height: 2.h),
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Sub Total :',
+                                    style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 1.8.h,
-                                        color: Color(0xff50509a),
-                                      ),
+                                        fontSize: 1.9.h,
+                                        color: Colors.black),
+                                  ),
+                                  Text(
+                                    '₹99,99,999',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 1.9.h,
+                                      color: Color(0xff50509a),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                              SizedBox(height: 1.h),
-                              Container(
-                                alignment: Alignment.topLeft,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'GST',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 1.8.h,
-                                          color: Colors.black),
-                                    ),
-                                    Text(
-                                      '₹12,456',
-                                      style: TextStyle(
+                            ),
+                            SizedBox(height: 2.h),
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'GST',
+                                    style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 1.8.h,
-                                        color: Color(0xff50509a),
-                                      ),
+                                        fontSize: 1.9.h,
+                                        color: Colors.black),
+                                  ),
+                                  Text(
+                                    '₹12,456',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 1.9.h,
+                                      color: Color(0xff50509a),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                              SizedBox(height: 1.h),
-                              Container(
-                                alignment: Alignment.topLeft,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Payable Amount',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 1.8.h,
-                                          color: Colors.black),
-                                    ),
-                                    Text(
-                                      '₹1,00,12,455',
-                                      style: TextStyle(
+                            ),
+                            SizedBox(height: 2.h),
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Payable Amount',
+                                    style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 1.8.h,
-                                        color: Color(0xff50509a),
-                                      ),
+                                        fontSize: 1.9.h,
+                                        color: Colors.black),
+                                  ),
+                                  Text(
+                                    '₹1,00,12,455',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 1.9.h,
+                                      color: Color(0xff50509a),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
