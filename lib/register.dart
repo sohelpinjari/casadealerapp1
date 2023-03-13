@@ -4,6 +4,7 @@ import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/getstarted.dart';
 import 'package:casadealerapp/login.dart';
 import 'package:casadealerapp/login_authprovider.dart';
+import 'package:casadealerapp/login_model.dart';
 import 'package:casadealerapp/loginsuccess.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
@@ -40,6 +41,23 @@ class _registerState extends State<register> {
   String? gender = "male";
   bool? check3 = false;
   var select = "i1";
+  usermodal? userData;
+
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // view();
+
+    getdata();
+  }
+  getdata()async{
+    userData=await SaveDataLocal.getDataFromLocal();
+    setState(() {
+      userData;
+    }
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -181,29 +199,29 @@ class _registerState extends State<register> {
                         width: MediaQuery.of(context).size.width * 0.9,
                         height: MediaQuery.of(context).size.height * 0.08,
                         child: TextFormField(
-                          validator: (value) {
-                            String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
-                                "\\@" +
-                                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                                "(" +
-                                "\\." +
-                                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                                ")+";
-                            //Convert string p to a RegE  x
-                            RegExp regExp = RegExp(p);
-
-                            if (value!.isEmpty) {
-                              return 'Please enter Your Email';
-                            } else {
-                              //If email address matches pattern
-                              if (regExp.hasMatch(value)) {
-                                return null;
-                              } else {
-                                //If it doesn't match
-                                return 'Email is not valid';
-                              }
-                            }
-                          },
+                          // validator: (value) {
+                          //   String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+                          //       "\\@" +
+                          //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                          //       "(" +
+                          //       "\\." +
+                          //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                          //       ")+";
+                          //   //Convert string p to a RegE  x
+                          //   RegExp regExp = RegExp(p);
+                          //
+                          //   if (value!.isEmpty) {
+                          //     return 'Please enter Your Email';
+                          //   } else {
+                          //     //If email address matches pattern
+                          //     if (regExp.hasMatch(value)) {
+                          //       return null;
+                          //     } else {
+                          //       //If it doesn't match
+                          //       return 'Email is not valid';
+                          //     }
+                          //   }
+                          // },
                           controller: _email,
                           decoration: InputDecoration(
                             // suffixIcon: Icon(
@@ -265,18 +283,18 @@ class _registerState extends State<register> {
                         width: MediaQuery.of(context).size.width * 0.9,
                         height: MediaQuery.of(context).size.height * 0.08,
                         child: TextFormField(
-                          validator: (value) {
-                            if (value?.length != 10)
-                              return 'Mobile Number must be of 10 digit';
-                            else
-                              return null;
-                          },
+                          // validator: (value) {
+                          //   if (value?.length != 10)
+                          //     return 'Mobile Number must be of 10 digit';
+                          //   else
+                          //     return null;
+                          // },
                           controller: _phone1,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.all(2.h),
-                            hintText: 'Phone No. 2',
+                            hintText: 'Phone 2 (optional)',
                             // suffixIcon: Icon(
                             //   Icons.phone_outlined,
                             //   color: Color(0xfff9696c1),
@@ -395,10 +413,12 @@ class _registerState extends State<register> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               print("Validate");
-                              Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                              builder: (context) => loginsuccess()));
+                              registerApi();
+                              print("Validate");
+                              // Navigator.push(
+                              // context,
+                              // MaterialPageRoute(
+                              // builder: (context) => loginsuccess()));
                             }
                           },
                           child: Text(
@@ -487,7 +507,7 @@ class _registerState extends State<register> {
             SharedPreferences _sharedpreferences =
             await SharedPreferences.getInstance();
             print(response.statusCode);
-            // userData = usermodal.fromJson(json.decode(response.body));
+            userData = usermodal.fromJson(json.decode(response.body));
 
             if (response.statusCode == 200 && userData!.status == "success") {
               SaveDataLocal.saveLogInData(userData!);

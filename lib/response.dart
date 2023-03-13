@@ -5,7 +5,9 @@ import 'package:http/http.dart' as http;
 import 'CustomException.dart';
 
 responses(http.Response response) {
+  print(response.statusCode);
   switch (response.statusCode) {
+
     case 200:
       {
         // print((response.body)['statusCode']);

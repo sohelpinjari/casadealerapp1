@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/drawer.dart';
 import 'package:casadealerapp/login_authprovider.dart';
+import 'package:casadealerapp/modal_class/all_category_display.dart';
 import 'package:casadealerapp/product_2.dart';
 import 'package:casadealerapp/productapiclass.dart';
+import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +39,7 @@ class products {
 }
 
 class _products_1State extends State<products_1> {
+  all_category_display? allcategory;
   List<products> images = [
     products("assets/product_1_img.png", "Brand Name", "Street Wear",
         "Artist Name", "S", "M", "L", "\₹125 - \₹150"),
@@ -62,17 +65,17 @@ class _products_1State extends State<products_1> {
     // TODO: implement initState
     super.initState();
     // view();
-    productsapi();
+    // productsapi();
+    all_category_displayapi();
 
-    getdata();
   }
 
-  getdata() async {
-    userData = await SaveDataLocal.getDataFromLocal();
-    setState(() {
-      productData;
-    });
-  }
+  // getdata() async {
+  //   userData = await SaveDataLocal.getDataFromLocal();
+  //   setState(() {
+  //     productData;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +97,9 @@ class _products_1State extends State<products_1> {
               color: Color(0xfffFFFFFF),
             ),
             Positioned(
-              top: 0.0,left: 0.w,right: 0.w,
+              top: 0.0,
+              left: 0.w,
+              right: 0.w,
               child: Column(
                 children: [
                   Container(
@@ -123,8 +128,8 @@ class _products_1State extends State<products_1> {
                               // alignment: Alignment.center,
                               child: Text(
                                 "Products",
-                                style:
-                                    TextStyle(fontSize: 2.h, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 2.h, color: Colors.white),
                               ),
                             ),
                           ],
@@ -172,7 +177,6 @@ class _products_1State extends State<products_1> {
                     height: 2.h,
                   ),
                   Container(
-
                     margin: EdgeInsets.symmetric(horizontal: 2.h),
                     padding: EdgeInsets.symmetric(horizontal: 2.h),
                     alignment: Alignment.center,
@@ -197,39 +201,37 @@ class _products_1State extends State<products_1> {
                         ),
                       ),
                     ),
-
                     decoration: BoxDecoration(
-                        // shape: BoxShape.circle,
-                        color: Color(0xfff3faff),
-                        // image: DecorationImage(
-                        //     image: AssetImage("assets/product_1_img.png"),
-                        //     fit: BoxFit.fitWidth)
+                      // shape: BoxShape.circle,
+                      color: Color(0xfff3faff),
+                      // image: DecorationImage(
+                      //     image: AssetImage("assets/product_1_img.png"),
+                      //     fit: BoxFit.fitWidth)
                       borderRadius: BorderRadius.all(
                         Radius.circular(15),
-                      // ),
+                        // ),
+                      ),
                     ),
-                  ),
                   )
                 ],
               ),
-
             ),
             Positioned(
               top: 18.h,
               left: 0,
               right: 0,
-              // left: 2.h,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.w),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
+              child: Container(
+                height: 13.h,
+                margin: EdgeInsets.symmetric(horizontal: 2.h),
+                width: MediaQuery.of(context).size.width,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: allcategory?.data?.length,
+                    itemBuilder: ( context,  index) {
+                      return Column(
                         children: [
-
                           Container(
+                            margin: EdgeInsets.symmetric(horizontal: 0.8.h),
                             alignment: Alignment.center,
                             width: MediaQuery.of(context).size.width * 0.17,
                             height: MediaQuery.of(context).size.height * 0.10,
@@ -257,8 +259,8 @@ class _products_1State extends State<products_1> {
                                 shape: BoxShape.circle,
                                 color: Colors.blueGrey,
                                 image: DecorationImage(
-                                    image:
-                                        AssetImage("assets/product_1_img4.png"),
+                                    image: NetworkImage(
+                                        '${allcategory?.data?[index].categoryImg.toString()}'),
                                     fit: BoxFit.fitWidth)
                                 // // borderRadius: BorderRadius.all(
                                 // //   Radius.circular(10),
@@ -266,242 +268,301 @@ class _products_1State extends State<products_1> {
                                 ),
                           ),
                           Text(
-                            'Men',
-                            style: TextStyle(fontSize: 2.h, color: Colors.black),
+                            '${allcategory?.data?[index].categoryName.toString()}',
+                            style:
+                                TextStyle(fontSize: 2.h, color: Colors.black),
                           )
                         ],
-                      ),
-                      SizedBox(width: 3.w),
-                      Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.17,
-                            height: MediaQuery.of(context).size.height * 0.10,
-                            // child: TextFormField(
-                            //   validator: (value) {
-                            //     if (value!.isEmpty) {
-                            //       return "";
-                            //     }
-                            //     return null;
-                            //   },
-                            //   // controller: _firstname,
-                            //   decoration: InputDecoration(
-                            //     border: InputBorder.none,
-                            //     contentPadding: EdgeInsets.all(3.h),
-                            //     hintText: 'Search by SKU/Brand',
-                            //     suffixIcon: Icon(
-                            //       Icons.search,
-                            //       color: Color(0xfff333389),
-                            //       size: 4.5.h,
-                            //     ),
-                            //   ),
-                            // ),
-
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blueGrey,
-                                image: DecorationImage(
-                                    image: AssetImage("assets/product_1_img.png"),
-                                    fit: BoxFit.fitWidth)
-                                // // borderRadius: BorderRadius.all(
-                                // //   Radius.circular(10),
-                                // ),
-                                ),
-                          ),
-                          Text(
-                            'Women',
-                            style: TextStyle(fontSize: 2.h, color: Colors.black),
-                          )
-                        ],
-                      ),
-                      SizedBox(width: 3.w),
-                      Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.17,
-                            height: MediaQuery.of(context).size.height * 0.10,
-                            // child: TextFormField(
-                            //   validator: (value) {
-                            //     if (value!.isEmpty) {
-                            //       return "";
-                            //     }
-                            //     return null;
-                            //   },
-                            //   // controller: _firstname,
-                            //   decoration: InputDecoration(
-                            //     border: InputBorder.none,
-                            //     contentPadding: EdgeInsets.all(3.h),
-                            //     hintText: 'Search by SKU/Brand',
-                            //     suffixIcon: Icon(
-                            //       Icons.search,
-                            //       color: Color(0xfff333389),
-                            //       size: 4.5.h,
-                            //     ),
-                            //   ),
-                            // ),
-
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blueGrey,
-                                image: DecorationImage(
-                                    image:
-                                        AssetImage("assets/product_1_img5.png"),
-                                    fit: BoxFit.fitWidth)
-                                // // borderRadius: BorderRadius.all(
-                                // //   Radius.circular(10),
-                                // ),
-                                ),
-                          ),
-                          Text(
-                            'Kids',
-                            style: TextStyle(fontSize: 2.h, color: Colors.black),
-                          )
-                        ],
-                      ),
-                      SizedBox(width: 3.w),
-                      Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.17,
-                            height: MediaQuery.of(context).size.height * 0.10,
-                            // child: TextFormField(
-                            //   validator: (value) {
-                            //     if (value!.isEmpty) {
-                            //       return "";
-                            //     }
-                            //     return null;
-                            //   },
-                            //   // controller: _firstname,
-                            //   decoration: InputDecoration(
-                            //     border: InputBorder.none,
-                            //     contentPadding: EdgeInsets.all(3.h),
-                            //     hintText: 'Search by SKU/Brand',
-                            //     suffixIcon: Icon(
-                            //       Icons.search,
-                            //       color: Color(0xfff333389),
-                            //       size: 4.5.h,
-                            //     ),
-                            //   ),
-                            // ),
-
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blueGrey,
-                                image: DecorationImage(
-                                    image:
-                                        AssetImage("assets/product_1_img2.png"),
-                                    fit: BoxFit.fitWidth)
-                                // // borderRadius: BorderRadius.all(
-                                // //   Radius.circular(10),
-                                // ),
-                                ),
-                          ),
-                          Text(
-                            'Gift',
-                            style: TextStyle(fontSize: 2.h, color: Colors.black),
-                          )
-                        ],
-                      ),
-                      SizedBox(width: 3.w),
-                      Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.17,
-                            height: MediaQuery.of(context).size.height * 0.10,
-                            // child: TextFormField(
-                            //   validator: (value) {
-                            //     if (value!.isEmpty) {
-                            //       return "";
-                            //     }
-                            //     return null;
-                            //   },
-                            //   // controller: _firstname,
-                            //   decoration: InputDecoration(
-                            //     border: InputBorder.none,
-                            //     contentPadding: EdgeInsets.all(3.h),
-                            //     hintText: 'Search by SKU/Brand',
-                            //     suffixIcon: Icon(
-                            //       Icons.search,
-                            //       color: Color(0xfff333389),
-                            //       size: 4.5.h,
-                            //     ),
-                            //   ),
-                            // ),
-
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blueGrey,
-                                image: DecorationImage(
-                                    image:
-                                        AssetImage("assets/product_1_img3.png"),
-                                    fit: BoxFit.fitWidth)
-                                // // borderRadius: BorderRadius.all(
-                                // //   Radius.circular(10),
-                                // ),
-                                ),
-                          ),
-                          Text(
-                            'Tiger',
-                            style: TextStyle(fontSize: 2.h, color: Colors.black),
-                          )
-                        ],
-                      ),
-                      SizedBox(width: 3.w),
-                      Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.17,
-                            height: MediaQuery.of(context).size.height * 0.10,
-                            // child: TextFormField(
-                            //   validator: (value) {
-                            //     if (value!.isEmpty) {
-                            //       return "";
-                            //     }
-                            //     return null;
-                            //   },
-                            //   // controller: _firstname,
-                            //   decoration: InputDecoration(
-                            //     border: InputBorder.none,
-                            //     contentPadding: EdgeInsets.all(3.h),
-                            //     hintText: 'Search by SKU/Brand',
-                            //     suffixIcon: Icon(
-                            //       Icons.search,
-                            //       color: Color(0xfff333389),
-                            //       size: 4.5.h,
-                            //     ),
-                            //   ),
-                            // ),
-
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blueGrey,
-                                image: DecorationImage(
-                                    image:
-                                    AssetImage("assets/product_1_img3.png"),
-                                    fit: BoxFit.fitWidth)
-                              // // borderRadius: BorderRadius.all(
-                              // //   Radius.circular(10),
-                              // ),
-                            ),
-                          ),
-                          Text(
-                            'Tiger',
-                            style: TextStyle(fontSize: 2.h, color: Colors.black),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                      );
+                    }),
               ),
+
+              // left: 2.h,
+              // child: Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 4.w),
+              //   child: SingleChildScrollView(
+              //     scrollDirection: Axis.horizontal,
+              //
+              //
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: [
+              //         Column(
+              //           children: [
+              //
+              //             Container(
+              //               alignment: Alignment.center,
+              //               width: MediaQuery.of(context).size.width * 0.17,
+              //               height: MediaQuery.of(context).size.height * 0.10,
+              //               // child: TextFormField(
+              //               //   validator: (value) {
+              //               //     if (value!.isEmpty) {
+              //               //       return "";
+              //               //     }
+              //               //     return null;
+              //               //   },
+              //               //   // controller: _firstname,
+              //               //   decoration: InputDecoration(
+              //               //     border: InputBorder.none,
+              //               //     contentPadding: EdgeInsets.all(3.h),
+              //               //     hintText: 'Search by SKU/Brand',
+              //               //     suffixIcon: Icon(
+              //               //       Icons.search,
+              //               //       color: Color(0xfff333389),
+              //               //       size: 4.5.h,
+              //               //     ),
+              //               //   ),
+              //               // ),
+              //
+              //               decoration: BoxDecoration(
+              //                   shape: BoxShape.circle,
+              //                   color: Colors.blueGrey,
+              //                   image: DecorationImage(
+              //                       image:
+              //                           AssetImage("assets/product_1_img4.png"),
+              //                       fit: BoxFit.fitWidth)
+              //                   // // borderRadius: BorderRadius.all(
+              //                   // //   Radius.circular(10),
+              //                   // ),
+              //                   ),
+              //             ),
+              //             Text(
+              //               'Men',
+              //               style: TextStyle(fontSize: 2.h, color: Colors.black),
+              //             )
+              //           ],
+              //         ),
+              //         SizedBox(width: 3.w),
+              //         Column(
+              //           children: [
+              //             Container(
+              //               alignment: Alignment.center,
+              //               width: MediaQuery.of(context).size.width * 0.17,
+              //               height: MediaQuery.of(context).size.height * 0.10,
+              //               // child: TextFormField(
+              //               //   validator: (value) {
+              //               //     if (value!.isEmpty) {
+              //               //       return "";
+              //               //     }
+              //               //     return null;
+              //               //   },
+              //               //   // controller: _firstname,
+              //               //   decoration: InputDecoration(
+              //               //     border: InputBorder.none,
+              //               //     contentPadding: EdgeInsets.all(3.h),
+              //               //     hintText: 'Search by SKU/Brand',
+              //               //     suffixIcon: Icon(
+              //               //       Icons.search,
+              //               //       color: Color(0xfff333389),
+              //               //       size: 4.5.h,
+              //               //     ),
+              //               //   ),
+              //               // ),
+              //
+              //               decoration: BoxDecoration(
+              //                   shape: BoxShape.circle,
+              //                   color: Colors.blueGrey,
+              //                   image: DecorationImage(
+              //                       image: AssetImage("assets/product_1_img.png"),
+              //                       fit: BoxFit.fitWidth)
+              //                   // // borderRadius: BorderRadius.all(
+              //                   // //   Radius.circular(10),
+              //                   // ),
+              //                   ),
+              //             ),
+              //             Text(
+              //               'Women',
+              //               style: TextStyle(fontSize: 2.h, color: Colors.black),
+              //             )
+              //           ],
+              //         ),
+              //         SizedBox(width: 3.w),
+              //         Column(
+              //           children: [
+              //             Container(
+              //               alignment: Alignment.center,
+              //               width: MediaQuery.of(context).size.width * 0.17,
+              //               height: MediaQuery.of(context).size.height * 0.10,
+              //               // child: TextFormField(
+              //               //   validator: (value) {
+              //               //     if (value!.isEmpty) {
+              //               //       return "";
+              //               //     }
+              //               //     return null;
+              //               //   },
+              //               //   // controller: _firstname,
+              //               //   decoration: InputDecoration(
+              //               //     border: InputBorder.none,
+              //               //     contentPadding: EdgeInsets.all(3.h),
+              //               //     hintText: 'Search by SKU/Brand',
+              //               //     suffixIcon: Icon(
+              //               //       Icons.search,
+              //               //       color: Color(0xfff333389),
+              //               //       size: 4.5.h,
+              //               //     ),
+              //               //   ),
+              //               // ),
+              //
+              //               decoration: BoxDecoration(
+              //                   shape: BoxShape.circle,
+              //                   color: Colors.blueGrey,
+              //                   image: DecorationImage(
+              //                       image:
+              //                           AssetImage("assets/product_1_img5.png"),
+              //                       fit: BoxFit.fitWidth)
+              //                   // // borderRadius: BorderRadius.all(
+              //                   // //   Radius.circular(10),
+              //                   // ),
+              //                   ),
+              //             ),
+              //             Text(
+              //               'Kids',
+              //               style: TextStyle(fontSize: 2.h, color: Colors.black),
+              //             )
+              //           ],
+              //         ),
+              //         SizedBox(width: 3.w),
+              //         Column(
+              //           children: [
+              //             Container(
+              //               alignment: Alignment.center,
+              //               width: MediaQuery.of(context).size.width * 0.17,
+              //               height: MediaQuery.of(context).size.height * 0.10,
+              //               // child: TextFormField(
+              //               //   validator: (value) {
+              //               //     if (value!.isEmpty) {
+              //               //       return "";
+              //               //     }
+              //               //     return null;
+              //               //   },
+              //               //   // controller: _firstname,
+              //               //   decoration: InputDecoration(
+              //               //     border: InputBorder.none,
+              //               //     contentPadding: EdgeInsets.all(3.h),
+              //               //     hintText: 'Search by SKU/Brand',
+              //               //     suffixIcon: Icon(
+              //               //       Icons.search,
+              //               //       color: Color(0xfff333389),
+              //               //       size: 4.5.h,
+              //               //     ),
+              //               //   ),
+              //               // ),
+              //
+              //               decoration: BoxDecoration(
+              //                   shape: BoxShape.circle,
+              //                   color: Colors.blueGrey,
+              //                   image: DecorationImage(
+              //                       image:
+              //                           AssetImage("assets/product_1_img2.png"),
+              //                       fit: BoxFit.fitWidth)
+              //                   // // borderRadius: BorderRadius.all(
+              //                   // //   Radius.circular(10),
+              //                   // ),
+              //                   ),
+              //             ),
+              //             Text(
+              //               'Gift',
+              //               style: TextStyle(fontSize: 2.h, color: Colors.black),
+              //             )
+              //           ],
+              //         ),
+              //         SizedBox(width: 3.w),
+              //         Column(
+              //           children: [
+              //             Container(
+              //               alignment: Alignment.center,
+              //               width: MediaQuery.of(context).size.width * 0.17,
+              //               height: MediaQuery.of(context).size.height * 0.10,
+              //               // child: TextFormField(
+              //               //   validator: (value) {
+              //               //     if (value!.isEmpty) {
+              //               //       return "";
+              //               //     }
+              //               //     return null;
+              //               //   },
+              //               //   // controller: _firstname,
+              //               //   decoration: InputDecoration(
+              //               //     border: InputBorder.none,
+              //               //     contentPadding: EdgeInsets.all(3.h),
+              //               //     hintText: 'Search by SKU/Brand',
+              //               //     suffixIcon: Icon(
+              //               //       Icons.search,
+              //               //       color: Color(0xfff333389),
+              //               //       size: 4.5.h,
+              //               //     ),
+              //               //   ),
+              //               // ),
+              //
+              //               decoration: BoxDecoration(
+              //                   shape: BoxShape.circle,
+              //                   color: Colors.blueGrey,
+              //                   image: DecorationImage(
+              //                       image:
+              //                           AssetImage("assets/product_1_img3.png"),
+              //                       fit: BoxFit.fitWidth)
+              //                   // // borderRadius: BorderRadius.all(
+              //                   // //   Radius.circular(10),
+              //                   // ),
+              //                   ),
+              //             ),
+              //             Text(
+              //               'Tiger',
+              //               style: TextStyle(fontSize: 2.h, color: Colors.black),
+              //             )
+              //           ],
+              //         ),
+              //         SizedBox(width: 3.w),
+              //         Column(
+              //           children: [
+              //             Container(
+              //               alignment: Alignment.center,
+              //               width: MediaQuery.of(context).size.width * 0.17,
+              //               height: MediaQuery.of(context).size.height * 0.10,
+              //               // child: TextFormField(
+              //               //   validator: (value) {
+              //               //     if (value!.isEmpty) {
+              //               //       return "";
+              //               //     }
+              //               //     return null;
+              //               //   },
+              //               //   // controller: _firstname,
+              //               //   decoration: InputDecoration(
+              //               //     border: InputBorder.none,
+              //               //     contentPadding: EdgeInsets.all(3.h),
+              //               //     hintText: 'Search by SKU/Brand',
+              //               //     suffixIcon: Icon(
+              //               //       Icons.search,
+              //               //       color: Color(0xfff333389),
+              //               //       size: 4.5.h,
+              //               //     ),
+              //               //   ),
+              //               // ),
+              //
+              //               decoration: BoxDecoration(
+              //                   shape: BoxShape.circle,
+              //                   color: Colors.blueGrey,
+              //                   image: DecorationImage(
+              //                       image:
+              //                       AssetImage("assets/product_1_img3.png"),
+              //                       fit: BoxFit.fitWidth)
+              //                 // // borderRadius: BorderRadius.all(
+              //                 // //   Radius.circular(10),
+              //                 // ),
+              //               ),
+              //             ),
+              //             Text(
+              //               'Tiger',
+              //               style: TextStyle(fontSize: 2.h, color: Colors.black),
+              //             )
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
             ),
             Positioned(
-              top: 32.h,
+              top: 31.h,
               child: Container(
                 // height: MediaQuery.of(context).size.height,
                 height: 75.h,
@@ -527,7 +588,7 @@ class _products_1State extends State<products_1> {
                                       imagenevigator:
                                           (images[index].image).toString(),
                                       pronamenevigatior:
-                                      images[index].Street_Wear.toString(),
+                                          images[index].Street_Wear.toString(),
                                       coloridnevigator:
                                           '${productData?.productData![index].apId}',
                                     )));
@@ -735,13 +796,12 @@ class _products_1State extends State<products_1> {
                           //   ],
                           // ),
                           SizedBox(
-                            height: 2,
+                            height: 3.5,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-
                                 width: 42.w,
                                 padding: EdgeInsets.only(left: 0.8.h),
                                 alignment: Alignment.centerLeft,
@@ -790,18 +850,42 @@ class _products_1State extends State<products_1> {
     );
   }
 
-  productsapi() async {
-    SharedPreferences _sharedpreferences =
-        await SharedPreferences.getInstance();
+  // productsapi() async {
+  //
+  //   final Map<String, String> data = {};
+  //   data['action'] = 'fetch_products';
+  //
+  //   checkInternet().then((internet) async {
+  //     if (internet) {
+  //       Authprovider().products(data).then((Response response) async {
+  //         productData = productapi.fromJson(json.decode(response.body));
+  //
+  //         if (response.statusCode == 200 && productData?.status == "success") {
+  //           // Navigator.push(context,
+  //           //     MaterialPageRoute(builder: (context) => loginsuccess()));
+  //
+  //           if (kDebugMode) {}
+  //         } else {}
+  //       });
+  //     } else {
+  //       setState(() {});
+  //     }
+  //   });
+  // }
+
+  all_category_displayapi() async {
     final Map<String, String> data = {};
-    data['action'] = 'fetch_products';
-    print(data);
+    data['action'] = 'all_category_display';
+
     checkInternet().then((internet) async {
       if (internet) {
-        Authprovider().products(data).then((Response response) async {
-          productData = productapi.fromJson(json.decode(response.body));
+        Productprovider().allcatogeryapi(data).then((Response response) async {
+          allcategory =
+              all_category_display.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && productData?.status == "success") {
+          if (response.statusCode == 200 && allcategory?.status == "success" ) {
+
+            print("img"+(allcategory?.data?[0].categoryName).toString());
             SaveDataLocal.saveLogInData(userData!);
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));

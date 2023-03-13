@@ -6,6 +6,7 @@ import 'package:casadealerapp/loginsuccess.dart';
 import 'package:casadealerapp/order_id.dart';
 import 'package:casadealerapp/product_2.dart';
 import 'package:casadealerapp/products_1.dart';
+import 'package:casadealerapp/provider/productprovider.dart';
 
 import 'package:casadealerapp/summary.dart';
 import 'package:casadealerapp/your_block_order.dart';
@@ -32,6 +33,8 @@ class MyApp extends StatelessWidget {
           providers: [
           ChangeNotifierProvider(
               create: (context) => Authprovider()),
+            ChangeNotifierProvider(
+                create: (context) => Productprovider()),
 
 
           ],

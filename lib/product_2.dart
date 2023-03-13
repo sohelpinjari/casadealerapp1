@@ -240,7 +240,7 @@ class _product_2State extends State<product_2> {
                                           child: Image.asset(
                                             e,
                                             fit: BoxFit.cover,
-                                            // height: 45.h,
+                                            // height: 50.h,
                                             // width: MediaQuery.of(context)
                                             //     .size
                                             //     .width,
@@ -377,28 +377,28 @@ class _product_2State extends State<product_2> {
 
                                                     Row(
                                                       children: [
-                                                        Container(
-                                                          alignment:
-                                                              Alignment.center,
-                                                          height: 4.h,
-                                                          width: 9.w,
-                                                          decoration: BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          25),
-                                                              color:
-                                                                  Colors.white),
-                                                          child: IconButton(
-                                                            icon: Icon(
-                                                              Icons
-                                                                  .favorite_border,
-                                                              color: Colors.red,
-                                                              size: 2.h,
-                                                            ),
-                                                            onPressed: () {},
-                                                          ),
-                                                        ),
+                                                        // Container(
+                                                        //   alignment:
+                                                        //       Alignment.center,
+                                                        //   height: 4.h,
+                                                        //   width: 9.w,
+                                                        //   decoration: BoxDecoration(
+                                                        //       borderRadius:
+                                                        //           BorderRadius
+                                                        //               .circular(
+                                                        //                   25),
+                                                        //       color:
+                                                        //           Colors.white),
+                                                        //   child: IconButton(
+                                                        //     icon: Icon(
+                                                        //       Icons
+                                                        //           .favorite_border,
+                                                        //       color: Colors.red,
+                                                        //       size: 2.h,
+                                                        //     ),
+                                                        //     onPressed: () {},
+                                                        //   ),
+                                                        // ),
                                                         SizedBox(width: 3.w),
                                                         Container(
                                                           alignment:
@@ -451,17 +451,17 @@ class _product_2State extends State<product_2> {
                           ),
                         ),
                         Positioned(
-                          top: 49.h,
-                          left: 40.w,
+                          top: 48.5.h,
+                          left: 41.w,
                           child: Container(
                             alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.02,
+                            width: MediaQuery.of(context).size.width * 0.15,
+                            height: MediaQuery.of(context).size.height * 0.025,
                             decoration: BoxDecoration(
                               // border: Border.all(color: Colors.grey.shade200,),
                               color: Color(0xff333389),
                               borderRadius: BorderRadius.all(
-                                Radius.circular(8),
+                                Radius.circular(10),
                               ),
                             ),
                             child: SmoothPageIndicator(
@@ -593,7 +593,7 @@ class _product_2State extends State<product_2> {
                                                     TextStyle(fontSize: 2.5.h,
                                                         fontWeight: FontWeight.bold,
                                                       )
-                                               
+
 
                                               ),
                                             ],
