@@ -2,6 +2,7 @@ import 'package:casadealerapp/screens/cart_order.dart';
 import 'package:casadealerapp/screens/drawer.dart';
 import 'package:casadealerapp/screens/product_2.dart';
 import 'package:casadealerapp/screens/products_1.dart';
+import 'package:casadealerapp/screens/summary_b_edit.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -1234,6 +1235,40 @@ class _order_idState extends State<order_id> {
             children: [
               Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 3.h),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => summary_b_edit()));
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Color(0xff333389),
+                    ),
+                    height: 6.h,
+                    width: 40.w,
+                    child: Text('Edit',
+                    style: TextStyle(color: Colors.white),
+                    ),
+
+
+
+                  ),
+                ),
+
+
+
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => products_1()));
+                },
                 child: Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -1242,31 +1277,13 @@ class _order_idState extends State<order_id> {
                   ),
                   height: 6.h,
                   width: 40.w,
-                  child: Text('Edit',
-                  style: TextStyle(color: Colors.white),
+                  child: Text('Cancle Request',
+                    style: TextStyle(color: Colors.white),
                   ),
 
 
 
                 ),
-
-
-
-              ),
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Color(0xff333389),
-                ),
-                height: 6.h,
-                width: 40.w,
-                child: Text('Cancle Request',
-                  style: TextStyle(color: Colors.white),
-                ),
-
-
-
               ),
             ],
           )
