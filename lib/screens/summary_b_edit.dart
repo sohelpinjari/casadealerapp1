@@ -680,43 +680,43 @@ class _summary_b_editState extends State<summary_b_edit> {
                                       ],
                                     ),
                                   ),
-                                  // Padding(
-                                  //   padding:
-                                  //   EdgeInsets.symmetric(horizontal: 3.h),
-                                  //   // child: Row(
-                                  //   //   crossAxisAlignment:
-                                  //   //       CrossAxisAlignment.center,
-                                  //   //   mainAxisAlignment:
-                                  //   //       MainAxisAlignment.spaceAround,
-                                  //   //   children: [
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //   ],
-                                  //   // ),
-                                  // ),
+                                  Padding(
+                                    padding:
+                                    EdgeInsets.symmetric(horizontal: 3.h),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          // color: Colors.black,
+                                        ),
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          // color: Colors.black,
+                                        ),
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          // color: Colors.black,
+                                        ),
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          // color: Colors.black,
+                                        ),
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          color: Colors.black,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                   Padding(
                                     padding:
                                     EdgeInsets.symmetric(horizontal: 3.h),
@@ -1166,43 +1166,43 @@ class _summary_b_editState extends State<summary_b_edit> {
                                       ],
                                     ),
                                   ),
-                                  // Padding(
-                                  //   padding:
-                                  //   EdgeInsets.symmetric(horizontal: 2.h),
-                                  //   // child: Row(
-                                  //   //   crossAxisAlignment:
-                                  //   //       CrossAxisAlignment.center,
-                                  //   //   mainAxisAlignment:
-                                  //   //       MainAxisAlignment.spaceAround,
-                                  //   //   children: [
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //     Container(
-                                  //   //       height: 0.1.h,
-                                  //   //       width: 15.w,
-                                  //   //       color: Colors.black,
-                                  //   //     ),
-                                  //   //   ],
-                                  //   // ),
-                                  // ),
+                                  Padding(
+                                    padding:
+                                    EdgeInsets.symmetric(horizontal: 3.h),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          // color: Colors.black,
+                                        ),
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          // color: Colors.black,
+                                        ),
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          // color: Colors.black,
+                                        ),
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          // color: Colors.black,
+                                        ),
+                                        Container(
+                                          height: 0.1.h,
+                                          width: 15.w,
+                                          color: Colors.black,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                   Padding(
                                     padding:
                                     EdgeInsets.symmetric(horizontal: 3.h),
@@ -1944,43 +1944,43 @@ class _summary_b_editState extends State<summary_b_edit> {
                                         ],
                                       ),
                                     ),
-                                    // Padding(
-                                    //   padding:
-                                    //   EdgeInsets.symmetric(horizontal: 3.h),
-                                    //   // child: Row(
-                                    //   //   crossAxisAlignment:
-                                    //   //       CrossAxisAlignment.center,
-                                    //   //   mainAxisAlignment:
-                                    //   //       MainAxisAlignment.spaceAround,
-                                    //   //   children: [
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //   ],
-                                    //   // ),
-                                    // ),
+                                    Padding(
+                                      padding:
+                                      EdgeInsets.symmetric(horizontal: 3.h),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            // color: Colors.black,
+                                          ),
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            // color: Colors.black,
+                                          ),
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            // color: Colors.black,
+                                          ),
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            // color: Colors.black,
+                                          ),
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            color: Colors.black,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                     Padding(
                                       padding:
                                       EdgeInsets.symmetric(horizontal: 3.h),
@@ -2430,43 +2430,43 @@ class _summary_b_editState extends State<summary_b_edit> {
                                         ],
                                       ),
                                     ),
-                                    // Padding(
-                                    //   padding:
-                                    //   EdgeInsets.symmetric(horizontal: 2.h),
-                                    //   // child: Row(
-                                    //   //   crossAxisAlignment:
-                                    //   //       CrossAxisAlignment.center,
-                                    //   //   mainAxisAlignment:
-                                    //   //       MainAxisAlignment.spaceAround,
-                                    //   //   children: [
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //     Container(
-                                    //   //       height: 0.1.h,
-                                    //   //       width: 15.w,
-                                    //   //       color: Colors.black,
-                                    //   //     ),
-                                    //   //   ],
-                                    //   // ),
-                                    // ),
+                                    Padding(
+                                      padding:
+                                      EdgeInsets.symmetric(horizontal: 3.h),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            // color: Colors.black,
+                                          ),
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            // color: Colors.black,
+                                          ),
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            // color: Colors.black,
+                                          ),
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            // color: Colors.black,
+                                          ),
+                                          Container(
+                                            height: 0.1.h,
+                                            width: 15.w,
+                                            color: Colors.black,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                     Padding(
                                       padding:
                                       EdgeInsets.symmetric(horizontal: 3.h),
