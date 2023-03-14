@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:casadealerapp/login_model.dart';
-import 'package:casadealerapp/loginsuccess.dart';
-import 'package:casadealerapp/products_1.dart';
-import 'package:casadealerapp/register.dart';
+import 'package:casadealerapp/modal_class/login_model.dart';
+import 'package:casadealerapp/screens/loginsuccess.dart';
+import 'package:casadealerapp/screens/products_1.dart';
+import 'package:casadealerapp/screens/register.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +11,8 @@ import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
-import 'CONST.dart';
-import 'login_authprovider.dart';
+import '../CONST.dart';
+import '../provider/login_authprovider.dart';
 
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);

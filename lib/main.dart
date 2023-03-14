@@ -1,21 +1,21 @@
-import 'package:casadealerapp/block_order.dart';
-import 'package:casadealerapp/cart_order.dart';
-import 'package:casadealerapp/getstarted.dart';
-import 'package:casadealerapp/login.dart';
-import 'package:casadealerapp/loginsuccess.dart';
-import 'package:casadealerapp/order_id.dart';
-import 'package:casadealerapp/product_2.dart';
-import 'package:casadealerapp/products_1.dart';
+import 'package:casadealerapp/screens/block_order.dart';
+import 'package:casadealerapp/screens/cart_order.dart';
+import 'package:casadealerapp/screens/getstarted.dart';
+import 'package:casadealerapp/screens/login.dart';
+import 'package:casadealerapp/screens/loginsuccess.dart';
+import 'package:casadealerapp/screens/order_id.dart';
+import 'package:casadealerapp/screens/product_2.dart';
+import 'package:casadealerapp/screens/products_1.dart';
 import 'package:casadealerapp/provider/productprovider.dart';
 
-import 'package:casadealerapp/summary.dart';
-import 'package:casadealerapp/your_block_order.dart';
-import 'package:casadealerapp/your_order.dart';
+import 'package:casadealerapp/screens/summary.dart';
+import 'package:casadealerapp/screens/your_block_order.dart';
+import 'package:casadealerapp/screens/your_order.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import 'login_authprovider.dart';
+import 'provider/login_authprovider.dart';
 
 void main() {
   runApp(const MyApp());

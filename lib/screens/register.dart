@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:casadealerapp/CONST.dart';
-import 'package:casadealerapp/getstarted.dart';
-import 'package:casadealerapp/login.dart';
-import 'package:casadealerapp/login_authprovider.dart';
-import 'package:casadealerapp/login_model.dart';
-import 'package:casadealerapp/loginsuccess.dart';
+import 'package:casadealerapp/screens/getstarted.dart';
+import 'package:casadealerapp/screens/login.dart';
+import 'package:casadealerapp/provider/login_authprovider.dart';
+import 'package:casadealerapp/modal_class/login_model.dart';
+import 'package:casadealerapp/screens/loginsuccess.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

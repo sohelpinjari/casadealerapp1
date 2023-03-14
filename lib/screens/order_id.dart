@@ -1,7 +1,7 @@
-import 'package:casadealerapp/cart_order.dart';
-import 'package:casadealerapp/drawer.dart';
-import 'package:casadealerapp/product_2.dart';
-import 'package:casadealerapp/products_1.dart';
+import 'package:casadealerapp/screens/cart_order.dart';
+import 'package:casadealerapp/screens/drawer.dart';
+import 'package:casadealerapp/screens/product_2.dart';
+import 'package:casadealerapp/screens/products_1.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';

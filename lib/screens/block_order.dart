@@ -1,24 +1,33 @@
-import 'package:casadealerapp/block_order.dart';
-import 'package:casadealerapp/drawer.dart';
-import 'package:casadealerapp/summary.dart';
-import 'package:casadealerapp/your_order.dart';
+import 'package:casadealerapp/screens/drawer.dart';
+import 'package:casadealerapp/screens/summary.dart';
+import 'package:casadealerapp/screens/your_block_order.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class cart_order extends StatefulWidget {
-  const cart_order({Key? key}) : super(key: key);
+class block_order extends StatefulWidget {
+  const block_order({Key? key}) : super(key: key);
 
   @override
-  State<cart_order> createState() => _cart_orderState();
+  State<block_order> createState() => _block_orderState();
 }
 
-class _cart_orderState extends State<cart_order> {
+class _block_orderState extends State<block_order> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  bool? check = false ;
+  bool? check = false;
   int sum = 0;
   int sumindex = 0;
   List<String> tabs = ["Blocked", "Cart"];
-  List<bool> checkbox = [ false, false, false, false , false, false, false, false, false, false
+  List<bool> checkbox = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
   ];
 
   int cart = 0;
@@ -28,8 +37,8 @@ class _cart_orderState extends State<cart_order> {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child:
-    Scaffold(
+    return SafeArea(
+        child: Scaffold(
       backgroundColor: Color(0xfffFFFFFF),
       drawer: drawer(context),
       key: _scaffoldKey,
@@ -64,7 +73,7 @@ class _cart_orderState extends State<cart_order> {
                           // padding: EdgeInsets.only(top: 1.5.h),
                           // alignment: Alignment.center,
                           child: Text(
-                            "Cart Orders",
+                            "Blocked Orders",
                             style: TextStyle(fontSize: 2.h, color: Colors.white),
                           ),
                         ),
@@ -168,31 +177,31 @@ class _cart_orderState extends State<cart_order> {
                                           Text(
                                             '₹125',
                                             style:
-                                            TextStyle(color: Color(0xff5a5a9f)),
+                                                TextStyle(color: Color(0xff5a5a9f)),
                                           ),
                                         ],
                                       ),
                                       SizedBox(height: 1.5.h),
                                       Row(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Color : Red   Size : M',
                                             style:
-                                            TextStyle(color: Color(0xff5a5a9f), fontSize: 1.7.h),
+                                                TextStyle(color: Color(0xff5a5a9f), fontSize: 1.7.h),
                                           ),
                                         ],
                                       ),
                                       SizedBox(height: 2.h),
                                       Row(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Qty :',
                                             style:
-                                            TextStyle(color: Color(0xff5a5a9f)),
+                                                TextStyle(color: Color(0xff5a5a9f)),
                                           ),
                                           SizedBox(width: 2.h),
                                           Container(
@@ -363,7 +372,7 @@ class _cart_orderState extends State<cart_order> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          your_order()));
+                                          your_block_order()));
                               setState(() {
                                 cart = 0;
                               });
@@ -416,6 +425,5 @@ class _cart_orderState extends State<cart_order> {
         ),
       ),
     ));
-
   }
 }

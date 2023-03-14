@@ -1,6 +1,6 @@
-import 'package:casadealerapp/getstarted.dart';
-import 'package:casadealerapp/login.dart';
-import 'package:casadealerapp/products_1.dart';
+import 'package:casadealerapp/screens/getstarted.dart';
+import 'package:casadealerapp/screens/login.dart';
+import 'package:casadealerapp/screens/products_1.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 

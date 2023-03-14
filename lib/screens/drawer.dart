@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:casadealerapp/CONST.dart';
-import 'package:casadealerapp/block_order.dart';
-import 'package:casadealerapp/login.dart';
-import 'package:casadealerapp/products_1.dart';
+import 'package:casadealerapp/screens/block_order.dart';
+import 'package:casadealerapp/screens/login.dart';
+import 'package:casadealerapp/screens/products_1.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

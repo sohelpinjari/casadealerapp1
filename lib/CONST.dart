@@ -1,5 +1,5 @@
 
-import 'package:casadealerapp/login_model.dart';
+import 'package:casadealerapp/modal_class/login_model.dart';
 import 'package:connectivity/connectivity.dart';
 
 Future<bool> checkInternet() async {

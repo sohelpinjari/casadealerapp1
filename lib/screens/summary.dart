@@ -1,12 +1,12 @@
 import 'dart:ffi';
 
-import 'package:casadealerapp/block_order.dart';
-import 'package:casadealerapp/cart_order.dart';
-import 'package:casadealerapp/drawer.dart';
-import 'package:casadealerapp/products_1.dart';
-import 'package:casadealerapp/summary_b_edit.dart';
-import 'package:casadealerapp/your_block_order.dart';
-import 'package:casadealerapp/your_order.dart';
+import 'package:casadealerapp/screens/block_order.dart';
+import 'package:casadealerapp/screens/cart_order.dart';
+import 'package:casadealerapp/screens/drawer.dart';
+import 'package:casadealerapp/screens/products_1.dart';
+import 'package:casadealerapp/screens/summary_b_edit.dart';
+import 'package:casadealerapp/screens/your_block_order.dart';
+import 'package:casadealerapp/screens/your_order.dart';
 import 'package:dotted_line/dotted_line.dart';
 
 import 'package:flutter/material.dart';

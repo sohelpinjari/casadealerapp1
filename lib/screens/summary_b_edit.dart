@@ -1,5 +1,5 @@
-import 'package:casadealerapp/drawer.dart';
-import 'package:casadealerapp/summary.dart';
+import 'package:casadealerapp/screens/drawer.dart';
+import 'package:casadealerapp/screens/summary.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
