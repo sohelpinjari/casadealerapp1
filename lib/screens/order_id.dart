@@ -122,7 +122,7 @@ class _order_idState extends State<order_id> {
             padding: EdgeInsets.all(2.h),
             child: Container(
               alignment: Alignment.center,
-              height: 7.h,
+              height: 6.5.h,
               width: 95.w,
               decoration: BoxDecoration(
                 color: Color(0xffeaeaf3),
@@ -131,7 +131,9 @@ class _order_idState extends State<order_id> {
                 ),
               ),
               child: Text('Order ID#1234',
-                  style: TextStyle(fontSize: 2.h, color: Color(0xff333389))),
+                  style: TextStyle(fontSize: 2.h,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff333389))),
             ),
           ),
 
@@ -217,8 +219,8 @@ class _order_idState extends State<order_id> {
                       child: Row(
                         crossAxisAlignment:
                         CrossAxisAlignment.start,
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                        // mainAxisAlignment:
+                        // MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             alignment: Alignment.center,
@@ -238,6 +240,7 @@ class _order_idState extends State<order_id> {
                               ],
                             ),
                           ),
+                          SizedBox(width: 8.w),
                           Container(
                             alignment: Alignment.center,
                             height: 3.h,
