@@ -1,6 +1,9 @@
 import 'dart:async';
 
+import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/screens/login.dart';
+import 'package:casadealerapp/screens/products_1.dart';
+import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -17,11 +20,23 @@ Timer?  _timer;
   void initState() {
     // TODO: implement initState
     super.initState();
+    getdata();
     _timer = Timer.periodic( Duration(seconds: 4), (timer) {
-      Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => login()));
+      userData ==null?Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => login(),))
+          :Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => products_1(),));
+      // Navigator.pushReplacement(context,
+      //         MaterialPageRoute(builder: (context) => login())):
+      // Navigator.pushReplacement(context,
+      //     MaterialPageRoute(builder: (context) => products_1()));
     });
+
   }
+getdata()async{
+  userData=await SaveDataLocal.getDataFromLocal();
+  setState(() {
+    userData;
+  });
+}
 
   @override
   Widget build(BuildContext context) {

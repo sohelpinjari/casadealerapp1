@@ -21,7 +21,7 @@ class Productprovider with ChangeNotifier{
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)
         .timeout(
-      const Duration(seconds: 60),
+      const Duration(seconds: 30),
       onTimeout: () {
         throw const SocketException('Something went wrong');
       },

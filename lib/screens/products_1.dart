@@ -219,67 +219,72 @@ class _products_1State extends State<products_1> {
               top: 18.h,
               left: 0,
               right: 0,
-              child: Container(
-                height: 13.h,
-                // margin: EdgeInsets.symmetric(horizontal: 2.h),
-                width: MediaQuery.of(context).size.width,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: allproperty?.data?.length,
-                    physics: BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: ( context,  index) {
-                      return Container(
-                        height: 13.h,
-                        child: Column(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 0.8.h),
-                              alignment: Alignment.center,
-                              width: MediaQuery.of(context).size.width * 0.17,
-                              height: MediaQuery.of(context).size.height * 0.10,
-                              // child: TextFormField(
-                              //   validator: (value) {
-                              //     if (value!.isEmpty) {
-                              //       return "";
-                              //     }
-                              //     return null;
-                              //   },
-                              //   // controller: _firstname,
-                              //   decoration: InputDecoration(
-                              //     border: InputBorder.none,
-                              //     contentPadding: EdgeInsets.all(3.h),
-                              //     hintText: 'Search by SKU/Brand',
-                              //     suffixIcon: Icon(
-                              //       Icons.search,
-                              //       color: Color(0xfff333389),
-                              //       size: 4.5.h,
-                              //     ),
-                              //   ),
-                              // ),
+              child: Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                child: Container(
+                  height: 13.h,
+                  // margin: EdgeInsets.symmetric(horizontal: 2.h),
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: allproperty?.data?.length,
+                      physics: BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: ( context,  index) {
+                        return Container(
+                          height: 13.h,
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 0.8.h),
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width * 0.15,
+                                height: MediaQuery.of(context).size.height * 0.10,
+                                // child: TextFormField(
+                                //   validator: (value) {
+                                //     if (value!.isEmpty) {
+                                //       return "";
+                                //     }
+                                //     return null;
+                                //   },
+                                //   // controller: _firstname,
+                                //   decoration: InputDecoration(
+                                //     border: InputBorder.none,
+                                //     contentPadding: EdgeInsets.all(3.h),
+                                //     hintText: 'Search by SKU/Brand',
+                                //     suffixIcon: Icon(
+                                //       Icons.search,
+                                //       color: Color(0xfff333389),
+                                //       size: 4.5.h,
+                                //     ),
+                                //   ),
+                                // ),
 
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.blueGrey,
-                                  image: DecorationImage(
-                                      image: NetworkImage(
-                                          '${allproperty?.data?[index].categoryImg.toString()}'),
-                                      fit: BoxFit.fitWidth)
-                                  // borderRadius: BorderRadius.all(
-                                  //   Radius.circular(10),
-                                  ),
-                                  ),
-                              // child:Image.network( '${allproperty?.data?[index].categoryImg.toString()}')
-                            // ),
-                            Text(
-                              '${allproperty?.data?[index].categoryName.toString()}',
-                              style:
-                                  TextStyle(fontSize: 2.h, color: Colors.black),
-                            )
-                          ],
-                        ),
-                      );
-                    }),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.blueGrey,
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+
+                                            '${allproperty?.data?[index].categoryImg.toString()}'),
+                                        fit: BoxFit.fitWidth)
+                                    // borderRadius: BorderRadius.all(
+                                    //   Radius.circular(10),
+                                    ),
+                                    ),
+                                // child:Image.network( '${allproperty?.data?[index].categoryImg.toString()}')
+                              // ),
+                              Text(
+                                '${allproperty?.data?[index].categoryName.toString()}',
+                                style:
+                                    TextStyle(fontSize: 1.5.h, color: Colors.black),
+                              )
+                            ],
+                          ),
+                        );
+                      }
+                      ),
+                ),
               ),
 
               // left: 2.h,
@@ -666,7 +671,7 @@ class _products_1State extends State<products_1> {
                                         images[index].Brand_Name.toString(),
                                         style: TextStyle(
                                           fontStyle: FontStyle.italic,
-                                          fontSize: 1.3.h,
+                                          fontSize: 1.1.h,
                                           color: Colors.white,
                                         ),
                                       ),
@@ -682,8 +687,8 @@ class _products_1State extends State<products_1> {
                                                 0.24),
                                     child: Container(
                                       alignment: Alignment.center,
-                                      width: 8.4.w,
-                                      height: 4.h,
+                                      width: 8.w,
+                                      height: 3.8.h,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.all(
@@ -694,7 +699,7 @@ class _products_1State extends State<products_1> {
                                         icon: Icon(
                                           Icons.share,
                                           color: Color(0xff7d7d7d),
-                                          size: 2.h,
+                                          size: 1.8.h,
                                         ),
                                         onPressed: () {},
                                       ),
@@ -713,7 +718,7 @@ class _products_1State extends State<products_1> {
                             child: Text(
                               images[index].Street_Wear.toString(),
                               style: TextStyle(
-                                  fontSize: 2.3.h, fontWeight: FontWeight.bold),
+                                  fontSize: 2.h, fontWeight: FontWeight.bold),
                             ),
                           ),
                           Container(
@@ -722,7 +727,7 @@ class _products_1State extends State<products_1> {
                             child: Text(
                               images[index].Artist_Name.toString(),
                               style: TextStyle(
-                                  fontSize: 1.5.h,
+                                  fontSize: 1.3.h,
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FontStyle.italic,
                                   color: Colors.grey.shade500),
@@ -812,9 +817,9 @@ class _products_1State extends State<products_1> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   images[index].Price.toString(),
-                                  maxLines: 1,
+                                  maxLines: 2,
                                   style: TextStyle(
-                                    fontSize: 2.h,
+                                    fontSize: 2.3.h,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xffe2000f),
                                   ),
