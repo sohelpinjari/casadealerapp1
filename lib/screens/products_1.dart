@@ -1,5 +1,9 @@
 import 'dart:convert';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/main.dart';
+import 'package:casadealerapp/modal_class/category_wise_display.dart';
+import 'package:casadealerapp/modal_class/search_class.dart';
 import 'package:casadealerapp/screens/drawer.dart';
 import 'package:casadealerapp/provider/login_authprovider.dart';
 import 'package:casadealerapp/modal_class/all_category_display.dart';
@@ -21,7 +25,6 @@ class products_1 extends StatefulWidget {
   State<products_1> createState() => _products_1State();
 }
 
-
 class products {
   String? image;
   String? Brand_Name;
@@ -38,9 +41,12 @@ class products {
 }
 
 class _products_1State extends State<products_1> {
+  TextEditingController _search = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   allcategorydisplay? allproperty;
+  categorywisedisplay? allcatogaryproperty;
+  search? searchproperty;
   List<products> images = [
     products("assets/product_1_img.png", "Brand Name", "Street Wear",
         "Artist Name", "S", "M", "L", "\₹125 - \₹150"),
@@ -60,13 +66,18 @@ class _products_1State extends State<products_1> {
         "Artist Name", "S", "M", "L", "\₹125 - \₹150"),
   ];
   productapi? productData;
-
-@override
+  String? name;
+  String? select;
+  String? image;
+  @override
   void initState() {
-  allcategorydisplayapi();
     // TODO: implement initState
     super.initState();
+    alldisplay();
+    categorydisplay();
 
+    print(allproperty?.status);
+    print(allproperty?.data?[0].categoryImg);
   }
 
   // getdata() async {
@@ -188,7 +199,19 @@ class _products_1State extends State<products_1> {
                       //   }
                       //   return null;
                       // },
-                      // controller: _firstname,
+                      onChanged: (value) {
+                        print(value);
+                        if (value.isNotEmpty) {
+                          searchapi(value);
+                        } else if (value.isEmpty) {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) => products_1()));
+                        } else {
+                          // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>RestaurantsScreen()));
+                        }
+                      },
+                      controller: _search,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.all(3.h),
@@ -220,7 +243,7 @@ class _products_1State extends State<products_1> {
               left: 0,
               right: 0,
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                padding: EdgeInsets.symmetric(horizontal: 2.h),
                 child: Container(
                   height: 13.h,
                   // margin: EdgeInsets.symmetric(horizontal: 2.h),
@@ -230,60 +253,78 @@ class _products_1State extends State<products_1> {
                       itemCount: allproperty?.data?.length,
                       physics: BouncingScrollPhysics(),
                       shrinkWrap: true,
-                      itemBuilder: ( context,  index) {
-                        return Container(
-                          height: 13.h,
-                          child: Column(
-                            children: [
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 0.8.h),
-                                alignment: Alignment.center,
-                                width: MediaQuery.of(context).size.width * 0.15,
-                                height: MediaQuery.of(context).size.height * 0.10,
-                                // child: TextFormField(
-                                //   validator: (value) {
-                                //     if (value!.isEmpty) {
-                                //       return "";
-                                //     }
-                                //     return null;
-                                //   },
-                                //   // controller: _firstname,
-                                //   decoration: InputDecoration(
-                                //     border: InputBorder.none,
-                                //     contentPadding: EdgeInsets.all(3.h),
-                                //     hintText: 'Search by SKU/Brand',
-                                //     suffixIcon: Icon(
-                                //       Icons.search,
-                                //       color: Color(0xfff333389),
-                                //       size: 4.5.h,
-                                //     ),
-                                //   ),
-                                // ),
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              gen = index;
+                              select = allproperty?.data?[gen!].id;
+                            });
+                            print("gfhfhgh");
+                            categorydisplay();
+                          },
+                          child: Container(
+                            height: 13.h,
+                            child: Column(
+                              children: [
+                                Container(
+                                  margin:
+                                      EdgeInsets.symmetric(horizontal: 0.8.h),
+                                  alignment: Alignment.center,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.15,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.10,
+                                  // child: TextFormField(
+                                  //   validator: (value) {
+                                  //     if (value!.isEmpty) {
+                                  //       return "";
+                                  //     }
+                                  //     return null;
+                                  //   },
+                                  //   // controller: _firstname,
+                                  //   decoration: InputDecoration(
+                                  //     border: InputBorder.none,
+                                  //     contentPadding: EdgeInsets.all(3.h),
+                                  //     hintText: 'Search by SKU/Brand',
+                                  //     suffixIcon: Icon(
+                                  //       Icons.search,
+                                  //       color: Color(0xfff333389),
+                                  //       size: 4.5.h,
+                                  //     ),
+                                  //   ),
+                                  // ),
 
-                                decoration: BoxDecoration(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: (gen != index)
+                                            ? Colors.white
+                                            : Color(0xfff333389),
+                                        width: 0.8.w),
+
                                     shape: BoxShape.circle,
-                                    color: Colors.blueGrey,
+                                    // color: Colors.blueGrey,
                                     image: DecorationImage(
                                         image: NetworkImage(
-
-                                            '${allproperty?.data?[index].categoryImg.toString()}'),
-                                        fit: BoxFit.fitWidth)
-                                    // borderRadius: BorderRadius.all(
-                                    //   Radius.circular(10),
-                                    ),
-                                    ),
-                                // child:Image.network( '${allproperty?.data?[index].categoryImg.toString()}')
-                              // ),
-                              Text(
-                                '${allproperty?.data?[index].categoryName.toString()}',
-                                style:
-                                    TextStyle(fontSize: 1.5.h, color: Colors.black),
-                              )
-                            ],
+                                      allproperty?.data?[index].categoryImg ??
+                                          "",
+                                    )
+                                        // borderRadius: BorderRadius.all(
+                                        //   Radius.circular(10),
+                                        ),
+                                  ),
+                                  // child:Image.network( '${allproperty?.data?[index].categoryImg.toString()}')
+                                ),
+                                Text(
+                                  allproperty?.data?[index].categoryName ?? "",
+                                  style: TextStyle(
+                                      fontSize: 1.5.h, color: Colors.black),
+                                )
+                              ],
+                            ),
                           ),
                         );
-                      }
-                      ),
+                      }),
                 ),
               ),
 
@@ -573,293 +614,458 @@ class _products_1State extends State<products_1> {
             ),
             Positioned(
               top: 31.h,
-              child: Container(
-                // height: MediaQuery.of(context).size.height,
-                height: 75.h,
-                width: MediaQuery.of(context).size.width,
-
-                padding: EdgeInsets.all(15),
-                color: Color(0xfffFFFFFF),
-                child: GridView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: images.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 19.0,
-                      childAspectRatio: 3.h / 5.9.h,
-                      mainAxisSpacing: 15),
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => product_2(
-                                      imagenevigator:
-                                          (images[index].image).toString(),
-                                      pronamenevigatior:
-                                          images[index].Street_Wear.toString(),
-                                      // coloridnevigator:
-                                      //     '${productData?.productData![index].apId}',
-                                    )));
-                      },
-                      child: Column(
-                        children: [
-                          Stack(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10.0),
-                                child: Image.asset(
-                                  (images[index].image).toString(),
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.6,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.3,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              // Padding(
-                              //   padding: EdgeInsets.only(
-                              //       left: MediaQuery.of(context).size.width *
-                              //           0.33,
-                              //       top: MediaQuery.of(context).size.height *
-                              //           0.010),
-                              //   child: Container(
-                              //     alignment: Alignment.center,
-                              //     width: 8.5.w,
-                              //     height: 4.h,
-                              //     decoration: BoxDecoration(
-                              //       color: Colors.white,
-                              //       borderRadius: BorderRadius.all(
-                              //         Radius.circular(25),
-                              //       ),
-                              //     ),
-                              //     child: IconButton(
-                              //       icon: Icon(
-                              //         Icons.favorite_border,
-                              //         color: Colors.red,
-                              //         size: 2.h,
-                              //       ),
-                              //       onPressed: () {},
-                              //     ),
-                              //   ),
-                              // ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        // left: MediaQuery.of(context).size.width * 0.01,
-                                        top:
-                                            MediaQuery.of(context).size.height *
-                                                0.26),
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.18,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.03,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(5),
-                                        ),
-                                      ),
+              child: _search.text.isNotEmpty
+                  ? (searchproperty == null
+                              ? SizedBox(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: const Center(
                                       child: Text(
-                                        images[index].Brand_Name.toString(),
-                                        style: TextStyle(
-                                          fontStyle: FontStyle.italic,
-                                          fontSize: 1.1.h,
-                                          color: Colors.white,
-                                        ),
+                                    'Not Found',
+                                    style: TextStyle(color: Colors.black),
+                                  )),
+                                )
+                              : searchproperty?.data?.length ?? 0) ==
+                          0
+                      ? SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          child: const Center(
+                            child: Text(
+                              'Not Found',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        )
+                      : Container(
+                          width: MediaQuery.of(context).size.width,
+                          alignment: Alignment.centerLeft,
+                          margin: EdgeInsets.symmetric(horizontal: 2.h),
+                          child: GridView.builder(
+                              shrinkWrap: true,
+                              itemCount: searchproperty == null
+                                  ? 0
+                                  : searchproperty?.data?.length ?? 0,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  height: 18.h,
+                                  width: 20.h,
+                                  margin:
+                                      EdgeInsets.only(right: 1.h, bottom: 1.h),
+                                  child: GestureDetector(
+                                    onTap: () async {
+                                      // String? search = await Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //         builder: (context) =>
+                                      //             products_1()));
+                                      // if (search != null) {
+                                      //   if (search.isNotEmpty) {
+                                      //     _search.text = search;
+                                      //     searchapi(search);
+                                      //   }
+                                      // }
+                                    },
+                                    child: Center(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          SizedBox(
+                                            height: 16.h,
+                                            width: 17.h,
+                                            child: CachedNetworkImage(
+                                              imageUrl: searchproperty
+                                                      ?.data?[index]
+                                                      .prodImgDefault ??
+                                                  '',
+                                              imageBuilder:
+                                                  (context, imageProvider) =>
+                                                      Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(10.sp),
+                                                  ),
+                                                  image: DecorationImage(
+                                                    image: imageProvider,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                              placeholder: (context, url) =>
+                                                  const Center(
+                                                      child:
+                                                          CircularProgressIndicator()),
+                                              errorWidget: (context, url,
+                                                      error) =>
+                                                  Image.network(searchproperty
+                                                          ?.data?[0]
+                                                          .prodImgDefault ??
+                                                      ''),
+                                            ),
+                                          ),
+                                          Container(
+                                            child: Flexible(
+                                              child: Text(
+                                                searchproperty?.data?[index]
+                                                        .prodName ??
+                                                    '',
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          ),
+                                          // Flexible(
+                                          //   // child: Text(
+                                          //   //   searchproperty
+                                          //   //       ?.data?[
+                                          //   //   index]
+                                          //   //       . ??
+                                          //   //       '',
+                                          //   // ),
+                                          // ),
+                                        ],
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        left:
-                                            MediaQuery.of(context).size.width *
-                                                0.08,
-                                        top:
-                                            MediaQuery.of(context).size.height *
-                                                0.24),
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      width: 8.w,
-                                      height: 3.8.h,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(25),
-                                        ),
-                                      ),
-                                      child: IconButton(
-                                        icon: Icon(
-                                          Icons.share,
-                                          color: Color(0xff7d7d7d),
-                                          size: 1.8.h,
-                                        ),
-                                        onPressed: () {},
-                                      ),
+                                );
+                              },
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2)),
+                        )
+                  : Container(
+                      // height: MediaQuery.of(context).size.height,
+                      height: 75.h,
+                      width: MediaQuery.of(context).size.width,
+
+                      padding: EdgeInsets.all(15),
+                      color: Color(0xfffFFFFFF),
+                      child: GridView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: allcatogaryproperty?.diffProduct?.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 19.0,
+                            childAspectRatio: 3.h / 5.9.h,
+                            mainAxisSpacing: 15),
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => product_2(
+                                            imagenevigator:
+                                                (images[index].image)
+                                                    .toString(),
+                                            pronamenevigatior: images[index]
+                                                .Street_Wear
+                                                .toString(),
+                                            // coloridnevigator:
+                                            //     '${productData?.productData![index].apId}',
+                                          )));
+                            },
+                            child: Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: allcatogaryproperty
+                                                  ?.diffProduct?[index]
+                                                  .prodImgOne ==
+                                              null
+                                          ? Image.asset(
+                                              "assets/product_1_img.png",
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.6,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.3,
+                                              fit: BoxFit.cover,
+                                            )
+                                          : Image.network(
+                                              allcatogaryproperty
+                                                      ?.diffProduct?[index]
+                                                      .prodImgOne ??
+                                                  "",
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.6,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.3,
+                                              fit: BoxFit.cover,
+                                            ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(left: 0.8.h),
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              images[index].Street_Wear.toString(),
-                              style: TextStyle(
-                                  fontSize: 2.h, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(left: 0.8.h),
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              images[index].Artist_Name.toString(),
-                              style: TextStyle(
-                                  fontSize: 1.3.h,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.grey.shade500),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          // Row(
-                          //   // crossAxisAlignment: CrossAxisAlignment.start,
-                          //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          //   children: [
-                          //     Container(
-                          //       alignment: Alignment.center,
-                          //       width: MediaQuery.of(context).size.width * 0.07,
-                          //       height:
-                          //           MediaQuery.of(context).size.height * 0.03,
-                          //       decoration: BoxDecoration(
-                          //         color: Color(0xffeaeaf3),
-                          //         borderRadius: BorderRadius.all(
-                          //           Radius.circular(15),
-                          //         ),
-                          //       ),
-                          //       child: Text(
-                          //         images[index].size_s.toString(),
-                          //         style: TextStyle(
-                          //             fontSize: 2.h,
-                          //             color: Color(0xff3f3f90),
-                          //             fontWeight: FontWeight.bold),
-                          //       ),
-                          //     ),
-                          //     SizedBox(
-                          //       width: 1.w,
-                          //     ),
-                          //     Container(
-                          //       alignment: Alignment.center,
-                          //       width: MediaQuery.of(context).size.width * 0.07,
-                          //       height:
-                          //           MediaQuery.of(context).size.height * 0.03,
-                          //       decoration: BoxDecoration(
-                          //         color: Color(0xffeaeaf3),
-                          //         borderRadius: BorderRadius.all(
-                          //           Radius.circular(15),
-                          //         ),
-                          //       ),
-                          //       child: Text(
-                          //         images[index].size_m.toString(),
-                          //         style: TextStyle(
-                          //             fontSize: 2.h,
-                          //             color: Color(0xff3f3f90),
-                          //             fontWeight: FontWeight.bold),
-                          //       ),
-                          //     ),
-                          //     // SizedBox(
-                          //     //   width: 1.w,
-                          //     // ),
-                          //     // Container(
-                          //     //   alignment: Alignment.center,
-                          //     //   width: MediaQuery.of(context).size.width * 0.07,
-                          //     //   height:
-                          //     //       MediaQuery.of(context).size.height * 0.03,
-                          //     //   decoration: BoxDecoration(
-                          //     //     color: Color(0xffeaeaf3),
-                          //     //     borderRadius: BorderRadius.all(
-                          //     //       Radius.circular(15),
-                          //     //     ),
-                          //     //   ),
-                          //     //   child: Text(
-                          //     //     images[index].size_l.toString(),
-                          //     //     style: TextStyle(
-                          //     //         fontSize: 2.h,
-                          //     //         color: Color(0xff3f3f90),
-                          //     //         fontWeight: FontWeight.bold),
-                          //     //   ),
-                          //     // ),
-                          //   ],
-                          // ),
-                          SizedBox(
-                            height: 3.5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                width: 42.w,
-                                padding: EdgeInsets.only(left: 0.8.h),
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  images[index].Price.toString(),
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                    fontSize: 2.3.h,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xffe2000f),
+                                    // Padding(
+                                    //   padding: EdgeInsets.only(
+                                    //       left: MediaQuery.of(context).size.width *
+                                    //           0.33,
+                                    //       top: MediaQuery.of(context).size.height *
+                                    //           0.010),
+                                    //   child: Container(
+                                    //     alignment: Alignment.center,
+                                    //     width: 8.5.w,
+                                    //     height: 4.h,
+                                    //     decoration: BoxDecoration(
+                                    //       color: Colors.white,
+                                    //       borderRadius: BorderRadius.all(
+                                    //         Radius.circular(25),
+                                    //       ),
+                                    //     ),
+                                    //     child: IconButton(
+                                    //       icon: Icon(
+                                    //         Icons.favorite_border,
+                                    //         color: Colors.red,
+                                    //         size: 2.h,
+                                    //       ),
+                                    //       onPressed: () {},
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              // left: MediaQuery.of(context).size.width * 0.01,
+                                              top: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.26),
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.18,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.03,
+                                            decoration: BoxDecoration(
+                                              color: Colors.black,
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(5),
+                                              ),
+                                            ),
+                                            child: Text(
+                                              images[index]
+                                                  .Brand_Name
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontStyle: FontStyle.italic,
+                                                fontSize: 1.1.h,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              left: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.08,
+                                              top: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.24),
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            width: 8.w,
+                                            height: 3.8.h,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(25),
+                                              ),
+                                            ),
+                                            child: IconButton(
+                                              icon: Icon(
+                                                Icons.share,
+                                                color: Color(0xff7d7d7d),
+                                                size: 1.8.h,
+                                              ),
+                                              onPressed: () {},
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(left: 0.8.h),
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    allcatogaryproperty
+                                            ?.diffProduct?[index].name ??
+                                        "",
+                                    style: TextStyle(
+                                        fontSize: 2.h,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                              ),
-                              // SizedBox(
-                              //   width: 16.w,
-                              // ),
-                              // Container(
-                              //   alignment: Alignment.center,
-                              //   width: MediaQuery.of(context).size.width * 0.09,
-                              //   height:
-                              //       MediaQuery.of(context).size.height * 0.04,
-                              //   decoration: BoxDecoration(
-                              //     color: Color(0xffe2000f),
-                              //     borderRadius: BorderRadius.all(
-                              //       Radius.circular(15),
-                              //     ),
-                              //   ),
-                              //   child: Icon(
-                              //     Icons.shopping_cart_outlined,
-                              //     color: Colors.white,
-                              //     size: 2.h,
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ],
+                                Container(
+                                  padding: EdgeInsets.only(left: 0.8.h),
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    images[index].Artist_Name.toString(),
+                                    style: TextStyle(
+                                        fontSize: 1.3.h,
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FontStyle.italic,
+                                        color: Colors.grey.shade500),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 0.5.h,
+                                ),
+                                // Row(
+                                //   // crossAxisAlignment: CrossAxisAlignment.start,
+                                //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                //   children: [
+                                //     Container(
+                                //       alignment: Alignment.center,
+                                //       width: MediaQuery.of(context).size.width * 0.07,
+                                //       height:
+                                //           MediaQuery.of(context).size.height * 0.03,
+                                //       decoration: BoxDecoration(
+                                //         color: Color(0xffeaeaf3),
+                                //         borderRadius: BorderRadius.all(
+                                //           Radius.circular(15),
+                                //         ),
+                                //       ),
+                                //       child: Text(
+                                //         images[index].size_s.toString(),
+                                //         style: TextStyle(
+                                //             fontSize: 2.h,
+                                //             color: Color(0xff3f3f90),
+                                //             fontWeight: FontWeight.bold),
+                                //       ),
+                                //     ),
+                                //     SizedBox(
+                                //       width: 1.w,
+                                //     ),
+                                //     Container(
+                                //       alignment: Alignment.center,
+                                //       width: MediaQuery.of(context).size.width * 0.07,
+                                //       height:
+                                //           MediaQuery.of(context).size.height * 0.03,
+                                //       decoration: BoxDecoration(
+                                //         color: Color(0xffeaeaf3),
+                                //         borderRadius: BorderRadius.all(
+                                //           Radius.circular(15),
+                                //         ),
+                                //       ),
+                                //       child: Text(
+                                //         images[index].size_m.toString(),
+                                //         style: TextStyle(
+                                //             fontSize: 2.h,
+                                //             color: Color(0xff3f3f90),
+                                //             fontWeight: FontWeight.bold),
+                                //       ),
+                                //     ),
+                                //     // SizedBox(
+                                //     //   width: 1.w,
+                                //     // ),
+                                //     // Container(
+                                //     //   alignment: Alignment.center,
+                                //     //   width: MediaQuery.of(context).size.width * 0.07,
+                                //     //   height:
+                                //     //       MediaQuery.of(context).size.height * 0.03,
+                                //     //   decoration: BoxDecoration(
+                                //     //     color: Color(0xffeaeaf3),
+                                //     //     borderRadius: BorderRadius.all(
+                                //     //       Radius.circular(15),
+                                //     //     ),
+                                //     //   ),
+                                //     //   child: Text(
+                                //     //     images[index].size_l.toString(),
+                                //     //     style: TextStyle(
+                                //     //         fontSize: 2.h,
+                                //     //         color: Color(0xff3f3f90),
+                                //     //         fontWeight: FontWeight.bold),
+                                //     //   ),
+                                //     // ),
+                                //   ],
+                                // ),
+                                SizedBox(
+                                  height: 3.5,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: 42.w,
+                                      padding: EdgeInsets.only(left: 0.8.h),
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        (allcatogaryproperty
+                                                        ?.diffProduct?[index]
+                                                        .minPrice)
+                                                    .toString() +
+                                                " - " +
+                                                (allcatogaryproperty
+                                                        ?.diffProduct?[index]
+                                                        .minPrice)
+                                                    .toString() ??
+                                            "",
+                                        maxLines: 2,
+                                        style: TextStyle(
+                                          fontSize: 2.3.h,
+                                          fontWeight: FontWeight.bold,
+                                          color: Color(0xffe2000f),
+                                        ),
+                                      ),
+                                    ),
+                                    // SizedBox(
+                                    //   width: 16.w,
+                                    // ),
+                                    // Container(
+                                    //   alignment: Alignment.center,
+                                    //   width: MediaQuery.of(context).size.width * 0.09,
+                                    //   height:
+                                    //       MediaQuery.of(context).size.height * 0.04,
+                                    //   decoration: BoxDecoration(
+                                    //     color: Color(0xffe2000f),
+                                    //     borderRadius: BorderRadius.all(
+                                    //       Radius.circular(15),
+                                    //     ),
+                                    //   ),
+                                    //   child: Icon(
+                                    //     Icons.shopping_cart_outlined,
+                                    //     color: Colors.white,
+                                    //     size: 2.h,
+                                    //   ),
+                                    // ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
-                    );
-                  },
-                ),
-              ),
+                    ),
             ),
           ],
         ),
       ),
     );
   }
-  allcategorydisplayapi() async {
+
+  alldisplay() async {
     final Map<String, String> data = {};
     data['action'] = 'all_category_display';
     checkInternet().then((internet) async {
@@ -867,10 +1073,12 @@ class _products_1State extends State<products_1> {
         Productprovider().allcatogeryapi(data).then((Response response) async {
           allproperty = allcategorydisplay.fromJson(json.decode(response.body));
 
+          if (response.statusCode == 200 && allproperty?.status == "success") {
+            setState(() {
+              categorydisplay();
+            });
 
-          if (response.statusCode == 200 && allproperty?.status == "success" ) {
-
-            print("img"+(allproperty?.data?.length).toString());
+            print("img" + (allproperty?.data?[0].categoryImg).toString());
 
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));
@@ -878,33 +1086,64 @@ class _products_1State extends State<products_1> {
             if (kDebugMode) {}
           } else {}
         });
-      } else {
-        setState(() {});
-      }
+      } else {}
     });
   }
-  // productsapi() async {
-  //
-  //   final Map<String, String> data = {};
-  //   data['action'] = 'fetch_products';
-  //
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       Authprovider().products(data).then((Response response) async {
-  //         productData = productapi.fromJson(json.decode(response.body));
-  //
-  //         if (response.statusCode == 200 && productData?.status == "success") {
-  //           // Navigator.push(context,
-  //           //     MaterialPageRoute(builder: (context) => loginsuccess()));
-  //
-  //           if (kDebugMode) {}
-  //         } else {}
-  //       });
-  //     } else {
-  //       setState(() {});
-  //     }
-  //   });
-  // }
 
+  categorydisplay() async {
+    final Map<String, String> data = {};
+    data['action'] = 'category_wise_product';
+    data['category_id'] = select.toString();
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider()
+            .selectcategorydisplay(data)
+            .then((Response response) async {
+          allcatogaryproperty =
+              categorywisedisplay.fromJson(json.decode(response.body));
 
+          if (response.statusCode == 200 &&
+              allcatogaryproperty?.status == "success") {
+            setState(() {});
+
+            print(
+                "img" + (allcatogaryproperty?.diffProduct?[0].name).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
+  }
+
+  searchapi(body) async {
+    final Map<String, String> data = {};
+    data['action'] = 'searching_products';
+    data['search'] = body;
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider().searchproduct(data).then((Response response) async {
+          searchproperty = search.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              searchproperty?.status == "success") {
+            setState(() {});
+
+            print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
+  }
 }

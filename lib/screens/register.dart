@@ -504,12 +504,13 @@ class _registerState extends State<register> {
       checkInternet().then((internet) async {
         if (internet) {
           Authprovider().loginapi(data).then((Response response) async {
-            SharedPreferences _sharedpreferences =
-            await SharedPreferences.getInstance();
-            print(response.statusCode);
+            print(response.body);
+
+
             userData = usermodal.fromJson(json.decode(response.body));
 
             if (response.statusCode == 200 && userData!.status == "success") {
+              print(userData?.status);
               SaveDataLocal.saveLogInData(userData!);
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => loginsuccess()));
