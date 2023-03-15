@@ -258,7 +258,7 @@ class _products_1State extends State<products_1> {
                           onTap: () {
                             setState(() {
                               gen = index;
-                              select = allproperty?.data?[gen!].id;
+select= allproperty?.data?[index].id;
                             });
                             print("gfhfhgh");
                             categorydisplay();
@@ -697,10 +697,20 @@ class _products_1State extends State<products_1> {
                                                           CircularProgressIndicator()),
                                               errorWidget: (context, url,
                                                       error) =>
-                                                  Image.network(searchproperty
-                                                          ?.data?[0]
-                                                          .prodImgDefault ??
-                                                      ''),
+
+                                              Image.asset(
+                                                "assets/product_1_img.png",
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                    0.6,
+                                                height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                    0.3,
+                                                fit: BoxFit.cover,
+                                              )
+
                                             ),
                                           ),
                                           Container(
@@ -714,13 +724,11 @@ class _products_1State extends State<products_1> {
                                             ),
                                           ),
                                           // Flexible(
-                                          //   // child: Text(
-                                          //   //   searchproperty
-                                          //   //       ?.data?[
-                                          //   //   index]
-                                          //   //       . ??
-                                          //   //       '',
-                                          //   // ),
+                                          //   child: Text(
+                                          //     searchproperty?.data?[index]
+                                          //         . ??
+                                          //         '',
+                                          //   ),
                                           // ),
                                         ],
                                       ),
@@ -1075,6 +1083,7 @@ class _products_1State extends State<products_1> {
 
           if (response.statusCode == 200 && allproperty?.status == "success") {
             setState(() {
+              select= allproperty?.data?[0].id.toString();
               categorydisplay();
             });
 
