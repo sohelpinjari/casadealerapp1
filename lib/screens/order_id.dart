@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/modal_class/order_detail_class.dart';
+import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/screens/alert_screen.dart';
 import 'package:casadealerapp/screens/cart_order.dart';
 import 'package:casadealerapp/screens/drawer.dart';
@@ -6,7 +11,9 @@ import 'package:casadealerapp/screens/product_2.dart';
 import 'package:casadealerapp/screens/products_1.dart';
 import 'package:casadealerapp/screens/summary_b_edit.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:sizer/sizer.dart';
 
 class order_id extends StatefulWidget {
@@ -19,6 +26,7 @@ class order_id extends StatefulWidget {
 }
 
 class _order_idState extends State<order_id> {
+  order_detail? detail;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   // bool? check = false;
   // int sum = 0;
@@ -40,6 +48,15 @@ class _order_idState extends State<order_id> {
   // int cart = 0;
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    orderDetailapi();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -140,11 +157,14 @@ class _order_idState extends State<order_id> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Order ID#1234',
+                    Text(
+                        'Order ID #' + (detail?.data?[0].ordId).toString() ??
+                            "",
                         style: TextStyle(
                             fontSize: 2.h,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xff333389))),
+                            color: Color(0xff333389)
+                        )),
                     Container(
                       alignment: Alignment.center,
                       height: 3.4.h,
@@ -172,7 +192,7 @@ class _order_idState extends State<order_id> {
               // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
               // horizontalTitleGap: 0.0,
 
-              itemCount: 2,
+              itemCount: detail?.data?.length,
               itemBuilder: (BuildContext context, int index) {
                 return Column(
                   children: [
@@ -209,7 +229,11 @@ class _order_idState extends State<order_id> {
                                   color: Color(0xff35358a),
                                   fontSize: 2.h,
                                   fontWeight: FontWeight.bold)),
-                          Text('Bottle Green',
+                          Text(
+                              (detail?.data?[index].colourName).toString() ??
+                                  "",
+
+                              // 'Bottle Green',
                               style: TextStyle(
                                 color: Color(0xff35358a),
                                 fontSize: 2.h,
@@ -244,11 +268,17 @@ class _order_idState extends State<order_id> {
                             height: 3.h,
                             child: Row(
                               children: [
-                                Text('XS - 3XL :',
+                                Text('XS - 3XL : ',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold)),
-                                Text(' ₹250',
+                                Text(
+
+                                    // ' ₹250',
+                                    '₹' +
+                                            (detail?.data?[index].price1)
+                                                .toString() ??
+                                        "",
                                     style: TextStyle(
                                         color: Color(0xff35358a),
                                         fontWeight: FontWeight.bold)),
@@ -262,14 +292,18 @@ class _order_idState extends State<order_id> {
                             child: Row(
                               children: [
                                 Text(
-                                  '4XL- 5XL :',
+                                  '4XL- 5XL : ',
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 Text(
-                                  ' ₹280',
+                                  // ' ₹280',
+                                  '₹' +
+                                          (detail?.data?[index].price2)
+                                              .toString() ??
+                                      "",
                                   style: TextStyle(
                                     color: Color(0xff35358a),
                                     fontWeight: FontWeight.bold,
@@ -328,7 +362,9 @@ class _order_idState extends State<order_id> {
                               width: 2.w,
                             ),
                             Text(
-                              'Male',
+                              // 'Male',
+
+                              (detail?.data?[index].gender).toString() ?? "",
                               style: TextStyle(
                                   fontSize: 2.3.h,
                                   color: Color(0xff35358a),
@@ -452,7 +488,8 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '20000',
+                              // '20000',
+                              (detail?.data?[index].xs).toString() ?? "",
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -464,7 +501,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '30000',
+                              // '30000',
+                              (detail?.data?[index].s).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -476,7 +515,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '0',
+                              // '0',
+                              (detail?.data?[index].m).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -488,7 +529,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '12500',
+                              // '12500',
+                              (detail?.data?[index].l).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -500,7 +543,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '13000',
+                              // '13000',
+                              (detail?.data?[index].xl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -631,7 +676,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '20000',
+                              // '20000',
+                              (detail?.data?[index].xxl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -643,7 +690,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '50000',
+                              // '50000',
+                              (detail?.data?[index].s3xl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -655,7 +704,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '75000',
+                              // '75000',
+                              (detail?.data?[index].s4xl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -667,7 +718,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '10000',
+                              // '10000',
+                              (detail?.data?[index].s5xl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -685,7 +738,9 @@ class _order_idState extends State<order_id> {
                               color: Color(0Xffeaeaf3),
                             ),
                             child: Text(
-                              '8888',
+                              // '8888',
+                              (detail?.data?[index].total).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 2.h,
                                   color: Color(0Xff50509a),
@@ -725,7 +780,9 @@ class _order_idState extends State<order_id> {
                               width: 2.w,
                             ),
                             Text(
-                              'Women',
+                              // 'Women',
+                              (detail?.data?[index].gender).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 2.3.h,
                                   color: Color(0xff35358a),
@@ -848,7 +905,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '20000',
+                              // '20000',
+                              (detail?.data?[index].xs).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -860,7 +919,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '30000',
+                              // '30000',
+                              (detail?.data?[index].s).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -872,7 +933,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '0',
+                              // '0',
+                              (detail?.data?[index].m).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -884,7 +947,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '12500',
+                              // '12500',
+                              (detail?.data?[index].l).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -896,7 +961,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '13000',
+                              // '13000',
+                              (detail?.data?[index].xl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -1027,7 +1094,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '20000',
+                              // '20000',
+                              (detail?.data?[index].xxl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -1039,7 +1108,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '50000',
+                              // '50000',
+                              (detail?.data?[index].s3xl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -1051,7 +1122,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '75000',
+                              // '75000',
+                              (detail?.data?[index].s4xl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -1063,7 +1136,9 @@ class _order_idState extends State<order_id> {
                             height: 3.5.h,
                             width: 15.w,
                             child: Text(
-                              '10000',
+                              // '10000',
+                              (detail?.data?[index].s5xl).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 1.9.h,
                                   color: Colors.black,
@@ -1081,7 +1156,9 @@ class _order_idState extends State<order_id> {
                               color: Color(0Xffeaeaf3),
                             ),
                             child: Text(
-                              '8888',
+                              // '8888',
+                              (detail?.data?[index].total).toString() ?? "",
+
                               style: TextStyle(
                                   fontSize: 2.h,
                                   color: Color(0Xff50509a),
@@ -1143,6 +1220,8 @@ class _order_idState extends State<order_id> {
                                   ),
                                   Text(
                                     '₹99,99,999',
+                                    // (detail?.data?[0].).toString() ??
+
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 1.9.h,
@@ -1265,5 +1344,33 @@ class _order_idState extends State<order_id> {
         ],
       ),
     ));
+  }
+
+  orderDetailapi() async {
+    final Map<String, String> data = {};
+    data['action'] = 'order_details';
+    data['o_id'] = '1';
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider()
+            .product_orderDetail(data)
+            .then((Response response) async {
+          detail = order_detail.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && detail?.status == "success") {
+            setState(() {});
+
+            // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
   }
 }

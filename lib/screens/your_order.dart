@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/modal_class/singlepro_class.dart';
 import 'package:casadealerapp/modal_class/view_order.dart';
 import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/screens/drawer.dart';
@@ -17,9 +18,7 @@ class your_order extends StatefulWidget {
 }
 
 class _your_orderState extends State<your_order> {
-
   view_orders? view;
-
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -46,7 +45,6 @@ class _your_orderState extends State<your_order> {
     // TODO: implement initState
     super.initState();
     viewapi();
-
   }
 
   @override
@@ -152,7 +150,7 @@ class _your_orderState extends State<your_order> {
                         return Container(
                           // padding: EdgeInsets.all(0),
                           // alignment: Alignment.center,
-                          height: 10.h,
+                          height: 11.h,
                           margin: EdgeInsets.all(10.0),
                           decoration: BoxDecoration(
                             color: Color(0xfffafafa),
@@ -166,7 +164,7 @@ class _your_orderState extends State<your_order> {
                                 borderRadius: BorderRadius.circular(12),
                                 child: Image.asset(
                                   'assets/product_1_img2.png',
-                                  height: 10.h,
+                                  height: 11.h,
                                   width: 20.w,
                                   fit: BoxFit.cover,
                                 ),
@@ -174,21 +172,26 @@ class _your_orderState extends State<your_order> {
                               // SizedBox(width: 5.w,),
 
                               Padding(
-                                padding: EdgeInsets.all(1.5.h),
+                                padding: EdgeInsets.all(1.h),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
                                       children: [
                                         Text(
-                                          'Order ID #' +  (view?.data?[index].id).toString() ?? "" ,
+                                          'Order ID #' +
+                                                  (view?.data?[index].id)
+                                                      .toString() ??
+                                              "",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 2.2.h),
+                                              fontSize: 2.h),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 1.5.h),
+                                    // SizedBox(height: 1.5.h),
                                     Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -196,18 +199,54 @@ class _your_orderState extends State<your_order> {
                                         Text(
                                           'No of Products : ',
                                           style: TextStyle(
-                                              color: Color(0xff5a5858585),
-                                              fontSize: 1.7.h),
+                                            color: Color(0xff5a5858585),
+                                          ),
                                         ),
                                         Text(
-                                          (view?.data?[index].productNumberOrder).toString() ?? "" ,
+                                          (view?.data?[index]
+                                                      .productNumberOrder)
+                                                  .toString() ??
+                                              "",
                                           // '550',
                                           style: TextStyle(
-                                              color: Color(0xff5a5a9f),
-                                              fontSize: 1.7.h),
+                                            color: Color(0xff5a5a9f),
+                                          ),
                                         ),
                                       ],
                                     ),
+                                    Container(
+                                      padding: EdgeInsets.all(0.6.h),
+                                      alignment: Alignment.center,
+                                      height: 3.4.h,
+                                      width: 21.w,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          color: (view?.data?[index].status ==
+                                                  "1")
+                                              ? Color(0xfffaede7)
+                                              : (view?.data?[index].status ==
+                                                      "2")
+                                                  ? Color(0xffe1f5e2)
+                                                  : Color(0xfffae7e7)),
+                                      child: Text(
+                                        (view?.data?[index].status == "1")
+                                            ? "Placed"
+                                            : (view?.data?[index].status == "2")
+                                                ? "Confirmed"
+                                                : "Cancle",
+                                        // 'Placed',
+                                        style: TextStyle(
+                                            color: (view?.data?[index].status ==
+                                                    "1")
+                                                ? Color(0xfff98b54)
+                                                : (view?.data?[index].status ==
+                                                        "2")
+                                                    ? Color(0xff48d34d)
+                                                    : Color(0xfff97070),
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),
@@ -216,7 +255,8 @@ class _your_orderState extends State<your_order> {
 
                               SizedBox(width: 9.w),
                               Text(
-                       '₹' + (view?.data?[index].price).toString() ?? "" ,
+                                '₹' + (view?.data?[index].price).toString() ??
+                                    "",
                                 // '₹5,925',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -330,11 +370,12 @@ class _your_orderState extends State<your_order> {
     print(data);
     checkInternet().then((internet) async {
       if (internet) {
-        Productprovider().view_product_order(data).then((Response response) async {
+        Productprovider()
+            .view_product_order(data)
+            .then((Response response) async {
           view = view_orders.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 &&
-              view?.status == "success") {
+          if (response.statusCode == 200 && view?.status == "success") {
             setState(() {});
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
@@ -348,6 +389,4 @@ class _your_orderState extends State<your_order> {
       } else {}
     });
   }
-
-
 }

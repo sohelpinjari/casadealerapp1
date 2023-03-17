@@ -1,3 +1,4 @@
+import 'package:casadealerapp/modal_class/view_order.dart';
 import 'package:casadealerapp/screens/drawer.dart';
 import 'package:casadealerapp/screens/order_detail.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,9 @@ class your_block_order extends StatefulWidget {
 }
 
 class _your_block_orderState extends State<your_block_order> {
+  view_orders? view;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -117,7 +120,7 @@ class _your_block_orderState extends State<your_block_order> {
                         return Container(
                           // padding: EdgeInsets.all(0),
                           // alignment: Alignment.center,
-                          height: 10.h,
+                          height: 11.h,
                           margin: EdgeInsets.all(10.0),
                           decoration: BoxDecoration(
                             color: Color(0xfffafafa),
@@ -125,15 +128,14 @@ class _your_block_orderState extends State<your_block_order> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,                            children: [
                               Row(
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
                                     child: Image.asset(
                                       'assets/product_1_img2.png',
-                                      height: 10.h,
+                                      height: 11.h,
                                       width: 20.w,
                                       fit: BoxFit.cover,
                                     ),
@@ -144,33 +146,38 @@ class _your_block_orderState extends State<your_block_order> {
                                   Padding(
                                     padding: EdgeInsets.all(1.h),
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Row(
                                           children: [
                                             Text(
-                                              'ID #1234',
+                                              'Order ID #1234',
+                                                  // +  (view?.data?[index].productNumberOrder).toString() ?? "" ,
+
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 2.h),
                                             ),
                                           ],
                                         ),
-                                        // SizedBox(height: 1.h),
+                                        // SizedBox(height: 1.5.h),
                                         Row(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'No of Products :',
+                                              'No of Products : ',
                                               style: TextStyle(
-                                                  color: Color(0xff5a5858585)),
+                                                color: Color(0xff5a5858585),
+                                              ),
                                             ),
                                             Text(
+                                              // (view?.data?[index].productNumberOrder).toString() ?? "" ,
                                               '550',
                                               style: TextStyle(
-                                                  color: Color(0xff5a5a9f)),
+                                                color: Color(0xff5a5a9f),
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -180,12 +187,16 @@ class _your_block_orderState extends State<your_block_order> {
                                           width: 18.w,
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(15),
-                                              color: Color(0xfffaede7)),
+                                              BorderRadius.circular(15),
+                                              color: (view?.data?[index].status == "1")? Color(0xfffaede7):  (view?.data?[index].status == "2")?Color(0xffe1f5e2):Color(0xfffae7e7)
+                                          ),
                                           child: Text(
-                                            'Placed',
+                                            (view?.data?[index].status == "1")?"Placed":
+
+                                            (view?.data?[index].status == "2")?"Confirmed":"Cancle",
+                                            // 'Placed',
                                             style: TextStyle(
-                                                color: Color(0xfff98346),
+                                                color: (view?.data?[index].status == "1")? Color(0xfff98b54):  (view?.data?[index].status == "2")?Color(0xff48d34d):Color(0xfff97070),
                                                 fontWeight: FontWeight.bold),
                                           ),
                                         )
@@ -198,7 +209,8 @@ class _your_block_orderState extends State<your_block_order> {
                               Row(
                                 children: [
                                   Text(
-                                    '₹5,925',
+                                    // '₹' + (view?.data?[index].price).toString() ?? "" ,
+                                     '₹5,925',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 2.2.h,

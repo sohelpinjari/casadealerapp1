@@ -77,4 +77,22 @@ class Productprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
+  Future<http.Response> product_orderDetail(Map<String, dynamic> bodyData) async {
+    const url =
+        'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=order_details';
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
 }
