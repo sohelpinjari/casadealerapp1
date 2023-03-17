@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class your_order extends StatefulWidget {
+
   const your_order({Key? key}) : super(key: key);
 
   @override
@@ -74,36 +75,36 @@ class _your_orderState extends State<your_order> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: 11.h,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            // _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.search,
-                            color: Colors.white,
-                            size: 3.h,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 1.h,
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            // _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.shopping_bag_outlined,
-                            color: Colors.white,
-                            size: 3.h,
-                          ),
-                        ),
-                      ],
-                    ),
+                    // SizedBox(
+                    //   width: 11.h,
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     IconButton(
+                    //       onPressed: () {
+                    //         // _scaffoldKey.currentState?.openDrawer();
+                    //       },
+                    //       icon: Icon(
+                    //         Icons.search,
+                    //         color: Colors.white,
+                    //         size: 3.h,
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 1.h,
+                    //     ),
+                    //     IconButton(
+                    //       onPressed: () {
+                    //         // _scaffoldKey.currentState?.openDrawer();
+                    //       },
+                    //       icon: Icon(
+                    //         Icons.shopping_bag_outlined,
+                    //         color: Colors.white,
+                    //         size: 3.h,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),

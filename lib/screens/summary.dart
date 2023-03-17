@@ -13,7 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class summary extends StatefulWidget {
-  const summary({Key? key}) : super(key: key);
+  // String? pronamenevigatior;
+   summary({Key? key}) : super(key: key);
 
   @override
   State<summary> createState() => _summaryState();
@@ -43,6 +44,7 @@ class _summaryState extends State<summary> {
   int i2 = 1000;
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,36 +90,36 @@ class _summaryState extends State<summary> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: 14.h,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            // _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.search,
-                            color: Colors.white,
-                            size: 3.h,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 1.h,
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            // _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.shopping_bag_outlined,
-                            color: Colors.white,
-                            size: 3.h,
-                          ),
-                        ),
-                      ],
-                    ),
+                    // SizedBox(
+                    //   width: 14.h,
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     IconButton(
+                    //       onPressed: () {
+                    //         // _scaffoldKey.currentState?.openDrawer();
+                    //       },
+                    //       icon: Icon(
+                    //         Icons.search,
+                    //         color: Colors.white,
+                    //         size: 3.h,
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 1.h,
+                    //     ),
+                    //     IconButton(
+                    //       onPressed: () {
+                    //         // _scaffoldKey.currentState?.openDrawer();
+                    //       },
+                    //       icon: Icon(
+                    //         Icons.shopping_bag_outlined,
+                    //         color: Colors.white,
+                    //         size: 3.h,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
@@ -247,7 +249,7 @@ class _summaryState extends State<summary> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text('Ruffty Tipping',
+                                      Text( 'Rutty tiffin',
                                           style: TextStyle(
                                               color: Color(0xff35358a),
                                               fontSize: 2.h,
@@ -1361,7 +1363,9 @@ class _summaryState extends State<summary> {
                                       mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text('Ruffty Tipping',
+                                        Text(
+                                            // widget.pronamenevigatior.toString(),
+                                            'Ruffty Tipping',
                                             style: TextStyle(
                                                 color: Color(0xff35358a),
                                                 fontSize: 2.h,
@@ -2378,7 +2382,9 @@ class _summaryState extends State<summary> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  your_order()));
+                                                  your_order(
+                                                    // pronamenevigatior:   widget.pronamenevigatior.toString(),
+                                                  )));
                                       setState(() {
                                         cart = 0;
                                       });

@@ -80,36 +80,36 @@ class _summary_b_editState extends State<summary_b_edit> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        width: 14.h,
-                      ),
-                      Row(
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              // _scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.search,
-                              color: Colors.white,
-                              size: 3.h,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 1.h,
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              // _scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.shopping_bag_outlined,
-                              color: Colors.white,
-                              size: 3.h,
-                            ),
-                          ),
-                        ],
-                      ),
+                      // SizedBox(
+                      //   width: 14.h,
+                      // ),
+                      // Row(
+                      //   children: [
+                      //     IconButton(
+                      //       onPressed: () {
+                      //         // _scaffoldKey.currentState?.openDrawer();
+                      //       },
+                      //       icon: Icon(
+                      //         Icons.search,
+                      //         color: Colors.white,
+                      //         size: 3.h,
+                      //       ),
+                      //     ),
+                      //     SizedBox(
+                      //       width: 1.h,
+                      //     ),
+                      //     IconButton(
+                      //       onPressed: () {
+                      //         // _scaffoldKey.currentState?.openDrawer();
+                      //       },
+                      //       icon: Icon(
+                      //         Icons.shopping_bag_outlined,
+                      //         color: Colors.white,
+                      //         size: 3.h,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                     ],
                   ),
                 ),
@@ -511,6 +511,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -531,6 +533,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -551,6 +555,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -571,6 +577,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -591,6 +599,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -737,6 +747,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -757,6 +769,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -777,6 +791,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -797,6 +813,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -997,6 +1015,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1017,6 +1037,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1037,6 +1059,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1057,6 +1081,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1077,6 +1103,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1223,6 +1251,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1243,6 +1273,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1263,6 +1295,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1283,6 +1317,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                           ),
                                           child: TextField(
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
 
                                             style: TextStyle(
                                                 fontSize: 2.h,
@@ -1775,6 +1811,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -1795,6 +1833,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -1815,6 +1855,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -1835,6 +1877,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -1855,6 +1899,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2001,6 +2047,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2021,6 +2069,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2041,6 +2091,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2061,6 +2113,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2261,6 +2315,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2281,6 +2337,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2301,6 +2359,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2321,6 +2381,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2341,6 +2403,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2487,6 +2551,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2507,6 +2573,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2527,6 +2595,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2547,6 +2617,8 @@ class _summary_b_editState extends State<summary_b_edit> {
 
                                             ),
                                             child: TextField(
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
 
                                               style: TextStyle(
                                                   fontSize: 2.h,

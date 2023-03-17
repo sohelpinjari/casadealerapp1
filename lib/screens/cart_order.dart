@@ -70,36 +70,36 @@ class _cart_orderState extends State<cart_order> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: 8.h,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            // _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.search,
-                            color: Colors.white,
-                            size: 3.h,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 1.h,
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            // _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.shopping_bag_outlined,
-                            color: Colors.white,
-                            size: 3.h,
-                          ),
-                        ),
-                      ],
-                    ),
+                    // SizedBox(
+                    //   width: 8.h,
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     IconButton(
+                    //       onPressed: () {
+                    //         // _scaffoldKey.currentState?.openDrawer();
+                    //       },
+                    //       icon: Icon(
+                    //         Icons.search,
+                    //         color: Colors.white,
+                    //         size: 3.h,
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 1.h,
+                    //     ),
+                    //     IconButton(
+                    //       onPressed: () {
+                    //         // _scaffoldKey.currentState?.openDrawer();
+                    //       },
+                    //       icon: Icon(
+                    //         Icons.shopping_bag_outlined,
+                    //         color: Colors.white,
+                    //         size: 3.h,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
@@ -114,7 +114,7 @@ class _cart_orderState extends State<cart_order> {
             Column(
               children: [
                 Container(
-                  height: 79.h,
+                  height: 80.h,
                   child: ListView.builder(
                     // padding: EdgeInsets.all(0),
                     // visualDensity: VisualDensity(horizontal: 4, vertical: 4),

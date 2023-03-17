@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/modal_class/category_wise_display.dart';
 import 'package:casadealerapp/provider/login_authprovider.dart';
 import 'package:casadealerapp/modal_class/productapiclass.dart';
 import 'package:casadealerapp/shared_preference.dart';
@@ -44,6 +45,7 @@ class products {
 }
 
 class _product_2State extends State<product_2> {
+  TextEditingController _search = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   color? colorData;
   bool _customTileExpanded = false;
@@ -85,13 +87,18 @@ class _product_2State extends State<product_2> {
     Color(0xff57492e),
     Color(0xff57492e),
   ];
-  List<String> image = [];
+  List<String> image = [
+
+  ];
   productapi? productData;
+  bool se_icon = false;
+  categorywisedisplay? allcatogaryproperty;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
     // clrnameapi();
 
     // tripur= [
@@ -99,6 +106,7 @@ class _product_2State extends State<product_2> {
     //
     // ];
     image = [
+
       widget.imagenevigator.toString(),
       widget.imagenevigator.toString(),
       widget.imagenevigator.toString(),
@@ -162,6 +170,9 @@ class _product_2State extends State<product_2> {
                       children: [
                         IconButton(
                           onPressed: () {
+                            setState(() {
+                              se_icon = !se_icon;
+                            });
                             // _scaffoldKey.currentState?.openDrawer();
                           },
                           icon: Icon(
@@ -197,6 +208,55 @@ class _product_2State extends State<product_2> {
             ),
             SizedBox(
               height: 2.h,
+            ),
+            (!se_icon)?Container():  Container(
+              margin: EdgeInsets.symmetric(horizontal: 2.h),
+              padding: EdgeInsets.symmetric(horizontal: 2.h),
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.075,
+              child: TextFormField(
+                // validator: (value) {
+                //   if (value!.isEmpty) {
+                //     return "";
+                //   }
+                //   return null;
+                // },
+                onChanged: (value) {
+                  print(value);
+                  if (value.isNotEmpty) {
+                    // searchapi(value);
+                  } else if (value.isEmpty) {
+                    // Navigator.of(context).pushReplacement(
+                    //     MaterialPageRoute(
+                    //         builder: (context) => products_1()));
+                  } else {
+                    // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>RestaurantsScreen()));
+                  }
+                },
+                controller: _search,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.all(3.h),
+                  hintText: 'Search',
+                  suffixIcon: Icon(
+                    Icons.search,
+                    color: Color(0xfff333389),
+                    size: 3.h,
+                  ),
+                ),
+              ),
+              decoration: BoxDecoration(
+                // shape: BoxShape.circle,
+                color: Color(0xfff3faff),
+                // image: DecorationImage(
+                //     image: AssetImage("assets/product_1_img.png"),
+                //     fit: BoxFit.fitWidth)
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15),
+                  // ),
+                ),
+              ),
             ),
             Expanded(
               child: SingleChildScrollView(
@@ -346,9 +406,10 @@ class _product_2State extends State<product_2> {
                                                         ),
                                                         Container(
                                                           child: Text(
-                                                            widget
-                                                                .pronamenevigatior
-                                                                .toString(),
+                                                            widget.pronamenevigatior.toString(),
+                                                            // widget
+                                                            //     .pronamenevigatior
+                                                            //     .toString(),
                                                             style: TextStyle(
                                                                 fontSize: 3.h,
                                                                 fontWeight:
@@ -939,10 +1000,16 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
+
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
+
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
+                                                    // contentPadding: EdgeInsets.only(top: 0.1.w),
+
                                                     // suffixIcon: Column(
                                                     //
                                                     //   children: [
@@ -983,9 +1050,12 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
+
                                                     // suffixIcon: Column(
                                                     //
                                                     //   children: [
@@ -1027,6 +1097,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1093,6 +1165,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1136,6 +1210,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1180,6 +1256,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1242,6 +1320,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1285,6 +1365,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1329,6 +1411,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1395,6 +1479,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1438,6 +1524,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1482,6 +1570,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1544,6 +1634,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1587,6 +1679,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1631,6 +1725,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1697,6 +1793,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1740,6 +1838,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1784,6 +1884,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1846,6 +1948,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1889,6 +1993,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1933,6 +2039,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1999,6 +2107,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -2042,6 +2152,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -2086,6 +2198,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    textAlign: TextAlign.center,
+                                                  keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -4430,7 +4544,11 @@ class _product_2State extends State<product_2> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => summary()));
+                                  builder: (context) => summary(
+                                      // pronamenevigatior:   widget.pronamenevigatior.toString(),
+
+
+                                  )));
                           setState(() {
                             cart = 0;
                           });

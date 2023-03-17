@@ -1,4 +1,5 @@
 import 'package:casadealerapp/screens/drawer.dart';
+import 'package:casadealerapp/screens/order_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -54,36 +55,36 @@ class _your_block_orderState extends State<your_block_order> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: 4.h,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            // _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.search,
-                            color: Colors.white,
-                            size: 3.h,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 1.h,
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            // _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.shopping_bag_outlined,
-                            color: Colors.white,
-                            size: 3.h,
-                          ),
-                        ),
-                      ],
-                    ),
+                    // SizedBox(
+                    //   width: 4.h,
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     IconButton(
+                    //       onPressed: () {
+                    //         // _scaffoldKey.currentState?.openDrawer();
+                    //       },
+                    //       icon: Icon(
+                    //         Icons.search,
+                    //         color: Colors.white,
+                    //         size: 3.h,
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 1.h,
+                    //     ),
+                    //     IconButton(
+                    //       onPressed: () {
+                    //         // _scaffoldKey.currentState?.openDrawer();
+                    //       },
+                    //       icon: Icon(
+                    //         Icons.shopping_bag_outlined,
+                    //         color: Colors.white,
+                    //         size: 3.h,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
@@ -96,132 +97,140 @@ class _your_block_orderState extends State<your_block_order> {
             ),
             Column(
               children: [
-                Container(
-                  height: 88.h,
-                  child: ListView.builder(
-                    // padding: EdgeInsets.all(0),
-                    // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
-                    // horizontalTitleGap: 0.0,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => order_detail_c()));
+                  },
+                  child: Container(
+                    height: 88.h,
+                    child: ListView.builder(
+                      // padding: EdgeInsets.all(0),
+                      // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
+                      // horizontalTitleGap: 0.0,
 
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        // padding: EdgeInsets.all(0),
-                        // alignment: Alignment.center,
-                        height: 10.h,
-                        margin: EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                          color: Color(0xfffafafa),
-                          border: Border.all(color: Color(0xffe8e8e8)),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Row(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Image.asset(
-                                    'assets/product_1_img2.png',
-                                    height: 10.h,
-                                    width: 20.w,
-                                    fit: BoxFit.cover,
+                      itemCount: 10,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          // padding: EdgeInsets.all(0),
+                          // alignment: Alignment.center,
+                          height: 10.h,
+                          margin: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            color: Color(0xfffafafa),
+                            border: Border.all(color: Color(0xffe8e8e8)),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Image.asset(
+                                      'assets/product_1_img2.png',
+                                      height: 10.h,
+                                      width: 20.w,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(width: 2.w,),
+                                  SizedBox(width: 2.w,),
 
-                                Padding(
-                                  padding: EdgeInsets.all(1.h),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'ID #1234',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 2.h),
-                                          ),
-                                        ],
-                                      ),
-                                      // SizedBox(height: 1.h),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'No of Products :',
-                                            style: TextStyle(
-                                                color: Color(0xff5a5858585)),
-                                          ),
-                                          Text(
-                                            '550',
-                                            style:
-                                                TextStyle(color: Color(0xff5a5a9f)),
-                                          ),
-                                        ],
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        height: 3.4.h,
-                                        width: 18.w,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15),
-                                          color: Color(0xfffaede7)
+                                  Padding(
+                                    padding: EdgeInsets.all(1.h),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'ID #1234',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 2.h),
+                                            ),
+                                          ],
                                         ),
-                                        child: Text(
-                                          'Placed',
-                                          style: TextStyle(color: Color(0xfff98346),
-                                          fontWeight: FontWeight.bold
-                                          ),
+                                        // SizedBox(height: 1.h),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'No of Products :',
+                                              style: TextStyle(
+                                                  color: Color(0xff5a5858585)),
+                                            ),
+                                            Text(
+                                              '550',
+                                              style:
+                                                  TextStyle(color: Color(0xff5a5a9f)),
+                                            ),
+                                          ],
                                         ),
-                                      )
-                                    ],
+                                        Container(
+                                          alignment: Alignment.center,
+                                          height: 3.4.h,
+                                          width: 18.w,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(15),
+                                            color: Color(0xfffaede7)
+                                          ),
+                                          child: Text(
+                                            'Placed',
+                                            style: TextStyle(color: Color(0xfff98346),
+                                            fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
+                                ],
+                              ),
 
-                            SizedBox(width: 1.3.w),
+                              SizedBox(width: 1.3.w),
 
 
-                            Row(
-                              children: [
-                                Text(
-                                  '₹5,925',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 2.2.h,
-                                      color: Color(0xff3b3b8d)),
-                                ),
-                                SizedBox(
-                                  width: 3.w,
-                                ),
-                                Container(
-                                  // margin: EdgeInsets.only(left: 3.9.w),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xffe2e2ed),
-
-                                    // border: Border.all(
-                                    //   // color:  Color(0xff5a5a9f),
-                                    // ),
-                                    borderRadius: BorderRadius.circular(20),
+                              Row(
+                                children: [
+                                  Text(
+                                    '₹5,925',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 2.2.h,
+                                        color: Color(0xff3b3b8d)),
                                   ),
-                                  height: 4.h,
-                                  width: 9.w,
-                                  child: Icon(
-                                    Icons.more_vert,
-                                    color: Color(0xff5a5a9f),
+                                  SizedBox(
+                                    width: 3.w,
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+                                  Container(
+                                    // margin: EdgeInsets.only(left: 3.9.w),
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffe2e2ed),
+
+                                      // border: Border.all(
+                                      //   // color:  Color(0xff5a5a9f),
+                                      // ),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    height: 4.h,
+                                    width: 9.w,
+                                    child: Icon(
+                                      Icons.more_vert,
+                                      color: Color(0xff5a5a9f),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 // Container(

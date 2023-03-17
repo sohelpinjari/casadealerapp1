@@ -1,5 +1,7 @@
+import 'package:casadealerapp/screens/alert_screen.dart';
 import 'package:casadealerapp/screens/cart_order.dart';
 import 'package:casadealerapp/screens/drawer.dart';
+import 'package:casadealerapp/screens/order_detail.dart';
 import 'package:casadealerapp/screens/product_2.dart';
 import 'package:casadealerapp/screens/products_1.dart';
 import 'package:casadealerapp/screens/summary_b_edit.dart';
@@ -8,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class order_id extends StatefulWidget {
-  const order_id({Key? key}) : super(key: key);
+  const order_id({Key? key, }) : super(key: key);
 
   @override
   State<order_id> createState() => _order_idState();
@@ -72,42 +74,42 @@ class _order_idState extends State<order_id> {
                         // padding: EdgeInsets.only(top: 1.5.h),
                         // alignment: Alignment.center,
                         child: Text(
-                          "Your Order",
+                          "Your Orders",
                           style: TextStyle(fontSize: 2.h, color: Colors.white),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 11.h,
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          // _scaffoldKey.currentState?.openDrawer();
-                        },
-                        icon: Icon(
-                          Icons.search,
-                          color: Colors.white,
-                          size: 3.h,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 1.h,
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          // _scaffoldKey.currentState?.openDrawer();
-                        },
-                        icon: Icon(
-                          Icons.shopping_bag_outlined,
-                          color: Colors.white,
-                          size: 3.h,
-                        ),
-                      ),
-                    ],
-                  ),
+                  // SizedBox(
+                  //   width: 11.h,
+                  // ),
+                  // Row(
+                  //   children: [
+                  //     IconButton(
+                  //       onPressed: () {
+                  //         // _scaffoldKey.currentState?.openDrawer();
+                  //       },
+                  //       icon: Icon(
+                  //         Icons.search,
+                  //         color: Colors.white,
+                  //         size: 3.h,
+                  //       ),
+                  //     ),
+                  //     SizedBox(
+                  //       width: 1.h,
+                  //     ),
+                  //     IconButton(
+                  //       onPressed: () {
+                  //         // _scaffoldKey.currentState?.openDrawer();
+                  //       },
+                  //       icon: Icon(
+                  //         Icons.shopping_bag_outlined,
+                  //         color: Colors.white,
+                  //         size: 3.h,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
@@ -131,10 +133,37 @@ class _order_idState extends State<order_id> {
                   Radius.circular(10),
                 ),
               ),
-              child: Text('Order ID#1234',
-                  style: TextStyle(fontSize: 2.h,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xff333389))),
+              child: Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                  children: [
+                    Text('Order ID#1234',
+                        style: TextStyle(fontSize: 2.h,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff333389))),
+
+                    Container(
+                      alignment: Alignment.center,
+
+
+                      height: 3.4.h,
+                      width: 18.w,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color(0xfffaede7)
+                      ),
+                      child: Text(
+                        'Placed',
+                        style: TextStyle(color: Color(0xfff98346),
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
 
@@ -183,7 +212,9 @@ class _order_idState extends State<order_id> {
                         mainAxisAlignment:
                         MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Ruffty Tipping',
+                          Text(
+
+                              'Ruffty Tipping',
                               style: TextStyle(
                                   color: Color(0xff35358a),
                                   fontSize: 2.h,
@@ -1240,7 +1271,7 @@ class _order_idState extends State<order_id> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => summary_b_edit()));
+                            builder: (context) => order_detail_c()));
                   },
                   child: Container(
                     alignment: Alignment.center,
