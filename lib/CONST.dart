@@ -1,4 +1,3 @@
-
 import 'package:casadealerapp/modal_class/login_model.dart';
 import 'package:connectivity/connectivity.dart';
 
@@ -14,16 +13,13 @@ Future<bool> checkInternet() async {
 
 usermodal? userData;
 
-
-
-
-const String baseUrl = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php';
+const String baseUrl =
+    'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php';
 
 Map<String, String> headers = {
   'Authorization': 'hXuRUGsEGuhGf6KG',
 };
-String? sun =
-"""
+String? sun = """
 <HTML>
 <BODY LANG='en-GB' DIR='LTR'>
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>Sun PERIOADA 06.05.2022 - 23.09.2022 AVETI URMATOARELE <A HREF='https://youtu.be/oyJOMv3FGeE' TARGET='_blank'>PREVIZIUNI</A></FONT></P>
@@ -34,8 +30,7 @@ String? sun =
 </BODY>
 </HTML>
     """;
-String? moon =
-"""
+String? moon = """
 <HTML>
  <BODY LANG='en-GB' DIR='LTR'>
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>Moon PERIOADA 06.05.2022 - 23.09.2022 AVETI URMATOARELE <A HREF='https://youtu.be/oyJOMv3FGeE' TARGET='_blank'>PREVIZIUNI</A></FONT></P>
@@ -45,8 +40,7 @@ String? moon =
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>ULTERIOR DATEI DE 26.04.2023, PLANETA JUPITER VA AVEA O INFLUENTA MAI TEMPERATA, DAR VOR INTERACTIONA ACELEASI SECTOARE DE VIATA PREZENTATE IN ULTIMUL CALUP DE PREVIZIUNI</FONT></P>
 </BODY>
 </HTML>""";
-String? marcury =
-"""
+String? marcury = """
 <HTML>
 <BODY LANG='en-GB' DIR='LTR'>
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>Mercury PERIOADA 06.05.2022 - 23.09.2022 AVETI URMATOARELE <A HREF='https://youtu.be/oyJOMv3FGeE' TARGET='_blank'>PREVIZIUNI</A></FONT></P>
@@ -57,8 +51,7 @@ String? marcury =
 </BODY>
 </HTML>
 """;
-String? venus =
-"""
+String? venus = """
 <HTML>
 <BODY LANG='en-GB' DIR='LTR'>
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>Venus PERIOADA 06.05.2022 - 23.09.2022 AVETI URMATOARELE <A HREF='https://youtu.be/oyJOMv3FGeE' TARGET='_blank'>PREVIZIUNI</A></FONT></P>
@@ -70,8 +63,7 @@ String? venus =
 </HTML>
 
 """;
-String? mars =
-"""
+String? mars = """
 <HTML>
 <BODY LANG='en-GB' DIR='LTR'>
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>Mars PERIOADA 06.05.2022 - 23.09.2022 AVETI URMATOARELE <A HREF='https://youtu.be/oyJOMv3FGeE' TARGET='_blank'>PREVIZIUNI</A></FONT></P>
@@ -82,8 +74,7 @@ String? mars =
 </BODY>
 </HTML>
 """;
-String? jupiter =
-"""
+String? jupiter = """
 <HTML>
 <BODY LANG='en-GB' DIR='LTR'>
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>Jupiter PERIOADA 06.05.2022 - 23.09.2022 AVETI URMATOARELE <A HREF='https://youtu.be/oyJOMv3FGeE' TARGET='_blank'>PREVIZIUNI</A></FONT></P>
@@ -93,8 +84,7 @@ String? jupiter =
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>ULTERIOR DATEI DE 26.04.2023, PLANETA JUPITER VA AVEA O INFLUENTA MAI TEMPERATA, DAR VOR INTERACTIONA ACELEASI SECTOARE DE VIATA PREZENTATE IN ULTIMUL CALUP DE PREVIZIUNI</FONT></P>
 </BODY>
 </HTML>""";
-String? saturn =
-"""
+String? saturn = """
 <HTML>
 <BODY LANG='en-GB' DIR='LTR'>
 <P ALIGN=CENTER STYLE='margin-bottom: 0in;font-size:15px;'><FONT COLOR='#ffffff'>Saturn PERIOADA 06.05.2022 - 23.09.2022 AVETI URMATOARELE <A HREF='https://youtu.be/oyJOMv3FGeE' TARGET='_blank'>PREVIZIUNI</A></FONT></P>

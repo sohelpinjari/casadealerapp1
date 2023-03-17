@@ -50,7 +50,8 @@ class _your_block_orderState extends State<your_block_order> {
                           // alignment: Alignment.center,
                           child: Text(
                             "Your blocked Orders",
-                            style: TextStyle(fontSize: 2.h, color: Colors.white),
+                            style:
+                                TextStyle(fontSize: 2.h, color: Colors.white),
                           ),
                         ),
                       ],
@@ -137,12 +138,14 @@ class _your_block_orderState extends State<your_block_order> {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  SizedBox(width: 2.w,),
-
+                                  SizedBox(
+                                    width: 2.w,
+                                  ),
                                   Padding(
                                     padding: EdgeInsets.all(1.h),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
@@ -166,8 +169,8 @@ class _your_block_orderState extends State<your_block_order> {
                                             ),
                                             Text(
                                               '550',
-                                              style:
-                                                  TextStyle(color: Color(0xff5a5a9f)),
+                                              style: TextStyle(
+                                                  color: Color(0xff5a5a9f)),
                                             ),
                                           ],
                                         ),
@@ -176,14 +179,14 @@ class _your_block_orderState extends State<your_block_order> {
                                           height: 3.4.h,
                                           width: 18.w,
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(15),
-                                            color: Color(0xfffaede7)
-                                          ),
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              color: Color(0xfffaede7)),
                                           child: Text(
                                             'Placed',
-                                            style: TextStyle(color: Color(0xfff98346),
-                                            fontWeight: FontWeight.bold
-                                            ),
+                                            style: TextStyle(
+                                                color: Color(0xfff98346),
+                                                fontWeight: FontWeight.bold),
                                           ),
                                         )
                                       ],
@@ -191,10 +194,7 @@ class _your_block_orderState extends State<your_block_order> {
                                   ),
                                 ],
                               ),
-
                               SizedBox(width: 1.3.w),
-
-
                               Row(
                                 children: [
                                   Text(

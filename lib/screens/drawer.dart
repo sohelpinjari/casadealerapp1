@@ -26,10 +26,11 @@ class _drawerState extends State<drawer> {
     super.initState();
     // view();
     index = [false, false, false, false, false, false, false];
-   getdata();
+    getdata();
   }
-  getdata()async{
-    userData=await SaveDataLocal.getDataFromLocal();
+
+  getdata() async {
+    userData = await SaveDataLocal.getDataFromLocal();
     setState(() {
       userData;
     });
@@ -72,7 +73,6 @@ class _drawerState extends State<drawer> {
                               radius: 7.w,
                               child: ClipOval(
                                 child: Image.asset(
-
                                   'assets/profile.jpg',
                                   width: 13.w,
                                   height: 13.w,
@@ -95,7 +95,10 @@ class _drawerState extends State<drawer> {
                                 SizedBox(
                                   height: 0.5.h,
                                 ),
-                                Text('Hi ' +  (userData?.logindata?.fullName).toString() ,
+                                Text(
+                                  'Hi ' +
+                                      (userData?.logindata?.fullName)
+                                          .toString(),
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 11.sp,
@@ -124,15 +127,14 @@ class _drawerState extends State<drawer> {
                           size: 3.h,
                         ),
                       ],
-                    )
-                ),
+                    )),
                 Divider(
                   color: Colors.black,
                 ),
 
                 // Divider(color: Colors.black,),
                 Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 9.w),
+                  padding: EdgeInsets.symmetric(horizontal: 9.w),
                   child: Column(
                     children: [
                       Container(
@@ -147,19 +149,21 @@ class _drawerState extends State<drawer> {
                           // ),
                           leading: Icon(Icons.shopping_bag_outlined,
                               // color: Color(0xffb4776e6),
-                              color:
-                                  index[1] ? Color(0xffb4776e6) : Color(0xff6161a3)),
+                              color: index[1]
+                                  ? Color(0xffb4776e6)
+                                  : Color(0xff6161a3)),
                           title: Text(
                             'Home',
                             style: TextStyle(
                                 // color: Color(0xffb4776e6),
-                                color: index[1] ? Color(0xffb4776e6) : Colors.black,
+                                color: index[1]
+                                    ? Color(0xffb4776e6)
+                                    : Colors.black,
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w600),
                           ),
                           onTap: () {
                             Navigator.of(context).pop();
-
 
                             Navigator.push(
                                 context,
@@ -188,18 +192,21 @@ class _drawerState extends State<drawer> {
                           leading: Icon(
                             Icons.library_books,
                             // color: Color(0xffb4776e6),
-                            color: index[2] ? Color(0xffb4776e6) : Color(0xff6161a3),
+                            color: index[2]
+                                ? Color(0xffb4776e6)
+                                : Color(0xff6161a3),
                           ),
                           title: Text(
                             'Order History',
                             style: TextStyle(
                                 // color: Color(0xffb4776e6),
-                                color: index[2] ? Color(0xffb4776e6) : Colors.black,
+                                color: index[2]
+                                    ? Color(0xffb4776e6)
+                                    : Colors.black,
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w600),
                           ),
                           onTap: () {
-
                             setState(() {
                               Navigator.of(context).pop();
 
@@ -223,26 +230,30 @@ class _drawerState extends State<drawer> {
                           leading: Icon(
                             Icons.check_box_outline_blank,
                             // color: Color(0xffb4776e6),
-                            color: index[3] ? Color(0xffb4776e6) : Color(0xff6161a3),
+                            color: index[3]
+                                ? Color(0xffb4776e6)
+                                : Color(0xff6161a3),
                           ),
                           title: Text(
                             'Blocked Order',
                             style: TextStyle(
                                 // color: Color(0xffb4776e6),
-                                color: index[3] ? Color(0xffb4776e6) : Colors.black,
+                                color: index[3]
+                                    ? Color(0xffb4776e6)
+                                    : Colors.black,
                                 fontSize: 12.sp,
                                 fontFamily: "Poppins",
                                 fontWeight: FontWeight.w600),
                           ),
                           onTap: () {
-
                             setState(() {
                               Navigator.of(context).pop();
 
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => your_block_order()));
+                                      builder: (context) =>
+                                          your_block_order()));
                               index[3] = !index[3];
                             });
                             // Navigator.of(context).pop();
@@ -264,19 +275,22 @@ class _drawerState extends State<drawer> {
                           leading: Icon(
                             Icons.headphones_outlined,
                             // color: Color(0xffb4776e6),
-                            color: index[4] ? Color(0xffb4776e6) : Color(0xff6161a3),
+                            color: index[4]
+                                ? Color(0xffb4776e6)
+                                : Color(0xff6161a3),
                           ),
                           title: Text(
                             'Help & Support',
                             style: TextStyle(
                                 // color: Color(0xffb4776e6),
-                                color: index[4] ? Color(0xffb4776e6) : Colors.black,
+                                color: index[4]
+                                    ? Color(0xffb4776e6)
+                                    : Colors.black,
                                 fontSize: 12.sp,
                                 fontFamily: "Poppins",
                                 fontWeight: FontWeight.w600),
                           ),
                           onTap: () {
-
                             setState(() {
                               Navigator.of(context).pop();
 
@@ -303,13 +317,17 @@ class _drawerState extends State<drawer> {
                           leading: Icon(
                             Icons.exit_to_app,
                             // color: Color(0xffb4776e6),
-                            color: index[5] ? Color(0xffb4776e6) : Color(0xff6161a3),
+                            color: index[5]
+                                ? Color(0xffb4776e6)
+                                : Color(0xff6161a3),
                           ),
                           title: Text(
                             'Logout',
                             style: TextStyle(
                                 // color: Color(0xffb4776e6),
-                                color: index[5] ? Color(0xffb4776e6) : Colors.black,
+                                color: index[5]
+                                    ? Color(0xffb4776e6)
+                                    : Colors.black,
                                 fontSize: 12.sp,
                                 fontFamily: "Poppins",
                                 fontWeight: FontWeight.w600),
@@ -318,8 +336,10 @@ class _drawerState extends State<drawer> {
                             setState(() {
                               Navigator.of(context).pop();
                               SaveDataLocal.clearUserData();
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => login()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => login()));
 
                               index[5] = !index[5];
                             });

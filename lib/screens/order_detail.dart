@@ -39,7 +39,7 @@ class _order_detail_cState extends State<order_detail_c> {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xfffFFFFFF),
         drawer: drawer(context),
@@ -76,7 +76,7 @@ class _order_detail_cState extends State<order_detail_c> {
                             child: Text(
                               "Order Details",
                               style:
-                              TextStyle(fontSize: 2.h, color: Colors.white),
+                                  TextStyle(fontSize: 2.h, color: Colors.white),
                             ),
                           ),
                         ],
@@ -121,7 +121,6 @@ class _order_detail_cState extends State<order_detail_c> {
                   // ),
                 ),
               ),
-
               Padding(
                 padding: EdgeInsets.all(2.h),
                 child: Container(
@@ -135,31 +134,27 @@ class _order_detail_cState extends State<order_detail_c> {
                     ),
                   ),
                   child: Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                    padding: EdgeInsets.symmetric(horizontal: 2.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                       children: [
                         Text('Order ID#1234',
-                            style: TextStyle(fontSize: 2.h,
+                            style: TextStyle(
+                                fontSize: 2.h,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xff333389))),
-
                         Container(
                           alignment: Alignment.center,
-
-
                           height: 3.4.h,
                           width: 18.w,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: Color(0xfffaede7)
-                          ),
+                              color: Color(0xfffaede7)),
                           child: Text(
                             'Placed',
-                            style: TextStyle(color: Color(0xfff98346),
-                                fontWeight: FontWeight.bold
-                            ),
+                            style: TextStyle(
+                                color: Color(0xfff98346),
+                                fontWeight: FontWeight.bold),
                           ),
                         )
                       ],
@@ -167,7 +162,7 @@ class _order_detail_cState extends State<order_detail_c> {
                   ),
                 ),
               ),
-                   Column(
+              Column(
                 children: [
                   Container(
                     height: 70.h,
@@ -181,13 +176,11 @@ class _order_detail_cState extends State<order_detail_c> {
                         return Column(
                           children: [
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Product Name',
                                       style: TextStyle(
@@ -206,13 +199,11 @@ class _order_detail_cState extends State<order_detail_c> {
                               height: 1.h,
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Ruffty Tipping',
                                       style: TextStyle(
@@ -224,21 +215,18 @@ class _order_detail_cState extends State<order_detail_c> {
                                         color: Color(0xff35358a),
                                         fontSize: 2.h,
                                         fontWeight: FontWeight.bold,
-                                      )
-                                  ),
+                                      )),
                                 ],
                               ),
                             ),
                             SizedBox(height: 3.h),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Container(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   'Price',
-                                  style:
-                                  TextStyle(color: Color(0xff848484)),
+                                  style: TextStyle(color: Color(0xff848484)),
                                 ),
                               ),
                             ),
@@ -246,13 +234,11 @@ class _order_detail_cState extends State<order_detail_c> {
                               height: 1.h,
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -262,13 +248,11 @@ class _order_detail_cState extends State<order_detail_c> {
                                         Text('XS - 3XL :',
                                             style: TextStyle(
                                                 color: Colors.black,
-                                                fontWeight:
-                                                FontWeight.bold)),
+                                                fontWeight: FontWeight.bold)),
                                         Text(' ₹250',
                                             style: TextStyle(
                                                 color: Color(0xff35358a),
-                                                fontWeight:
-                                                FontWeight.bold)),
+                                                fontWeight: FontWeight.bold)),
                                       ],
                                     ),
                                   ),
@@ -308,23 +292,21 @@ class _order_detail_cState extends State<order_detail_c> {
                                       width: 20.5.w,
                                       child: Text(
                                         'Edit',
-                                        style:
-                                        TextStyle(color: Colors.white,
-                                            fontSize: 1.5.h
-                                        ),
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 1.5.h),
                                       ),
                                       decoration: BoxDecoration(
                                           color: Color(0xff333389),
                                           borderRadius:
-                                          BorderRadius.circular(15)),
+                                              BorderRadius.circular(15)),
                                     ),
                                   )
                                 ],
                               ),
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Divider(
                                 height: 3.h,
                                 thickness: 0.3.w,
@@ -333,15 +315,14 @@ class _order_detail_cState extends State<order_detail_c> {
                             ),
                             SizedBox(height: 1.h),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Container(
                                 child: Row(
                                   children: [
                                     Text('Gender',
-                                        style: TextStyle(  color: Color(0xff848484),)
-
-                                    ),
+                                        style: TextStyle(
+                                          color: Color(0xff848484),
+                                        )),
                                     SizedBox(
                                       width: 2.w,
                                     ),
@@ -358,11 +339,10 @@ class _order_detail_cState extends State<order_detail_c> {
                             ),
                             SizedBox(height: 2.h),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -466,11 +446,10 @@ class _order_detail_cState extends State<order_detail_c> {
                             //   // ),
                             // ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -479,15 +458,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -501,15 +475,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -523,15 +492,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -545,15 +509,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -567,15 +526,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -589,11 +543,10 @@ class _order_detail_cState extends State<order_detail_c> {
                               height: 2.h,
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -665,13 +618,11 @@ class _order_detail_cState extends State<order_detail_c> {
                               ),
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     height: 0.1.h,
@@ -702,11 +653,10 @@ class _order_detail_cState extends State<order_detail_c> {
                               ),
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -715,15 +665,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -737,15 +682,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -759,15 +699,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -781,15 +716,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -802,10 +732,8 @@ class _order_detail_cState extends State<order_detail_c> {
                                     width: 15.w,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
-                                          bottomRight:
-                                          Radius.circular(10),
-                                          bottomLeft:
-                                          Radius.circular(10)),
+                                          bottomRight: Radius.circular(10),
+                                          bottomLeft: Radius.circular(10)),
                                       color: Color(0Xffeaeaf3),
                                     ),
                                     child: Text(
@@ -821,8 +749,7 @@ class _order_detail_cState extends State<order_detail_c> {
                             ),
                             SizedBox(height: 2.h),
                             Padding(
-                                padding:
-                                EdgeInsets.symmetric(horizontal: 3.h),
+                                padding: EdgeInsets.symmetric(horizontal: 3.h),
                                 child: DottedLine(
                                   direction: Axis.horizontal,
                                   lineLength: double.infinity,
@@ -835,18 +762,17 @@ class _order_detail_cState extends State<order_detail_c> {
                                   dashGapColor: Colors.transparent,
                                   // dashGapGradient: [Colors.red, Colors.blue],
                                   dashGapRadius: 0.0,
-                                )
-                            ),
+                                )),
                             SizedBox(height: 2.h),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Container(
                                 child: Row(
                                   children: [
-                                    Text('Gender'
-                                        ,style: TextStyle( color: Color(0xff848484),)
-                                    ),
+                                    Text('Gender',
+                                        style: TextStyle(
+                                          color: Color(0xff848484),
+                                        )),
                                     SizedBox(
                                       width: 2.w,
                                     ),
@@ -863,11 +789,10 @@ class _order_detail_cState extends State<order_detail_c> {
                             ),
                             SizedBox(height: 2.h),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -970,11 +895,10 @@ class _order_detail_cState extends State<order_detail_c> {
                             //   // ),
                             // ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -983,15 +907,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1005,15 +924,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1027,15 +941,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1049,15 +958,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1071,15 +975,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1093,11 +992,10 @@ class _order_detail_cState extends State<order_detail_c> {
                               height: 2.h,
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -1169,13 +1067,11 @@ class _order_detail_cState extends State<order_detail_c> {
                               ),
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     height: 0.1.h,
@@ -1206,11 +1102,10 @@ class _order_detail_cState extends State<order_detail_c> {
                               ),
                             ),
                             Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.h),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.center,
@@ -1219,15 +1114,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1241,15 +1131,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1263,15 +1148,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1285,15 +1165,10 @@ class _order_detail_cState extends State<order_detail_c> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         // border: Border.all(color: Colors.black),
-                                        border: Border.all()
-
-
-
-                                    ),
+                                        border: Border.all()),
                                     child: TextField(
                                       textAlign: TextAlign.center,
                                       keyboardType: TextInputType.number,
-
                                       style: TextStyle(
                                           fontSize: 2.h,
                                           color: Colors.black,
@@ -1306,10 +1181,8 @@ class _order_detail_cState extends State<order_detail_c> {
                                     width: 15.w,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
-                                          bottomRight:
-                                          Radius.circular(10),
-                                          bottomLeft:
-                                          Radius.circular(10)),
+                                          bottomRight: Radius.circular(10),
+                                          bottomLeft: Radius.circular(10)),
                                       color: Color(0Xffeaeaf3),
                                     ),
                                     child: Text(
@@ -1332,8 +1205,7 @@ class _order_detail_cState extends State<order_detail_c> {
                               width: MediaQuery.of(context).size.width,
                               color: Color(0xfffeaeaf3),
                               child: Padding(
-                                padding:
-                                EdgeInsets.symmetric(horizontal: 3.h),
+                                padding: EdgeInsets.symmetric(horizontal: 3.h),
                                 child: Row(
                                   children: [
                                     Text(
@@ -1474,9 +1346,7 @@ class _order_detail_cState extends State<order_detail_c> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              setState(() {
-
-                              });
+                              setState(() {});
                             },
                             child: Container(
                               padding: EdgeInsets.all(0.1.h),
@@ -1484,15 +1354,13 @@ class _order_detail_cState extends State<order_detail_c> {
                               width: 40.w,
                               height: 6.h,
                               decoration: BoxDecoration(
-                                  color:  Color(0xfff333389),
-                                  borderRadius:
-                                  BorderRadius.circular(8),
-                                  border: Border.all(
-                                      color: Color(0xff333389))),
+                                  color: Color(0xfff333389),
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: Color(0xff333389))),
                               child: Text(
                                 'Convert to Order',
                                 style: TextStyle(
-                                    color:  Colors.white,
+                                    color: Colors.white,
 
                                     // fontWeight: FontWeight.bold,
                                     fontSize: 2.h),
@@ -1504,12 +1372,7 @@ class _order_detail_cState extends State<order_detail_c> {
                           // ),
                           GestureDetector(
                             onTap: () {
-                              setState(() {
-
-
-                              }
-
-                              );
+                              setState(() {});
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -1521,17 +1384,15 @@ class _order_detail_cState extends State<order_detail_c> {
                               width: 40.w,
                               height: 6.h,
                               decoration: BoxDecoration(
-                                  color:Color(0xfff333389),
+                                  color: Color(0xfff333389),
                                   // color:_selectedColor,
 
-                                  borderRadius:
-                                  BorderRadius.circular(8),
-                                  border: Border.all(
-                                      color: Color(0xff333389))),
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: Color(0xff333389))),
                               child: Text(
                                 'Unblock Order',
                                 style: TextStyle(
-                                    color:  Colors.white,
+                                    color: Colors.white,
 
                                     // fontWeight: FontWeight.bold,
                                     fontSize: 2.h),
@@ -1544,7 +1405,6 @@ class _order_detail_cState extends State<order_detail_c> {
                   ),
                 ],
               )
-
             ],
           ),
         ),

@@ -17,6 +17,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'provider/login_authprovider.dart';
+
 int? gen = 0;
 void main() {
   runApp(const MyApp());
@@ -30,14 +31,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, deviceType) {
-        return MultiProvider (
+        return MultiProvider(
           providers: [
-          ChangeNotifierProvider(
-              create: (context) => Authprovider()),
-            ChangeNotifierProvider(
-                create: (context) => Productprovider()),
-
-
+            ChangeNotifierProvider(create: (context) => Authprovider()),
+            ChangeNotifierProvider(create: (context) => Productprovider()),
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,

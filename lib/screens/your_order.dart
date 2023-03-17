@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class your_order extends StatefulWidget {
-
   const your_order({Key? key}) : super(key: key);
 
   @override
@@ -70,7 +69,8 @@ class _your_orderState extends State<your_order> {
                           // alignment: Alignment.center,
                           child: Text(
                             "Your Orders",
-                            style: TextStyle(fontSize: 2.h, color: Colors.white),
+                            style:
+                                TextStyle(fontSize: 2.h, color: Colors.white),
                           ),
                         ),
                       ],
@@ -178,12 +178,14 @@ class _your_orderState extends State<your_order> {
                                         Text(
                                           'No of Products :',
                                           style: TextStyle(
-                                              color: Color(0xff5a5858585), fontSize: 1.7.h),
+                                              color: Color(0xff5a5858585),
+                                              fontSize: 1.7.h),
                                         ),
                                         Text(
                                           '550',
                                           style: TextStyle(
-                                              color: Color(0xff5a5a9f), fontSize: 1.7.h),
+                                              color: Color(0xff5a5a9f),
+                                              fontSize: 1.7.h),
                                         ),
                                       ],
                                     ),

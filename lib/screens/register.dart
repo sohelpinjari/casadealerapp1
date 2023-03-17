@@ -33,7 +33,6 @@ class _registerState extends State<register> {
   TextEditingController _password1 = TextEditingController();
   TextEditingController _email = TextEditingController();
 
-
   final _formKey = GlobalKey<FormState>();
   bool _passwordVisible1 = false;
   bool _passwordVisible = false;
@@ -50,14 +49,13 @@ class _registerState extends State<register> {
 
     getdata();
   }
-  getdata()async{
-    userData=await SaveDataLocal.getDataFromLocal();
+
+  getdata() async {
+    userData = await SaveDataLocal.getDataFromLocal();
     setState(() {
       userData;
-    }
-    );
+    });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -312,7 +310,6 @@ class _registerState extends State<register> {
                       SizedBox(
                         height: 20,
                       ),
-
                       Container(
                         decoration: BoxDecoration(
                           color: Color(0xfffFBFBFB),
@@ -343,13 +340,11 @@ class _registerState extends State<register> {
                                 },
                                 icon: Icon(
                                   color: Color(0xfff9696c1),
-
                                   _passwordVisible
                                       ? Icons.visibility
                                       : Icons.visibility_off,
                                 ),
                               ),
-
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.all(2.h),
                               hintText: 'Create Password'),
@@ -358,7 +353,6 @@ class _registerState extends State<register> {
                       SizedBox(
                         height: 20,
                       ),
-
                       Container(
                         decoration: BoxDecoration(
                           color: Color(0xfffFBFBFB),
@@ -388,7 +382,6 @@ class _registerState extends State<register> {
                                 },
                                 icon: Icon(
                                   color: Color(0xfff9696c1),
-
                                   _passwordVisible1
                                       ? Icons.visibility
                                       : Icons.visibility_off,
@@ -402,7 +395,6 @@ class _registerState extends State<register> {
                       SizedBox(
                         height: 20,
                       ),
-
                       Container(
                         width: MediaQuery.of(context).size.width * 0.9,
                         height: MediaQuery.of(context).size.height * 0.06,
@@ -433,7 +425,9 @@ class _registerState extends State<register> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 2.h,),
+                      SizedBox(
+                        height: 2.h,
+                      ),
                       Container(
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -445,30 +439,24 @@ class _registerState extends State<register> {
                             ),
                             GestureDetector(
                                 onTap: () {
-
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => login(),
-                                      ),
-                                    );
-
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => login(),
+                                    ),
+                                  );
                                 },
                                 child: Text(
                                   "   Login",
                                   style: TextStyle(
-                                      color: Color(0xfff494996),
-                                      fontSize: 2.h),
-                                )
-                            )
+                                      color: Color(0xfff494996), fontSize: 2.h),
+                                ))
                           ],
                         ),
                       ),
                       SizedBox(
                         height: 20,
                       ),
-
-
                     ],
                   ),
                 ),
@@ -479,7 +467,6 @@ class _registerState extends State<register> {
       ),
     );
   }
-
 
   registerApi() async {
     final Map<String, String> data = {};
@@ -492,20 +479,13 @@ class _registerState extends State<register> {
 
     data['confirm_password'] = _password1.text.trim().toString();
 
-
-
     data['action'] = 'signup';
 
     if (_formKey.currentState!.validate()) {
-
-
-
-
       checkInternet().then((internet) async {
         if (internet) {
           Authprovider().loginapi(data).then((Response response) async {
             print(response.body);
-
 
             userData = usermodal.fromJson(json.decode(response.body));
 
@@ -545,9 +525,9 @@ class _registerState extends State<register> {
                       children: [
                         Container(
                             child: Text(
-                              'Invalid Login',
-                              style: TextStyle(color: Colors.red),
-                            ))
+                          'Invalid Login',
+                          style: TextStyle(color: Colors.red),
+                        ))
                       ],
                     ),
                   );
@@ -559,6 +539,4 @@ class _registerState extends State<register> {
       });
     }
   }
-
-
 }

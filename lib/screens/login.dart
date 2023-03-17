@@ -307,8 +307,6 @@
 //     }
 // }
 
-
-
 import 'dart:convert';
 
 import 'package:casadealerapp/modal_class/login_model.dart';
@@ -457,7 +455,7 @@ class _loginState extends State<login> {
                         },
                         controller: _password,
                         decoration: InputDecoration(
-                          //  prefixIcon: Icon(Icons.login),
+                            //  prefixIcon: Icon(Icons.login),
                             suffixIcon: IconButton(
                               onPressed: () {
                                 setState(() {
@@ -546,17 +544,14 @@ class _loginState extends State<login> {
                                 "   Register",
                                 style: TextStyle(
                                     color: Color(0xfff494996), fontSize: 2.h),
-                              )
-                          )
+                              ))
                         ],
                       ),
                     ),
                     SizedBox(height: 2.h),
-                  ]
-              ),
+                  ]),
             ),
-          ]
-          ),
+          ]),
         ),
       ),
     );
@@ -574,7 +569,7 @@ class _loginState extends State<login> {
         if (internet) {
           Authprovider().loginapi(data).then((Response response) async {
             SharedPreferences _sharedpreferences =
-            await SharedPreferences.getInstance();
+                await SharedPreferences.getInstance();
             print(response.statusCode);
             userData = usermodal.fromJson(json.decode(response.body));
 
@@ -613,10 +608,9 @@ class _loginState extends State<login> {
                       children: [
                         Container(
                             child: Text(
-                              'Invalid Login',
-                              style: TextStyle(color: Colors.red),
-                            )
-                        )
+                          'Invalid Login',
+                          style: TextStyle(color: Colors.red),
+                        ))
                       ],
                     ),
                   );

@@ -33,7 +33,6 @@ class _block_orderState extends State<block_order> {
   int cart = 0;
   int i = 1000;
 
-
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   @override
   Widget build(BuildContext context) {
@@ -65,7 +64,6 @@ class _block_orderState extends State<block_order> {
                             color: Colors.white,
                           ),
                         ),
-
                         SizedBox(
                           width: 2.3.h,
                         ),
@@ -74,7 +72,8 @@ class _block_orderState extends State<block_order> {
                           // alignment: Alignment.center,
                           child: Text(
                             "Blocked Orders",
-                            style: TextStyle(fontSize: 2.h, color: Colors.white),
+                            style:
+                                TextStyle(fontSize: 2.h, color: Colors.white),
                           ),
                         ),
                       ],
@@ -143,7 +142,6 @@ class _block_orderState extends State<block_order> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(12),
@@ -158,12 +156,12 @@ class _block_orderState extends State<block_order> {
                             //   width: 5.w,
                             // ),
                             Row(
-
                               children: [
                                 Padding(
                                   padding: EdgeInsets.all(1.h),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
                                         children: [
@@ -176,8 +174,8 @@ class _block_orderState extends State<block_order> {
                                           SizedBox(width: 5.w),
                                           Text(
                                             '₹125',
-                                            style:
-                                                TextStyle(color: Color(0xff5a5a9f)),
+                                            style: TextStyle(
+                                                color: Color(0xff5a5a9f)),
                                           ),
                                         ],
                                       ),
@@ -188,8 +186,9 @@ class _block_orderState extends State<block_order> {
                                         children: [
                                           Text(
                                             'Color : Red   Size : M',
-                                            style:
-                                                TextStyle(color: Color(0xff5a5a9f), fontSize: 1.7.h),
+                                            style: TextStyle(
+                                                color: Color(0xff5a5a9f),
+                                                fontSize: 1.7.h),
                                           ),
                                         ],
                                       ),
@@ -200,54 +199,46 @@ class _block_orderState extends State<block_order> {
                                         children: [
                                           Text(
                                             'Qty :',
-                                            style:
-                                                TextStyle(color: Color(0xff5a5a9f)),
+                                            style: TextStyle(
+                                                color: Color(0xff5a5a9f)),
                                           ),
                                           SizedBox(width: 2.h),
                                           Container(
-                                            alignment:
-                                            Alignment.center,
+                                            alignment: Alignment.center,
                                             height: 4.h,
                                             width: 25.w,
                                             decoration: BoxDecoration(
                                               border: Border.all(
-                                                color:
-                                                Color(0xff5a5a9f),
+                                                color: Color(0xff5a5a9f),
                                               ),
                                               borderRadius:
-                                              BorderRadius
-                                                  .circular(8),
+                                                  BorderRadius.circular(8),
                                             ),
                                             child: Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
                                               children: [
                                                 GestureDetector(
                                                     onTap: () {
                                                       setState(() {
                                                         if (i > 1) {
                                                           i--;
-
                                                         }
-
                                                       });
                                                     },
-
-                                                    child: Icon(Icons.remove,
+                                                    child: Icon(
+                                                      Icons.remove,
                                                       size: 2.h,
                                                       color: Color(0xff5a5a9f),
                                                     )),
-
                                                 Text(
                                                   i.toString(),
                                                   style: TextStyle(
-
-                                                      color: Color(
-                                                          0xff5a5a9f),
+                                                      color: Color(0xff5a5a9f),
                                                       fontWeight:
-                                                      FontWeight
-                                                          .bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 GestureDetector(
                                                     onTap: () {
@@ -255,13 +246,13 @@ class _block_orderState extends State<block_order> {
                                                         i++;
                                                       });
                                                     },
-                                                    child: Icon(Icons.add,
+                                                    child: Icon(
+                                                      Icons.add,
                                                       size: 2.h,
                                                       color: Color(0xff5a5a9f),
                                                     ))
                                               ],
                                             ),
-
                                           )
                                         ],
                                       ),
@@ -272,7 +263,8 @@ class _block_orderState extends State<block_order> {
                                 Padding(
                                   padding: EdgeInsets.all(0.2.h),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
@@ -301,7 +293,8 @@ class _block_orderState extends State<block_order> {
                                           // border: Border.all(
                                           //   // color:  Color(0xff5a5a9f),
                                           // ),
-                                          borderRadius: BorderRadius.circular(20),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                         ),
                                         height: 5.h,
                                         width: 10.w,
@@ -381,7 +374,7 @@ class _block_orderState extends State<block_order> {
                               padding: EdgeInsets.all(0.1.h),
                               alignment: Alignment.center,
                               width: 40.w,
-                              height:8.h,
+                              height: 8.h,
                               decoration: BoxDecoration(
                                   color: (cart == 1)
                                       ? Colors.white

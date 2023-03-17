@@ -210,24 +210,29 @@ class get_started extends StatefulWidget {
 }
 
 class _get_startedState extends State<get_started> {
-  Timer?  _timer;
+  Timer? _timer;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getdata();
-    _timer = Timer.periodic( Duration(seconds: 4), (timer) {
-      userData ==null?Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => login(),))
-          :Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => products_1(),));
+    _timer = Timer.periodic(Duration(seconds: 4), (timer) {
+      userData == null
+          ? Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => login(),
+            ))
+          : Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => products_1(),
+            ));
       // Navigator.pushReplacement(context,
       //         MaterialPageRoute(builder: (context) => login())):
       // Navigator.pushReplacement(context,
       //     MaterialPageRoute(builder: (context) => products_1()));
     });
-
   }
-  getdata()async{
-    userData=await SaveDataLocal.getDataFromLocal();
+
+  getdata() async {
+    userData = await SaveDataLocal.getDataFromLocal();
     setState(() {
       userData;
     });
@@ -236,7 +241,6 @@ class _get_startedState extends State<get_started> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-
       child: Scaffold(
         backgroundColor: Color(0xffffffff),
         body: Stack(children: [
@@ -263,7 +267,6 @@ class _get_startedState extends State<get_started> {
                   // width: MediaQuery.of(context).size.width * 2,
                 ),
               ),
-
             ],
           ),
 

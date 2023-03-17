@@ -87,9 +87,7 @@ class _product_2State extends State<product_2> {
     Color(0xff57492e),
     Color(0xff57492e),
   ];
-  List<String> image = [
-
-  ];
+  List<String> image = [];
   productapi? productData;
   bool se_icon = false;
   categorywisedisplay? allcatogaryproperty;
@@ -106,7 +104,6 @@ class _product_2State extends State<product_2> {
     //
     // ];
     image = [
-
       widget.imagenevigator.toString(),
       widget.imagenevigator.toString(),
       widget.imagenevigator.toString(),
@@ -209,55 +206,57 @@ class _product_2State extends State<product_2> {
             SizedBox(
               height: 2.h,
             ),
-            (!se_icon)?Container():  Container(
-              margin: EdgeInsets.symmetric(horizontal: 2.h),
-              padding: EdgeInsets.symmetric(horizontal: 2.h),
-              alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.075,
-              child: TextFormField(
-                // validator: (value) {
-                //   if (value!.isEmpty) {
-                //     return "";
-                //   }
-                //   return null;
-                // },
-                onChanged: (value) {
-                  print(value);
-                  if (value.isNotEmpty) {
-                    // searchapi(value);
-                  } else if (value.isEmpty) {
-                    // Navigator.of(context).pushReplacement(
-                    //     MaterialPageRoute(
-                    //         builder: (context) => products_1()));
-                  } else {
-                    // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>RestaurantsScreen()));
-                  }
-                },
-                controller: _search,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(3.h),
-                  hintText: 'Search',
-                  suffixIcon: Icon(
-                    Icons.search,
-                    color: Color(0xfff333389),
-                    size: 3.h,
+            (!se_icon)
+                ? Container()
+                : Container(
+                    margin: EdgeInsets.symmetric(horizontal: 2.h),
+                    padding: EdgeInsets.symmetric(horizontal: 2.h),
+                    alignment: Alignment.center,
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.075,
+                    child: TextFormField(
+                      // validator: (value) {
+                      //   if (value!.isEmpty) {
+                      //     return "";
+                      //   }
+                      //   return null;
+                      // },
+                      onChanged: (value) {
+                        print(value);
+                        if (value.isNotEmpty) {
+                          // searchapi(value);
+                        } else if (value.isEmpty) {
+                          // Navigator.of(context).pushReplacement(
+                          //     MaterialPageRoute(
+                          //         builder: (context) => products_1()));
+                        } else {
+                          // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>RestaurantsScreen()));
+                        }
+                      },
+                      controller: _search,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(3.h),
+                        hintText: 'Search',
+                        suffixIcon: Icon(
+                          Icons.search,
+                          color: Color(0xfff333389),
+                          size: 3.h,
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      // shape: BoxShape.circle,
+                      color: Color(0xfff3faff),
+                      // image: DecorationImage(
+                      //     image: AssetImage("assets/product_1_img.png"),
+                      //     fit: BoxFit.fitWidth)
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                        // ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              decoration: BoxDecoration(
-                // shape: BoxShape.circle,
-                color: Color(0xfff3faff),
-                // image: DecorationImage(
-                //     image: AssetImage("assets/product_1_img.png"),
-                //     fit: BoxFit.fitWidth)
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                  // ),
-                ),
-              ),
-            ),
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
@@ -266,7 +265,6 @@ class _product_2State extends State<product_2> {
                     Stack(
                       children: [
                         Container(
-                       
                           height: 55.h,
                           width: MediaQuery.of(context).size.width,
                           // color: Colors.red,
@@ -284,221 +282,236 @@ class _product_2State extends State<product_2> {
                             child: CarouselSlider(
                               items: image.map((e) {
                                 return ClipRRect(
-                                  borderRadius: BorderRadius.circular(28),
-                                  child: Stack(
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(28),
-                                        ),
-                                        height: 54.h,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: 5.w),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(28),
-                                          child: Image.asset(
-                                            e,
-                                            fit: BoxFit.cover,
-                                            height: 53.h,
-                                            // width: MediaQuery.of(context)
-                                            //     .size
-                                            //     .width,
+                                    borderRadius: BorderRadius.circular(28),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(28),
                                           ),
-                                        ),
-                                      ),
-                                      Opacity(
-                                        opacity: 0.8,
-                                        child: Padding(
-                                          padding: EdgeInsets.symmetric(
+                                          height: 54.h,
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          margin: EdgeInsets.symmetric(
                                               horizontal: 5.w),
-                                          child: Align(
-                                            alignment: Alignment.bottomCenter,
-                                            child: Container(
-                                              decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topRight,colors: [Colors.transparent,Colors.black]),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomRight:
-                                                      Radius.circular(28),
-                                                  bottomLeft:
-                                                      Radius.circular(28),
-                                                  topRight: Radius.circular(28),
-                                                  topLeft: Radius.circular(28),
-                                                ),
-                                              ),
-                                              height: 23.h,
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(28),
+                                            child: Image.asset(
+                                              e,
+                                              fit: BoxFit.cover,
+                                              height: 53.h,
+                                              // width: MediaQuery.of(context)
+                                              //     .size
+                                              //     .width,
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      Positioned(
-                                        top: 30.h,
-                                        left: 8.w,
-                                        right: 8.w,
-                                        child: Container(
-                                          // height: 10.h,
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          // color:Colors.red,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Container(
+                                        Opacity(
+                                          opacity: 0.8,
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 5.w),
+                                            child: Align(
+                                              alignment: Alignment.bottomCenter,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  gradient: LinearGradient(
+                                                      begin: Alignment.topRight,
+                                                      colors: [
+                                                        Colors.transparent,
+                                                        Colors.black
+                                                      ]),
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    bottomRight:
+                                                        Radius.circular(28),
+                                                    bottomLeft:
+                                                        Radius.circular(28),
+                                                    topRight:
+                                                        Radius.circular(28),
+                                                    topLeft:
+                                                        Radius.circular(28),
+                                                  ),
+                                                ),
+                                                height: 23.h,
                                                 width: MediaQuery.of(context)
                                                     .size
                                                     .width,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Container(
-                                                          alignment:
-                                                              Alignment.center,
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.2,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.03,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Color(
-                                                                0xfff7c7773),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .all(
-                                                              Radius.circular(
-                                                                  8),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: 30.h,
+                                          left: 8.w,
+                                          right: 8.w,
+                                          child: Container(
+                                            // height: 10.h,
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            // color:Colors.red,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Container(
+                                                            alignment: Alignment
+                                                                .center,
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.2,
+                                                            height: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height *
+                                                                0.03,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0xfff7c7773),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .all(
+                                                                Radius.circular(
+                                                                    8),
+                                                              ),
                                                             ),
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    0.5.h),
-                                                            child: Text(
-                                                              "Brand Name",
-                                                              style: TextStyle(
-                                                                fontSize: 1.3.h,
-                                                                color: Colors
-                                                                    .white,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(0.5
+                                                                          .h),
+                                                              child: Text(
+                                                                "Brand Name",
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontSize:
+                                                                      1.3.h,
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 1.h,
-                                                        ),
-                                                        Container(
-                                                          child: Text(
-                                                            widget.pronamenevigatior.toString(),
-                                                            // widget
-                                                            //     .pronamenevigatior
-                                                            //     .toString(),
-                                                            style: TextStyle(
-                                                                fontSize: 3.h,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
+                                                          SizedBox(
+                                                            height: 1.h,
+                                                          ),
+                                                          Container(
+                                                            child: Text(
+                                                              widget
+                                                                  .pronamenevigatior
+                                                                  .toString(),
+                                                              // widget
+                                                              //     .pronamenevigatior
+                                                              //     .toString(),
+                                                              style: TextStyle(
+                                                                  fontSize: 3.h,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  color: Colors
+                                                                      .white),
+                                                            ),
+                                                          ),
+                                                          Container(
+                                                            child: Text(
+                                                              "Artist Name",
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      1.9.h,
+                                                                  // fontWeight:
+                                                                  //     FontWeight
+                                                                  //         .bold,
+                                                                  color: Colors
+                                                                      .grey
+                                                                      .shade300),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+
+                                                      // SizedBox(
+                                                      //   width: 20.w,
+                                                      // ),
+
+                                                      Row(
+                                                        children: [
+                                                          // Container(
+                                                          //   alignment:
+                                                          //       Alignment.center,
+                                                          //   height: 4.h,
+                                                          //   width: 9.w,
+                                                          //   decoration: BoxDecoration(
+                                                          //       borderRadius:
+                                                          //           BorderRadius
+                                                          //               .circular(
+                                                          //                   25),
+                                                          //       color:
+                                                          //           Colors.white),
+                                                          //   child: IconButton(
+                                                          //     icon: Icon(
+                                                          //       Icons
+                                                          //           .favorite_border,
+                                                          //       color: Colors.red,
+                                                          //       size: 2.h,
+                                                          //     ),
+                                                          //     onPressed: () {},
+                                                          //   ),
+                                                          // ),
+                                                          SizedBox(width: 3.w),
+                                                          Container(
+                                                            alignment: Alignment
+                                                                .center,
+                                                            height: 4.h,
+                                                            width: 9.w,
+                                                            decoration: BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            25),
                                                                 color: Colors
                                                                     .white),
+                                                            child: IconButton(
+                                                              icon: Icon(
+                                                                Icons.share,
+                                                                color:
+                                                                    Colors.grey,
+                                                                size: 2.h,
+                                                              ),
+                                                              onPressed: () {},
+                                                            ),
                                                           ),
-                                                        ),
-                                                        Container(
-                                                          child: Text(
-                                                            "Artist Name",
-                                                            style: TextStyle(
-                                                                fontSize: 1.9.h,
-                                                                // fontWeight:
-                                                                //     FontWeight
-                                                                //         .bold,
-                                                                color: Colors
-                                                                    .grey
-                                                                    .shade300),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-
-                                                  // SizedBox(
-                                                  //   width: 20.w,
-                                                  // ),
-
-                                                  Row(
-                                                    children: [
-                                                      // Container(
-                                                      //   alignment:
-                                                      //       Alignment.center,
-                                                      //   height: 4.h,
-                                                      //   width: 9.w,
-                                                      //   decoration: BoxDecoration(
-                                                      //       borderRadius:
-                                                      //           BorderRadius
-                                                      //               .circular(
-                                                      //                   25),
-                                                      //       color:
-                                                      //           Colors.white),
-                                                      //   child: IconButton(
-                                                      //     icon: Icon(
-                                                      //       Icons
-                                                      //           .favorite_border,
-                                                      //       color: Colors.red,
-                                                      //       size: 2.h,
-                                                      //     ),
-                                                      //     onPressed: () {},
-                                                      //   ),
-                                                      // ),
-                                                      SizedBox(width: 3.w),
-                                                      Container(
-                                                        alignment:
-                                                            Alignment.center,
-                                                        height: 4.h,
-                                                        width: 9.w,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        25),
-                                                            color:
-                                                                Colors.white),
-                                                        child: IconButton(
-                                                          icon: Icon(
-                                                            Icons.share,
-                                                            color:
-                                                                Colors.grey,
-                                                            size: 2.h,
-                                                          ),
-                                                          onPressed: () {},
-                                                        ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                                // SizedBox()
+                                              ],
                                             ),
-                                            // SizedBox()
-                                          ],
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                                );
+                                      ],
+                                    ));
                               }).toList(),
                               options: CarouselOptions(
                                 height: 45.h,
@@ -625,7 +638,8 @@ class _product_2State extends State<product_2> {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 2.h),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 2.h),
                                   child: Container(
                                       alignment: Alignment.centerLeft,
                                       margin: EdgeInsets.only(top: 1.h),
@@ -651,15 +665,11 @@ class _product_2State extends State<product_2> {
                                                 ),
                                               ),
                                               SizedBox(width: 4.w),
-                                              Text(
-                                                'Red',
-                                                style:
-                                                    TextStyle(fontSize: 2.5.h,
-                                                        fontWeight: FontWeight.bold,
-                                                      )
-
-
-                                              ),
+                                              Text('Red',
+                                                  style: TextStyle(
+                                                    fontSize: 2.5.h,
+                                                    fontWeight: FontWeight.bold,
+                                                  )),
                                             ],
                                           )
                                         ],
@@ -731,7 +741,8 @@ class _product_2State extends State<product_2> {
                                 ),
 
                                 Padding(
-                                  padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 2.h),
                                   child: Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -746,7 +757,8 @@ class _product_2State extends State<product_2> {
                                   height: 1.h,
                                 ),
                                 Padding(
-                                  padding:  EdgeInsets.symmetric(horizontal: 2.h),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 2.h),
                                   child: Divider(color: Colors.grey.shade400),
                                 ),
                                 Padding(
@@ -1000,10 +1012,10 @@ class _product_2State extends State<product_2> {
                                                     border: Border.all(
                                                         color: Color(
                                                             0xfff333389))),
-
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
 
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
@@ -1051,7 +1063,8 @@ class _product_2State extends State<product_2> {
                                                             0xfff333389))),
                                                 child: TextField(
                                                   textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1097,8 +1110,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1165,8 +1179,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1210,8 +1225,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1256,8 +1272,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1320,8 +1337,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1365,8 +1383,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1411,8 +1430,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1479,8 +1499,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1524,8 +1545,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1570,8 +1592,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1634,8 +1657,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1679,8 +1703,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1725,8 +1750,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1793,8 +1819,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1838,8 +1865,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1884,8 +1912,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1948,8 +1977,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -1993,8 +2023,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -2039,8 +2070,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -2107,8 +2139,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -2152,8 +2185,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -2198,8 +2232,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
-                                                    textAlign: TextAlign.center,
-                                                  keyboardType: TextInputType.number,
+                                                  textAlign: TextAlign.center,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText: '',
@@ -2315,26 +2350,26 @@ class _product_2State extends State<product_2> {
                                   padding: EdgeInsets.all(2.h),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.grey.shade200),
-                                      borderRadius: BorderRadius.circular(12)
+                                        border: Border.all(
+                                            color: Colors.grey.shade200),
+                                        borderRadius: BorderRadius.circular(12)
 
-                                      // boxShadow: [
-                                      //   // BoxShadow(
-                                      //   //   // color: Colors.grey.withOpacity(0.5), // color of the shadow
-                                      //   //   spreadRadius: 5, // spread radius
-                                      //   //   // blurRadius: 7, // blur radius
-                                      //   //   offset: Offset(0, 3), // changes position of shadow
-                                      //   // ),
-                                      // ],
+                                        // boxShadow: [
+                                        //   // BoxShadow(
+                                        //   //   // color: Colors.grey.withOpacity(0.5), // color of the shadow
+                                        //   //   spreadRadius: 5, // spread radius
+                                        //   //   // blurRadius: 7, // blur radius
+                                        //   //   offset: Offset(0, 3), // changes position of shadow
+                                        //   // ),
+                                        // ],
 
-                                    ),
+                                        ),
                                     child: ExpansionTile(
                                       title: Text('Size Chart'),
                                       children: <Widget>[
                                         SingleChildScrollView(
                                           scrollDirection: Axis.vertical,
                                           child: Container(
-
                                             // height: 100.h,
                                             child: ListTile(
                                                 title: Column(
@@ -2354,239 +2389,276 @@ class _product_2State extends State<product_2> {
                                                         Alignment.centerLeft,
                                                     child: Text("Size Chart",
                                                         style: TextStyle(
-                                                            fontWeight: FontWeight
-                                                                .bold))),
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold))),
                                                 SizedBox(height: 1.h),
                                                 Divider(
-                                                    color: Colors.grey.shade400),
+                                                    color:
+                                                        Colors.grey.shade400),
                                                 Container(
                                                   alignment: Alignment.center,
                                                   child: Image.asset(
                                                     'assets/product_2_img2.png',
                                                     fit: BoxFit.cover,
                                                     height: 33.5.h,
-                                                    width: MediaQuery.of(context)
-                                                        .size
-                                                        .width,
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                            .size
+                                                            .width,
                                                   ),
                                                 ),
                                                 SizedBox(height: 1.h),
                                                 Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
                                                   child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Container(
-                                                          alignment: Alignment.center,
-                                                          child: Text('Label')
-                                                      ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('Label')),
                                                       Container(
-                                                          alignment: Alignment.center,
-                                                          child: Text('Brust')
-                                                      ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('Brust')),
                                                       Container(
-                                                          alignment: Alignment.center,
-                                                          child: Text('Length')
-                                                      ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child:
+                                                              Text('Length')),
                                                     ],
                                                   ),
                                                 ),
                                                 SizedBox(height: 1.h),
                                                 Divider(
-                                                    color: Colors.grey.shade400),
+                                                    color:
+                                                        Colors.grey.shade400),
                                                 SizedBox(height: 1.h),
                                                 Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
                                                   child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('2XS')
-                                                      ),
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('30')
-                                                      ),
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('21')
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('XS')
-                                                      ),
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('32')
-                                                      ),
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('22')
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('S')
-                                                      ),
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('34')
-                                                      ),
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('23')
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Container(  width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('M')
-                                                      ),
                                                       Container(
                                                           width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('38')
-                                                      ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('2XS')),
                                                       Container(
                                                           width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('24')
-                                                      ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('30')),
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('21')),
                                                     ],
                                                   ),
                                                 ),
                                                 SizedBox(height: 2.h),
                                                 Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
                                                   child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('L')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('XS')),
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('40')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('32')),
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('25')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('22')),
                                                     ],
                                                   ),
                                                 ),
                                                 SizedBox(height: 2.h),
                                                 Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
                                                   child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('XL')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('S')),
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('42')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('34')),
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('26')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('23')),
                                                     ],
                                                   ),
                                                 ),
                                                 SizedBox(height: 2.h),
                                                 Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
                                                   child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('2XL')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('M')),
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('44')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('38')),
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('27')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('24')),
                                                     ],
                                                   ),
                                                 ),
                                                 SizedBox(height: 2.h),
                                                 Padding(
-                                                  padding:  EdgeInsets.symmetric(horizontal : 4.h),
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
                                                   child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('3XL')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('L')),
                                                       Container(
-                                                              width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('46')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('40')),
                                                       Container(
-                                                        width: 10.w,
-                                                          alignment: Alignment.center,
-                                                          child: Text('28')
-                                                      ),
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('25')),
                                                     ],
                                                   ),
                                                 ),
-
-                                                SizedBox(height: 4.h ),
-
+                                                SizedBox(height: 2.h),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('XL')),
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('42')),
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('26')),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(height: 2.h),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('2XL')),
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('44')),
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('27')),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(height: 2.h),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4.h),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('3XL')),
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('46')),
+                                                      Container(
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text('28')),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(height: 4.h),
                                                 Container(
-
                                                     alignment: Alignment.center,
-                                                    child: Text('Available Downloads')
-                                                ),
-
-                                                SizedBox(height: 3.h ),
-
+                                                    child: Text(
+                                                        'Available Downloads')),
+                                                SizedBox(height: 3.h),
                                                 Container(
                                                   alignment: Alignment.center,
 
@@ -2602,7 +2674,8 @@ class _product_2State extends State<product_2> {
                                                   //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
                                                   child: Row(
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment.center,
+                                                        CrossAxisAlignment
+                                                            .center,
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceBetween,
@@ -2619,12 +2692,14 @@ class _product_2State extends State<product_2> {
                                                           minimumSize:
                                                               Size(40.w, 6.h),
                                                           backgroundColor:
-                                                              Color(0xfff333389),
+                                                              Color(
+                                                                  0xfff333389),
                                                           shape:
                                                               RoundedRectangleBorder(
                                                             borderRadius:
                                                                 BorderRadius
-                                                                    .circular(8),
+                                                                    .circular(
+                                                                        8),
                                                           ),
                                                         ),
                                                         child: Text(
@@ -2648,12 +2723,14 @@ class _product_2State extends State<product_2> {
                                                           minimumSize:
                                                               Size(40.w, 6.h),
                                                           backgroundColor:
-                                                              Color(0xfff333389),
+                                                              Color(
+                                                                  0xfff333389),
                                                           shape:
                                                               RoundedRectangleBorder(
                                                             borderRadius:
                                                                 BorderRadius
-                                                                    .circular(8),
+                                                                    .circular(
+                                                                        8),
                                                           ),
                                                         ),
                                                         child: Text(
@@ -2684,15 +2761,15 @@ class _product_2State extends State<product_2> {
                                                       //     MaterialPageRoute(
                                                       //         builder: (context) => products_1()));
                                                     },
-                                                    style:
-                                                        ElevatedButton.styleFrom(
+                                                    style: ElevatedButton
+                                                        .styleFrom(
                                                       backgroundColor:
                                                           Color(0xfff333389),
                                                       shape:
                                                           RoundedRectangleBorder(
                                                         borderRadius:
-                                                            BorderRadius.circular(
-                                                                8),
+                                                            BorderRadius
+                                                                .circular(8),
                                                       ),
                                                     ),
                                                     child: Row(
@@ -4325,26 +4402,11 @@ class _product_2State extends State<product_2> {
                                                       .width,
                                                 ),
                                               ),
-
-                                                      Container(
-                                                        height: 10.h
-                                                          ,
-                                                        width: 20.w,
-                                                        color: Colors.red,
-
-
-
-                                                        child: Text('djvvdv')
-                                                      ),
-
-
-
-
-
-
-
-
-
+                                              Container(
+                                                  height: 10.h,
+                                                  width: 20.w,
+                                                  color: Colors.red,
+                                                  child: Text('djvvdv')),
                                               Container(
                                                 width: MediaQuery.of(context)
                                                         .size
@@ -4479,8 +4541,7 @@ class _product_2State extends State<product_2> {
                                                 ),
                                               ),
                                             ],
-                                          )
-                                          ),
+                                          )),
                                         ),
                                       ),
                                     ],
@@ -4547,8 +4608,7 @@ class _product_2State extends State<product_2> {
                                   builder: (context) => summary(
                                       // pronamenevigatior:   widget.pronamenevigatior.toString(),
 
-
-                                  )));
+                                      )));
                           setState(() {
                             cart = 0;
                           });
