@@ -332,10 +332,11 @@ class login extends StatefulWidget {
 
 TextEditingController _email = TextEditingController();
 TextEditingController _password = TextEditingController();
-final _formKey = GlobalKey<FormState>();
+
 bool _passwordVisible = false;
 
 class _loginState extends State<login> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -573,24 +574,34 @@ class _loginState extends State<login> {
             print(response.statusCode);
             userData = usermodal.fromJson(json.decode(response.body));
 
-            if (response.statusCode == 200 && userData!.status == "success") {
-              SaveDataLocal.saveLogInData(userData!);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => products_1()));
-              // Fluttertoast.showToast(
-              //   msg: "Logged In Successfully",
-              //   textColor: Colors.white,
-              //   toastLength: Toast.LENGTH_SHORT,
-              //   timeInSecForIosWeb: 1,
-              //   gravity: ToastGravity.BOTTOM,
-              //   backgroundColor: Colors.indigo,
-              // );
+            if (response.statusCode == 200 && userData!.status == "success" ) {
+              if(userData?.logindata?.acIa == "1"){
+                SaveDataLocal.saveLogInData(userData!);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => products_1()));
+                // Fluttertoast.showToast(
+                //   msg: "Logged In Successfully",
+                //   textColor: Colors.white,
+                //   toastLength: Toast.LENGTH_SHORT,
+                //   timeInSecForIosWeb: 1,
+                //   gravity: ToastGravity.BOTTOM,
+                //   backgroundColor: Colors.indigo,
+                // );
 
-              if (kDebugMode) {}
+                if (kDebugMode) {}
 
-              _email.text = "";
-              _password.text = "";
+                _email.text = "";
+                _password.text = "";
+              }
+              else{
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => loginsuccess()));
+
+                print("vfvfdg");
+              }
+
             } else {
+
               // Fluttertoast.showToast(
               //   msg: "Enter A Valid Email Address",
               //   textColor: Colors.white,

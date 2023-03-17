@@ -1,6 +1,12 @@
+import 'dart:convert';
+import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/modal_class/view_order.dart';
+import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/screens/drawer.dart';
 import 'package:casadealerapp/screens/order_id.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:sizer/sizer.dart';
 
 class your_order extends StatefulWidget {
@@ -11,6 +17,10 @@ class your_order extends StatefulWidget {
 }
 
 class _your_orderState extends State<your_order> {
+
+  view_orders? view;
+
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   // List<String> tabs = ["Blocked", "Cart"];
@@ -30,6 +40,14 @@ class _your_orderState extends State<your_order> {
   // int cart = 0;
   //
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    viewapi();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +147,7 @@ class _your_orderState extends State<your_order> {
                       // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
                       // horizontalTitleGap: 0.0,
 
-                      itemCount: 10,
+                      itemCount: view?.data?.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
                           // padding: EdgeInsets.all(0),
@@ -163,7 +181,7 @@ class _your_orderState extends State<your_order> {
                                     Row(
                                       children: [
                                         Text(
-                                          'Order ID #1234',
+                                          'Order ID #' +  (view?.data?[index].id).toString() ?? "" ,
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 2.2.h),
@@ -176,13 +194,14 @@ class _your_orderState extends State<your_order> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'No of Products :',
+                                          'No of Products : ',
                                           style: TextStyle(
                                               color: Color(0xff5a5858585),
                                               fontSize: 1.7.h),
                                         ),
                                         Text(
-                                          '550',
+                                          (view?.data?[index].productNumberOrder).toString() ?? "" ,
+                                          // '550',
                                           style: TextStyle(
                                               color: Color(0xff5a5a9f),
                                               fontSize: 1.7.h),
@@ -197,7 +216,8 @@ class _your_orderState extends State<your_order> {
 
                               SizedBox(width: 9.w),
                               Text(
-                                '₹5,925',
+                       '₹' + (view?.data?[index].price).toString() ?? "" ,
+                                // '₹5,925',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 2.2.h,
@@ -301,4 +321,33 @@ class _your_orderState extends State<your_order> {
       ),
     ));
   }
+
+  viewapi() async {
+    final Map<String, String> data = {};
+    data['action'] = 'view_order';
+    data['d_id'] = '36';
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider().view_product_order(data).then((Response response) async {
+          view = view_orders.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              view?.status == "success") {
+            setState(() {});
+
+            // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
+  }
+
+
 }

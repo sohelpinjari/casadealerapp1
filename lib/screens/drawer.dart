@@ -5,6 +5,7 @@ import 'package:casadealerapp/screens/block_order.dart';
 import 'package:casadealerapp/screens/login.dart';
 import 'package:casadealerapp/screens/products_1.dart';
 import 'package:casadealerapp/screens/your_block_order.dart';
+import 'package:casadealerapp/screens/your_order.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -209,6 +210,10 @@ class _drawerState extends State<drawer> {
                           onTap: () {
                             setState(() {
                               Navigator.of(context).pop();
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => your_order()));
 
                               index[2] = !index[2];
                             });
