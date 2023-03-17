@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:casadealerapp/CONST.dart';
-import 'package:casadealerapp/main.dart';
+import 'package:casadealerapp/screens/main.dart';
 import 'package:casadealerapp/modal_class/category_wise_display.dart';
 import 'package:casadealerapp/modal_class/search_class.dart';
 import 'package:casadealerapp/screens/cart_order.dart';
