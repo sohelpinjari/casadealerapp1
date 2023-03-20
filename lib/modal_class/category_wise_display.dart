@@ -29,9 +29,9 @@ class DiffProduct {
   String? name;
   String? desc;
   String? color;
-  String? prodImgOne;
-  String? prodImgTwo;
-  String? prodImgThree;
+  String? prodImgDefault;
+  String? prodImgMen;
+  String? prodImgWomen;
   int? minPrice;
   int? maxPrice;
 
@@ -40,9 +40,9 @@ class DiffProduct {
         this.name,
         this.desc,
         this.color,
-        this.prodImgOne,
-        this.prodImgTwo,
-        this.prodImgThree,
+        this.prodImgDefault,
+        this.prodImgMen,
+        this.prodImgWomen,
         this.minPrice,
         this.maxPrice});
 
@@ -51,9 +51,9 @@ class DiffProduct {
     name = json['name'];
     desc = json['desc'];
     color = json['color'];
-    prodImgOne = json['prod_img_one'];
-    prodImgTwo = json['prod_img_two'];
-    prodImgThree = json['prod_img_three'];
+    prodImgDefault = json['prod_img_default'];
+    prodImgMen = json['prod_img_men'];
+    prodImgWomen = json['prod_img_women'];
     minPrice = json['min_price'];
     maxPrice = json['max_price'];
   }
@@ -64,9 +64,9 @@ class DiffProduct {
     data['name'] = this.name;
     data['desc'] = this.desc;
     data['color'] = this.color;
-    data['prod_img_one'] = this.prodImgOne;
-    data['prod_img_two'] = this.prodImgTwo;
-    data['prod_img_three'] = this.prodImgThree;
+    data['prod_img_default'] = this.prodImgDefault;
+    data['prod_img_men'] = this.prodImgMen;
+    data['prod_img_women'] = this.prodImgWomen;
     data['min_price'] = this.minPrice;
     data['max_price'] = this.maxPrice;
     return data;

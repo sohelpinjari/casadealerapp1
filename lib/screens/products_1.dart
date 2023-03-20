@@ -579,7 +579,7 @@ class _products_1State extends State<products_1> {
                                                   (images[index].image)
                                                       .toString(),
                                               pronamenevigatior:
-                                                  '${allcatogaryproperty?.diffProduct![index].name}'
+                                                  '${allcatogaryproperty?.diffProduct?[index].name}'
                                               // images[index]
                                               //     .Street_Wear
                                               //     .toString(),
@@ -594,27 +594,24 @@ class _products_1State extends State<products_1> {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(10.0),
-                                          child: allcatogaryproperty
-                                                      ?.diffProduct?[index]
-                                                      .prodImgOne ==
-                                                  null
-                                              ? Image.asset(
-                                                  "assets/product_1_img.png",
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.6,
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.3,
-                                                  fit: BoxFit.cover,
-                                                )
-                                              : Image.network(
+                                          child:  Image.network(
                                                   allcatogaryproperty
                                                           ?.diffProduct?[index]
-                                                          .prodImgOne ??
+                                                          .prodImgDefault ??
                                                       "",
+                                            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                              return Image.asset("assets/product_1_img.png",
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                    0.6,
+                                                height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                    0.3,
+                                                fit: BoxFit.cover,
+                                              );
+                                            },
                                                   width: MediaQuery.of(context)
                                                           .size
                                                           .width *
@@ -737,7 +734,8 @@ class _products_1State extends State<products_1> {
                                       child: Text(
                                         allcatogaryproperty
                                                 ?.diffProduct?[index].name ??
-                                            "",
+                                            "N/A",
+
                                         style: TextStyle(
                                             fontSize: 2.h,
                                             fontWeight: FontWeight.bold),
@@ -838,19 +836,34 @@ class _products_1State extends State<products_1> {
                                           width: 42.w,
                                           padding: EdgeInsets.only(left: 0.8.h),
                                           alignment: Alignment.centerLeft,
-                                          child: Text(
+                                          child:
+                                          allcatogaryproperty
+                                              ?.diffProduct?[index]
+                                              .minPrice == 0 || allcatogaryproperty
+                                  ?.diffProduct?[index]
+                                  .minPrice ==  null
+                                              ? Text(
+                                            "N/A",
+                                            style: TextStyle(color: Colors.red,
+                                              fontSize: 2.3.h,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+
+                                          )
+                                              :
+
+                                          Text(
                                             (allcatogaryproperty
                                                             ?.diffProduct?[
                                                                 index]
                                                             .minPrice)
-                                                        .toString() +
+                                                        .toString()  +
                                                     " - " +
                                                     (allcatogaryproperty
                                                             ?.diffProduct?[
                                                                 index]
                                                             .minPrice)
-                                                        .toString() ??
-                                                "",
+                                                        .toString() ?? 'N/A',
                                             maxLines: 2,
                                             style: TextStyle(
                                               fontSize: 2.3.h,
@@ -910,7 +923,7 @@ class _products_1State extends State<products_1> {
               categorydisplay();
             });
 
-            print("img" + (allproperty?.data?[0].categoryImg).toString());
+
 
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));
@@ -938,9 +951,6 @@ class _products_1State extends State<products_1> {
           if (response.statusCode == 200 &&
               allcatogaryproperty?.status == "success") {
             setState(() {});
-
-            print(
-                "img" + (allcatogaryproperty?.diffProduct?[0].name).toString());
 
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));

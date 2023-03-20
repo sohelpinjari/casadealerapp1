@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/modal_class/category_wise_display.dart';
+import 'package:casadealerapp/modal_class/color_modal.dart';
 import 'package:casadealerapp/provider/login_authprovider.dart';
 import 'package:casadealerapp/modal_class/productapiclass.dart';
+import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:casadealerapp/modal_class/singlepro_class.dart';
 import 'package:casadealerapp/screens/summary.dart';
@@ -91,6 +93,7 @@ class _product_2State extends State<product_2> {
   productapi? productData;
   bool se_icon = false;
   categorywisedisplay? allcatogaryproperty;
+  colorClass? product_2_color;
 
   @override
   void initState() {
@@ -4759,6 +4762,35 @@ class _product_2State extends State<product_2> {
       ),
     );
   }
+
+
+
+  colorapi() async {
+    final Map<String, String> data = {};
+    data['action'] = 'all_color_display';
+
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider().view_product_order(data).then((Response response) async {
+          product_2_color = colorClass.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && product_2_color?.status == "success") {
+            setState(() {});
+
+            // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
+  }
+
 
   // clrnameapi() async {
   //   SharedPreferences _sharedpreferences =

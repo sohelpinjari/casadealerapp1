@@ -478,7 +478,9 @@ class _loginState extends State<login> {
                     Padding(
                       padding: EdgeInsets.only(left: 25.h, top: 2.5.h),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+
+                        },
                         child: Container(
                           child: Text(
                             "Forgot Password?",
