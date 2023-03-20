@@ -657,11 +657,31 @@ class _product_2State extends State<product_2> {
                                           Row(
                                             children: [
                                               Container(
-                                                height: 5.h,
-                                                width: 10.w,
+                                                height: 4.h,
+                                                width: 9.w,
+
+                                                child:   CircleAvatar(
+                                                  // radius: 7.w,
+                                                  child: ClipOval(
+                                                    child: Image.asset(
+                                                      'assets/Red_Color.jpg',
+                                                      width: 12.w,
+                                                      // height: 13.w,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                    // child: Image.network(
+                                                    //   (viewmodel?.data?.profileImg).toString(),
+                                                    //   fit: BoxFit.cover,
+                                                    //   width: 16.w,
+                                                    //   height: 16.w,
+                                                    // ),
+                                                  ),
+                                                ),
+
                                                 decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  color: Color(0xff9e0303),
+                                                    shape: BoxShape.circle,
+                                                   
+                                                    border: Border.all(color: Color(0xffbababa))
                                                 ),
                                               ),
                                               SizedBox(width: 4.w),
@@ -714,9 +734,30 @@ class _product_2State extends State<product_2> {
                                                   Container(
                                                     height: 10.h,
                                                     width: 20.w,
+
+                                                  child:   CircleAvatar(
+                                                      // radius: 7.w,
+                                                      child: ClipOval(
+                                                        child: Image.asset(
+                                                          'assets/Red_Color.jpg',
+                                                          width: 10.w,
+                                                          // height: 13.w,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                        // child: Image.network(
+                                                        //   (viewmodel?.data?.profileImg).toString(),
+                                                        //   fit: BoxFit.cover,
+                                                        //   width: 16.w,
+                                                        //   height: 16.w,
+                                                        // ),
+                                                      ),
+                                                    ),
+
                                                     decoration: BoxDecoration(
                                                         shape: BoxShape.circle,
-                                                        color: tripur[index]),
+                                                        color: tripur[index],
+                                                      border: Border.all(color: Color(0xffbababa))
+                                                    ),
                                                   ),
                                                   (btn == index)
                                                       ? Container(
@@ -2409,250 +2450,261 @@ class _product_2State extends State<product_2> {
                                                   ),
                                                 ),
                                                 SizedBox(height: 1.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('Label')),
-                                                      Container(
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('Brust')),
-                                                      Container(
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child:
-                                                              Text('Length')),
-                                                    ],
+                                                Container(
+                                                  alignment: Alignment.center,
+                                                  child: Image.asset(
+                                                    'assets/size_chart.png',
+                                                    fit: BoxFit.cover,
+                                                    height: 45.h,
+                                                   
                                                   ),
                                                 ),
-                                                SizedBox(height: 1.h),
-                                                Divider(
-                                                    color:
-                                                        Colors.grey.shade400),
-                                                SizedBox(height: 1.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('2XS')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('30')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('21')),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('XS')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('32')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('22')),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('S')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('34')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('23')),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('M')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('38')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('24')),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('L')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('40')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('25')),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('XL')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('42')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('26')),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('2XL')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('44')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('27')),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 2.h),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 4.h),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('3XL')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('46')),
-                                                      Container(
-                                                          width: 10.w,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: Text('28')),
-                                                    ],
-                                                  ),
-                                                ),
+
+
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('Label')),
+                                                //       Container(
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('Brust')),
+                                                //       Container(
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child:
+                                                //               Text('Length')),
+                                                //     ],
+                                                //   ),
+                                                // ),
+                                                // SizedBox(height: 1.h),
+                                                // Divider(
+                                                //     color:
+                                                //         Colors.grey.shade400),
+                                                // SizedBox(height: 1.h),
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('2XS')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('30')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('21')),
+                                                //     ],
+                                                //   ),
+                                                // ),
+                                                // SizedBox(height: 2.h),
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('XS')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('32')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('22')),
+                                                //     ],
+                                                //   ),
+                                                // ),
+                                                // SizedBox(height: 2.h),
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('S')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('34')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('23')),
+                                                //     ],
+                                                //   ),
+                                                // ),
+                                                // SizedBox(height: 2.h),
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('M')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('38')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('24')),
+                                                //     ],
+                                                //   ),
+                                                // ),
+                                                // SizedBox(height: 2.h),
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('L')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('40')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('25')),
+                                                //     ],
+                                                //   ),
+                                                // ),
+                                                // SizedBox(height: 2.h),
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('XL')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('42')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('26')),
+                                                //     ],
+                                                //   ),
+                                                // ),
+                                                // SizedBox(height: 2.h),
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('2XL')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('44')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('27')),
+                                                //     ],
+                                                //   ),
+                                                // ),
+                                                // SizedBox(height: 2.h),
+                                                // Padding(
+                                                //   padding: EdgeInsets.symmetric(
+                                                //       horizontal: 4.h),
+                                                //   child: Row(
+                                                //     mainAxisAlignment:
+                                                //         MainAxisAlignment
+                                                //             .spaceBetween,
+                                                //     children: [
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('3XL')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('46')),
+                                                //       Container(
+                                                //           width: 10.w,
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           child: Text('28')),
+                                                //     ],
+                                                //   ),
+                                                // ),
                                                 SizedBox(height: 4.h),
                                                 Container(
                                                     alignment: Alignment.center,

@@ -49,12 +49,21 @@ class _order_idState extends State<order_id> {
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
+  int? sub_total;
+  int? gst;
+  int? payable_amount;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
     orderDetailapi();
+
+     // payable_amount = sub_total! + gst!;
+
+
+
   }
 
   @override
@@ -158,24 +167,43 @@ class _order_idState extends State<order_id> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                        'Order ID #' + (detail?.data?[0].ordId).toString() ??
-                            "",
+                         (detail?.orderData?.ordNo).toString() ?? "",
+
                         style: TextStyle(
                             fontSize: 2.h,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff333389)
                         )),
                     Container(
+                      padding: EdgeInsets.all(0.6.h),
                       alignment: Alignment.center,
                       height: 3.4.h,
-                      width: 18.w,
+                      width: 21.w,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Color(0xfffaede7)),
+                          borderRadius:
+                          BorderRadius.circular(15),
+                          color: (detail?.orderData?.status ==
+                              "1")
+                              ? Color(0xfffaede7)
+                              : (detail?.orderData?.status ==
+                              "2")
+                              ? Color(0xffe1f5e2)
+                              : Color(0xfffae7e7)),
                       child: Text(
-                        'Placed',
+                        (detail?.orderData?.status == "1")
+                            ? "Placed"
+                            : (detail?.orderData?.status == "2")
+                            ? "Confirmed"
+                            : "Cancle",
+                        // 'Placed',
                         style: TextStyle(
-                            color: Color(0xfff98346),
+                            color: (detail?.orderData?.status ==
+                                "1")
+                                ? Color(0xfff98b54)
+                                : (detail?.orderData?.status ==
+                                "2")
+                                ? Color(0xff48d34d)
+                                : Color(0xfff97070),
                             fontWeight: FontWeight.bold),
                       ),
                     )
@@ -1219,7 +1247,9 @@ class _order_idState extends State<order_id> {
                                         color: Colors.black),
                                   ),
                                   Text(
-                                    '₹99,99,999',
+                                   '₹' + (detail?.orderData?.price).toString() ?? "",
+
+                                    // '₹99,99,999',
                                     // (detail?.data?[0].).toString() ??
 
                                     style: TextStyle(
@@ -1246,7 +1276,8 @@ class _order_idState extends State<order_id> {
                                         color: Colors.black),
                                   ),
                                   Text(
-                                    '₹12,456',
+                                 '₹' +   (detail?.orderData?.gstPrice).toString() ?? "",
+                                    // '₹12,456',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 1.9.h,
@@ -1271,7 +1302,8 @@ class _order_idState extends State<order_id> {
                                         color: Colors.black),
                                   ),
                                   Text(
-                                    '₹1,00,12,455',
+                                   "₹" + payable_amount.toString(),
+                                    // '₹1,00,12,455',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 1.9.h,
@@ -1360,7 +1392,9 @@ class _order_idState extends State<order_id> {
           detail = order_detail.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 && detail?.status == "success") {
-            setState(() {});
+            setState(() {
+              payable_amount =int.parse( (detail?.orderData?.price).toString()) +int.parse(( detail?.orderData?.gstPrice).toString());
+            });
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
 

@@ -165,7 +165,7 @@ class _order_detail_cState extends State<order_detail_c> {
               Column(
                 children: [
                   Container(
-                    height: 70.h,
+                    height: 69.h,
                     child: ListView.builder(
                       // padding: EdgeInsets.all(0),
                       // visualDensity: VisualDensity(horizontal: 4, vertical: 4),

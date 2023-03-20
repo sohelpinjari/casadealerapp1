@@ -26,9 +26,19 @@ class _loginsuccessState extends State<loginsuccess> {
             Container(
               alignment: Alignment.center,
               child: Image.asset(
-                'assets/loginsuccess2.png',
+                'assets/login2.png',
                 fit: BoxFit.fill,
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 0.5,
+                // width: MediaQuery.of(context).size.width * 2,
+              ),
+            ),
+            SizedBox(height: 2.h),
+            Container(
+              alignment: Alignment.topCenter,
+              child: Image.asset(
+                'assets/get_started_logo.png',
+                fit: BoxFit.contain,
+                height: MediaQuery.of(context).size.height * 0.07,
                 // width: MediaQuery.of(context).size.width * 2,
               ),
             ),

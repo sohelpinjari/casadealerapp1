@@ -440,7 +440,7 @@ class _products_1State extends State<products_1> {
                                                 imageBuilder:
                                                     (context, imageProvider) =>
                                                         Container(
-                                                  height: 20.h,
+                                                  height: 19.h,
                                                   width: 40.w,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
@@ -461,7 +461,7 @@ class _products_1State extends State<products_1> {
                                                 errorWidget:
                                                     (context, url, error) =>
                                                         Container(
-                                                  height: 20.h,
+                                                  height: 19.h,
                                                   width: 40.w,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
@@ -733,6 +733,7 @@ class _products_1State extends State<products_1> {
                                     Container(
                                       padding: EdgeInsets.only(left: 0.8.h),
                                       alignment: Alignment.centerLeft,
+
                                       child: Text(
                                         allcatogaryproperty
                                                 ?.diffProduct?[index].name ??
