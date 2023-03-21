@@ -2,7 +2,10 @@ import 'dart:convert';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/modal_class/category_wise_display.dart';
+import 'package:casadealerapp/modal_class/color_display_all_class.dart';
 import 'package:casadealerapp/modal_class/color_modal.dart';
+import 'package:casadealerapp/modal_class/product2_image_modal.dart';
+import 'package:casadealerapp/modal_class/select_image_class.dart';
 import 'package:casadealerapp/provider/login_authprovider.dart';
 import 'package:casadealerapp/modal_class/productapiclass.dart';
 import 'package:casadealerapp/provider/productprovider.dart';
@@ -57,6 +60,8 @@ class _product_2State extends State<product_2> {
   int gen = 0;
   int cart = 0;
   int sumindex = 0;
+  int selectbtn = 0;
+  int selectgender = 0;
 
   final PageController controller = PageController(initialPage: 0);
   List<products> images = [
@@ -93,12 +98,17 @@ class _product_2State extends State<product_2> {
   productapi? productData;
   bool se_icon = false;
   categorywisedisplay? allcatogaryproperty;
-  colorClass? product_2_color;
+  colorClass? product2color;
+  product2Imageclass? imageDisplay;
+  selectColorImageClass? selectimage;
+
+  colorDisplayClass? displayallcolor;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    getdata();
 
     // clrnameapi();
 
@@ -106,11 +116,19 @@ class _product_2State extends State<product_2> {
     // widget.coloridnevigator.()
     //
     // ];
-    image = [
-      widget.imagenevigator.toString(),
-      widget.imagenevigator.toString(),
-      widget.imagenevigator.toString(),
-    ];
+    // image = [
+    //   imageDisplay?.imageData.toString(),
+    //   widget.imagenevigator.toString(),
+    //   widget.imagenevigator.toString(),
+    // ];
+  }
+
+  getdata() async {
+    await colorapi();
+    await imageapi();
+    await selectimageapi();
+    await displaycolor();
+
   }
 
   @override
@@ -283,7 +301,7 @@ class _product_2State extends State<product_2> {
                             height: 55.h,
                             width: MediaQuery.of(context).size.width,
                             child: CarouselSlider(
-                              items: image.map((e) {
+                              items: (selectimage?.imageData ?? []).map((e) {
                                 return ClipRRect(
                                     borderRadius: BorderRadius.circular(28),
                                     child: Stack(
@@ -301,8 +319,22 @@ class _product_2State extends State<product_2> {
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(28),
-                                            child: Image.asset(
+                                            child: Image.network(
                                               e,
+
+                                              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                                return Image.asset("assets/product_1_img.png",
+                                                  // width: MediaQuery.of(context)
+                                                  //     .size
+                                                  //     .width *
+                                                  //     0.6,
+                                                  // height: MediaQuery.of(context)
+                                                  //     .size
+                                                  //     .height *
+                                                  //     0.3,
+                                                  // fit: BoxFit.cover,
+                                                );
+                                              },
                                               fit: BoxFit.cover,
                                               height: 53.h,
                                               // width: MediaQuery.of(context)
@@ -420,9 +452,14 @@ class _product_2State extends State<product_2> {
                                                           ),
                                                           Container(
                                                             child: Text(
-                                                              widget
-                                                                  .pronamenevigatior
-                                                                  .toString(),
+                                                              imageDisplay
+                                                                      ?.productData?[
+                                                                          0]
+                                                                      .apName ??
+                                                                  '',
+                                                              // widget
+                                                              //     .pronamenevigatior
+                                                              //     .toString(),
                                                               // widget
                                                               //     .pronamenevigatior
                                                               //     .toString(),
@@ -546,6 +583,7 @@ class _product_2State extends State<product_2> {
                             ),
                             child: SmoothPageIndicator(
                               controller: controller,
+                              // count: (imageDisplay?.imageData ?? []).length,
                               count: 3,
                               axisDirection: Axis.horizontal,
                               effect: SlideEffect(
@@ -662,14 +700,18 @@ class _product_2State extends State<product_2> {
                                               Container(
                                                 height: 4.h,
                                                 width: 9.w,
-
-                                                child:   CircleAvatar(
+                                                child: CircleAvatar(
                                                   // radius: 7.w,
                                                   child: ClipOval(
-                                                    child: Image.asset(
-                                                      'assets/Red_Color.jpg',
+                                                    child: Image.network(
+                                                      product2color
+                                                              ?.data?[selectbtn]
+                                                              .colorImage ??
+                                                          '',
+
+                                                      // 'assets/Red_Color.jpg',
                                                       width: 12.w,
-                                                      // height: 13.w,
+                                                      height: 13.w,
                                                       fit: BoxFit.cover,
                                                     ),
                                                     // child: Image.network(
@@ -680,19 +722,27 @@ class _product_2State extends State<product_2> {
                                                     // ),
                                                   ),
                                                 ),
-
                                                 decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
-                                                   
-                                                    border: Border.all(color: Color(0xffbababa))
-                                                ),
+                                                    border: Border.all(
+                                                        color:
+                                                            Color(0xffbababa))),
                                               ),
                                               SizedBox(width: 4.w),
-                                              Text('Red',
-                                                  style: TextStyle(
-                                                    fontSize: 2.5.h,
-                                                    fontWeight: FontWeight.bold,
-                                                  )),
+                                              Container(
+                                                width: 40.w,
+                                                child: Text(
+                                                    product2color
+                                                            ?.data?[selectbtn]
+                                                            .colorName ??
+                                                        '',
+                                                    maxLines: 2,
+                                                    // 'Red',
+                                                    style: TextStyle(
+                                                      fontSize: 2.5.h,
+                                                      fontWeight: FontWeight.bold,
+                                                    )),
+                                              ),
                                             ],
                                           )
                                         ],
@@ -714,7 +764,7 @@ class _product_2State extends State<product_2> {
                                       width: 90.w,
                                       padding: EdgeInsets.all(9.0),
                                       child: GridView.builder(
-                                        itemCount: tripur.length,
+                                        itemCount: product2color?.data?.length,
                                         gridDelegate:
                                             SliverGridDelegateWithFixedCrossAxisCount(
                                                 crossAxisCount: 7,
@@ -725,26 +775,36 @@ class _product_2State extends State<product_2> {
                                             (BuildContext context, int index) {
                                           return GestureDetector(
                                               onTap: () {
+                                                print("object");
                                                 setState(() {
                                                   widget.coloridnevigator
                                                       .toString();
 
                                                   btn = index;
+                                                  selectbtn = index;
+
+
                                                 });
+
+                                                selectimageapi();
                                               },
                                               child: Stack(
                                                 children: [
                                                   Container(
                                                     height: 10.h,
                                                     width: 20.w,
-
-                                                  child:   CircleAvatar(
+                                                    child: CircleAvatar(
                                                       // radius: 7.w,
                                                       child: ClipOval(
-                                                        child: Image.asset(
-                                                          'assets/Red_Color.jpg',
+                                                        child: Image.network(
+                                                          product2color
+                                                                  ?.data?[index]
+                                                                  .colorImage ??
+                                                              "",
+
+                                                          // 'assets/Red_Color.jpg',
                                                           width: 10.w,
-                                                          // height: 13.w,
+                                                          height: 13.w,
                                                           fit: BoxFit.cover,
                                                         ),
                                                         // child: Image.network(
@@ -755,12 +815,12 @@ class _product_2State extends State<product_2> {
                                                         // ),
                                                       ),
                                                     ),
-
                                                     decoration: BoxDecoration(
                                                         shape: BoxShape.circle,
                                                         color: tripur[index],
-                                                      border: Border.all(color: Color(0xffbababa))
-                                                    ),
+                                                        border: Border.all(
+                                                            color: Color(
+                                                                0xffbababa))),
                                                   ),
                                                   (btn == index)
                                                       ? Container(
@@ -813,8 +873,12 @@ class _product_2State extends State<product_2> {
                                         GestureDetector(
                                           onTap: () {
                                             setState(() {
-                                              gen = 1;
-                                            });
+                                              gen = 0;
+
+                                              displaycolor();
+
+                                            }
+                                            );
                                           },
                                           child: Container(
                                             padding: EdgeInsets.all(0.1.h),
@@ -822,7 +886,7 @@ class _product_2State extends State<product_2> {
                                             width: 10.h,
                                             height: 5.h,
                                             decoration: BoxDecoration(
-                                                color: (gen == 0)
+                                                color: (gen == 1)
                                                     ? Colors.white
                                                     : Color(0xfff333389),
                                                 borderRadius:
@@ -832,7 +896,7 @@ class _product_2State extends State<product_2> {
                                             child: Text(
                                               'Men',
                                               style: TextStyle(
-                                                  color: (gen == 0)
+                                                  color: (gen == 1)
                                                       ? Color(0xff333389)
                                                       : Colors.white,
                                                   fontWeight: FontWeight.bold,
@@ -846,7 +910,9 @@ class _product_2State extends State<product_2> {
                                         GestureDetector(
                                           onTap: () {
                                             setState(() {
-                                              gen = 0;
+                                              gen = 1;
+                                              displaycolor();
+
                                             });
                                           },
                                           child: Container(
@@ -855,7 +921,7 @@ class _product_2State extends State<product_2> {
                                             width: 14.h,
                                             height: 5.h,
                                             decoration: BoxDecoration(
-                                                color: (gen == 1)
+                                                color: (gen == 0)
                                                     ? Colors.white
                                                     : Color(0xfff333389),
                                                 // color:_selectedColor,
@@ -867,7 +933,7 @@ class _product_2State extends State<product_2> {
                                             child: Text(
                                               'Women',
                                               style: TextStyle(
-                                                  color: (gen == 1)
+                                                  color: (gen == 0)
                                                       ? Color(0xff333389)
                                                       : Colors.white,
                                                   fontWeight: FontWeight.bold,
@@ -939,13 +1005,18 @@ class _product_2State extends State<product_2> {
                                               Container(
                                                 width: 30.w,
                                                 child: Text(
-                                                  "Red",
+                                                  // "Red",
+                                                      product2color
+                                                        ?.data?[selectbtn]
+                                                        .colorName ?? '',
                                                   style: TextStyle(
-                                                      fontSize: 2.6.h,
+                                                      fontSize: 2.h,
+
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color:
                                                           Color(0xfff333389)),
+                                                    maxLines: 2,
                                                 ),
                                               ),
                                               Container(
@@ -1039,7 +1110,9 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              displayallcolor?.mumbaiStock?[0].s ?? ''
+                                              ,
+                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1088,7 +1161,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              displayallcolor?.tripurStock?[0].s ?? ''  ,
+                                              // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1205,7 +1279,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              displayallcolor?.mumbaiStock?[0].m ?? ''  ,
+                                              // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1251,7 +1326,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.tripurStock?[0].m ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1363,7 +1439,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.mumbaiStock?[0].l ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1409,7 +1486,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.tripurStock?[0].l ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1525,7 +1603,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.mumbaiStock?[0].xl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1571,7 +1650,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.tripurStock?[0].xl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1683,7 +1763,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.mumbaiStock?[0].xxl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1729,7 +1810,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.tripurStock?[0].xxl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1845,7 +1927,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.mumbaiStock?[0].s3xl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1891,7 +1974,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.tripurStock?[0].s3xl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2003,7 +2087,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.mumbaiStock?[0].s4xl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2049,7 +2134,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.tripurStock?[0].s4xl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2165,7 +2251,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.mumbaiStock?[0].s5xl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2211,7 +2298,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
+                                              // '432',
+                                              displayallcolor?.tripurStock?[0].s5xl ?? ''  ,
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2459,10 +2547,8 @@ class _product_2State extends State<product_2> {
                                                     'assets/size_chart.png',
                                                     fit: BoxFit.cover,
                                                     height: 45.h,
-                                                   
                                                   ),
                                                 ),
-
 
                                                 // Padding(
                                                 //   padding: EdgeInsets.symmetric(
@@ -2964,7 +3050,8 @@ class _product_2State extends State<product_2> {
                                           onTap: () {
                                             setState(() {
                                               gen = 1;
-                                            });
+                                            }
+                                            );
                                           },
                                           child: Container(
                                             padding: EdgeInsets.all(0.1.h),
@@ -4763,20 +4850,76 @@ class _product_2State extends State<product_2> {
     );
   }
 
-
-
   colorapi() async {
     final Map<String, String> data = {};
     data['action'] = 'all_color_display';
 
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider().product2_color(data).then((Response response) async {
+          product2color = colorClass.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              product2color?.status == "success") {
+            setState(() {});
+
+            // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
+  }
+
+  imageapi() async {
+    final Map<String, String> data = {};
+    data['action'] = 'single_product_display';
+    data['product_name'] = 'RUFFTY TIPPING';
 
     print(data);
     checkInternet().then((internet) async {
       if (internet) {
-        Productprovider().view_product_order(data).then((Response response) async {
-          product_2_color = colorClass.fromJson(json.decode(response.body));
+        Productprovider().product2_image(data).then((Response response) async {
+          imageDisplay =
+              product2Imageclass.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && product_2_color?.status == "success") {
+          if (response.statusCode == 200 && imageDisplay?.status == "success") {
+            setState(() {});
+
+            // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
+  }
+
+  selectimageapi() async {
+    final Map<String, String> data = {};
+    data['action'] = 'color_select_display_img';
+    data['color_name'] = product2color?.data?[selectbtn].colorName ?? '';
+    data['product_id'] = '1';
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider()
+            .product2_selectimage(data)
+            .then((Response response) async {
+          selectimage =
+              selectColorImageClass.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && selectimage?.status == "success") {
+            print("============="+(selectimage?.imageData?[0]).toString());
             setState(() {});
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
@@ -4792,34 +4935,40 @@ class _product_2State extends State<product_2> {
   }
 
 
-  // clrnameapi() async {
-  //   SharedPreferences _sharedpreferences =
-  //       await SharedPreferences.getInstance();
-  //   final Map<String, dynamic> data = {};
-  //   data['action'] = 'single_product';
-  //   data['d_id'] = _sharedpreferences.getString('Did').toString();
-  //   data['ap_id'] = widget.coloridnevigator.toString();
-  //
-  //   print(data);
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       Authprovider().clrs(data).then((Response response) async {
-  //         print(response.statusCode);
-  //         print(response.body);
-  //         // clrdata = colorsdata.fromJson(json.decode(response.body));
-  //         colorData = color.fromJson(jsonDecode(response.body));
-  //
-  //         if (response.statusCode == 200 && productData?.status == "success") {
-  //           SaveDataLocal.saveLogInData(userData!);
-  //
-  //           if (kDebugMode) {}
-  //         } else {
-  //           CircularProgressIndicator();
-  //         }
-  //       });
-  //     } else {
-  //       setState(() {});
-  //     }
-  //   });
-  // }
+
+
+  displaycolor() async {
+    final Map<String, String> data = {};
+    data['action'] = 'color_select_display_all_data';
+    data['product_name'] = "RUFFTY TIPPING";
+    data['gender_type'] =  gen == 0 ?"MEN":"WOMEN";
+    data['color_name'] = 'WHITE WITH RED';
+    data['d_id'] = '36';
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider()
+            .product2_displaycolorselect(data)
+            .then((Response response) async {
+          displayallcolor =
+              colorDisplayClass.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && displayallcolor?.status == "success") {
+
+
+            print("============="+(displayallcolor?.status?[0]).toString());
+            setState(() {});
+
+            // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
+  }
 }
