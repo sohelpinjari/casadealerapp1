@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:html';
+import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/modal_class/category_wise_display.dart';
@@ -16,11 +18,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'drawer.dart';
+import 'package:path/path.dart' as path;
+import 'package:http/http.dart' as http;
 
 class product_2 extends StatefulWidget {
   String? imagenevigator;
@@ -63,6 +68,14 @@ class _product_2State extends State<product_2> {
   int selectbtn = 0;
   int selectgender = 0;
   int def = 0;
+  int? totals = 0;
+  int? totalm = 0;
+  int? totall = 0;
+  int? totalxl = 0;
+  int? total2xl = 0;
+  int? total3xl = 0;
+  int? total4xl = 0;
+  int? total5xl = 0;
 
   final PageController controller = PageController(initialPage: 0);
   List<products> images = [
@@ -127,7 +140,6 @@ class _product_2State extends State<product_2> {
   getdata() async {
     await imageapi();
     await colorapi();
-
     await selectimageapi();
     await displaycolor();
 
@@ -302,7 +314,274 @@ class _product_2State extends State<product_2> {
                             ),
                             height: 55.h,
                             width: MediaQuery.of(context).size.width,
-                            child: CarouselSlider(
+                            child:
+                            // displayallcolor?.mumbaiStock?[0].menImageArray != null?
+                            // CarouselSlider(
+                            //   items: (displayallcolor?.mumbaiStock?[0].menImageArray ?? []).map((e) {
+                            //     return ClipRRect(
+                            //         borderRadius: BorderRadius.circular(28),
+                            //         child: Stack(
+                            //           children: [
+                            //             Container(
+                            //               decoration: BoxDecoration(
+                            //                 borderRadius:
+                            //                     BorderRadius.circular(28),
+                            //               ),
+                            //               height: 54.h,
+                            //               width:
+                            //                   MediaQuery.of(context).size.width,
+                            //               margin: EdgeInsets.symmetric(
+                            //                   horizontal: 5.w),
+                            //               child: ClipRRect(
+                            //                 borderRadius:
+                            //                     BorderRadius.circular(28),
+                            //                 child: Image.network(
+                            //                   e,
+                            //
+                            //                   errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                            //                     return Image.asset("assets/product_1_img.png",
+                            //                       // width: MediaQuery.of(context)
+                            //                       //     .size
+                            //                       //     .width *
+                            //                       //     0.6,
+                            //                       // height: MediaQuery.of(context)
+                            //                       //     .size
+                            //                       //     .height *
+                            //                       //     0.3,
+                            //                       // fit: BoxFit.cover,
+                            //                     );
+                            //                   },
+                            //                   fit: BoxFit.cover,
+                            //                   height: 53.h,
+                            //                   // width: MediaQuery.of(context)
+                            //                   //     .size
+                            //                   //     .width,
+                            //                 ),
+                            //               ),
+                            //             ),
+                            //             Opacity(
+                            //               opacity: 0.8,
+                            //               child: Padding(
+                            //                 padding: EdgeInsets.symmetric(
+                            //                     horizontal: 5.w),
+                            //                 child: Align(
+                            //                   alignment: Alignment.bottomCenter,
+                            //                   child: Container(
+                            //                     decoration: BoxDecoration(
+                            //                       gradient: LinearGradient(
+                            //                           begin: Alignment.topRight,
+                            //                           colors: [
+                            //                             Colors.transparent,
+                            //                             Colors.black
+                            //                           ]),
+                            //                       borderRadius:
+                            //                           BorderRadius.only(
+                            //                         bottomRight:
+                            //                             Radius.circular(28),
+                            //                         bottomLeft:
+                            //                             Radius.circular(28),
+                            //                         topRight:
+                            //                             Radius.circular(28),
+                            //                         topLeft:
+                            //                             Radius.circular(28),
+                            //                       ),
+                            //                     ),
+                            //                     height: 23.h,
+                            //                     width: MediaQuery.of(context)
+                            //                         .size
+                            //                         .width,
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //             ),
+                            //             Positioned(
+                            //               top: 30.h,
+                            //               left: 8.w,
+                            //               right: 8.w,
+                            //               child: Container(
+                            //                 // height: 10.h,
+                            //                 width: MediaQuery.of(context)
+                            //                     .size
+                            //                     .width,
+                            //                 // color:Colors.red,
+                            //                 child: Column(
+                            //                   crossAxisAlignment:
+                            //                       CrossAxisAlignment.center,
+                            //                   children: [
+                            //                     Container(
+                            //                       width: MediaQuery.of(context)
+                            //                           .size
+                            //                           .width,
+                            //                       child: Row(
+                            //                         mainAxisAlignment:
+                            //                             MainAxisAlignment
+                            //                                 .spaceBetween,
+                            //                         children: [
+                            //                           Column(
+                            //                             crossAxisAlignment:
+                            //                                 CrossAxisAlignment
+                            //                                     .start,
+                            //                             children: [
+                            //                               Container(
+                            //                                 alignment: Alignment
+                            //                                     .center,
+                            //                                 width: MediaQuery.of(
+                            //                                             context)
+                            //                                         .size
+                            //                                         .width *
+                            //                                     0.2,
+                            //                                 height: MediaQuery.of(
+                            //                                             context)
+                            //                                         .size
+                            //                                         .height *
+                            //                                     0.03,
+                            //                                 decoration:
+                            //                                     BoxDecoration(
+                            //                                   color: Color(
+                            //                                       0xfff7c7773),
+                            //                                   borderRadius:
+                            //                                       BorderRadius
+                            //                                           .all(
+                            //                                     Radius.circular(
+                            //                                         8),
+                            //                                   ),
+                            //                                 ),
+                            //                                 child: Padding(
+                            //                                   padding:
+                            //                                       EdgeInsets
+                            //                                           .all(0.5
+                            //                                               .h),
+                            //                                   child: Text(
+                            //                                     "Brand Name",
+                            //                                     style:
+                            //                                         TextStyle(
+                            //                                       fontSize:
+                            //                                           1.3.h,
+                            //                                       color: Colors
+                            //                                           .white,
+                            //                                     ),
+                            //                                   ),
+                            //                                 ),
+                            //                               ),
+                            //                               SizedBox(
+                            //                                 height: 1.h,
+                            //                               ),
+                            //                               Container(
+                            //                                 child: Text(
+                            //                                   imageDisplay
+                            //                                           ?.productData?[
+                            //                                               0]
+                            //                                           .apName ??
+                            //                                       '',
+                            //                                   // widget
+                            //                                   //     .pronamenevigatior
+                            //                                   //     .toString(),
+                            //                                   // widget
+                            //                                   //     .pronamenevigatior
+                            //                                   //     .toString(),
+                            //                                   style: TextStyle(
+                            //                                       fontSize: 3.h,
+                            //                                       fontWeight:
+                            //                                           FontWeight
+                            //                                               .bold,
+                            //                                       color: Colors
+                            //                                           .white),
+                            //                                 ),
+                            //                               ),
+                            //                               Container(
+                            //                                 child: Text(
+                            //                                   "Artist Name",
+                            //                                   style: TextStyle(
+                            //                                       fontSize:
+                            //                                           1.9.h,
+                            //                                       // fontWeight:
+                            //                                       //     FontWeight
+                            //                                       //         .bold,
+                            //                                       color: Colors
+                            //                                           .grey
+                            //                                           .shade300),
+                            //                                 ),
+                            //                               ),
+                            //                             ],
+                            //                           ),
+                            //
+                            //                           // SizedBox(
+                            //                           //   width: 20.w,
+                            //                           // ),
+                            //
+                            //                           Row(
+                            //                             children: [
+                            //                               // Container(
+                            //                               //   alignment:
+                            //                               //       Alignment.center,
+                            //                               //   height: 4.h,
+                            //                               //   width: 9.w,
+                            //                               //   decoration: BoxDecoration(
+                            //                               //       borderRadius:
+                            //                               //           BorderRadius
+                            //                               //               .circular(
+                            //                               //                   25),
+                            //                               //       color:
+                            //                               //           Colors.white),
+                            //                               //   child: IconButton(
+                            //                               //     icon: Icon(
+                            //                               //       Icons
+                            //                               //           .favorite_border,
+                            //                               //       color: Colors.red,
+                            //                               //       size: 2.h,
+                            //                               //     ),
+                            //                               //     onPressed: () {},
+                            //                               //   ),
+                            //                               // ),
+                            //                               SizedBox(width: 3.w),
+                            //                               Container(
+                            //                                 alignment: Alignment
+                            //                                     .center,
+                            //                                 height: 4.h,
+                            //                                 width: 9.w,
+                            //                                 decoration: BoxDecoration(
+                            //                                     borderRadius:
+                            //                                         BorderRadius
+                            //                                             .circular(
+                            //                                                 25),
+                            //                                     color: Colors
+                            //                                         .white),
+                            //                                 child: IconButton(
+                            //                                   icon: Icon(
+                            //                                     Icons.share,
+                            //                                     color:
+                            //                                         Colors.grey,
+                            //                                     size: 2.h,
+                            //                                   ),
+                            //                                   onPressed: () {},
+                            //                                 ),
+                            //                               ),
+                            //                             ],
+                            //                           ),
+                            //                         ],
+                            //                       ),
+                            //                     ),
+                            //                     // SizedBox()
+                            //                   ],
+                            //                 ),
+                            //               ),
+                            //             ),
+                            //           ],
+                            //         ));
+                            //   }).toList(),
+                            //   options: CarouselOptions(
+                            //     height: 45.h,
+                            //     enlargeCenterPage: false,
+                            //     autoPlay: true,
+                            //     aspectRatio: 16 / 9,
+                            //     autoPlayCurve: Curves.fastOutSlowIn,
+                            //     enableInfiniteScroll: true,
+                            //     autoPlayAnimationDuration:
+                            //         Duration(milliseconds: 800),
+                            //     viewportFraction: 1,
+                            //   ),
+                            // ):displayallcolor?.tripurStock?[0].menImageArray != null?
+                            CarouselSlider(
                               items: (displayallcolor?.mumbaiStock?[0].menImageArray ?? []).map((e) {
                                 return ClipRRect(
                                     borderRadius: BorderRadius.circular(28),
@@ -311,16 +590,16 @@ class _product_2State extends State<product_2> {
                                         Container(
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(28),
+                                            BorderRadius.circular(28),
                                           ),
                                           height: 54.h,
                                           width:
-                                              MediaQuery.of(context).size.width,
+                                          MediaQuery.of(context).size.width,
                                           margin: EdgeInsets.symmetric(
                                               horizontal: 5.w),
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(28),
+                                            BorderRadius.circular(28),
                                             child: Image.network(
                                               e,
 
@@ -361,15 +640,15 @@ class _product_2State extends State<product_2> {
                                                         Colors.black
                                                       ]),
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                  BorderRadius.only(
                                                     bottomRight:
-                                                        Radius.circular(28),
+                                                    Radius.circular(28),
                                                     bottomLeft:
-                                                        Radius.circular(28),
+                                                    Radius.circular(28),
                                                     topRight:
-                                                        Radius.circular(28),
+                                                    Radius.circular(28),
                                                     topLeft:
-                                                        Radius.circular(28),
+                                                    Radius.circular(28),
                                                   ),
                                                 ),
                                                 height: 23.h,
@@ -392,7 +671,7 @@ class _product_2State extends State<product_2> {
                                             // color:Colors.red,
                                             child: Column(
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                               children: [
                                                 Container(
                                                   width: MediaQuery.of(context)
@@ -400,49 +679,49 @@ class _product_2State extends State<product_2> {
                                                       .width,
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                     children: [
                                                       Column(
                                                         crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                         children: [
                                                           Container(
                                                             alignment: Alignment
                                                                 .center,
                                                             width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
+                                                                context)
+                                                                .size
+                                                                .width *
                                                                 0.2,
                                                             height: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .height *
+                                                                context)
+                                                                .size
+                                                                .height *
                                                                 0.03,
                                                             decoration:
-                                                                BoxDecoration(
+                                                            BoxDecoration(
                                                               color: Color(
                                                                   0xfff7c7773),
                                                               borderRadius:
-                                                                  BorderRadius
-                                                                      .all(
+                                                              BorderRadius
+                                                                  .all(
                                                                 Radius.circular(
                                                                     8),
                                                               ),
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsets
-                                                                      .all(0.5
-                                                                          .h),
+                                                              EdgeInsets
+                                                                  .all(0.5
+                                                                  .h),
                                                               child: Text(
                                                                 "Brand Name",
                                                                 style:
-                                                                    TextStyle(
+                                                                TextStyle(
                                                                   fontSize:
-                                                                      1.3.h,
+                                                                  1.3.h,
                                                                   color: Colors
                                                                       .white,
                                                                 ),
@@ -455,9 +734,9 @@ class _product_2State extends State<product_2> {
                                                           Container(
                                                             child: Text(
                                                               imageDisplay
-                                                                      ?.productData?[
-                                                                          0]
-                                                                      .apName ??
+                                                                  ?.productData?[
+                                                              0]
+                                                                  .apName ??
                                                                   '',
                                                               // widget
                                                               //     .pronamenevigatior
@@ -468,8 +747,8 @@ class _product_2State extends State<product_2> {
                                                               style: TextStyle(
                                                                   fontSize: 3.h,
                                                                   fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
+                                                                  FontWeight
+                                                                      .bold,
                                                                   color: Colors
                                                                       .white),
                                                             ),
@@ -479,7 +758,7 @@ class _product_2State extends State<product_2> {
                                                               "Artist Name",
                                                               style: TextStyle(
                                                                   fontSize:
-                                                                      1.9.h,
+                                                                  1.9.h,
                                                                   // fontWeight:
                                                                   //     FontWeight
                                                                   //         .bold,
@@ -527,16 +806,16 @@ class _product_2State extends State<product_2> {
                                                             width: 9.w,
                                                             decoration: BoxDecoration(
                                                                 borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            25),
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    25),
                                                                 color: Colors
                                                                     .white),
                                                             child: IconButton(
                                                               icon: Icon(
                                                                 Icons.share,
                                                                 color:
-                                                                    Colors.grey,
+                                                                Colors.grey,
                                                                 size: 2.h,
                                                               ),
                                                               onPressed: () {},
@@ -563,10 +842,11 @@ class _product_2State extends State<product_2> {
                                 autoPlayCurve: Curves.fastOutSlowIn,
                                 enableInfiniteScroll: true,
                                 autoPlayAnimationDuration:
-                                    Duration(milliseconds: 800),
+                                Duration(milliseconds: 800),
                                 viewportFraction: 1,
                               ),
-                            ),
+                            )
+                                  // :Image.asset("assets/product_1_img.png")
                           ),
                         ),
                         Positioned(
@@ -1238,7 +1518,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "432",
+                                              totals.toString(),
+                                              // "432",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1402,7 +1683,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "432",
+                                                totalm.toString(),
+                                              // "432",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1562,7 +1844,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "432",
+                                              totall.toString(),
+                                              // "432",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1726,7 +2009,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "432",
+                                                totalxl.toString(),
+                                              // "432",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -1886,7 +2170,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "432",
+                                                total2xl.toString(),
+                                              // "432",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2050,7 +2335,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "432",
+                                                total3xl.toString(),
+                                              // "432",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2210,7 +2496,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "432",
+                                                total4xl.toString(),
+                                              // "432",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2374,7 +2661,8 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "432",
+                                                total5xl.toString(),
+                                              // "432",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2937,8 +3225,27 @@ class _product_2State extends State<product_2> {
                                                   // padding:
                                                   //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
                                                   child: ElevatedButton(
-                                                    onPressed: () {
+                                                    onPressed: ()  {
                                                       displayallcolor?.mumbaiStock?[0].catalogue.toString() ?? '';
+
+
+                                                    //   var response = await http.get(Uri.parse(( displayallcolor?.mumbaiStock?[0].catalogue.?? '')));
+                                                    //
+                                                    //
+                                                    //
+                                                    // await getDownloadsDirectory();
+                                                    //   String directoryPath = storageDirectory!.path;
+                                                    //
+                                                    //   File file = File('$directoryPath/$fileName');
+                                                    //   // Directory directory = await getApplicationDocumentsDirectory();
+                                                    //   await file.writeAsBytes(response.bodyBytes);
+                                                    //   String filePath = '${storageDirectory.path}/$fileName';
+                                                    //
+                                                    //   try {
+                                                    //     final result = await OpenFile.open(filePath);
+                                                    //   } catch (e) {
+                                                    //     print(e.toString());
+                                                    //   }
                                                       // Navigator.push(
                                                       //     context,
                                                       //     MaterialPageRoute(
@@ -5008,7 +5315,26 @@ class _product_2State extends State<product_2> {
 
 
             print("============="+(displayallcolor?.mumbaiStock?[0].s).toString());
-            setState(() {});
+            setState(() {
+              totals =int.parse( (displayallcolor?.mumbaiStock?[0].s).toString()) +int.parse((displayallcolor?.tripurStock?[0].s).toString());
+              totalm =int.parse( (displayallcolor?.mumbaiStock?[0].m).toString()) +int.parse((displayallcolor?.tripurStock?[0].m).toString());
+              totall =int.parse( (displayallcolor?.mumbaiStock?[0].l).toString()) +int.parse((displayallcolor?.tripurStock?[0].l).toString());
+              totalxl =int.parse( (displayallcolor?.mumbaiStock?[0].xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].xl).toString());
+              total2xl =int.parse( (displayallcolor?.mumbaiStock?[0].xxl).toString()) +int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
+              total3xl =int.parse( (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
+              total4xl =int.parse( (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
+              total5xl =int.parse( (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
+
+
+
+
+
+
+
+
+
+
+            });
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
 
