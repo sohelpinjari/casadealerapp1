@@ -62,6 +62,7 @@ class _product_2State extends State<product_2> {
   int sumindex = 0;
   int selectbtn = 0;
   int selectgender = 0;
+  int def = 0;
 
   final PageController controller = PageController(initialPage: 0);
   List<products> images = [
@@ -124,8 +125,9 @@ class _product_2State extends State<product_2> {
   }
 
   getdata() async {
-    await colorapi();
     await imageapi();
+    await colorapi();
+
     await selectimageapi();
     await displaycolor();
 
@@ -301,7 +303,7 @@ class _product_2State extends State<product_2> {
                             height: 55.h,
                             width: MediaQuery.of(context).size.width,
                             child: CarouselSlider(
-                              items: (selectimage?.imageData ?? []).map((e) {
+                              items: (displayallcolor?.mumbaiStock?[0].menImageArray ?? []).map((e) {
                                 return ClipRRect(
                                     borderRadius: BorderRadius.circular(28),
                                     child: Stack(
@@ -698,7 +700,7 @@ class _product_2State extends State<product_2> {
                                           Row(
                                             children: [
                                               Container(
-                                                height: 4.h,
+                                                height: 4.5.h,
                                                 width: 9.w,
                                                 child: CircleAvatar(
                                                   // radius: 7.w,
@@ -779,7 +781,7 @@ class _product_2State extends State<product_2> {
                                                 setState(() {
                                                   widget.coloridnevigator
                                                       .toString();
-
+                                                  colorapi();
                                                   btn = index;
                                                   selectbtn = index;
 
@@ -875,10 +877,12 @@ class _product_2State extends State<product_2> {
                                             setState(() {
                                               gen = 0;
 
-                                              displaycolor();
+
 
                                             }
+
                                             );
+                                            displaycolor();
                                           },
                                           child: Container(
                                             padding: EdgeInsets.all(0.1.h),
@@ -1021,8 +1025,20 @@ class _product_2State extends State<product_2> {
                                               ),
                                               Container(
                                                 width: 30.w,
-                                                child: Text(
-                                                  "₹125",
+                                                child:    displayallcolor?.priceArray?[0].minPrice == 0||  displayallcolor?.priceArray?[0].minPrice ==  null
+                                                    ? Text(
+                                                  "N/A",
+                                                  style: TextStyle(
+                                                      fontSize: 2.6.h,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      color:
+                                                      Color(0xfff333389)),
+
+                                                )
+                                                    :Text(
+                                                  '₹' +( displayallcolor?.priceArray?[0].minPrice).toString(),
+                                                  // "₹125",
                                                   style: TextStyle(
                                                       fontSize: 2.6.h,
                                                       fontWeight:
@@ -1037,8 +1053,20 @@ class _product_2State extends State<product_2> {
 
                                               Container(
                                                 width: 30.w,
-                                                child: Text(
-                                                  " ₹150",
+                                                child:  displayallcolor?.priceArray?[0].minPrice == 0||  displayallcolor?.priceArray?[0].minPrice ==  null
+                                                    ? Text(
+                                                  "N/A",
+                                                  style: TextStyle(
+                                                      fontSize: 2.6.h,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      color:
+                                                      Color(0xfff333389)),
+
+                                                )
+                                                    :Text(
+                                                  '₹' + (displayallcolor?.priceArray?[0].maxPrice).toString(),
+                                                  // " ₹150",
                                                   style: TextStyle(
                                                       fontSize: 2.6.h,
                                                       fontWeight:
@@ -2543,10 +2571,21 @@ class _product_2State extends State<product_2> {
                                                 SizedBox(height: 1.h),
                                                 Container(
                                                   alignment: Alignment.center,
-                                                  child: Image.asset(
-                                                    'assets/size_chart.png',
+                                                  child: Image.network(
+                                                    displayallcolor?.mumbaiStock?[0].sizeChart ?? '',
+                                                    errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                                      return Image.asset('assets/size_chart.png',
+                                                        fit: BoxFit.cover,
+                                                        height: 40.h,
+                                                        width:
+                                                        MediaQuery.of(context)
+                                                            .size
+                                                            .width,
+                                                      );
+                                                    },
+                                                    // 'assets/size_chart.png',
                                                     fit: BoxFit.cover,
-                                                    height: 45.h,
+                                                    height: 40.h,
                                                   ),
                                                 ),
 
@@ -2823,6 +2862,7 @@ class _product_2State extends State<product_2> {
                                                     children: [
                                                       ElevatedButton(
                                                         onPressed: () {
+                                                          displayallcolor?.mumbaiStock?[0].sizeChart.toString() ?? '';
                                                           // Navigator.push(
                                                           //     context,
                                                           //     MaterialPageRoute(
@@ -2854,6 +2894,7 @@ class _product_2State extends State<product_2> {
                                                       // ),
                                                       ElevatedButton(
                                                         onPressed: () {
+                                                          displayallcolor?.mumbaiStock?[0].videoSpecification.toString() ?? '';
                                                           // Navigator.push(
                                                           //     context,
                                                           //     MaterialPageRoute(
@@ -2897,6 +2938,7 @@ class _product_2State extends State<product_2> {
                                                   //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
                                                   child: ElevatedButton(
                                                     onPressed: () {
+                                                      displayallcolor?.mumbaiStock?[0].catalogue.toString() ?? '';
                                                       // Navigator.push(
                                                       //     context,
                                                       //     MaterialPageRoute(
@@ -2992,6 +3034,7 @@ class _product_2State extends State<product_2> {
                                           return GestureDetector(
                                               onTap: () {
                                                 setState(() {
+                                                  colorapi();
                                                   btn = index;
                                                 });
                                               },
@@ -3021,7 +3064,8 @@ class _product_2State extends State<product_2> {
                                                         )
                                                       : Container()
                                                 ],
-                                              ));
+                                              )
+                                          );
                                         },
                                       )),
                                 ),
@@ -4862,7 +4906,11 @@ class _product_2State extends State<product_2> {
 
           if (response.statusCode == 200 &&
               product2color?.status == "success") {
-            setState(() {});
+            selectimageapi();
+            displaycolor();
+            setState(() {
+              // btn = int.parse(product2color?.data?[0].colorImage ?? '');
+            });
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
 
@@ -4879,7 +4927,7 @@ class _product_2State extends State<product_2> {
   imageapi() async {
     final Map<String, String> data = {};
     data['action'] = 'single_product_display';
-    data['product_name'] = 'RUFFTY TIPPING';
+    data['product_name'] = widget.pronamenevigatior.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -4907,7 +4955,7 @@ class _product_2State extends State<product_2> {
     final Map<String, String> data = {};
     data['action'] = 'color_select_display_img';
     data['color_name'] = product2color?.data?[selectbtn].colorName ?? '';
-    data['product_id'] = '1';
+    data['product_id'] = widget.coloridnevigator.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -4920,7 +4968,9 @@ class _product_2State extends State<product_2> {
 
           if (response.statusCode == 200 && selectimage?.status == "success") {
             print("============="+(selectimage?.imageData?[0]).toString());
-            setState(() {});
+            setState(() {
+
+            });
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
 
@@ -4940,10 +4990,10 @@ class _product_2State extends State<product_2> {
   displaycolor() async {
     final Map<String, String> data = {};
     data['action'] = 'color_select_display_all_data';
-    data['product_name'] = "RUFFTY TIPPING";
+    data['product_name'] = widget.pronamenevigatior.toString();
     data['gender_type'] =  gen == 0 ?"MEN":"WOMEN";
-    data['color_name'] = 'WHITE WITH RED';
-    data['d_id'] = '36';
+    data['color_name'] = product2color?.data?[selectbtn].colorName ?? '';
+    data['d_id'] = widget.coloridnevigator.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -4957,7 +5007,7 @@ class _product_2State extends State<product_2> {
           if (response.statusCode == 200 && displayallcolor?.status == "success") {
 
 
-            print("============="+(displayallcolor?.status?[0]).toString());
+            print("============="+(displayallcolor?.mumbaiStock?[0].s).toString());
             setState(() {});
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());

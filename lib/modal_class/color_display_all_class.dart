@@ -55,6 +55,8 @@ class MumbaiStock {
   String? s3xl;
   String? s4xl;
   String? s5xl;
+  String? mApId;
+  String? mApdId;
   String? sizeChart;
   String? videoSpecification;
   String? catalogue;
@@ -70,6 +72,8 @@ class MumbaiStock {
         this.s3xl,
         this.s4xl,
         this.s5xl,
+        this.mApId,
+        this.mApdId,
         this.sizeChart,
         this.videoSpecification,
         this.catalogue,
@@ -85,10 +89,14 @@ class MumbaiStock {
     s3xl = json['3xl'];
     s4xl = json['4xl'];
     s5xl = json['5xl'];
+    mApId = json['m_ap_id'];
+    mApdId = json['m_apd_id'];
     sizeChart = json['size_chart'];
     videoSpecification = json['video_specification'];
     catalogue = json['catalogue'];
-    menImageArray = json['Men_image_array'].cast<String>();
+    menImageArray = (json['Men_image_array'] == null ) ? [] : List<String>.from(json['Men_image_array'] as List<dynamic>);
+
+
   }
 
   Map<String, dynamic> toJson() {
@@ -102,6 +110,8 @@ class MumbaiStock {
     data['3xl'] = this.s3xl;
     data['4xl'] = this.s4xl;
     data['5xl'] = this.s5xl;
+    data['m_ap_id'] = this.mApId;
+    data['m_apd_id'] = this.mApdId;
     data['size_chart'] = this.sizeChart;
     data['video_specification'] = this.videoSpecification;
     data['catalogue'] = this.catalogue;
@@ -120,6 +130,8 @@ class TripurStock {
   String? s3xl;
   String? s4xl;
   String? s5xl;
+  String? tApId;
+  String? tApdId;
   String? sizeChart;
   String? videoSpecification;
   String? catalogue;
@@ -135,6 +147,8 @@ class TripurStock {
         this.s3xl,
         this.s4xl,
         this.s5xl,
+        this.tApId,
+        this.tApdId,
         this.sizeChart,
         this.videoSpecification,
         this.catalogue,
@@ -150,10 +164,12 @@ class TripurStock {
     s3xl = json['3xl'];
     s4xl = json['4xl'];
     s5xl = json['5xl'];
+    tApId = json['t_ap_id'];
+    tApdId = json['t_apd_id'];
     sizeChart = json['size_chart'];
     videoSpecification = json['video_specification'];
     catalogue = json['catalogue'];
-    menImageArray = json['Men_image_array'].cast<String>();
+    menImageArray = (json['Men_image_array'] == null ) ? [] : List<String>.from(json['Men_image_array'] as List<dynamic>);
   }
 
   Map<String, dynamic> toJson() {
@@ -167,6 +183,8 @@ class TripurStock {
     data['3xl'] = this.s3xl;
     data['4xl'] = this.s4xl;
     data['5xl'] = this.s5xl;
+    data['t_ap_id'] = this.tApId;
+    data['t_apd_id'] = this.tApdId;
     data['size_chart'] = this.sizeChart;
     data['video_specification'] = this.videoSpecification;
     data['catalogue'] = this.catalogue;

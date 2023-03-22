@@ -579,12 +579,12 @@ class _products_1State extends State<products_1> {
                                                   (images[index].image)
                                                       .toString(),
                                               pronamenevigatior:
-                                                  '${allcatogaryproperty?.diffProduct?[index].name}'
+                                                  '${allcatogaryproperty?.diffProduct?[index].name}',
                                               // images[index]
                                               //     .Street_Wear
                                               //     .toString(),
-                                              // coloridnevigator:
-                                              //     '${productData?.productData![index].apId}',
+                                              coloridnevigator:
+                                                  '${allcatogaryproperty?.diffProduct![index].id}',
                                               )));
                                 },
                                 child: Column(
