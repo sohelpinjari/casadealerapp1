@@ -164,5 +164,39 @@ class Productprovider with ChangeNotifier {
     return responseJson;
   }
 
+  Future<http.Response> forgot(Map<String, dynamic> bodyData) async {
+    const url =
+        'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=forgot_password';
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> product2blockprovider(Map<String, dynamic> bodyData) async {
+    const url =
+        'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=block_produt_wise';
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
 
 }

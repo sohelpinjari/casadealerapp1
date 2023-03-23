@@ -141,7 +141,7 @@ class Logindata {
   String? confirmPassword;
   String? acIa;
   String? lastLoginTime;
-  Null? forgotPassKey;
+  String? forgotPassKey;
   String? createdTime;
 
   Logindata(

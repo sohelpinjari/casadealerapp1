@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'dart:html';
+
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/modal_class/block_product_modal.dart';
 import 'package:casadealerapp/modal_class/category_wise_display.dart';
 import 'package:casadealerapp/modal_class/color_display_all_class.dart';
 import 'package:casadealerapp/modal_class/color_modal.dart';
@@ -24,8 +25,8 @@ import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'drawer.dart';
-import 'package:path/path.dart' as path;
-import 'package:http/http.dart' as http;
+// import 'package:path/path.dart' as path;
+// import 'package:http/http.dart' as http;
 
 class product_2 extends StatefulWidget {
   String? imagenevigator;
@@ -56,6 +57,16 @@ class products {
 
 class _product_2State extends State<product_2> {
   TextEditingController _search = TextEditingController();
+
+  TextEditingController _m = TextEditingController();
+  TextEditingController _s = TextEditingController();
+  TextEditingController _l = TextEditingController();
+  TextEditingController _xl = TextEditingController();
+  TextEditingController _xxl = TextEditingController();
+  TextEditingController _3xl = TextEditingController();
+  TextEditingController _4xl = TextEditingController();
+  TextEditingController _5xl = TextEditingController();
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   color? colorData;
   bool _customTileExpanded = false;
@@ -117,6 +128,7 @@ class _product_2State extends State<product_2> {
   selectColorImageClass? selectimage;
 
   colorDisplayClass? displayallcolor;
+  blockProductClass? block;
 
   @override
   void initState() {
@@ -142,6 +154,7 @@ class _product_2State extends State<product_2> {
     await colorapi();
     await selectimageapi();
     await displaycolor();
+    await blockapi();
 
   }
 
@@ -1438,6 +1451,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller:  _s,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -1607,6 +1621,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                  controller: _m,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -1768,6 +1783,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _l,
+
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -1933,6 +1950,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _xl,
+
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -2094,6 +2113,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _xxl,
+
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -2259,6 +2280,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _3xl,
+
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -2420,6 +2443,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _4xl,
+
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -2585,6 +2610,8 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _5xl,
+
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -5060,12 +5087,14 @@ class _product_2State extends State<product_2> {
                     children: [
                       GestureDetector(
                         onTap: () {
+
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => summary()));
                           setState(() {
                             cart = 1;
+                            blockapi();
                           });
                         },
                         child: Container(
@@ -5347,4 +5376,83 @@ class _product_2State extends State<product_2> {
       } else {}
     });
   }
+
+
+
+  blockapi() async {
+    final Map<String, String> data = {};
+    data['action'] = 'block_produt_wise';
+    data['t_ap_id'] =   '1';
+    data['t_apd_id'] =   '2';
+    data['m_ap_id'] =   '1';
+    data['d_id'] = '1';
+    data['m_xs'] = gen == 0 ?"MEN":"WOMEN";
+    data['m_s'] = _s.text.trim().toString();
+    data['m_m'] = _m.text.trim().toString();
+    data['m_l'] = _l.text.trim().toString();
+    data['m_xl'] =_xl.text.trim().toString();
+    data['m_xxl'] = _xxl.text.trim().toString();
+    data['m_3xl'] = _3xl.text.trim().toString();
+    data['m_4xl'] = _4xl.text.trim().toString();
+    data['m_5xl'] = _5xl.text.trim().toString();
+
+    // data['t_xs'] = gen == 0 ?"MEN":"WOMEN";
+    // data['t_s'] = gen == 0 ?"MEN":"WOMEN";
+    // data['t_m'] = gen == 0 ?"MEN":"WOMEN";
+    // data['t_l'] = gen == 0 ?"MEN":"WOMEN";
+    // data['t_xl'] = gen == 0 ?"MEN":"WOMEN";
+    // data['t_xxl'] = gen == 0 ?"MEN":"WOMEN";
+    // data['t_3xl'] = gen == 0 ?"MEN":"WOMEN";
+    // data['t_4xl'] = gen == 0 ?"MEN":"WOMEN";
+    // data['t_5xl'] = gen == 0 ?"MEN":"WOMEN";
+
+
+
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider()
+            .product2blockprovider(data)
+            .then((Response response) async {
+          block =
+              blockProductClass.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && block?.status == "success") {
+
+
+            print("============="+(block?.status).toString());
+            setState(() {
+              // totals =int.parse( (displayallcolor?.mumbaiStock?[0].s).toString()) +int.parse((displayallcolor?.tripurStock?[0].s).toString());
+              // totalm =int.parse( (displayallcolor?.mumbaiStock?[0].m).toString()) +int.parse((displayallcolor?.tripurStock?[0].m).toString());
+              // totall =int.parse( (displayallcolor?.mumbaiStock?[0].l).toString()) +int.parse((displayallcolor?.tripurStock?[0].l).toString());
+              // totalxl =int.parse( (displayallcolor?.mumbaiStock?[0].xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].xl).toString());
+              // total2xl =int.parse( (displayallcolor?.mumbaiStock?[0].xxl).toString()) +int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
+              // total3xl =int.parse( (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
+              // total4xl =int.parse( (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
+              // total5xl =int.parse( (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
+              //
+
+
+
+
+
+
+
+
+
+            });
+
+            // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) {}
+          } else {}
+        });
+      } else {}
+    });
+  }
+
 }

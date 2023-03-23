@@ -310,6 +310,7 @@
 import 'dart:convert';
 
 import 'package:casadealerapp/modal_class/login_model.dart';
+import 'package:casadealerapp/screens/forget_password.dart';
 import 'package:casadealerapp/screens/loginsuccess.dart';
 import 'package:casadealerapp/screens/products_1.dart';
 import 'package:casadealerapp/screens/register.dart';
@@ -479,6 +480,10 @@ class _loginState extends State<login> {
                       padding: EdgeInsets.only(left: 25.h, top: 2.5.h),
                       child: GestureDetector(
                         onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => forgetpassword(
+
+                              )));
 
                         },
                         child: Container(
