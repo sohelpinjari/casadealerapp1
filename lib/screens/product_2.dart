@@ -57,7 +57,7 @@ class products {
 
 class _product_2State extends State<product_2> {
   TextEditingController _search = TextEditingController();
-
+  TextEditingController _xs = TextEditingController();
   TextEditingController _m = TextEditingController();
   TextEditingController _s = TextEditingController();
   TextEditingController _l = TextEditingController();
@@ -66,6 +66,17 @@ class _product_2State extends State<product_2> {
   TextEditingController _3xl = TextEditingController();
   TextEditingController _4xl = TextEditingController();
   TextEditingController _5xl = TextEditingController();
+
+  TextEditingController _txs = TextEditingController();
+  TextEditingController _tm = TextEditingController();
+  TextEditingController _ts = TextEditingController();
+  TextEditingController _tl = TextEditingController();
+  TextEditingController _txl = TextEditingController();
+  TextEditingController _txxl = TextEditingController();
+  TextEditingController _t3xl = TextEditingController();
+  TextEditingController _t4xl = TextEditingController();
+  TextEditingController _t5xl = TextEditingController();
+  TextEditingController _totalms = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   color? colorData;
@@ -87,6 +98,7 @@ class _product_2State extends State<product_2> {
   int? total3xl = 0;
   int? total4xl = 0;
   int? total5xl = 0;
+  int?  totaltexts= 0;
 
   final PageController controller = PageController(initialPage: 0);
   List<products> images = [
@@ -135,6 +147,28 @@ class _product_2State extends State<product_2> {
     // TODO: implement initState
     super.initState();
     getdata();
+    // _xs.text = '0';
+    // _s.text = '0';
+    // _m.text = '0';
+    // _l.text = '0';
+    // _xl.text = '0';
+    // _xxl.text = '0';
+    // _3xl.text = '0';
+    // _4xl.text = '0';
+    // _5xl.text = '0';
+    //
+    //
+    // _txs.text = '0';
+    // _ts.text = '0';
+    // _tm.text = '0';
+    // _tl.text = '0';
+    // _txl.text = '0';
+    // _txxl.text = '0';
+    // _t3xl.text = '0';
+    // _t4xl.text = '0';
+    // _t5xl.text = '0';
+
+
 
     // clrnameapi();
 
@@ -1451,6 +1485,9 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                  onChanged: (value) {
+                                                    updateTotal();
+                                                  },
                                                     controller:  _s,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
@@ -1502,6 +1539,10 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                  onChanged: (value) {
+                                                    updateTotal();
+                                                  },
+                                                    controller: _ts,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -1551,12 +1592,18 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                  onChanged: (value) {
+                                                    updateTotal();
+                                                  },
+
+                                                     controller: _totalms,
+
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
                                                   decoration: InputDecoration(
                                                     border: InputBorder.none,
-                                                    hintText: '',
+                                                    hintText: totaltexts.toString(),
                                                     // suffixIcon: Column(
                                                     //
                                                     //   children: [
@@ -1669,6 +1716,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _tm,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -1832,6 +1880,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _tl,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -1999,6 +2048,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _txl,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -2162,6 +2212,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _txxl,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -2329,6 +2380,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _t3xl,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -2492,6 +2544,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _t4xl,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -2659,6 +2712,7 @@ class _product_2State extends State<product_2> {
                                                         color: Color(
                                                             0xfff333389))),
                                                 child: TextField(
+                                                    controller: _t5xl,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
                                                       TextInputType.number,
@@ -5329,7 +5383,7 @@ class _product_2State extends State<product_2> {
     data['product_name'] = widget.pronamenevigatior.toString();
     data['gender_type'] =  gen == 0 ?"MEN":"WOMEN";
     data['color_name'] = product2color?.data?[selectbtn].colorName ?? '';
-    data['d_id'] = widget.coloridnevigator.toString();
+    data['d_id'] = (userData?.logindata?.dId).toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -5378,33 +5432,57 @@ class _product_2State extends State<product_2> {
   }
 
 
-
+  void updateTotal() {
+    int num1 = int.tryParse(_s.text) ?? 0;
+    int num2 = int.tryParse(_ts.text) ?? 0;
+    _totalms.text = (num1 + num2).toString();
+  }
   blockapi() async {
     final Map<String, String> data = {};
     data['action'] = 'block_produt_wise';
-    data['t_ap_id'] =   '1';
-    data['t_apd_id'] =   '2';
-    data['m_ap_id'] =   '1';
-    data['d_id'] = '1';
-    data['m_xs'] = gen == 0 ?"MEN":"WOMEN";
-    data['m_s'] = _s.text.trim().toString();
-    data['m_m'] = _m.text.trim().toString();
-    data['m_l'] = _l.text.trim().toString();
-    data['m_xl'] =_xl.text.trim().toString();
-    data['m_xxl'] = _xxl.text.trim().toString();
-    data['m_3xl'] = _3xl.text.trim().toString();
-    data['m_4xl'] = _4xl.text.trim().toString();
-    data['m_5xl'] = _5xl.text.trim().toString();
+    data['t_ap_id'] =  (displayallcolor?.tripurStock?[0].tApId).toString();
+    data['t_apd_id'] =   (displayallcolor?.tripurStock?[0].tApdId).toString();
+    data['m_ap_id'] =    (displayallcolor?.mumbaiStock?[0].mApId).toString();
+    data['m_apd_id'] =    (displayallcolor?.mumbaiStock?[0].mApdId).toString();
+    data['d_id'] = (userData?.logindata?.dId).toString();
 
-    // data['t_xs'] = gen == 0 ?"MEN":"WOMEN";
-    // data['t_s'] = gen == 0 ?"MEN":"WOMEN";
-    // data['t_m'] = gen == 0 ?"MEN":"WOMEN";
-    // data['t_l'] = gen == 0 ?"MEN":"WOMEN";
-    // data['t_xl'] = gen == 0 ?"MEN":"WOMEN";
-    // data['t_xxl'] = gen == 0 ?"MEN":"WOMEN";
-    // data['t_3xl'] = gen == 0 ?"MEN":"WOMEN";
-    // data['t_4xl'] = gen == 0 ?"MEN":"WOMEN";
-    // data['t_5xl'] = gen == 0 ?"MEN":"WOMEN";
+    data['m_xs'] =  _xs.text.trim().toString() == "" ?"0":_xs.text.trim().toString();
+
+    data['m_s'] =
+    _s.text.trim().toString() == "" ?"0":_s.text.trim().toString();
+    data['m_m'] =
+    _m.text.trim().toString() == "" ?"0":_m.text.trim().toString();
+    data['m_l'] =
+    _l.text.trim().toString() == "" ?"0":_l.text.trim().toString();
+    data['m_xl'] =
+    _xl.text.trim().toString() == "" ?"0":_xl.text.trim().toString();
+    data['m_xxl'] =
+    _xxl.text.trim().toString() == "" ?"0":_xxl.text.trim().toString();
+    data['m_3xl'] =
+    _3xl.text.trim().toString() == "" ?"0":_3xl.text.trim().toString();
+    data['m_4xl'] =
+    _4xl.text.trim().toString() == "" ?"0":_4xl.text.trim().toString();
+    data['m_5xl'] =
+    _5xl.text.trim().toString() == "" ?"0":_5xl.text.trim().toString();
+
+    data['t_xs'] =
+    _txs.text.trim().toString() == "" ?"0":_txs.text.trim().toString();
+    data['t_s'] =
+    _ts.text.trim().toString() == "" ?"0":_ts.text.trim().toString();
+    data['t_m'] =
+    _tm.text.trim().toString() == "" ?"0":_tm.text.trim().toString();
+    data['t_l'] =
+    _tl.text.trim().toString() == "" ?"0":_tl.text.trim().toString();
+    data['t_xl'] =
+    _txl.text.trim().toString() == "" ?"0":_txl.text.trim().toString();
+    data['t_xxl'] =
+    _txxl.text.trim().toString() == "" ?"0":_txxl.text.trim().toString();
+    data['t_3xl'] =
+    _t3xl.text.trim().toString() == "" ?"0":_t3xl.text.trim().toString();
+    data['t_4xl'] =
+    _t4xl.text.trim().toString() == "" ?"0":_t4xl.text.trim().toString();
+    data['t_5xl'] =
+    _t5xl.text.trim().toString() == "" ?"0":_t5xl.text.trim().toString();
 
 
 
@@ -5415,14 +5493,17 @@ class _product_2State extends State<product_2> {
         Productprovider()
             .product2blockprovider(data)
             .then((Response response) async {
+
           block =
               blockProductClass.fromJson(json.decode(response.body));
-
+          print("============="+(block?.status).toString());
           if (response.statusCode == 200 && block?.status == "success") {
 
 
-            print("============="+(block?.status).toString());
+
             setState(() {
+              totaltexts =int.parse(_s.text.trim().toString() + _txs.text.trim().toString());
+
               // totals =int.parse( (displayallcolor?.mumbaiStock?[0].s).toString()) +int.parse((displayallcolor?.tripurStock?[0].s).toString());
               // totalm =int.parse( (displayallcolor?.mumbaiStock?[0].m).toString()) +int.parse((displayallcolor?.tripurStock?[0].m).toString());
               // totall =int.parse( (displayallcolor?.mumbaiStock?[0].l).toString()) +int.parse((displayallcolor?.tripurStock?[0].l).toString());

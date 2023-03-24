@@ -365,7 +365,7 @@ class _your_orderState extends State<your_order> {
   viewapi() async {
     final Map<String, String> data = {};
     data['action'] = 'view_order';
-    data['d_id'] = '36';
+    data['d_id'] = (userData?.logindata?.dId).toString();
 
     print(data);
     checkInternet().then((internet) async {
