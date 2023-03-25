@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:casadealerapp/CONST.dart';
-import 'package:casadealerapp/screens/main.dart';
+import 'package:casadealerapp/loader.dart';
+import 'package:casadealerapp/main.dart';
 import 'package:casadealerapp/modal_class/category_wise_display.dart';
 import 'package:casadealerapp/modal_class/search_class.dart';
 import 'package:casadealerapp/screens/cart_order.dart';
@@ -71,6 +72,8 @@ class _products_1State extends State<products_1> {
   String? select;
   String? image;
   bool se_icon = false;
+  bool isloading = true;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -91,8 +94,8 @@ class _products_1State extends State<products_1> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return commanScreen( isLoading:isloading,
+      scaffold: Scaffold(
         drawer: drawer(context),
         key: _scaffoldKey,
         // appBar: AppBar(
@@ -102,7 +105,7 @@ class _products_1State extends State<products_1> {
         //   backgroundColor: Color(0xfff333389),
         //
         // ),
-        body: Stack(
+        body: isloading?Container(): Stack(
           children: [
             Container(
               height: MediaQuery.of(context).size.height,
@@ -111,75 +114,82 @@ class _products_1State extends State<products_1> {
             SingleChildScrollView(
               child: Column(
                 children: [
+
                   Column(
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width * 1,
-                        height: 8.h,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        height: 11.h,
+
+                        child: Column(
                           children: [
+                            SizedBox(height: 4.h),
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                IconButton(
-                                  onPressed: () {
-                                    _scaffoldKey.currentState?.openDrawer();
-                                  },
-                                  icon: Icon(
-                                    Icons.menu,
-                                    color: Colors.white,
-                                    size: 4.h,
-                                  ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        _scaffoldKey.currentState?.openDrawer();
+                                      },
+                                      icon: Icon(
+                                        Icons.menu,
+                                        color: Colors.white,
+                                        size: 4.h,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 2.3.h,
+                                    ),
+                                    Container(
+                                      // padding: EdgeInsets.only(top: 1.5.h),
+                                      // alignment: Alignment.center,
+                                      child: Text(
+                                        "Products",
+                                        style: TextStyle(
+                                            fontSize: 2.h, color: Colors.white),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 SizedBox(
-                                  width: 2.3.h,
+                                  width: 14.h,
                                 ),
-                                Container(
-                                  // padding: EdgeInsets.only(top: 1.5.h),
-                                  // alignment: Alignment.center,
-                                  child: Text(
-                                    "Products",
-                                    style: TextStyle(
-                                        fontSize: 2.h, color: Colors.white),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 14.h,
-                            ),
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      se_icon = !se_icon;
-                                    });
-                                    // _scaffoldKey.currentState?.openDrawer();
-                                  },
-                                  icon: Icon(
-                                    Icons.search,
-                                    color: Colors.white,
-                                    size: 3.5.h,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 1.h,
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                cart_order()));
-                                    // _scaffoldKey.currentState?.openDrawer();
-                                  },
-                                  icon: Icon(
-                                    Icons.shopping_bag_outlined,
-                                    color: Colors.white,
-                                    size: 3.h,
-                                  ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          se_icon = !se_icon;
+                                        });
+                                        // _scaffoldKey.currentState?.openDrawer();
+                                      },
+                                      icon: Icon(
+                                        Icons.search,
+                                        color: Colors.white,
+                                        size: 3.5.h,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 1.h,
+                                    ),
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    cart_order()));
+                                        // _scaffoldKey.currentState?.openDrawer();
+                                      },
+                                      icon: Icon(
+                                        Icons.shopping_bag_outlined,
+                                        color: Colors.white,
+                                        size: 3.h,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
@@ -917,6 +927,8 @@ class _products_1State extends State<products_1> {
         Productprovider().allcatogeryapi(data).then((Response response) async {
           allproperty = allcategorydisplay.fromJson(json.decode(response.body));
 
+          isloading = false;
+
           if (response.statusCode == 200 && allproperty?.status == "success") {
             setState(() {
               select = allproperty?.data?[0].id.toString();
@@ -928,10 +940,10 @@ class _products_1State extends State<products_1> {
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));
 
-            if (kDebugMode) {}
-          } else {}
+            if (kDebugMode) { isloading = false;}
+          } else { isloading = false;}
         });
-      } else {}
+      } else { isloading = false;}
     });
   }
 
@@ -947,6 +959,7 @@ class _products_1State extends State<products_1> {
             .then((Response response) async {
           allcatogaryproperty =
               categorywisedisplay.fromJson(json.decode(response.body));
+          isloading = false;
 
           if (response.statusCode == 200 &&
               allcatogaryproperty?.status == "success") {
@@ -955,10 +968,10 @@ class _products_1State extends State<products_1> {
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));
 
-            if (kDebugMode) {}
-          } else {}
+            if (kDebugMode) { isloading = false;}
+          } else { isloading = false;}
         });
-      } else {}
+      } else { isloading = false;}
     });
   }
 
@@ -973,6 +986,7 @@ class _products_1State extends State<products_1> {
         Productprovider().searchproduct(data).then((Response response) async {
           searchproperty = search.fromJson(json.decode(response.body));
 
+          isloading = false;
           if (response.statusCode == 200 &&
               searchproperty?.status == "success") {
             setState(() {});
@@ -982,10 +996,10 @@ class _products_1State extends State<products_1> {
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));
 
-            if (kDebugMode) {}
-          } else {}
+            if (kDebugMode) { isloading = false;}
+          } else { isloading = false;}
         });
-      } else {}
+      } else { isloading = false;}
     });
   }
 }

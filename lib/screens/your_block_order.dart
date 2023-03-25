@@ -17,8 +17,7 @@ class _your_block_orderState extends State<your_block_order> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       backgroundColor: Color(0xfffFFFFFF),
       drawer: drawer(context),
       key: _scaffoldKey,
@@ -28,69 +27,74 @@ class _your_block_orderState extends State<your_block_order> {
           children: [
             Container(
               width: MediaQuery.of(context).size.width * 1,
-              height: 8.h,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 0.h, left: 2.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
+              height: 11.h,
+              child: Column(
+                children: [
+                  SizedBox(height: 4.h),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 0.h, left: 2.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        IconButton(
-                          onPressed: () {
-                            _scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          ),
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                _scaffoldKey.currentState?.openDrawer();
+                              },
+                              icon: Icon(
+                                Icons.menu,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 2.3.h,
+                            ),
+                            Container(
+                              // padding: EdgeInsets.only(top: 1.5.h),
+                              // alignment: Alignment.center,
+                              child: Text(
+                                "Your blocked Orders",
+                                style: TextStyle(
+                                    fontSize: 2.h, color: Colors.white),
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 2.3.h,
-                        ),
-                        Container(
-                          // padding: EdgeInsets.only(top: 1.5.h),
-                          // alignment: Alignment.center,
-                          child: Text(
-                            "Your blocked Orders",
-                            style:
-                                TextStyle(fontSize: 2.h, color: Colors.white),
-                          ),
-                        ),
+                        // SizedBox(
+                        //   width: 4.h,
+                        // ),
+                        // Row(
+                        //   children: [
+                        //     IconButton(
+                        //       onPressed: () {
+                        //         // _scaffoldKey.currentState?.openDrawer();
+                        //       },
+                        //       icon: Icon(
+                        //         Icons.search,
+                        //         color: Colors.white,
+                        //         size: 3.h,
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       width: 1.h,
+                        //     ),
+                        //     IconButton(
+                        //       onPressed: () {
+                        //         // _scaffoldKey.currentState?.openDrawer();
+                        //       },
+                        //       icon: Icon(
+                        //         Icons.shopping_bag_outlined,
+                        //         color: Colors.white,
+                        //         size: 3.h,
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                       ],
                     ),
-                    // SizedBox(
-                    //   width: 4.h,
-                    // ),
-                    // Row(
-                    //   children: [
-                    //     IconButton(
-                    //       onPressed: () {
-                    //         // _scaffoldKey.currentState?.openDrawer();
-                    //       },
-                    //       icon: Icon(
-                    //         Icons.search,
-                    //         color: Colors.white,
-                    //         size: 3.h,
-                    //       ),
-                    //     ),
-                    //     SizedBox(
-                    //       width: 1.h,
-                    //     ),
-                    //     IconButton(
-                    //       onPressed: () {
-                    //         // _scaffoldKey.currentState?.openDrawer();
-                    //       },
-                    //       icon: Icon(
-                    //         Icons.shopping_bag_outlined,
-                    //         color: Colors.white,
-                    //         size: 3.h,
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               decoration: BoxDecoration(
                 color: Color(0xfff333389),
@@ -128,7 +132,8 @@ class _your_block_orderState extends State<your_block_order> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,                            children: [
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
                               Row(
                                 children: [
                                   ClipRRect(
@@ -146,14 +151,16 @@ class _your_block_orderState extends State<your_block_order> {
                                   Padding(
                                     padding: EdgeInsets.all(1.h),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Row(
                                           children: [
                                             Text(
                                               'Order ID #1234',
-                                                  // +  (view?.data?[index].productNumberOrder).toString() ?? "" ,
+                                              // +  (view?.data?[index].productNumberOrder).toString() ?? "" ,
 
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
@@ -164,7 +171,7 @@ class _your_block_orderState extends State<your_block_order> {
                                         // SizedBox(height: 1.5.h),
                                         Row(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               'No of Products : ',
@@ -187,16 +194,34 @@ class _your_block_orderState extends State<your_block_order> {
                                           width: 18.w,
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                              BorderRadius.circular(15),
-                                              color: (view?.data?[index].status == "1")? Color(0xfffaede7):  (view?.data?[index].status == "2")?Color(0xffe1f5e2):Color(0xfffae7e7)
-                                          ),
+                                                  BorderRadius.circular(15),
+                                              color:
+                                                  (view?.data?[index].status ==
+                                                          "1")
+                                                      ? Color(0xfffaede7)
+                                                      : (view?.data?[index]
+                                                                  .status ==
+                                                              "2")
+                                                          ? Color(0xffe1f5e2)
+                                                          : Color(0xfffae7e7)),
                                           child: Text(
-                                            (view?.data?[index].status == "1")?"Placed":
-
-                                            (view?.data?[index].status == "2")?"Confirmed":"Cancle",
+                                            (view?.data?[index].status == "1")
+                                                ? "Placed"
+                                                : (view?.data?[index].status ==
+                                                        "2")
+                                                    ? "Confirmed"
+                                                    : "Cancle",
                                             // 'Placed',
                                             style: TextStyle(
-                                                color: (view?.data?[index].status == "1")? Color(0xfff98b54):  (view?.data?[index].status == "2")?Color(0xff48d34d):Color(0xfff97070),
+                                                color: (view?.data?[index]
+                                                            .status ==
+                                                        "1")
+                                                    ? Color(0xfff98b54)
+                                                    : (view?.data?[index]
+                                                                .status ==
+                                                            "2")
+                                                        ? Color(0xff48d34d)
+                                                        : Color(0xfff97070),
                                                 fontWeight: FontWeight.bold),
                                           ),
                                         )
@@ -210,7 +235,7 @@ class _your_block_orderState extends State<your_block_order> {
                                 children: [
                                   Text(
                                     // '₹' + (view?.data?[index].price).toString() ?? "" ,
-                                     '₹5,925',
+                                    '₹5,925',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 2.2.h,
@@ -220,22 +245,83 @@ class _your_block_orderState extends State<your_block_order> {
                                     width: 3.w,
                                   ),
                                   Container(
-                                    // margin: EdgeInsets.only(left: 3.9.w),
-                                    decoration: BoxDecoration(
-                                      color: Color(0xffe2e2ed),
+                                      alignment: Alignment.center,
+                                      // margin: EdgeInsets.only(left: 3.9.w),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xffe2e2ed),
 
-                                      // border: Border.all(
-                                      //   // color:  Color(0xff5a5a9f),
+                                        // border: Border.all(
+                                        //   // color:  Color(0xff5a5a9f),
+                                        // ),
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      height: 5.h,
+                                      width: 10.w,
+                                      child: PopupMenuButton(
+                                        onSelected: (value) {
+                                          // your logic
+                                        },
+                                        itemBuilder: (BuildContext bc) {
+                                          return [
+                                            PopupMenuItem(
+                                              child: InkWell(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              order_detail_c()));
+                                                },
+                                                child: Text("Edit",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color:
+                                                            Color(0xff333389))),
+                                              ),
+                                              value: '/hello',
+                                            ),
+                                            PopupMenuItem(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            order_detail_c()
+                                                    )
+                                                );
+                                              },
+                                              child: Text("Convert to order",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold)
+                                              ),
+                                              value: '/about',
+                                            ),
+                                            PopupMenuItem(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            order_detail_c()
+                                                    )
+                                                );
+                                              },
+                                              child: Text("Unblock order",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                              value: '/contact',
+                                            )
+                                          ];
+                                        },
+                                      )
+                                      // Icon(
+                                      //   Icons.more_vert,
+                                      //   color: Color(0xff5a5a9f),
                                       // ),
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    height: 4.h,
-                                    width: 9.w,
-                                    child: Icon(
-                                      Icons.more_vert,
-                                      color: Color(0xff5a5a9f),
-                                    ),
-                                  ),
+                                      ),
                                 ],
                               ),
                             ],
@@ -334,6 +420,6 @@ class _your_block_orderState extends State<your_block_order> {
           ],
         ),
       ),
-    ));
+    );
   }
 }
