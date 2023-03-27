@@ -21,6 +21,7 @@ import 'package:casadealerapp/screens/summary.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:http/http.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart';
@@ -3914,15 +3915,24 @@ class _product_2State extends State<product_2> {
                                                                 String filePath = '${storageDirectory.path}/$fileName';
 
                                                                 try {
+                                                                  final savedFile = await GallerySaver.saveImage(filePath);
+                                                                  print("Image saved to gallery: $savedFile");
+                                                                  ScaffoldMessenger.of(context).showSnackBar(
+                                                                    SnackBar(content: Text('Image saved to gallery')),
+                                                                  );
                                                                   final result = await OpenFile.open(filePath);
                                                                   // Use the Image.file widget to display the image
                                                                   // in the UI after it has been downloaded and saved.
                                                                   // Make sure to import the `dart:io` library.
                                                                   Image.file(File(filePath));
+
+                                                                  // Save the image to the gallery
+
                                                                 } catch (e) {
                                                                   print(e.toString());
                                                                 }
                                                               },
+
 
 
                                                               // onPressed: () {
