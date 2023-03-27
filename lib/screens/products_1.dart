@@ -277,9 +277,15 @@ class _products_1State extends State<products_1> {
                                 setState(() {
                                   gen = index;
                                   select = allproperty?.data?[index].id;
+
                                 });
+
+
                                 print("gfhfhgh");
                                 categorydisplay();
+
+
+
                               },
                               child: Container(
                                 height: 13.h,
@@ -412,27 +418,27 @@ class _products_1State extends State<products_1> {
                                       // EdgeInsets.only(right: 1.h, bottom: 1.h),
                                       child: GestureDetector(
                                         onTap: () async {
-                                          // Navigator.push(
-                                          //     context,
-                                          //     MaterialPageRoute(
-                                          //         builder: (context) => product_2(
-                                          //           imagenevigator:
-                                          //           '${searchproperty?.data![index].prodImgDefault}',
-                                          //           pronamenevigatior:   '${searchproperty?.data![index].prodName}',
-                                          //                                                       // coloridnevigator:
-                                          //           //     '${productData?.productData![index].apId}',
-                                          //         )));
-                                          // String? search = await Navigator.push(
-                                          //     context,
-                                          //     MaterialPageRoute(
-                                          //         builder: (context) =>
-                                          //             products_1()));
-                                          // if (search != null) {
-                                          //   if (search.isNotEmpty) {
-                                          //     _search.text = search;
-                                          //     searchapi(search);
-                                          //   }
-                                          // }
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => product_2(
+                                                    imagenevigator:
+                                                    '${searchproperty?.data![index].prodImgDefault}',
+                                                    pronamenevigatior:   '${searchproperty?.data![index].prodName}',
+                                                                                                // coloridnevigator:
+                                                    //     '${productData?.productData![index].apId}',
+                                                  )));
+                                          String? search = await Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      products_1()));
+                                          if (search != null) {
+                                            if (search.isNotEmpty) {
+                                              _search.text = search;
+                                              searchapi(search);
+                                            }
+                                          }
                                         },
                                         child: Center(
                                           child: Column(
@@ -484,7 +490,7 @@ class _products_1State extends State<products_1> {
                                                         BorderRadius.circular(
                                                             15),
                                                     child: Image.asset(
-                                                      "assets/product_1_img.png",
+                                                      "assets/default_product_image.png",
                                                       // width: MediaQuery.of(context)
                                                       //     .size
                                                       //     .width *
@@ -610,7 +616,7 @@ class _products_1State extends State<products_1> {
                                                           .prodImgDefault ??
                                                       "",
                                             errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                                              return Image.asset("assets/product_1_img.png",
+                                              return Image.asset( "assets/default_product_image.png",
                                                 width: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -619,7 +625,8 @@ class _products_1State extends State<products_1> {
                                                     .size
                                                     .height *
                                                     0.3,
-                                                fit: BoxFit.cover,
+                                                fit: BoxFit.cover
+                                                ,
                                               );
                                             },
                                                   width: MediaQuery.of(context)

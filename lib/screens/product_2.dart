@@ -14,6 +14,7 @@ import 'package:casadealerapp/modal_class/select_image_class.dart';
 import 'package:casadealerapp/provider/login_authprovider.dart';
 import 'package:casadealerapp/modal_class/productapiclass.dart';
 import 'package:casadealerapp/provider/productprovider.dart';
+import 'package:casadealerapp/screens/video_screen.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:casadealerapp/modal_class/singlepro_class.dart';
 import 'package:casadealerapp/screens/summary.dart';
@@ -21,15 +22,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:video_player/video_player.dart';
 
 import '../loader.dart';
 import 'drawer.dart';
-// import 'package:path/path.dart' as path;
-// import 'package:http/http.dart' as http;
+import 'package:path/path.dart' as path;
+import 'package:http/http.dart' as http;
 
 class product_2 extends StatefulWidget {
   String? imagenevigator;
@@ -1076,8 +1080,9 @@ class _product_2State extends State<product_2> {
                             //       }),
                             // ),
                           ),
-                          (selectindex == 0)
-                              ? Container(
+                          // (selectindex == 0)
+                          //     ?
+                              Container(
                                   child: Column(
                                     children: [
                                       Padding(
@@ -3898,18 +3903,40 @@ class _product_2State extends State<product_2> {
                                                                   .spaceBetween,
                                                           children: [
                                                             ElevatedButton(
-                                                              onPressed: () {
-                                                                displayallcolor
-                                                                        ?.mumbaiStock?[
-                                                                            0]
-                                                                        .sizeChart
-                                                                        .toString() ??
-                                                                    '';
-                                                                // Navigator.push(
-                                                                //     context,
-                                                                //     MaterialPageRoute(
-                                                                //         builder: (context) => products_1()));
+
+                                                              onPressed: () async {
+                                                                var response = await http.get(Uri.parse("https://images.unsplash.com/photo-1679858511193-f124745ad28b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"));
+                                                                String fileName = DateTime.now().millisecondsSinceEpoch.toString() + ".jpeg";
+                                                                Directory? storageDirectory = await getExternalStorageDirectory();
+                                                                String directoryPath = storageDirectory!.path;
+                                                                File file = File('$directoryPath/$fileName');
+                                                                await file.writeAsBytes(response.bodyBytes);
+                                                                String filePath = '${storageDirectory.path}/$fileName';
+
+                                                                try {
+                                                                  final result = await OpenFile.open(filePath);
+                                                                  // Use the Image.file widget to display the image
+                                                                  // in the UI after it has been downloaded and saved.
+                                                                  // Make sure to import the `dart:io` library.
+                                                                  Image.file(File(filePath));
+                                                                } catch (e) {
+                                                                  print(e.toString());
+                                                                }
                                                               },
+
+
+                                                              // onPressed: () {
+                                                              //   displayallcolor
+                                                              //           ?.mumbaiStock?[
+                                                              //               0]
+                                                              //           .sizeChart
+                                                              //           .toString() ??
+                                                              //       '';
+                                                              //   // Navigator.push(
+                                                              //   //     context,
+                                                              //   //     MaterialPageRoute(
+                                                              //   //         builder: (context) => products_1()));
+                                                              // },
                                                               style:
                                                                   ElevatedButton
                                                                       .styleFrom(
@@ -3938,6 +3965,25 @@ class _product_2State extends State<product_2> {
                                                             //   width: 3.w,
                                                             // ),
                                                             ElevatedButton(
+
+
+                                                              // onPressed: () async {
+                                                              //   var response = await http.get(Uri.parse('https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4'));
+                                                              //   String fileName = DateTime.now().millisecondsSinceEpoch.toString() + ".mp4";
+                                                              //   Directory? storageDirectory = await getExternalStorageDirectory();
+                                                              //   String directoryPath = storageDirectory!.path;
+                                                              //   File file = File('$directoryPath/$fileName');
+                                                              //   await file.writeAsBytes(response.bodyBytes);
+                                                              //   String filePath = '${storageDirectory.path}/$fileName';
+                                                              //
+                                                              //   VideoPlayerController videoPlayerController = VideoPlayerController.file(File(filePath));
+                                                              //   await videoPlayerController.initialize();
+                                                              //   await videoPlayerController.play();
+                                                              // },
+
+
+
+
                                                               onPressed: () {
                                                                 displayallcolor
                                                                         ?.mumbaiStock?[
@@ -3945,10 +3991,10 @@ class _product_2State extends State<product_2> {
                                                                         .videoSpecification
                                                                         .toString() ??
                                                                     '';
-                                                                // Navigator.push(
-                                                                //     context,
-                                                                //     MaterialPageRoute(
-                                                                //         builder: (context) => products_1()));
+                                                                Navigator.push(
+                                                                    context,
+                                                                    MaterialPageRoute(
+                                                                        builder: (context) => VideoPlayerPage(videoFilePath: 'https://sample-videos.com/video123/mp4/480/big_buck_bunny_480p_2mb.mp4',)));
                                                               },
                                                               style:
                                                                   ElevatedButton
@@ -3992,31 +4038,27 @@ class _product_2State extends State<product_2> {
                                                         // padding:
                                                         //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
                                                         child: ElevatedButton(
-                                                          onPressed: () {
-                                                            displayallcolor
-                                                                    ?.mumbaiStock?[
-                                                                        0]
-                                                                    .catalogue
-                                                                    .toString() ??
-                                                                '';
+                                                          onPressed: () async {
+                                                            var response = await http.get(Uri.parse(("https://www.africau.edu/images/default/sample.pdf")));
+                                                            String fileName = url.toString().split('/').last;
+                                                            Directory? storageDirectory =  await getExternalStorageDirectory() ;
+                                                            String directoryPath = storageDirectory!.path;
+                                                            File file = File('$directoryPath/$fileName');
+                                                            // Directory directory = await getApplicationDocumentsDirectory();
+                                                            await file.writeAsBytes(response.bodyBytes);
+                                                            String filePath = '${storageDirectory.path}/$fileName';
 
-                                                            //   var response = await http.get(Uri.parse(( displayallcolor?.mumbaiStock?[0].catalogue.?? '')));
-                                                            //
-                                                            //
-                                                            //
-                                                            // await getDownloadsDirectory();
-                                                            //   String directoryPath = storageDirectory!.path;
-                                                            //
-                                                            //   File file = File('$directoryPath/$fileName');
-                                                            //   // Directory directory = await getApplicationDocumentsDirectory();
-                                                            //   await file.writeAsBytes(response.bodyBytes);
-                                                            //   String filePath = '${storageDirectory.path}/$fileName';
-                                                            //
-                                                            //   try {
-                                                            //     final result = await OpenFile.open(filePath);
-                                                            //   } catch (e) {
-                                                            //     print(e.toString());
-                                                            //   }
+                                                            try {
+                                                              final result = await OpenFile.open(filePath);
+                                                            } catch (e) {
+                                                              print(e.toString());
+                                                            }
+                                                            // displayallcolor
+                                                            //         ?.mumbaiStock?[
+                                                            //             0]
+                                                            //         .catalogue
+                                                            //         .toString() ??
+                                                            //     '';
                                                             // Navigator.push(
                                                             //     context,
                                                             //     MaterialPageRoute(
@@ -4071,1904 +4113,1905 @@ class _product_2State extends State<product_2> {
                                     ],
                                   ),
                                 )
-                              : Container(
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.all(2.h),
-                                        child: Container(
-                                            alignment: Alignment.centerLeft,
-                                            margin: EdgeInsets.only(top: 1.h),
-                                            child: Text(
-                                              "Select Color",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 2.4.h,
-                                              ),
-                                            )),
-                                      ),
-                                      // SizedBox(
-                                      //   height: 1.4.h,
-                                      // ),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 2.h, right: 2.h),
-                                        child: Divider(
-                                            color: Colors.grey.shade400),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 2.h),
-                                        child: Container(
-                                            height: 18.18.h,
-                                            width: 90.w,
-                                            padding: EdgeInsets.all(9.0),
-                                            child: GridView.builder(
-                                              itemCount: tripur.length,
-                                              gridDelegate:
-                                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                                      crossAxisCount: 7,
-                                                      crossAxisSpacing: 12.0,
-                                                      childAspectRatio: 3 / 3,
-                                                      mainAxisSpacing: 6.0),
-                                              itemBuilder:
-                                                  (BuildContext context,
-                                                      int index) {
-                                                return GestureDetector(
-                                                    onTap: () {
-                                                      setState(() {
-                                                        colorapi();
-                                                        btn = index;
-                                                      });
-                                                    },
-                                                    child: Stack(
-                                                      children: [
-                                                        Container(
-                                                          height: 10.h,
-                                                          width: 20.w,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                  color: tripur[
-                                                                      index]),
-                                                        ),
-                                                        (btn == index)
-                                                            ? Container(
-                                                                height: 10.h,
-                                                                width: 20.w,
-                                                                decoration: BoxDecoration(
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                    color: Colors
-                                                                        .transparent),
-                                                                child: Icon(
-                                                                  Icons.check,
-                                                                  color: Colors
-                                                                      .white,
-                                                                  size: 15.sp,
-                                                                ),
-                                                              )
-                                                            : Container()
-                                                      ],
-                                                    ));
-                                              },
-                                            )),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.all(2.h),
-                                        child: Container(
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                              "Select Gender",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 2.4.h,
-                                              ),
-                                            )),
-                                      ),
-                                      // SizedBox(
-                                      //   height: 2.h,
-                                      // ),
-                                      Divider(color: Colors.grey.shade400),
-                                      Padding(
-                                        padding: EdgeInsets.all(2.h),
-                                        child: Container(
-                                          child: Row(
-                                            children: [
-                                              GestureDetector(
-                                                onTap: () {
-                                                  setState(() {
-                                                    gen = 1;
-                                                  });
-                                                },
-                                                child: Container(
-                                                  padding:
-                                                      EdgeInsets.all(0.1.h),
-                                                  alignment: Alignment.center,
-                                                  width: 10.h,
-                                                  height: 5.h,
-                                                  decoration: BoxDecoration(
-                                                      color: (gen == 0)
-                                                          ? Colors.white
-                                                          : Color(0xfff333389),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10),
-                                                      border: Border.all(
-                                                          color: Color(
-                                                              0xff333389))),
-                                                  child: Text(
-                                                    'Men',
-                                                    style: TextStyle(
-                                                        color: (gen == 0)
-                                                            ? Color(0xff333389)
-                                                            : Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 2.h),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 0.6.h,
-                                              ),
-                                              GestureDetector(
-                                                onTap: () {
-                                                  setState(() {
-                                                    gen = 0;
-                                                  });
-                                                },
-                                                child: Container(
-                                                  padding:
-                                                      EdgeInsets.all(0.1.h),
-                                                  alignment: Alignment.center,
-                                                  width: 14.h,
-                                                  height: 5.h,
-                                                  decoration: BoxDecoration(
-                                                      color: (gen == 1)
-                                                          ? Colors.white
-                                                          : Color(0xfff333389),
-                                                      // color:_selectedColor,
-
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10),
-                                                      border: Border.all(
-                                                          color: Color(
-                                                              0xff333389))),
-                                                  child: Text(
-                                                    'Women',
-                                                    style: TextStyle(
-                                                        color: (gen == 1)
-                                                            ? Color(0xff333389)
-                                                            : Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 2.h),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(height: 2.h),
-                                      Container(
-                                          alignment: Alignment.center,
-                                          height: 6.h,
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          color: Color(0xfffeaeaf3),
-                                          child: Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 2.h),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "Color:",
-                                                  style: TextStyle(
-                                                    fontSize: 2.5.h,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  " Red",
-                                                  style: TextStyle(
-                                                      fontSize: 2.5.h,
-                                                      color:
-                                                          Color(0xfff333389)),
-                                                ),
-                                                // SizedBox(
-                                                //   width: 6.h,
-                                                // ),
-                                                Text(
-                                                  "|",
-                                                  style: TextStyle(
-                                                      fontSize: 2.5.h,
-                                                      color:
-                                                          Color(0xfff333389)),
-                                                ),
-                                                // SizedBox(
-                                                //   width: 7.h,
-                                                // ),
-                                                Text(
-                                                  "Price:",
-                                                  style: TextStyle(
-                                                    fontSize: 2.5.h,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  " ₹125",
-                                                  style: TextStyle(
-                                                      fontSize: 2.5.h,
-                                                      color:
-                                                          Color(0xfff333389)),
-                                                ),
-                                              ],
-                                            ),
-                                          )),
-                                      SizedBox(
-                                        height: 4.h,
-                                      ),
-
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            right: 18.w,
-                                            left: 3.w,
-                                            bottom: 2.h),
-                                        child: Container(
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "Size",
-                                                style: TextStyle(fontSize: 2.h),
-                                              ),
-                                              // SizedBox(width: 1.8.h),
-                                              Text("Mumbai",
-                                                  style:
-                                                      TextStyle(fontSize: 2.h)),
-                                              // SizedBox(width: 1.8.h),
-                                              Text("Tirpur",
-                                                  style:
-                                                      TextStyle(fontSize: 2.h)),
-                                              // SizedBox(width: 1.8.h),
-                                              Text("Total",
-                                                  style:
-                                                      TextStyle(fontSize: 2.h)),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      // Padding(
-                                      //   padding: EdgeInsets.all(8.0),
-                                      //   child:
-                                      //       Divider(color: Colors.grey.shade400),
-                                      // ),
-
-                                      Padding(
-                                        padding: EdgeInsets.all(2.h),
-                                        child: Container(
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "S ",
-                                                style: TextStyle(
-                                                    fontSize: 2.h,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 12.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              //
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "432",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        height: 12.h,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        color: Color(0xfff9f9f9),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2.h),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "M ",
-                                                style: TextStyle(
-                                                    fontSize: 2.h,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 12.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              //
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "432",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.all(2.h),
-                                        child: Container(
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "L ",
-                                                style: TextStyle(
-                                                    fontSize: 2.h,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 12.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              //
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "432",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        height: 12.h,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        color: Color(0xfff9f9f9),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2.h),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "XL",
-                                                style: TextStyle(
-                                                    fontSize: 2.h,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 12.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              //
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "432",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.all(2.h),
-                                        child: Container(
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "2XL",
-                                                style: TextStyle(
-                                                    fontSize: 2.h,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 12.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              //
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "432",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        height: 12.h,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        color: Color(0xfff9f9f9),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2.h),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "3XL",
-                                                style: TextStyle(
-                                                    fontSize: 2.h,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 12.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              //
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "432",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.all(2.h),
-                                        child: Container(
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "4XL",
-                                                style: TextStyle(
-                                                    fontSize: 2.h,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 12.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              //
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "432",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        height: 12.h,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        color: Color(0xfff9f9f9),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2.h),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "5XL",
-                                                style: TextStyle(
-                                                    fontSize: 2.h,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 12.w),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '432',
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                              // SizedBox(width: 5.w),
-                                              //
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "432",
-                                                    style: TextStyle(
-                                                        fontSize: 2.h,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  SizedBox(height: 1.h),
-                                                  Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 10.h,
-                                                      height: 4.h,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          border: Border.all(
-                                                              color: Color(
-                                                                  0xfff333389))),
-                                                      child: TextField(
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText: '',
-                                                          // suffixIcon: Column(
-                                                          //
-                                                          //   children: [
-                                                          //     Icon(Icons.arrow_drop_up),
-                                                          //     Icon(Icons.arrow_drop_down),
-                                                          //   ],
-                                                          // )
-                                                        ),
-                                                        // child: Text(
-                                                        //   "1000",
-                                                        //   style: TextStyle(
-                                                        //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
-                                                        // ),
-                                                      )),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-
-                                      // Padding(
-                                      //   padding: EdgeInsets.all(2.h),
-                                      //   child: Container(
-                                      //     child: Row(
-                                      //       crossAxisAlignment: CrossAxisAlignment.center,
-                                      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      //       children: [
-                                      //         Text(
-                                      //           "Available Qty",
-                                      //           style: TextStyle(
-                                      //               fontSize: 2.5.h,
-                                      //               fontWeight: FontWeight.bold),
-                                      //         ),
-                                      //         // SizedBox(width: 5.w),
-                                      //         Container(
-                                      //           width: 20.w,
-                                      //           child: Divider(
-                                      //               thickness: 2,
-                                      //               color: Color(0xfff333389)),
-                                      //         ),
-                                      //         // SizedBox(width: 5.w),
-                                      //         Container(
-                                      //             alignment: Alignment.center,
-                                      //             width: 11.8.h,
-                                      //             height: 5.8.h,
-                                      //             decoration: BoxDecoration(
-                                      //                 borderRadius:
-                                      //                     BorderRadius.circular(
-                                      //                         15),
-                                      //                 border: Border.all(
-                                      //                     color: Color(
-                                      //                         0xfff333389))),
-                                      //             child: Text("550",
-                                      //                 style: TextStyle(
-                                      //                     fontSize: 2.5.h,
-                                      //                     color:
-                                      //                         Color(0xfff333389),
-                                      //                     fontWeight:
-                                      //                         FontWeight.bold))),
-                                      //       ],
-                                      //     ),
-                                      //   ),
-                                      // ),
-                                      // Padding(
-                                      //   padding: EdgeInsets.all(2.h),
-                                      //   child: Container(
-                                      //     child: Row(
-                                      //         crossAxisAlignment: CrossAxisAlignment.center,
-                                      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      //       children: [
-                                      //         Text(
-                                      //           "Enter Quantity",
-                                      //           style: TextStyle(
-                                      //               fontSize: 2.5.h,
-                                      //               fontWeight: FontWeight.bold),
-                                      //         ),
-                                      //         // SizedBox(width: 5.w),
-                                      //         // Container(
-                                      //         //   width: 20.w,
-                                      //         //   child: Divider(
-                                      //         //       thickness: 2,
-                                      //         //       color: Color(0xfff333389)),
-                                      //         // ),
-                                      //         // SizedBox(width: 5.w),
-                                      //         Container(
-                                      //             alignment: Alignment.center,
-                                      //             width: 45.w,
-                                      //             height: 5.8.h,
-                                      //             decoration: BoxDecoration(
-                                      //                 color: Color(0xfff333389),
-                                      //                 borderRadius:
-                                      //                     BorderRadius.circular(
-                                      //                         10),
-                                      //                 border: Border.all(
-                                      //                     color: Color(
-                                      //                         0xfff333389))),
-                                      //             child: Text("550",
-                                      //                 style: TextStyle(
-                                      //                     fontSize: 2.h,
-                                      //                     color: Colors.white,
-                                      //                     fontWeight:
-                                      //                         FontWeight.bold))),
-                                      //       ],
-                                      //     ),
-                                      //   ),
-                                      // ),
-
-                                      Padding(
-                                        padding: EdgeInsets.all(2.h),
-                                        child: ExpansionTile(
-                                          title: Text('Size Chart'),
-                                          children: <Widget>[
-                                            SingleChildScrollView(
-                                              scrollDirection: Axis.vertical,
-                                              child: Container(
-                                                height: 100.h,
-                                                child: ListTile(
-                                                    title: Column(
-                                                  children: [
-                                                    Text(
-                                                      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                                                      style: TextStyle(
-                                                          fontSize: 2.h,
-                                                          color: Colors
-                                                              .grey.shade600),
-                                                    ),
-                                                    SizedBox(
-                                                      height: 2.h,
-                                                    ),
-                                                    Container(
-                                                      alignment:
-                                                          Alignment.centerLeft,
-                                                      child: Text("Size Chart",
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold)),
-                                                    ),
-                                                    SizedBox(height: 1.h),
-                                                    Divider(
-                                                        color: Colors
-                                                            .grey.shade400),
-                                                    Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      child: Image.asset(
-                                                        'assets/product_2_img2.png',
-                                                        fit: BoxFit.cover,
-                                                        height: 40.h,
-                                                        width: MediaQuery.of(
-                                                                context)
-                                                            .size
-                                                            .width,
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                        height: 10.h,
-                                                        width: 20.w,
-                                                        color: Colors.red,
-                                                        child: Text('djvvdv')),
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.9,
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
-                                                              0.07,
-                                                      // color: Color(0xfff333389),
-                                                      // padding:
-                                                      //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
-                                                      child: ElevatedButton(
-                                                        onPressed: () {
-                                                          // Navigator.push(
-                                                          //     context,
-                                                          //     MaterialPageRoute(
-                                                          //         builder: (context) => products_1()));
-                                                        },
-                                                        style: ElevatedButton
-                                                            .styleFrom(
-                                                          backgroundColor:
-                                                              Color(
-                                                                  0xfff333389),
-                                                          shape:
-                                                              RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8),
-                                                          ),
-                                                        ),
-                                                        child: Row(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Text(
-                                                              'Image',
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      2.h),
-                                                            ),
-                                                            // Icon(
-                                                            //   Icons.arrow_forward,
-                                                            //   color: Colors.white,
-                                                            //   size: 24.0,
-                                                            //   semanticLabel:
-                                                            //   'Text to announce in accessibility modes',
-                                                            // ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 1.h),
-                                                    Container(
-                                                      alignment:
-                                                          Alignment.center,
-
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
-                                                              0.09,
-                                                      // color: Color(0xfff333389),
-                                                      // padding:
-                                                      //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
-                                                      child: Row(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          ElevatedButton(
-                                                            onPressed: () {
-                                                              // Navigator.push(
-                                                              //     context,
-                                                              //     MaterialPageRoute(
-                                                              //         builder: (context) => products_1()));
-                                                            },
-                                                            style:
-                                                                ElevatedButton
-                                                                    .styleFrom(
-                                                              minimumSize: Size(
-                                                                  40.w, 6.5.h),
-                                                              backgroundColor:
-                                                                  Color(
-                                                                      0xfff333389),
-                                                              shape:
-                                                                  RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8),
-                                                              ),
-                                                            ),
-                                                            child: Text(
-                                                              'Catalog',
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      2.h),
-                                                            ),
-                                                          ),
-                                                          // SizedBox(
-                                                          //   width: 3.w,
-                                                          // ),
-                                                          ElevatedButton(
-                                                            onPressed: () {
-                                                              // Navigator.push(
-                                                              //     context,
-                                                              //     MaterialPageRoute(
-                                                              //         builder: (context) => products_1()));
-                                                            },
-                                                            style:
-                                                                ElevatedButton
-                                                                    .styleFrom(
-                                                              minimumSize: Size(
-                                                                  40.w, 6.5.h),
-                                                              backgroundColor:
-                                                                  Color(
-                                                                      0xfff333389),
-                                                              shape:
-                                                                  RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8),
-                                                              ),
-                                                            ),
-                                                            child: Text(
-                                                              'Video',
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      2.h),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                )),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
+                              // :
+                              // Container(
+                              //     child: Column(
+                              //       children: [
+                              //         Padding(
+                              //           padding: EdgeInsets.all(2.h),
+                              //           child: Container(
+                              //               alignment: Alignment.centerLeft,
+                              //               margin: EdgeInsets.only(top: 1.h),
+                              //               child: Text(
+                              //                 "Select Color",
+                              //                 style: TextStyle(
+                              //                   fontWeight: FontWeight.bold,
+                              //                   fontSize: 2.4.h,
+                              //                 ),
+                              //               )),
+                              //         ),
+                              //         // SizedBox(
+                              //         //   height: 1.4.h,
+                              //         // ),
+                              //         Padding(
+                              //           padding: EdgeInsets.only(
+                              //               left: 2.h, right: 2.h),
+                              //           child: Divider(
+                              //               color: Colors.grey.shade400),
+                              //         ),
+                              //         Padding(
+                              //           padding: EdgeInsets.symmetric(
+                              //               horizontal: 2.h),
+                              //           child: Container(
+                              //               height: 18.18.h,
+                              //               width: 90.w,
+                              //               padding: EdgeInsets.all(9.0),
+                              //               child: GridView.builder(
+                              //                 itemCount: tripur.length,
+                              //                 gridDelegate:
+                              //                     SliverGridDelegateWithFixedCrossAxisCount(
+                              //                         crossAxisCount: 7,
+                              //                         crossAxisSpacing: 12.0,
+                              //                         childAspectRatio: 3 / 3,
+                              //                         mainAxisSpacing: 6.0),
+                              //                 itemBuilder:
+                              //                     (BuildContext context,
+                              //                         int index) {
+                              //                   return GestureDetector(
+                              //                       onTap: () {
+                              //                         setState(() {
+                              //                           colorapi();
+                              //                           btn = index;
+                              //                         });
+                              //                       },
+                              //                       child: Stack(
+                              //                         children: [
+                              //                           Container(
+                              //                             height: 10.h,
+                              //                             width: 20.w,
+                              //                             decoration:
+                              //                                 BoxDecoration(
+                              //                                     shape: BoxShape
+                              //                                         .circle,
+                              //                                     color: tripur[
+                              //                                         index]),
+                              //                           ),
+                              //                           (btn == index)
+                              //                               ? Container(
+                              //                                   height: 10.h,
+                              //                                   width: 20.w,
+                              //                                   decoration: BoxDecoration(
+                              //                                       shape: BoxShape
+                              //                                           .circle,
+                              //                                       color: Colors
+                              //                                           .transparent),
+                              //                                   child: Icon(
+                              //                                     Icons.check,
+                              //                                     color: Colors
+                              //                                         .white,
+                              //                                     size: 15.sp,
+                              //                                   ),
+                              //                                 )
+                              //                               : Container()
+                              //                         ],
+                              //                       ));
+                              //                 },
+                              //               )),
+                              //         ),
+                              //         Padding(
+                              //           padding: EdgeInsets.all(2.h),
+                              //           child: Container(
+                              //               alignment: Alignment.centerLeft,
+                              //               child: Text(
+                              //                 "Select Gender",
+                              //                 style: TextStyle(
+                              //                   fontWeight: FontWeight.bold,
+                              //                   fontSize: 2.4.h,
+                              //                 ),
+                              //               )),
+                              //         ),
+                              //         // SizedBox(
+                              //         //   height: 2.h,
+                              //         // ),
+                              //         Divider(color: Colors.grey.shade400),
+                              //         Padding(
+                              //           padding: EdgeInsets.all(2.h),
+                              //           child: Container(
+                              //             child: Row(
+                              //               children: [
+                              //                 GestureDetector(
+                              //                   onTap: () {
+                              //                     setState(() {
+                              //                       gen = 1;
+                              //                     });
+                              //                   },
+                              //                   child: Container(
+                              //                     padding:
+                              //                         EdgeInsets.all(0.1.h),
+                              //                     alignment: Alignment.center,
+                              //                     width: 10.h,
+                              //                     height: 5.h,
+                              //                     decoration: BoxDecoration(
+                              //                         color: (gen == 0)
+                              //                             ? Colors.white
+                              //                             : Color(0xfff333389),
+                              //                         borderRadius:
+                              //                             BorderRadius.circular(
+                              //                                 10),
+                              //                         border: Border.all(
+                              //                             color: Color(
+                              //                                 0xff333389))),
+                              //                     child: Text(
+                              //                       'Men',
+                              //                       style: TextStyle(
+                              //                           color: (gen == 0)
+                              //                               ? Color(0xff333389)
+                              //                               : Colors.white,
+                              //                           fontWeight:
+                              //                               FontWeight.bold,
+                              //                           fontSize: 2.h),
+                              //                     ),
+                              //                   ),
+                              //                 ),
+                              //                 SizedBox(
+                              //                   width: 0.6.h,
+                              //                 ),
+                              //                 GestureDetector(
+                              //                   onTap: () {
+                              //                     setState(() {
+                              //                       gen = 0;
+                              //                     });
+                              //                   },
+                              //                   child: Container(
+                              //                     padding:
+                              //                         EdgeInsets.all(0.1.h),
+                              //                     alignment: Alignment.center,
+                              //                     width: 14.h,
+                              //                     height: 5.h,
+                              //                     decoration: BoxDecoration(
+                              //                         color: (gen == 1)
+                              //                             ? Colors.white
+                              //                             : Color(0xfff333389),
+                              //                         // color:_selectedColor,
+                              //
+                              //                         borderRadius:
+                              //                             BorderRadius.circular(
+                              //                                 10),
+                              //                         border: Border.all(
+                              //                             color: Color(
+                              //                                 0xff333389))),
+                              //                     child: Text(
+                              //                       'Women',
+                              //                       style: TextStyle(
+                              //                           color: (gen == 1)
+                              //                               ? Color(0xff333389)
+                              //                               : Colors.white,
+                              //                           fontWeight:
+                              //                               FontWeight.bold,
+                              //                           fontSize: 2.h),
+                              //                     ),
+                              //                   ),
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         SizedBox(height: 2.h),
+                              //         Container(
+                              //             alignment: Alignment.center,
+                              //             height: 6.h,
+                              //             width:
+                              //                 MediaQuery.of(context).size.width,
+                              //             color: Color(0xfffeaeaf3),
+                              //             child: Padding(
+                              //               padding: EdgeInsets.symmetric(
+                              //                   horizontal: 2.h),
+                              //               child: Row(
+                              //                 mainAxisAlignment:
+                              //                     MainAxisAlignment
+                              //                         .spaceBetween,
+                              //                 children: [
+                              //                   Text(
+                              //                     "Color:",
+                              //                     style: TextStyle(
+                              //                       fontSize: 2.5.h,
+                              //                     ),
+                              //                   ),
+                              //                   Text(
+                              //                     " Red",
+                              //                     style: TextStyle(
+                              //                         fontSize: 2.5.h,
+                              //                         color:
+                              //                             Color(0xfff333389)),
+                              //                   ),
+                              //                   // SizedBox(
+                              //                   //   width: 6.h,
+                              //                   // ),
+                              //                   Text(
+                              //                     "|",
+                              //                     style: TextStyle(
+                              //                         fontSize: 2.5.h,
+                              //                         color:
+                              //                             Color(0xfff333389)),
+                              //                   ),
+                              //                   // SizedBox(
+                              //                   //   width: 7.h,
+                              //                   // ),
+                              //                   Text(
+                              //                     "Price:",
+                              //                     style: TextStyle(
+                              //                       fontSize: 2.5.h,
+                              //                     ),
+                              //                   ),
+                              //                   Text(
+                              //                     " ₹125",
+                              //                     style: TextStyle(
+                              //                         fontSize: 2.5.h,
+                              //                         color:
+                              //                             Color(0xfff333389)),
+                              //                   ),
+                              //                 ],
+                              //               ),
+                              //             )),
+                              //         SizedBox(
+                              //           height: 4.h,
+                              //         ),
+                              //
+                              //         Padding(
+                              //           padding: EdgeInsets.only(
+                              //               right: 18.w,
+                              //               left: 3.w,
+                              //               bottom: 2.h),
+                              //           child: Container(
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.start,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "Size",
+                              //                   style: TextStyle(fontSize: 2.h),
+                              //                 ),
+                              //                 // SizedBox(width: 1.8.h),
+                              //                 Text("Mumbai",
+                              //                     style:
+                              //                         TextStyle(fontSize: 2.h)),
+                              //                 // SizedBox(width: 1.8.h),
+                              //                 Text("Tirpur",
+                              //                     style:
+                              //                         TextStyle(fontSize: 2.h)),
+                              //                 // SizedBox(width: 1.8.h),
+                              //                 Text("Total",
+                              //                     style:
+                              //                         TextStyle(fontSize: 2.h)),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         // Padding(
+                              //         //   padding: EdgeInsets.all(8.0),
+                              //         //   child:
+                              //         //       Divider(color: Colors.grey.shade400),
+                              //         // ),
+                              //
+                              //         Padding(
+                              //           padding: EdgeInsets.all(2.h),
+                              //           child: Container(
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.center,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "S ",
+                              //                   style: TextStyle(
+                              //                       fontSize: 2.h,
+                              //                       fontWeight:
+                              //                           FontWeight.bold),
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 12.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 //
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       "432",
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         Container(
+                              //           alignment: Alignment.center,
+                              //           height: 12.h,
+                              //           width:
+                              //               MediaQuery.of(context).size.width,
+                              //           color: Color(0xfff9f9f9),
+                              //           child: Padding(
+                              //             padding: EdgeInsets.all(2.h),
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.center,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "M ",
+                              //                   style: TextStyle(
+                              //                       fontSize: 2.h,
+                              //                       fontWeight:
+                              //                           FontWeight.bold),
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 12.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 //
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       "432",
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         Padding(
+                              //           padding: EdgeInsets.all(2.h),
+                              //           child: Container(
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.center,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "L ",
+                              //                   style: TextStyle(
+                              //                       fontSize: 2.h,
+                              //                       fontWeight:
+                              //                           FontWeight.bold),
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 12.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 //
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       "432",
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         Container(
+                              //           alignment: Alignment.center,
+                              //           height: 12.h,
+                              //           width:
+                              //               MediaQuery.of(context).size.width,
+                              //           color: Color(0xfff9f9f9),
+                              //           child: Padding(
+                              //             padding: EdgeInsets.all(2.h),
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.center,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "XL",
+                              //                   style: TextStyle(
+                              //                       fontSize: 2.h,
+                              //                       fontWeight:
+                              //                           FontWeight.bold),
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 12.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 //
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       "432",
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         Padding(
+                              //           padding: EdgeInsets.all(2.h),
+                              //           child: Container(
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.center,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "2XL",
+                              //                   style: TextStyle(
+                              //                       fontSize: 2.h,
+                              //                       fontWeight:
+                              //                           FontWeight.bold),
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 12.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 //
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       "432",
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         Container(
+                              //           alignment: Alignment.center,
+                              //           height: 12.h,
+                              //           width:
+                              //               MediaQuery.of(context).size.width,
+                              //           color: Color(0xfff9f9f9),
+                              //           child: Padding(
+                              //             padding: EdgeInsets.all(2.h),
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.center,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "3XL",
+                              //                   style: TextStyle(
+                              //                       fontSize: 2.h,
+                              //                       fontWeight:
+                              //                           FontWeight.bold),
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 12.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 //
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       "432",
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         Padding(
+                              //           padding: EdgeInsets.all(2.h),
+                              //           child: Container(
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.center,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "4XL",
+                              //                   style: TextStyle(
+                              //                       fontSize: 2.h,
+                              //                       fontWeight:
+                              //                           FontWeight.bold),
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 12.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 //
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       "432",
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         Container(
+                              //           alignment: Alignment.center,
+                              //           height: 12.h,
+                              //           width:
+                              //               MediaQuery.of(context).size.width,
+                              //           color: Color(0xfff9f9f9),
+                              //           child: Padding(
+                              //             padding: EdgeInsets.all(2.h),
+                              //             child: Row(
+                              //               crossAxisAlignment:
+                              //                   CrossAxisAlignment.center,
+                              //               mainAxisAlignment:
+                              //                   MainAxisAlignment.spaceBetween,
+                              //               children: [
+                              //                 Text(
+                              //                   "5XL",
+                              //                   style: TextStyle(
+                              //                       fontSize: 2.h,
+                              //                       fontWeight:
+                              //                           FontWeight.bold),
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 12.w),
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       '432',
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //                 // SizedBox(width: 5.w),
+                              //                 //
+                              //                 Column(
+                              //                   crossAxisAlignment:
+                              //                       CrossAxisAlignment.start,
+                              //                   children: [
+                              //                     Text(
+                              //                       "432",
+                              //                       style: TextStyle(
+                              //                           fontSize: 2.h,
+                              //                           fontWeight:
+                              //                               FontWeight.bold),
+                              //                     ),
+                              //                     SizedBox(height: 1.h),
+                              //                     Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         width: 10.h,
+                              //                         height: 4.h,
+                              //                         decoration: BoxDecoration(
+                              //                             borderRadius:
+                              //                                 BorderRadius
+                              //                                     .circular(8),
+                              //                             border: Border.all(
+                              //                                 color: Color(
+                              //                                     0xfff333389))),
+                              //                         child: TextField(
+                              //                           decoration:
+                              //                               InputDecoration(
+                              //                             border:
+                              //                                 InputBorder.none,
+                              //                             hintText: '',
+                              //                             // suffixIcon: Column(
+                              //                             //
+                              //                             //   children: [
+                              //                             //     Icon(Icons.arrow_drop_up),
+                              //                             //     Icon(Icons.arrow_drop_down),
+                              //                             //   ],
+                              //                             // )
+                              //                           ),
+                              //                           // child: Text(
+                              //                           //   "1000",
+                              //                           //   style: TextStyle(
+                              //                           //       color: Color(0xff5a5a9f), fontWeight: FontWeight.bold),
+                              //                           // ),
+                              //                         )),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ),
+                              //         ),
+                              //
+                              //         // Padding(
+                              //         //   padding: EdgeInsets.all(2.h),
+                              //         //   child: Container(
+                              //         //     child: Row(
+                              //         //       crossAxisAlignment: CrossAxisAlignment.center,
+                              //         //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              //         //       children: [
+                              //         //         Text(
+                              //         //           "Available Qty",
+                              //         //           style: TextStyle(
+                              //         //               fontSize: 2.5.h,
+                              //         //               fontWeight: FontWeight.bold),
+                              //         //         ),
+                              //         //         // SizedBox(width: 5.w),
+                              //         //         Container(
+                              //         //           width: 20.w,
+                              //         //           child: Divider(
+                              //         //               thickness: 2,
+                              //         //               color: Color(0xfff333389)),
+                              //         //         ),
+                              //         //         // SizedBox(width: 5.w),
+                              //         //         Container(
+                              //         //             alignment: Alignment.center,
+                              //         //             width: 11.8.h,
+                              //         //             height: 5.8.h,
+                              //         //             decoration: BoxDecoration(
+                              //         //                 borderRadius:
+                              //         //                     BorderRadius.circular(
+                              //         //                         15),
+                              //         //                 border: Border.all(
+                              //         //                     color: Color(
+                              //         //                         0xfff333389))),
+                              //         //             child: Text("550",
+                              //         //                 style: TextStyle(
+                              //         //                     fontSize: 2.5.h,
+                              //         //                     color:
+                              //         //                         Color(0xfff333389),
+                              //         //                     fontWeight:
+                              //         //                         FontWeight.bold))),
+                              //         //       ],
+                              //         //     ),
+                              //         //   ),
+                              //         // ),
+                              //         // Padding(
+                              //         //   padding: EdgeInsets.all(2.h),
+                              //         //   child: Container(
+                              //         //     child: Row(
+                              //         //         crossAxisAlignment: CrossAxisAlignment.center,
+                              //         //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              //         //       children: [
+                              //         //         Text(
+                              //         //           "Enter Quantity",
+                              //         //           style: TextStyle(
+                              //         //               fontSize: 2.5.h,
+                              //         //               fontWeight: FontWeight.bold),
+                              //         //         ),
+                              //         //         // SizedBox(width: 5.w),
+                              //         //         // Container(
+                              //         //         //   width: 20.w,
+                              //         //         //   child: Divider(
+                              //         //         //       thickness: 2,
+                              //         //         //       color: Color(0xfff333389)),
+                              //         //         // ),
+                              //         //         // SizedBox(width: 5.w),
+                              //         //         Container(
+                              //         //             alignment: Alignment.center,
+                              //         //             width: 45.w,
+                              //         //             height: 5.8.h,
+                              //         //             decoration: BoxDecoration(
+                              //         //                 color: Color(0xfff333389),
+                              //         //                 borderRadius:
+                              //         //                     BorderRadius.circular(
+                              //         //                         10),
+                              //         //                 border: Border.all(
+                              //         //                     color: Color(
+                              //         //                         0xfff333389))),
+                              //         //             child: Text("550",
+                              //         //                 style: TextStyle(
+                              //         //                     fontSize: 2.h,
+                              //         //                     color: Colors.white,
+                              //         //                     fontWeight:
+                              //         //                         FontWeight.bold))),
+                              //         //       ],
+                              //         //     ),
+                              //         //   ),
+                              //         // ),
+                              //
+                              //         Padding(
+                              //           padding: EdgeInsets.all(2.h),
+                              //           child: ExpansionTile(
+                              //             title: Text('Size Chart'),
+                              //             children: <Widget>[
+                              //               SingleChildScrollView(
+                              //                 scrollDirection: Axis.vertical,
+                              //                 child: Container(
+                              //                   height: 100.h,
+                              //                   child: ListTile(
+                              //                       title: Column(
+                              //                     children: [
+                              //                       Text(
+                              //                         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                              //                         style: TextStyle(
+                              //                             fontSize: 2.h,
+                              //                             color: Colors
+                              //                                 .grey.shade600),
+                              //                       ),
+                              //                       SizedBox(
+                              //                         height: 2.h,
+                              //                       ),
+                              //                       Container(
+                              //                         alignment:
+                              //                             Alignment.centerLeft,
+                              //                         child: Text("Size Chart",
+                              //                             style: TextStyle(
+                              //                                 fontWeight:
+                              //                                     FontWeight
+                              //                                         .bold)),
+                              //                       ),
+                              //                       SizedBox(height: 1.h),
+                              //                       Divider(
+                              //                           color: Colors
+                              //                               .grey.shade400),
+                              //                       Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //                         child: Image.asset(
+                              //                           'assets/product_2_img2.png',
+                              //                           fit: BoxFit.cover,
+                              //                           height: 40.h,
+                              //                           width: MediaQuery.of(
+                              //                                   context)
+                              //                               .size
+                              //                               .width,
+                              //                         ),
+                              //                       ),
+                              //                       Container(
+                              //                           height: 10.h,
+                              //                           width: 20.w,
+                              //                           color: Colors.red,
+                              //                           child: Text('djvvdv')),
+                              //                       Container(
+                              //                         width:
+                              //                             MediaQuery.of(context)
+                              //                                     .size
+                              //                                     .width *
+                              //                                 0.9,
+                              //                         height:
+                              //                             MediaQuery.of(context)
+                              //                                     .size
+                              //                                     .height *
+                              //                                 0.07,
+                              //                         // color: Color(0xfff333389),
+                              //                         // padding:
+                              //                         //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
+                              //                         child: ElevatedButton(
+                              //                           onPressed: () {
+                              //                             // Navigator.push(
+                              //                             //     context,
+                              //                             //     MaterialPageRoute(
+                              //                             //         builder: (context) => products_1()));
+                              //                           },
+                              //                           style: ElevatedButton
+                              //                               .styleFrom(
+                              //                             backgroundColor:
+                              //                                 Color(
+                              //                                     0xfff333389),
+                              //                             shape:
+                              //                                 RoundedRectangleBorder(
+                              //                               borderRadius:
+                              //                                   BorderRadius
+                              //                                       .circular(
+                              //                                           8),
+                              //                             ),
+                              //                           ),
+                              //                           child: Row(
+                              //                             crossAxisAlignment:
+                              //                                 CrossAxisAlignment
+                              //                                     .center,
+                              //                             mainAxisAlignment:
+                              //                                 MainAxisAlignment
+                              //                                     .center,
+                              //                             children: [
+                              //                               Text(
+                              //                                 'Image',
+                              //                                 style: TextStyle(
+                              //                                     fontSize:
+                              //                                         2.h),
+                              //                               ),
+                              //                               // Icon(
+                              //                               //   Icons.arrow_forward,
+                              //                               //   color: Colors.white,
+                              //                               //   size: 24.0,
+                              //                               //   semanticLabel:
+                              //                               //   'Text to announce in accessibility modes',
+                              //                               // ),
+                              //                             ],
+                              //                           ),
+                              //                         ),
+                              //                       ),
+                              //                       SizedBox(height: 1.h),
+                              //                       Container(
+                              //                         alignment:
+                              //                             Alignment.center,
+                              //
+                              //                         width:
+                              //                             MediaQuery.of(context)
+                              //                                 .size
+                              //                                 .width,
+                              //                         height:
+                              //                             MediaQuery.of(context)
+                              //                                     .size
+                              //                                     .height *
+                              //                                 0.09,
+                              //                         // color: Color(0xfff333389),
+                              //                         // padding:
+                              //                         //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
+                              //                         child: Row(
+                              //                           crossAxisAlignment:
+                              //                               CrossAxisAlignment
+                              //                                   .center,
+                              //                           mainAxisAlignment:
+                              //                               MainAxisAlignment
+                              //                                   .spaceBetween,
+                              //                           children: [
+                              //                             ElevatedButton(
+                              //                               onPressed: () {
+                              //                                 // Navigator.push(
+                              //                                 //     context,
+                              //                                 //     MaterialPageRoute(
+                              //                                 //         builder: (context) => products_1()));
+                              //                               },
+                              //                               style:
+                              //                                   ElevatedButton
+                              //                                       .styleFrom(
+                              //                                 minimumSize: Size(
+                              //                                     40.w, 6.5.h),
+                              //                                 backgroundColor:
+                              //                                     Color(
+                              //                                         0xfff333389),
+                              //                                 shape:
+                              //                                     RoundedRectangleBorder(
+                              //                                   borderRadius:
+                              //                                       BorderRadius
+                              //                                           .circular(
+                              //                                               8),
+                              //                                 ),
+                              //                               ),
+                              //                               child: Text(
+                              //                                 'Catalog',
+                              //                                 style: TextStyle(
+                              //                                     fontSize:
+                              //                                         2.h),
+                              //                               ),
+                              //                             ),
+                              //                             // SizedBox(
+                              //                             //   width: 3.w,
+                              //                             // ),
+                              //                             ElevatedButton(
+                              //                               onPressed: () {
+                              //                                 // Navigator.push(
+                              //                                 //     context,
+                              //                                 //     MaterialPageRoute(
+                              //                                 //         builder: (context) => products_1()));
+                              //                               },
+                              //                               style:
+                              //                                   ElevatedButton
+                              //                                       .styleFrom(
+                              //                                 minimumSize: Size(
+                              //                                     40.w, 6.5.h),
+                              //                                 backgroundColor:
+                              //                                     Color(
+                              //                                         0xfff333389),
+                              //                                 shape:
+                              //                                     RoundedRectangleBorder(
+                              //                                   borderRadius:
+                              //                                       BorderRadius
+                              //                                           .circular(
+                              //                                               8),
+                              //                                 ),
+                              //                               ),
+                              //                               child: Text(
+                              //                                 'Video',
+                              //                                 style: TextStyle(
+                              //                                     fontSize:
+                              //                                         2.h),
+                              //                               ),
+                              //                             ),
+                              //                           ],
+                              //                         ),
+                              //                       ),
+                              //                     ],
+                              //                   )),
+                              //                 ),
+                              //               ),
+                              //             ],
+                              //           ),
+                              //         ),
+                              //       ],
+                              //     ),
+                              //   )
                         ],
                       ),
                     ),
