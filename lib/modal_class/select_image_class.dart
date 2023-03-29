@@ -6,7 +6,7 @@ class selectColorImageClass {
 
   selectColorImageClass.fromJson(Map<String, dynamic> json) {
     status = json['status'];
-   imageData = (json['image_data'] == null ) ? "":json['image_data'].cast<String>();
+   imageData = (json['image_data'] == null ) ? []:json['image_data'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
