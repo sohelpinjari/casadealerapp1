@@ -6382,39 +6382,39 @@ class _product_2State extends State<product_2> {
 
             print("len"+(displayallcolor?.mumbaiStock?[0].menImageArray?.length).toString());
 
-            // setState(() {
-            //   totalxs = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].xs).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].xs).toString());
-            //
-            //   totals = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].s).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].s).toString());
-            //   totalm = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].m).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].m).toString());
-            //   totall = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].l).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].l).toString());
-            //   totalxl = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].xl).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].xl).toString());
-            //   total2xl = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].xxl).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
-            //   total3xl = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
-            //   total4xl = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
-            //   total5xl = int.parse(
-            //           (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +
-            //       int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
-            // });
+            setState(() {
+              totalxs = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].xs).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].xs).toString());
+
+              totals = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].s).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].s).toString());
+              totalm = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].m).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].m).toString());
+              totall = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].l).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].l).toString());
+              totalxl = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].xl).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].xl).toString());
+              total2xl = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].xxl).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
+              total3xl = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
+              total4xl = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
+              total5xl = int.parse(
+                      (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +
+                  int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
+            });
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
-
+            //
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));
 
