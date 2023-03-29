@@ -601,8 +601,47 @@ class _loginState extends State<login> {
                 _password.text = "";
               }
               else{
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => loginsuccess()));
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                              child: Column(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: IconButton(onPressed: (){
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) => login()));
+                                    },
+                                      icon: Icon(Icons.close)  ),
+                                  ),
+                                  // SizedBox(
+                                  //   height: 2.h,
+                                  // ),
+                                  Text(
+                                    "Your registration is pending approval",
+                                    style: TextStyle(
+                                        color: Color(0xff6e6e6e), fontWeight: FontWeight.w600),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                  // Text(
+                                  //   "you will be notified soon",
+                                  //   style: TextStyle(
+                                  //       color: Color(0xff6e6e6e), fontWeight: FontWeight.w600),
+                                  // ),
+                                ],
+                              ))
+                        ],
+                      ),
+                    );
+                  },
+                );
 
                 print("vfvfdg");
               }

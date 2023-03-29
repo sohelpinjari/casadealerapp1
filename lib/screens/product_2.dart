@@ -37,13 +37,13 @@ import 'package:path/path.dart' as path;
 import 'package:http/http.dart' as http;
 
 class product_2 extends StatefulWidget {
-  String? imagenevigator;
+
   String? pronamenevigatior;
   String? coloridnevigator;
 
   product_2(
       {Key? key,
-      this.imagenevigator,
+
       this.pronamenevigatior,
       this.coloridnevigator})
       : super(key: key);
@@ -139,29 +139,7 @@ class _product_2State extends State<product_2> {
 
   List<String> tabs = ["Tripur", "Munbai"];
 
-  List<Color> tripur = [
-    Color(0xff57492e),
-    Color(0xffb7e5f1),
-    Color(0xffb9bdbe),
-    Color(0xffd3c9b5),
-    Color(0xffbcaae6),
-    Color(0xff00b9e9),
-    Color(0xff005f77),
-    Color(0xff775d29),
-    Color(0xff333532),
-    Color(0xff9e0303),
-    Color(0xff4d0de2),
-    Color(0xff18772e),
-    Color(0xffe121b4),
-    Color(0xffd7ff00),
-    Color(0xff00f2ea),
-    Color(0xfff62e78),
-    Color(0xff89ff4e),
-    Color(0xff610047),
-    Color(0xff57492e),
-    Color(0xff57492e),
-    Color(0xff57492e),
-  ];
+
   List<String> image = [];
   productapi? productData;
   bool se_icon = false;
@@ -214,10 +192,11 @@ class _product_2State extends State<product_2> {
   }
 
   getdata() async {
+    await displaycolor();
     await imageapi();
     await colorapi();
     await selectimageapi();
-    await displaycolor();
+
     await blockapi();
     await addtocartapi();
   }
@@ -342,7 +321,7 @@ class _product_2State extends State<product_2> {
                             //   return null;
                             // },
                             onChanged: (value) {
-                              print(value);
+
                               if (value.isNotEmpty) {
                                 // searchapi(value);
                               } else if (value.isEmpty) {
@@ -726,19 +705,7 @@ class _product_2State extends State<product_2> {
                                                                 errorWidget: (context,
                                                                         url,
                                                                         error) =>
-                                                                    Image.asset(
-                                                                  "assets/default_product_image.png",
-                                                                  // width: MediaQuery.of(context)
-                                                                  //     .size
-                                                                  //     .width *
-                                                                  //     0.6,
-                                                                  // height: MediaQuery.of(context)
-                                                                  //     .size
-                                                                  //     .height *
-                                                                  //     0.3,
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
+                                                                    CircularProgressIndicator(),
                                                               ),
                                                               // child: Image.network(
                                                               //   e,
@@ -1486,7 +1453,7 @@ class _product_2State extends State<product_2> {
                                             (BuildContext context, int index) {
                                           return GestureDetector(
                                               onTap: () {
-                                                print("object");
+
                                                 setState(() {
                                                   widget.coloridnevigator
                                                       .toString();
@@ -1496,11 +1463,7 @@ class _product_2State extends State<product_2> {
                                                 });
 
                                                 selectimageapi();
-                                                print("=========" +
-                                                    (displayallcolor
-                                                            ?.mumbaiStock?[0]
-                                                            .menImageArray?[1])
-                                                        .toString());
+
                                               },
                                               child: Stack(
                                                 children: [
@@ -1531,7 +1494,7 @@ class _product_2State extends State<product_2> {
                                                     ),
                                                     decoration: BoxDecoration(
                                                         shape: BoxShape.circle,
-                                                        color: tripur[index],
+                                                        // color: tripur[index],
                                                         border: Border.all(
                                                             color: Color(
                                                                 0xffbababa))),
@@ -1904,9 +1867,10 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].xs ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)? ( displayallcolor
+                                                  ?.mumbaiStock?[0].xs ??
+                                                  ''):"0",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -1960,9 +1924,10 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)? ( displayallcolor
                                                       ?.tripurStock?[0].xs ??
-                                                  '',
+                                                  ''):"0",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2088,9 +2053,10 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].s ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)?   (displayallcolor
+                                                  ?.mumbaiStock?[0].s ??
+                                                  ''):"0",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2144,9 +2110,10 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?   (displayallcolor
                                                       ?.tripurStock?[0].s ??
-                                                  '',
+                                                  ''):"0",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2275,9 +2242,10 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].m ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)?     (displayallcolor
+                                                  ?.mumbaiStock?[0].m ??
+                                                  ''):"0",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2329,9 +2297,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?     (displayallcolor
                                                       ?.tripurStock?[0].m ??
-                                                  '',
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2454,9 +2423,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].l ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)?  (displayallcolor
+                                                  ?.mumbaiStock?[0].l ??
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2508,9 +2478,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?  (displayallcolor
                                                       ?.tripurStock?[0].l ??
-                                                  '',
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2636,9 +2607,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].xl ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)? (displayallcolor
+                                                  ?.mumbaiStock?[0].xl ??
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2690,9 +2662,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)? (displayallcolor
                                                       ?.tripurStock?[0].xl ??
-                                                  '',
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2814,9 +2787,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].xxl ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)? ( displayallcolor
+                                                  ?.mumbaiStock?[0].xxl ??
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2868,9 +2842,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)? ( displayallcolor
                                                       ?.tripurStock?[0].xxl ??
-                                                  '',
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2996,9 +2971,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].s3xl ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)?  (displayallcolor
+                                                  ?.mumbaiStock?[0].s3xl ??
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3050,9 +3026,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?  (displayallcolor
                                                       ?.tripurStock?[0].s3xl ??
-                                                  '',
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3175,9 +3152,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].s4xl ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)? ( displayallcolor
+                                                  ?.mumbaiStock?[0].s4xl ??
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3229,9 +3207,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)? ( displayallcolor
                                                       ?.tripurStock?[0].s4xl ??
-                                                  '',
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3357,9 +3336,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
-                                                      ?.mumbaiStock?[0].s5xl ??
-                                                  '',
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)?  ( displayallcolor
+                                                  ?.mumbaiStock?[0].s5xl ??
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3411,9 +3391,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              displayallcolor
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?  ( displayallcolor
                                                       ?.tripurStock?[0].s5xl ??
-                                                  '',
+                                                  ''):"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -6271,7 +6252,7 @@ class _product_2State extends State<product_2> {
     final Map<String, String> data = {};
     data['action'] = 'all_color_display';
 
-    print(data);
+
     checkInternet().then((internet) async {
       if (internet) {
         Productprovider().product2_color(data).then((Response response) async {
@@ -6308,7 +6289,7 @@ class _product_2State extends State<product_2> {
     data['action'] = 'single_product_display';
     data['product_name'] = widget.pronamenevigatior.toString();
 
-    print(data);
+
     checkInternet().then((internet) async {
       if (internet) {
         Productprovider().product2_image(data).then((Response response) async {
@@ -6318,7 +6299,9 @@ class _product_2State extends State<product_2> {
           isloading = false;
 
           if (response.statusCode == 200 && imageDisplay?.status == "success") {
+
             setState(() {});
+
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
 
@@ -6344,7 +6327,7 @@ class _product_2State extends State<product_2> {
     data['color_name'] = product2color?.data?[selectbtn].colorName ?? '';
     data['product_id'] = widget.coloridnevigator.toString();
 
-    print(data);
+
     checkInternet().then((internet) async {
       if (internet) {
         Productprovider()
@@ -6356,7 +6339,7 @@ class _product_2State extends State<product_2> {
           isloading = false;
 
           if (response.statusCode == 200 && selectimage?.status == "success") {
-            print("=============" + (selectimage?.imageData?[0]).toString());
+
             setState(() {});
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
@@ -6385,7 +6368,7 @@ class _product_2State extends State<product_2> {
     data['color_name'] = product2color?.data?[selectbtn].colorName ?? '';
     data['d_id'] = (userData?.logindata?.dId).toString();
 
-    print(data);
+
     checkInternet().then((internet) async {
       if (internet) {
         Productprovider()
@@ -6393,42 +6376,42 @@ class _product_2State extends State<product_2> {
             .then((Response response) async {
           displayallcolor =
               colorDisplayClass.fromJson(json.decode(response.body));
-
-          isloading = false;
+          print(displayallcolor?.status);
           if (response.statusCode == 200 &&
               displayallcolor?.status == "success") {
-            print("=============" +
-                (displayallcolor?.mumbaiStock?[0].s).toString());
-            setState(() {
-              totalxs = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].xs).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].xs).toString());
 
-              totals = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].s).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].s).toString());
-              totalm = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].m).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].m).toString());
-              totall = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].l).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].l).toString());
-              totalxl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].xl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].xl).toString());
-              total2xl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].xxl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
-              total3xl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
-              total4xl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
-              total5xl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
-            });
+            print("len"+(displayallcolor?.mumbaiStock?[0].menImageArray?.length).toString());
+
+            // setState(() {
+            //   totalxs = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].xs).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].xs).toString());
+            //
+            //   totals = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].s).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].s).toString());
+            //   totalm = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].m).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].m).toString());
+            //   totall = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].l).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].l).toString());
+            //   totalxl = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].xl).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].xl).toString());
+            //   total2xl = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].xxl).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
+            //   total3xl = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
+            //   total4xl = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
+            //   total5xl = int.parse(
+            //           (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +
+            //       int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
+            // });
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
 
@@ -6552,29 +6535,18 @@ class _product_2State extends State<product_2> {
     data['t_5xl'] =
         _t5xl.text.trim().toString() == "" ? "0" : _t5xl.text.trim().toString();
 
-    print(data);
+
     checkInternet().then((internet) async {
       if (internet) {
         Productprovider()
             .product2blockprovider(data)
             .then((Response response) async {
           block = blockProductClass.fromJson(json.decode(response.body));
-          print("=============" + (block?.status).toString());
+
           isloading = false;
           if (response.statusCode == 200 && block?.status == "success") {
             setState(() {
-              // totaltexts =int.parse(_s.text.trim().toString() + _ts.text.trim().toString());
-              // totaltextxs =int.parse(_xs.text.trim().toString() + _txs.text.trim().toString());
 
-              // totals =int.parse( (displayallcolor?.mumbaiStock?[0].s).toString()) +int.parse((displayallcolor?.tripurStock?[0].s).toString());
-              // totalm =int.parse( (displayallcolor?.mumbaiStock?[0].m).toString()) +int.parse((displayallcolor?.tripurStock?[0].m).toString());
-              // totall =int.parse( (displayallcolor?.mumbaiStock?[0].l).toString()) +int.parse((displayallcolor?.tripurStock?[0].l).toString());
-              // totalxl =int.parse( (displayallcolor?.mumbaiStock?[0].xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].xl).toString());
-              // total2xl =int.parse( (displayallcolor?.mumbaiStock?[0].xxl).toString()) +int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
-              // total3xl =int.parse( (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
-              // total4xl =int.parse( (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
-              // total5xl =int.parse( (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
-              //
             });
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
@@ -6646,14 +6618,14 @@ class _product_2State extends State<product_2> {
     data['t_5xl'] =
         _t5xl.text.trim().toString() == "" ? "0" : _t5xl.text.trim().toString();
 
-    print(data);
+
     checkInternet().then((internet) async {
       if (internet) {
         Productprovider()
             .product2addtocartprovider(data)
             .then((Response response) async {
           add = addtoCartClass.fromJson(json.decode(response.body));
-          print("=============" + (add?.status).toString());
+
           isloading = false;
           if (response.statusCode == 200 && add?.status == "success") {
             setState(() {

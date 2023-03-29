@@ -422,12 +422,13 @@ class _products_1State extends State<products_1> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) => product_2(
-                                                    imagenevigator:
-                                                    '${searchproperty?.data![index].prodImgDefault}',
-                                                    pronamenevigatior:   '${searchproperty?.data![index].prodName}',
+
+                                                    pronamenevigatior:   '${searchproperty?.data?[index].prodName}',
                                                                                                 // coloridnevigator:
                                                     //     '${productData?.productData![index].apId}',
-                                                  )));
+                                                  )
+                                              )
+                                          );
                                           String? search = await Navigator.push(
                                               context,
                                               MaterialPageRoute(
@@ -591,9 +592,7 @@ class _products_1State extends State<products_1> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => product_2(
-                                              imagenevigator:
-                                                  (images[index].image)
-                                                      .toString(),
+
                                               pronamenevigatior:
                                                   '${allcatogaryproperty?.diffProduct?[index].name}',
                                               // images[index]
@@ -688,22 +687,22 @@ class _products_1State extends State<products_1> {
                                                         .height *
                                                     0.03,
                                                 decoration: BoxDecoration(
-                                                  color: Colors.black,
+                                                  // color: Colors.black,
                                                   borderRadius:
                                                       BorderRadius.all(
                                                     Radius.circular(5),
                                                   ),
                                                 ),
-                                                child: Text(
-                                                  images[index]
-                                                      .Brand_Name
-                                                      .toString(),
-                                                  style: TextStyle(
-                                                    fontStyle: FontStyle.italic,
-                                                    fontSize: 1.1.h,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
+                                                // child: Text(
+                                                //   images[index]
+                                                //       .Brand_Name
+                                                //       .toString(),
+                                                //   style: TextStyle(
+                                                //     fontStyle: FontStyle.italic,
+                                                //     fontSize: 1.1.h,
+                                                //     color: Colors.white,
+                                                //   ),
+                                                // ),
                                               ),
                                             ),
                                             Padding(
@@ -758,18 +757,18 @@ class _products_1State extends State<products_1> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    Container(
-                                      padding: EdgeInsets.only(left: 0.8.h),
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        images[index].Artist_Name.toString(),
-                                        style: TextStyle(
-                                            fontSize: 1.3.h,
-                                            fontWeight: FontWeight.bold,
-                                            fontStyle: FontStyle.italic,
-                                            color: Colors.grey.shade500),
-                                      ),
-                                    ),
+                                    // Container(
+                                    //   padding: EdgeInsets.only(left: 0.8.h),
+                                    //   alignment: Alignment.centerLeft,
+                                    //   child: Text(
+                                    //     images[index].Artist_Name.toString(),
+                                    //     style: TextStyle(
+                                    //         fontSize: 1.3.h,
+                                    //         fontWeight: FontWeight.bold,
+                                    //         fontStyle: FontStyle.italic,
+                                    //         color: Colors.grey.shade500),
+                                    //   ),
+                                    // ),
                                     SizedBox(
                                       height: 0.5.h,
                                     ),

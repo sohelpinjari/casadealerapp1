@@ -7,7 +7,7 @@ class product2Imageclass {
 
   product2Imageclass.fromJson(Map<String, dynamic> json) {
     status = json['status'];
-    imageData = json['image_data'].cast<String>();
+    imageData = json['image_data']==null?[]:json['image_data'].cast<String>();
     if (json['product_data'] != null) {
       productData = <ProductData>[];
       json['product_data'].forEach((v) {

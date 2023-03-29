@@ -6,6 +6,7 @@ import 'package:casadealerapp/modal_class/login_model.dart';
 import 'package:casadealerapp/provider/login_authprovider.dart';
 import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/screens/getstarted.dart';
+import 'package:casadealerapp/screens/login.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -164,6 +165,37 @@ class _forgetpasswordState extends State<forgetpassword> {
                       ),
                     ),
                     SizedBox(height: 2.h),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      // color: Color(0xfff333389),
+                      // padding:
+                      //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // if (_formKey.currentState!.validate()) {
+                          //   print("Validate");
+                          //   forget_pass();
+                          //
+                          //
+                          // }
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => login()));
+                        },
+                        child: Text(
+                          'Back to login',
+                          style: TextStyle(fontSize: 2.h),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xfff333389),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                      ),
+                    ),
 
 
 
@@ -191,10 +223,50 @@ class _forgetpasswordState extends State<forgetpassword> {
             userData = usermodal.fromJson(json.decode(response.body));
             print(userData?.status);
             if (response.statusCode == 200 && userData!.status == "Check your mail!" ) {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: IconButton(onPressed: (){
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => forgetpassword()));
+                                  },
+                                      icon: Icon(Icons.close)  ),
+                                ),
+                                // SizedBox(
+                                //   height: 2.h,
+                                // ),
+                                Text(
+                                  "Mail sent successfull",
+                                  style: TextStyle(
+                                      color: Color(0xff6e6e6e), fontWeight: FontWeight.w600),
+                                ),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                // Text(
+                                //   "you will be notified soon",
+                                //   style: TextStyle(
+                                //       color: Color(0xff6e6e6e), fontWeight: FontWeight.w600),
+                                // ),
+                              ],
+                            ))
+                      ],
+                    ),
+                  );
+                },
+              );
 
-
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => get_started()));
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => get_started()));
                 // Fluttertoast.showToast(
                 //   msg: "Logged In Successfully",
                 //   textColor: Colors.white,
