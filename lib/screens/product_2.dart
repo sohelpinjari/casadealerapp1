@@ -645,9 +645,11 @@ class _product_2State extends State<product_2> {
                                         //     viewportFraction: 1,
                                         //   ),
                                         // ):displayallcolor?.tripurStock?[0].menImageArray != null?
-                                        (displayallcolor?.mumbaiStock?[0]
-                                                    .menImageArray?.length ==
-                                                0)
+
+
+
+                                        (displayallcolor?.mumbaiStock?.length != 0)?
+                                        (displayallcolor?.mumbaiStock?[0].menImageArray?.length == 0)
                                             ? CarouselSlider(
                                                 items: images.map((e) {
                                                   return ClipRRect(
@@ -1237,7 +1239,599 @@ class _product_2State extends State<product_2> {
                                                           milliseconds: 800),
                                                   viewportFraction: 1,
                                                 ),
-                                              )
+                                              ) :
+                                        (displayallcolor?.tripurStock?.length != 0)?
+                                        (displayallcolor?.tripurStock?[0].menImageArray?.length == 0)?
+                                        CarouselSlider(
+                                items: images.map((e) {
+                              return ClipRRect(
+                              borderRadius:
+                              BorderRadius.circular(
+                              28),
+                              child: Stack(
+                              children: [
+                              Container(
+                              decoration:
+                              BoxDecoration(
+                              borderRadius:
+                              BorderRadius
+                                  .circular(
+                              28),
+                              ),
+                              height: 54.h,
+                              width:
+                              MediaQuery.of(
+                              context)
+                                  .size
+                                  .width,
+                              margin: EdgeInsets
+                                  .symmetric(
+                              horizontal:
+                              5.w),
+                              child: ClipRRect(
+                              borderRadius:
+                              BorderRadius
+                                  .circular(
+                              28),
+                              child:
+                              CachedNetworkImage(
+                              imageUrl: e
+                                  .image
+                                  .toString(),
+                              imageBuilder:
+                              (context,
+                              imageProvider) =>
+                              Container(
+                              decoration:
+                              BoxDecoration(
+                              image:
+                              DecorationImage(
+                              image:
+                              imageProvider,
+                              fit: BoxFit
+                                  .cover,
+                              ),
+                              ),
+                              ),
+                              placeholder: (context,
+                              url) =>
+                              CircularProgressIndicator(),
+                              errorWidget: (context,
+                              url,
+                              error) =>
+                              CircularProgressIndicator(),
+                              ),
+                              // child: Image.network(
+                              //   e,
+                              //
+                              //   errorBuilder:
+                              //       (BuildContext context,
+                              //           Object exception,
+                              //           StackTrace?
+                              //               stackTrace) {
+                              //     return Image.asset(
+                              //       "assets/product_1_img.png",
+                              //       // width: MediaQuery.of(context)
+                              //       //     .size
+                              //       //     .width *
+                              //       //     0.6,
+                              //       // height: MediaQuery.of(context)
+                              //       //     .size
+                              //       //     .height *
+                              //       //     0.3,
+                              //       // fit: BoxFit.cover,
+                              //     );
+                              //   },
+                              //   fit: BoxFit.cover,
+                              //   height: 53.h,
+                              //   // width: MediaQuery.of(context)
+                              //   //     .size
+                              //   //     .width,
+                              // ),
+                              ),
+                              ),
+                              Opacity(
+                              opacity: 0.8,
+                              child: Padding(
+                              padding: EdgeInsets
+                                  .symmetric(
+                              horizontal:
+                              5.w),
+                              child: Align(
+                              alignment: Alignment
+                                  .bottomCenter,
+                              child:
+                              Container(
+                              decoration:
+                              BoxDecoration(
+                              gradient: LinearGradient(
+                              begin: Alignment
+                                  .topRight,
+                              colors: [
+                              Colors
+                                  .transparent,
+                              Colors
+                                  .black
+                              ]),
+                              borderRadius:
+                              BorderRadius
+                                  .only(
+                              bottomRight:
+                              Radius.circular(
+                              28),
+                              bottomLeft:
+                              Radius.circular(
+                              28),
+                              topRight:
+                              Radius.circular(
+                              28),
+                              topLeft: Radius
+                                  .circular(
+                              28),
+                              ),
+                              ),
+                              height: 23.h,
+                              width: MediaQuery.of(
+                              context)
+                                  .size
+                                  .width,
+                              ),
+                              ),
+                              ),
+                              ),
+                              Positioned(
+                              top: 30.h,
+                              left: 8.w,
+                              right: 8.w,
+                              child: Container(
+                              // height: 10.h,
+                              width:
+                              MediaQuery.of(
+                              context)
+                                  .size
+                                  .width,
+                              // color:Colors.red,
+                              child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment
+                                  .center,
+                              children: [
+                              Container(
+                              width: MediaQuery.of(
+                              context)
+                                  .size
+                                  .width,
+                              child: Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                              Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.start,
+                              children: [
+                              Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width * 0.2,
+                              height: MediaQuery.of(context).size.height * 0.03,
+                              decoration: BoxDecoration(
+                              color: Color(0xfff7c7773),
+                              borderRadius: BorderRadius.all(
+                              Radius.circular(8),
+                              ),
+                              ),
+                              child: Padding(
+                              padding: EdgeInsets.all(0.5.h),
+                              child: Text(
+                              "Brand Name",
+                              style: TextStyle(
+                              fontSize: 1.3.h,
+                              color: Colors.white,
+                              ),
+                              ),
+                              ),
+                              ),
+                              SizedBox(
+                              height: 1.h,
+                              ),
+                              Container(
+                              child: Text(
+                              imageDisplay?.productData?[0].apName ?? 'N/A',
+                              // widget
+                              //     .pronamenevigatior
+                              //     .toString(),
+                              // widget
+                              //     .pronamenevigatior
+                              //     .toString(),
+                              style: TextStyle(fontSize: 3.h, fontWeight: FontWeight.bold, color: Colors.white),
+                              ),
+                              ),
+                              Container(
+                              child: Text(
+                              "Artist Name",
+                              style: TextStyle(
+                              fontSize: 1.9.h,
+                              // fontWeight:
+                              //     FontWeight
+                              //         .bold,
+                              color: Colors.grey.shade300),
+                              ),
+                              ),
+                              ],
+                              ),
+
+                              // SizedBox(
+                              //   width: 20.w,
+                              // ),
+
+                              Row(
+                              children: [
+                              // Container(
+                              //   alignment:
+                              //       Alignment.center,
+                              //   height: 4.h,
+                              //   width: 9.w,
+                              //   decoration: BoxDecoration(
+                              //       borderRadius:
+                              //           BorderRadius
+                              //               .circular(
+                              //                   25),
+                              //       color:
+                              //           Colors.white),
+                              //   child: IconButton(
+                              //     icon: Icon(
+                              //       Icons
+                              //           .favorite_border,
+                              //       color: Colors.red,
+                              //       size: 2.h,
+                              //     ),
+                              //     onPressed: () {},
+                              //   ),
+                              // ),
+                              SizedBox(width: 3.w),
+                              Container(
+                              alignment: Alignment.center,
+                              height: 4.h,
+                              width: 9.w,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(25), color: Colors.white),
+                              child: IconButton(
+                              icon: Icon(
+                              Icons.share,
+                              color: Colors.grey,
+                              size: 2.h,
+                              ),
+                              onPressed: () {},
+                              ),
+                              ),
+                              ],
+                              ),
+                              ],
+                              ),
+                              ),
+                              // SizedBox()
+                              ],
+                              ),
+                              ),
+                              ),
+                              ],
+                              ));
+                              }).toList(),
+                      options: CarouselOptions(
+                        height: 45.h,
+                        enlargeCenterPage: false,
+                        autoPlay: true,
+                        aspectRatio: 16 / 9,
+                        autoPlayCurve:
+                        Curves.fastOutSlowIn,
+                        enableInfiniteScroll: true,
+                        autoPlayAnimationDuration:
+                        Duration(
+                            milliseconds: 800),
+                        viewportFraction: 1,
+                      ),
+                    )
+                          : CarouselSlider(
+                  items: (displayallcolor
+                      ?.mumbaiStock?[0]
+                      .menImageArray ??
+                      [])
+                      .map((e) {
+                    return ClipRRect(
+                        borderRadius:
+                        BorderRadius.circular(
+                            28),
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration:
+                              BoxDecoration(
+                                borderRadius:
+                                BorderRadius
+                                    .circular(
+                                    28),
+                              ),
+                              height: 54.h,
+                              width:
+                              MediaQuery.of(
+                                  context)
+                                  .size
+                                  .width,
+                              margin: EdgeInsets
+                                  .symmetric(
+                                  horizontal:
+                                  5.w),
+                              child: ClipRRect(
+                                borderRadius:
+                                BorderRadius
+                                    .circular(
+                                    28),
+                                child:
+                                CachedNetworkImage(
+                                  imageUrl: e,
+                                  imageBuilder:
+                                      (context,
+                                      imageProvider) =>
+                                      Container(
+                                        decoration:
+                                        BoxDecoration(
+                                          image:
+                                          DecorationImage(
+                                            image:
+                                            imageProvider,
+                                            fit: BoxFit
+                                                .cover,
+                                          ),
+                                        ),
+                                      ),
+                                  placeholder: (context,
+                                      url) =>
+                                      CircularProgressIndicator(),
+                                  errorWidget: (context,
+                                      url,
+                                      error) =>
+                                      Image.asset(
+                                        "assets/default_product_image.png",
+                                        // width: MediaQuery.of(context)
+                                        //     .size
+                                        //     .width *
+                                        //     0.6,
+                                        // height: MediaQuery.of(context)
+                                        //     .size
+                                        //     .height *
+                                        //     0.3,
+                                        fit: BoxFit
+                                            .cover,
+                                      ),
+                                ),
+                                // child: Image.network(
+                                //   e,
+                                //
+                                //   errorBuilder:
+                                //       (BuildContext context,
+                                //           Object exception,
+                                //           StackTrace?
+                                //               stackTrace) {
+                                //     return Image.asset(
+                                //       "assets/product_1_img.png",
+                                //       // width: MediaQuery.of(context)
+                                //       //     .size
+                                //       //     .width *
+                                //       //     0.6,
+                                //       // height: MediaQuery.of(context)
+                                //       //     .size
+                                //       //     .height *
+                                //       //     0.3,
+                                //       // fit: BoxFit.cover,
+                                //     );
+                                //   },
+                                //   fit: BoxFit.cover,
+                                //   height: 53.h,
+                                //   // width: MediaQuery.of(context)
+                                //   //     .size
+                                //   //     .width,
+                                // ),
+                              ),
+                            ),
+                            Opacity(
+                              opacity: 0.8,
+                              child: Padding(
+                                padding: EdgeInsets
+                                    .symmetric(
+                                    horizontal:
+                                    5.w),
+                                child: Align(
+                                  alignment: Alignment
+                                      .bottomCenter,
+                                  child:
+                                  Container(
+                                    decoration:
+                                    BoxDecoration(
+                                      gradient: LinearGradient(
+                                          begin: Alignment
+                                              .topRight,
+                                          colors: [
+                                            Colors
+                                                .transparent,
+                                            Colors
+                                                .black
+                                          ]),
+                                      borderRadius:
+                                      BorderRadius
+                                          .only(
+                                        bottomRight:
+                                        Radius.circular(
+                                            28),
+                                        bottomLeft:
+                                        Radius.circular(
+                                            28),
+                                        topRight:
+                                        Radius.circular(
+                                            28),
+                                        topLeft: Radius
+                                            .circular(
+                                            28),
+                                      ),
+                                    ),
+                                    height: 23.h,
+                                    width: MediaQuery.of(
+                                        context)
+                                        .size
+                                        .width,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 30.h,
+                              left: 8.w,
+                              right: 8.w,
+                              child: Container(
+                                // height: 10.h,
+                                width:
+                                MediaQuery.of(
+                                    context)
+                                    .size
+                                    .width,
+                                // color:Colors.red,
+                                child: Column(
+                                  crossAxisAlignment:
+                                  CrossAxisAlignment
+                                      .center,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(
+                                          context)
+                                          .size
+                                          .width,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment
+                                            .spaceBetween,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                alignment: Alignment.center,
+                                                width: MediaQuery.of(context).size.width * 0.2,
+                                                height: MediaQuery.of(context).size.height * 0.03,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xfff7c7773),
+                                                  borderRadius: BorderRadius.all(
+                                                    Radius.circular(8),
+                                                  ),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(0.5.h),
+                                                  child: Text(
+                                                    "Brand Name",
+                                                    style: TextStyle(
+                                                      fontSize: 1.3.h,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 1.h,
+                                              ),
+                                              Container(
+                                                child: Text(
+                                                  imageDisplay?.productData?[0].apName ?? 'N/A',
+                                                  // widget
+                                                  //     .pronamenevigatior
+                                                  //     .toString(),
+                                                  // widget
+                                                  //     .pronamenevigatior
+                                                  //     .toString(),
+                                                  style: TextStyle(fontSize: 3.h, fontWeight: FontWeight.bold, color: Colors.white),
+                                                ),
+                                              ),
+                                              Container(
+                                                child: Text(
+                                                  "Artist Name",
+                                                  style: TextStyle(
+                                                      fontSize: 1.9.h,
+                                                      // fontWeight:
+                                                      //     FontWeight
+                                                      //         .bold,
+                                                      color: Colors.grey.shade300),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+
+                                          // SizedBox(
+                                          //   width: 20.w,
+                                          // ),
+
+                                          Row(
+                                            children: [
+                                              // Container(
+                                              //   alignment:
+                                              //       Alignment.center,
+                                              //   height: 4.h,
+                                              //   width: 9.w,
+                                              //   decoration: BoxDecoration(
+                                              //       borderRadius:
+                                              //           BorderRadius
+                                              //               .circular(
+                                              //                   25),
+                                              //       color:
+                                              //           Colors.white),
+                                              //   child: IconButton(
+                                              //     icon: Icon(
+                                              //       Icons
+                                              //           .favorite_border,
+                                              //       color: Colors.red,
+                                              //       size: 2.h,
+                                              //     ),
+                                              //     onPressed: () {},
+                                              //   ),
+                                              // ),
+                                              SizedBox(width: 3.w),
+                                              Container(
+                                                alignment: Alignment.center,
+                                                height: 4.h,
+                                                width: 9.w,
+                                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(25), color: Colors.white),
+                                                child: IconButton(
+                                                  icon: Icon(
+                                                    Icons.share,
+                                                    color: Colors.grey,
+                                                    size: 2.h,
+                                                  ),
+                                                  onPressed: () {},
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    // SizedBox()
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ));
+                  }).toList(),
+      options: CarouselOptions(
+        height: 45.h,
+        enlargeCenterPage: false,
+        autoPlay: true,
+        aspectRatio: 16 / 9,
+        autoPlayCurve:
+        Curves.fastOutSlowIn,
+        enableInfiniteScroll: true,
+        autoPlayAnimationDuration:
+        Duration(
+            milliseconds: 800),
+        viewportFraction: 1,
+      ),
+    ): Text("No data found")
                                     // :Image.asset("assets/product_1_img.png")
                                     ),
                               ),
@@ -1870,7 +2464,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)? ( displayallcolor
                                                   ?.mumbaiStock?[0].xs ??
-                                                  ''):"0",
+                                                  ''):"",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -1927,7 +2521,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)? ( displayallcolor
                                                       ?.tripurStock?[0].xs ??
-                                                  ''):"0",
+                                                  ''):"",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2056,7 +2650,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)?   (displayallcolor
                                                   ?.mumbaiStock?[0].s ??
-                                                  ''):"0",
+                                                  ''):"",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2113,7 +2707,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)?   (displayallcolor
                                                       ?.tripurStock?[0].s ??
-                                                  ''):"0",
+                                                  ''):"",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2245,7 +2839,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)?     (displayallcolor
                                                   ?.mumbaiStock?[0].m ??
-                                                  ''):"0",
+                                                  ''):"",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2300,7 +2894,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)?     (displayallcolor
                                                       ?.tripurStock?[0].m ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2426,7 +3020,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)?  (displayallcolor
                                                   ?.mumbaiStock?[0].l ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2481,7 +3075,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)?  (displayallcolor
                                                       ?.tripurStock?[0].l ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2610,7 +3204,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)? (displayallcolor
                                                   ?.mumbaiStock?[0].xl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2665,7 +3259,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)? (displayallcolor
                                                       ?.tripurStock?[0].xl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2790,7 +3384,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)? ( displayallcolor
                                                   ?.mumbaiStock?[0].xxl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2845,7 +3439,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)? ( displayallcolor
                                                       ?.tripurStock?[0].xxl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2974,7 +3568,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)?  (displayallcolor
                                                   ?.mumbaiStock?[0].s3xl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3029,7 +3623,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)?  (displayallcolor
                                                       ?.tripurStock?[0].s3xl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3155,7 +3749,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)? ( displayallcolor
                                                   ?.mumbaiStock?[0].s4xl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3210,7 +3804,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)? ( displayallcolor
                                                       ?.tripurStock?[0].s4xl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3339,7 +3933,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.mumbaiStock?.length !=0)?  ( displayallcolor
                                                   ?.mumbaiStock?[0].s5xl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3394,7 +3988,7 @@ class _product_2State extends State<product_2> {
                                               (displayallcolor
                                                   ?.tripurStock?.length !=0)?  ( displayallcolor
                                                       ?.tripurStock?[0].s5xl ??
-                                                  ''):"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3647,22 +4241,37 @@ class _product_2State extends State<product_2> {
                                                 SizedBox(height: 1.h),
                                                 Container(
                                                   alignment: Alignment.center,
-                                                  child: Image.network(
+                                                  child:   (displayallcolor?.mumbaiStock?.length != 0)?
+                                                  (displayallcolor?.mumbaiStock?[0].menImageArray?.length == 0)
+                                                      ?  Image.asset(
+                                                    'assets/size_chart.png',
+                                                    fit: BoxFit.cover,
+                                                    height: 40.h,
+                                                    width: MediaQuery.of(
+                                                        context)
+                                                        .size
+                                                        .width,
+                                                  )
+
+                                                  // 'assets/size_chart.png',
+
+
+                                                      :  Image.network(
                                                     displayallcolor
-                                                            ?.mumbaiStock?[0]
-                                                            .sizeChart ??
+                                                        ?.mumbaiStock?[0]
+                                                        .sizeChart ??
                                                         '',
                                                     errorBuilder:
                                                         (BuildContext context,
-                                                            Object exception,
-                                                            StackTrace?
-                                                                stackTrace) {
+                                                        Object exception,
+                                                        StackTrace?
+                                                        stackTrace) {
                                                       return Image.asset(
                                                         'assets/size_chart.png',
                                                         fit: BoxFit.cover,
                                                         height: 40.h,
                                                         width: MediaQuery.of(
-                                                                context)
+                                                            context)
                                                             .size
                                                             .width,
                                                       );
@@ -3670,7 +4279,47 @@ class _product_2State extends State<product_2> {
                                                     // 'assets/size_chart.png',
                                                     fit: BoxFit.cover,
                                                     height: 40.h,
-                                                  ),
+                                                  ) :
+                                                  (displayallcolor?.tripurStock?.length != 0)?
+                                                  (displayallcolor?.tripurStock?[0].menImageArray?.length == 0)?
+                                                   Image.asset(
+                                                        'assets/size_chart.png',
+                                                        fit: BoxFit.cover,
+                                                        height: 40.h,
+                                                        width: MediaQuery.of(
+                                                            context)
+                                                            .size
+                                                            .width,
+                                                      )
+
+                                                    // 'assets/size_chart.png',
+
+
+                                                      :  Image.network(
+                                                    displayallcolor
+                                                        ?.mumbaiStock?[0]
+                                                        .sizeChart ??
+                                                        '',
+                                                    errorBuilder:
+                                                        (BuildContext context,
+                                                        Object exception,
+                                                        StackTrace?
+                                                        stackTrace) {
+                                                      return Image.asset(
+                                                        'assets/size_chart.png',
+                                                        fit: BoxFit.cover,
+                                                        height: 40.h,
+                                                        width: MediaQuery.of(
+                                                            context)
+                                                            .size
+                                                            .width,
+                                                      );
+                                                    },
+                                                    // 'assets/size_chart.png',
+                                                    fit: BoxFit.cover,
+                                                    height: 40.h,
+                                                  ): Text("No data found")
+                                                 ,
                                                 ),
 
                                                 // Padding(
@@ -6380,7 +7029,7 @@ class _product_2State extends State<product_2> {
           if (response.statusCode == 200 &&
               displayallcolor?.status == "success") {
 
-            print("len"+(displayallcolor?.mumbaiStock?[0].menImageArray?.length).toString());
+
 
             setState(() {
               totalxs = int.parse(

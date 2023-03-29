@@ -599,8 +599,10 @@ class _products_1State extends State<products_1> {
                                               //     .Street_Wear
                                               //     .toString(),
                                               coloridnevigator:
-                                                  '${allcatogaryproperty?.diffProduct![index].id}',
-                                              )));
+                                                  '${allcatogaryproperty?.diffProduct?[index].id}',
+                                              )
+                                      )
+                                  );
                                 },
                                 child: Column(
                                   children: [
