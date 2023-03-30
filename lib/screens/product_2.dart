@@ -64,6 +64,7 @@ class products {
 }
 
 class _product_2State extends State<product_2> {
+  RegExp regex = RegExp(r'^\d+$');
   // Mumbai contriller
   TextEditingController _search = TextEditingController();
   TextEditingController _xs = TextEditingController();
@@ -130,7 +131,7 @@ class _product_2State extends State<product_2> {
   final PageController controller = PageController(initialPage: 0);
   List<products> images = [
     products(
-        "https://images.unsplash.com/photo-1679663956946-79bbb6bae250?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "assets/default_product_image.png",
         "Brand Name",
         "Street Wear",
         "Artist Name",
@@ -356,7 +357,9 @@ class _product_2State extends State<product_2> {
                             ),
                           ),
                         ),
-                  Expanded(
+                  displayallcolor?.status == "fail" ?Text('No Data Found',
+                    style: TextStyle(fontSize: 2.h, fontWeight: FontWeight.bold)
+                  ): Expanded(
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Column(
@@ -681,34 +684,45 @@ class _product_2State extends State<product_2> {
                                                                   BorderRadius
                                                                       .circular(
                                                                           28),
-                                                              child:
-                                                                  CachedNetworkImage(
-                                                                imageUrl: e
-                                                                    .image
-                                                                    .toString(),
-                                                                imageBuilder:
-                                                                    (context,
-                                                                            imageProvider) =>
-                                                                        Container(
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    image:
-                                                                        DecorationImage(
-                                                                      image:
-                                                                          imageProvider,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                placeholder: (context,
-                                                                        url) =>
-                                                                    CircularProgressIndicator(),
-                                                                errorWidget: (context,
-                                                                        url,
-                                                                        error) =>
-                                                                    CircularProgressIndicator(),
+                                                              child: Image.asset(
+                                                                "assets/default_product_image.png",
+                                                                // width: MediaQuery.of(context)
+                                                                //     .size
+                                                                //     .width *
+                                                                //     0.6,
+                                                                // height: MediaQuery.of(context)
+                                                                //     .size
+                                                                //     .height *
+                                                                //     0.3,
+                                                                fit: BoxFit.cover,
                                                               ),
+                                                              //     CachedNetworkImage(
+                                                              //   imageUrl: e
+                                                              //       .image
+                                                              //       .toString(),
+                                                              //   imageBuilder:
+                                                              //       (context,
+                                                              //               imageProvider) =>
+                                                              //           Container(
+                                                              //     decoration:
+                                                              //         BoxDecoration(
+                                                              //       image:
+                                                              //           DecorationImage(
+                                                              //         image:
+                                                              //             imageProvider,
+                                                              //         fit: BoxFit
+                                                              //             .cover,
+                                                              //       ),
+                                                              //     ),
+                                                              //   ),
+                                                              //   placeholder: (context,
+                                                              //           url) =>
+                                                              //       CircularProgressIndicator(),
+                                                              //   errorWidget: (context,
+                                                              //           url,
+                                                              //           error) =>
+                                                              //       CircularProgressIndicator(),
+                                                              // ),
                                                               // child: Image.network(
                                                               //   e,
                                                               //
@@ -1273,34 +1287,45 @@ class _product_2State extends State<product_2> {
                               BorderRadius
                                   .circular(
                               28),
-                              child:
-                              CachedNetworkImage(
-                              imageUrl: e
-                                  .image
-                                  .toString(),
-                              imageBuilder:
-                              (context,
-                              imageProvider) =>
-                              Container(
-                              decoration:
-                              BoxDecoration(
-                              image:
-                              DecorationImage(
-                              image:
-                              imageProvider,
-                              fit: BoxFit
-                                  .cover,
+                              child:Image.asset(
+                                "assets/default_product_image.png",
+                                // width: MediaQuery.of(context)
+                                //     .size
+                                //     .width *
+                                //     0.6,
+                                // height: MediaQuery.of(context)
+                                //     .size
+                                //     .height *
+                                //     0.3,
+                                fit: BoxFit.cover,
                               ),
-                              ),
-                              ),
-                              placeholder: (context,
-                              url) =>
-                              CircularProgressIndicator(),
-                              errorWidget: (context,
-                              url,
-                              error) =>
-                              CircularProgressIndicator(),
-                              ),
+                              // CachedNetworkImage(
+                              // imageUrl: e
+                              //     .image
+                              //     .toString(),
+                              // imageBuilder:
+                              // (context,
+                              // imageProvider) =>
+                              // Container(
+                              // decoration:
+                              // BoxDecoration(
+                              // image:
+                              // DecorationImage(
+                              // image:
+                              // imageProvider,
+                              // fit: BoxFit
+                              //     .cover,
+                              // ),
+                              // ),
+                              // ),
+                              // placeholder: (context,
+                              // url) =>
+                              // CircularProgressIndicator(),
+                              // errorWidget: (context,
+                              // url,
+                              // error) =>
+                              // CircularProgressIndicator(),
+                              // ),
                               // child: Image.network(
                               //   e,
                               //
@@ -2646,11 +2671,14 @@ class _product_2State extends State<product_2> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            Text(
-                                              (displayallcolor
+                                            Text(regex.hasMatch((displayallcolor
+                                                ?.mumbaiStock?[0].s).toString())?
+                                        int.parse((displayallcolor
+                                            ?.mumbaiStock?[0].s).toString()) >= 0 ?
+                                            (displayallcolor
                                                   ?.mumbaiStock?.length !=0)?   (displayallcolor
                                                   ?.mumbaiStock?[0].s ??
-                                                  ''):"",
+                                                  ''):"":"0":"0",
                                               // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
@@ -2672,6 +2700,9 @@ class _product_2State extends State<product_2> {
                                                   onChanged: (value) {
                                                     updateTotal();
                                                   },
+                                                  readOnly: regex.hasMatch((displayallcolor
+                                                      ?.mumbaiStock?[0].s).toString())?( int.parse((displayallcolor
+                                                      ?.mumbaiStock?[0].s).toString()) > 0)?false:true:false,
                                                   controller: _s,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
@@ -2729,6 +2760,7 @@ class _product_2State extends State<product_2> {
                                                   onChanged: (value) {
                                                     updateTotal();
                                                   },
+
                                                   controller: _ts,
                                                   textAlign: TextAlign.center,
                                                   keyboardType:
@@ -4244,7 +4276,7 @@ class _product_2State extends State<product_2> {
                                                   child:   (displayallcolor?.mumbaiStock?.length != 0)?
                                                   (displayallcolor?.mumbaiStock?[0].menImageArray?.length == 0)
                                                       ?  Image.asset(
-                                                    'assets/size_chart.png',
+                                                    "assets/default_product_image.png",
                                                     fit: BoxFit.cover,
                                                     height: 40.h,
                                                     width: MediaQuery.of(
@@ -4260,22 +4292,22 @@ class _product_2State extends State<product_2> {
                                                     displayallcolor
                                                         ?.mumbaiStock?[0]
                                                         .sizeChart ??
-                                                        '',
-                                                    errorBuilder:
-                                                        (BuildContext context,
-                                                        Object exception,
-                                                        StackTrace?
-                                                        stackTrace) {
-                                                      return Image.asset(
-                                                        'assets/size_chart.png',
-                                                        fit: BoxFit.cover,
-                                                        height: 40.h,
-                                                        width: MediaQuery.of(
-                                                            context)
-                                                            .size
-                                                            .width,
-                                                      );
-                                                    },
+                                                        'N/A',
+                                                    // errorBuilder:
+                                                    //     (BuildContext context,
+                                                    //     Object exception,
+                                                    //     StackTrace?
+                                                    //     stackTrace) {
+                                                    //   return Image.asset(
+                                                    //     'assets/size_chart.png',
+                                                    //     fit: BoxFit.cover,
+                                                    //     height: 40.h,
+                                                    //     width: MediaQuery.of(
+                                                    //         context)
+                                                    //         .size
+                                                    //         .width,
+                                                    //   );
+                                                    // },
                                                     // 'assets/size_chart.png',
                                                     fit: BoxFit.cover,
                                                     height: 40.h,
@@ -4283,7 +4315,7 @@ class _product_2State extends State<product_2> {
                                                   (displayallcolor?.tripurStock?.length != 0)?
                                                   (displayallcolor?.tripurStock?[0].menImageArray?.length == 0)?
                                                    Image.asset(
-                                                        'assets/size_chart.png',
+                                                     "assets/default_product_image.png",
                                                         fit: BoxFit.cover,
                                                         height: 40.h,
                                                         width: MediaQuery.of(
@@ -4299,22 +4331,22 @@ class _product_2State extends State<product_2> {
                                                     displayallcolor
                                                         ?.mumbaiStock?[0]
                                                         .sizeChart ??
-                                                        '',
-                                                    errorBuilder:
-                                                        (BuildContext context,
-                                                        Object exception,
-                                                        StackTrace?
-                                                        stackTrace) {
-                                                      return Image.asset(
-                                                        'assets/size_chart.png',
-                                                        fit: BoxFit.cover,
-                                                        height: 40.h,
-                                                        width: MediaQuery.of(
-                                                            context)
-                                                            .size
-                                                            .width,
-                                                      );
-                                                    },
+                                                        'N/A',
+                                                    // errorBuilder:
+                                                    //     (BuildContext context,
+                                                    //     Object exception,
+                                                    //     StackTrace?
+                                                    //     stackTrace) {
+                                                    //   return Image.asset(
+                                                    //     'assets/size_chart.png',
+                                                    //     fit: BoxFit.cover,
+                                                    //     height: 40.h,
+                                                    //     width: MediaQuery.of(
+                                                    //         context)
+                                                    //         .size
+                                                    //         .width,
+                                                    //   );
+                                                    // },
                                                     // 'assets/size_chart.png',
                                                     fit: BoxFit.cover,
                                                     height: 40.h,
@@ -6741,7 +6773,7 @@ class _product_2State extends State<product_2> {
                       ),
                     ),
                   ),
-                  Container(
+                  displayallcolor?.status == "fail" ?Text(''):    Container(
                     width: MediaQuery.of(context).size.width * 1,
                     height: 9.h,
 
@@ -6754,6 +6786,266 @@ class _product_2State extends State<product_2> {
                           children: [
                             GestureDetector(
                               onTap: () {
+
+                                (displayallcolor?.mumbaiStock?.length == 0) ||(displayallcolor?.tripurStock?.length == 0) ?
+
+
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Dialog(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(16),
+                                        ),
+                                        backgroundColor: Colors.transparent,
+                                        child: Container(
+                                          height: 30.h,
+                                          width: 80.w,
+                                          // padding: EdgeInsets.all(5.w),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(16),
+                                          ),
+                                          child: Stack(
+                                            children: [
+
+                                              Container(
+                                                height: 30.h,
+                                                width: 80.w,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.black.withOpacity(0.5),
+                                                  borderRadius: BorderRadius.circular(16),
+                                                ),
+                                                // borderRadius: BorderRadius.circular(16),
+                                                padding: EdgeInsets.all(3.w),
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      children: [
+
+                                                        Row(
+                                                          children: [
+                                                            // Icon(Icons.edit,color:Colors.white ,),
+                                                            Text(
+                                                              "",
+                                                              style: TextStyle(
+                                                                  decoration: TextDecoration.underline,
+                                                                  fontSize: 16.sp,
+                                                                  color: Colors.white,
+                                                                  fontWeight: FontWeight.bold,
+                                                                  fontFamily: "Poppins"),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        IconButton(
+                                                            onPressed: () {
+                                                              Navigator.of(context).pop();
+                                                            },
+                                                            icon: Icon(
+                                                              Icons.close,
+                                                              color: Colors.white,
+                                                            ))
+                                                      ],
+                                                    ),
+                                                    Form(
+
+                                                      child: Column(
+                                                        children: [
+                                                          SizedBox(
+                                                            height: 2.h,
+                                                          ),
+                                                          Text(
+                                                            "No Data Found!",
+                                                            style: TextStyle(
+
+                                                                fontSize: 16.sp,
+                                                                color: Colors.white,
+                                                                fontWeight: FontWeight.bold,
+                                                                fontFamily: "Poppins"),
+                                                          ),
+                                                          Text(
+                                                            "There is no data in stock",
+                                                            style: TextStyle(
+
+                                                                fontSize: 13.sp,
+                                                                color: Colors.white,
+                                                                fontWeight: FontWeight.bold,
+                                                                fontFamily: "Poppins"),
+                                                          ),
+
+                                                          // TextFormField(
+                                                          //   controller: _title,
+                                                          //   keyboardType: TextInputType.text,
+                                                          //   validator: (value) {
+                                                          //     if (value!.isEmpty) {
+                                                          //       return 'Please enter your subject';
+                                                          //     }
+                                                          //     return null;
+                                                          //   },
+                                                          //   decoration: InputDecoration(
+                                                          //     contentPadding: EdgeInsets.all(2.0),
+                                                          //     prefixIcon: Icon(Icons.add,color: Colors.grey,),
+                                                          //     filled: true,
+                                                          //     hintText: "Subject",
+                                                          //     hintStyle: textstyle,
+                                                          //     fillColor: Colors.white,
+                                                          //     enabledBorder: OutlineInputBorder(
+                                                          //         borderSide: BorderSide.none,
+                                                          //         borderRadius: BorderRadius.circular(30.0)),
+                                                          //     focusedBorder: OutlineInputBorder(
+                                                          //         borderSide: BorderSide.none,
+                                                          //         borderRadius: BorderRadius.circular(30.0)),
+                                                          //   ),
+                                                          // ),
+                                                        
+                                                          Padding(
+                                                            padding: EdgeInsets.all(3.w),
+                                                            child: Container(
+                                                              width: 50.w,
+                                                              decoration: BoxDecoration(
+                                                                color: Color(0xfff5f5f5),
+                                                                borderRadius: BorderRadius.circular(30.0),
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    color: Colors.grey.shade700,
+                                                                    offset: Offset(0, 20),
+                                                                    blurRadius: 20,
+                                                                    spreadRadius: -5,
+                                                                  ),
+                                                                ],
+                                                                // border: Border.all(color: Colors.white,width: 1.0)
+                                                              ),
+                                                              height: 50.0,
+                                                              child: TextButton(
+                                                                style: ButtonStyle(
+                                                                  alignment: Alignment.center,
+                                                                  // backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+                                                                  padding: MaterialStateProperty.all(
+                                                                    EdgeInsets.symmetric(vertical: 1.h),
+                                                                  ),
+                                                                  shape:
+                                                                  MaterialStateProperty.all<RoundedRectangleBorder>(
+                                                                      RoundedRectangleBorder(
+                                                                        borderRadius: BorderRadius.circular(20.sp),
+                                                                      )),
+                                                                ),
+                                                                onPressed: () {
+                                                                  Navigator.of(context).pop();
+
+                                                                },
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  children: [
+                                                                    Text(
+                                                                      "Oky",
+                                                                      style: TextStyle(
+                                                                          color: Colors.grey.shade700,
+                                                                          fontSize: 14.sp,
+                                                                          fontFamily: "Poppins",
+                                                                          fontWeight: FontWeight.bold),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width: 5.0,
+                                                                    ),
+                                                                    // Icon(
+                                                                    //   Icon,
+                                                                    //   color: Colors.grey.shade700,
+                                                                    // )
+
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ):
+
+
+
+                                // showDialog(
+                                //   context: context,
+                                //   builder: (context) {
+                                //     return
+                                //       AlertDialog(
+                                //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                                //       content: Column(
+                                //         mainAxisSize: MainAxisSize.min,
+                                //         children: [
+                                //           Column(
+                                //
+                                //
+                                //             children: [
+                                //
+                                //               Align(
+                                //                 alignment: Alignment.topRight,
+                                //
+                                //
+                                //                 child: IconButton(onPressed: (){
+                                //                   Navigator.pop(context);
+                                //                 },
+                                //                     icon: Icon(Icons.close)  ),
+                                //               ),
+                                //
+                                //               Text(
+                                //                 "No Data Found !",
+                                //                 style: TextStyle(
+                                //                     color: Colors.red, fontWeight: FontWeight.w600,
+                                //                     fontSize: 2.h
+                                //                 ),
+                                //               ),
+                                //               SizedBox(height: 0.5.h),
+                                //               Text(
+                                //                 "There is no data in stock",
+                                //                 style: TextStyle(
+                                //                     color: Color(0xff6e6e6e), fontWeight: FontWeight.w600,
+                                //                 fontSize: 2.h
+                                //                 ),
+                                //               ),
+                                //
+                                //
+                                //
+                                //                 // Align(
+                                //                 //   alignment: Alignment.bottomRight,
+                                //                 //   child: TextButton(
+                                //                 //     child: Text('OK'),
+                                //                 //     onPressed: () {
+                                //                 //       Navigator.of(context).pop();
+                                //                 //     },
+                                //                 //   ),
+                                //                 // ),
+                                //
+                                //
+                                //               SizedBox(
+                                //                 height: 1.h,
+                                //               ),
+                                //               // Text(
+                                //               //   "you will be notified soon",
+                                //               //   style: TextStyle(
+                                //               //       color: Color(0xff6e6e6e), fontWeight: FontWeight.w600),
+                                //               // ),
+                                //             ],
+                                //           )
+                                //         ],
+                                //       ),
+                                //     );
+                                //   },
+
+                                // ):
+
+
+
+
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -7025,41 +7317,41 @@ class _product_2State extends State<product_2> {
             .then((Response response) async {
           displayallcolor =
               colorDisplayClass.fromJson(json.decode(response.body));
-          print(displayallcolor?.status);
+          isloading = false;
           if (response.statusCode == 200 &&
-              displayallcolor?.status == "success") {
+              displayallcolor?.status == "success" ) {
 
 
 
             setState(() {
-              totalxs = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].xs).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].xs).toString());
-
-              totals = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].s).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].s).toString());
-              totalm = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].m).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].m).toString());
-              totall = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].l).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].l).toString());
-              totalxl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].xl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].xl).toString());
-              total2xl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].xxl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
-              total3xl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
-              total4xl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
-              total5xl = int.parse(
-                      (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +
-                  int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
+              // totalxs = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].xs).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].xs).toString());
+              //
+              // totals = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].s).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].s).toString());
+              // totalm = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].m).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].m).toString());
+              // totall = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].l).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].l).toString());
+              // totalxl = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].xl).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].xl).toString());
+              // total2xl = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].xxl).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].xxl).toString());
+              // total3xl = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].s3xl).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].s3xl).toString());
+              // total4xl = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].s4xl).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].s4xl).toString());
+              // total5xl = int.parse(
+              //         (displayallcolor?.mumbaiStock?[0].s5xl).toString()) +
+              //     int.parse((displayallcolor?.tripurStock?[0].s5xl).toString());
             });
 
             // print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
@@ -7071,7 +7363,11 @@ class _product_2State extends State<product_2> {
               isloading = false;
             }
           } else {
+            print("jhfhghgchgchgch"+ (displayallcolor?.status).toString());
+
+
             isloading = false;
+
           }
         });
       } else {

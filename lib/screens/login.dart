@@ -614,8 +614,7 @@ class _loginState extends State<login> {
                                   Align(
                                     alignment: Alignment.topRight,
                                     child: IconButton(onPressed: (){
-                                      Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) => login()));
+                                      Navigator.pop(context);
                                     },
                                       icon: Icon(Icons.close)  ),
                                   ),

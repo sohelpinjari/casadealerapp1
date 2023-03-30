@@ -236,8 +236,7 @@ class _forgetpasswordState extends State<forgetpassword> {
                                 Align(
                                   alignment: Alignment.topRight,
                                   child: IconButton(onPressed: (){
-                                    Navigator.push(context,
-                                        MaterialPageRoute(builder: (context) => forgetpassword()));
+                                    Navigator.pop(context);
                                   },
                                       icon: Icon(Icons.close)  ),
                                 ),
