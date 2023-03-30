@@ -40,12 +40,16 @@ class product_2 extends StatefulWidget {
 
   String? pronamenevigatior;
   String? coloridnevigator;
+  String? gender;
 
   product_2(
       {Key? key,
 
       this.pronamenevigatior,
-      this.coloridnevigator})
+      this.coloridnevigator,
+        this.gender,
+
+      })
       : super(key: key);
 
   @override
@@ -6790,258 +6794,182 @@ class _product_2State extends State<product_2> {
                                 (displayallcolor?.mumbaiStock?.length == 0) ||(displayallcolor?.tripurStock?.length == 0) ?
 
 
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return Dialog(
-                                        shape: RoundedRectangleBorder(
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return Dialog(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(16),
+                                      ),
+                                      backgroundColor: Colors.transparent,
+                                      child: Container(
+                                        height: 30.h,
+                                        width: 80.w,
+                                        // padding: EdgeInsets.all(5.w),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
                                           borderRadius: BorderRadius.circular(16),
                                         ),
-                                        backgroundColor: Colors.transparent,
-                                        child: Container(
-                                          height: 30.h,
-                                          width: 80.w,
-                                          // padding: EdgeInsets.all(5.w),
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(16),
-                                          ),
-                                          child: Stack(
-                                            children: [
+                                        child: Stack(
+                                          children: [
 
-                                              Container(
-                                                height: 30.h,
-                                                width: 80.w,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.black.withOpacity(0.5),
-                                                  borderRadius: BorderRadius.circular(16),
-                                                ),
-                                                // borderRadius: BorderRadius.circular(16),
-                                                padding: EdgeInsets.all(3.w),
-                                                child: Column(
-                                                  children: [
-                                                    Row(
-                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                      children: [
+                                            Container(
+                                              height: 30.h,
+                                              width: 80.w,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius: BorderRadius.circular(16),
+                                              ),
+                                              // borderRadius: BorderRadius.circular(16),
+                                              padding: EdgeInsets.all(3.w),
+                                              child: Column(
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
 
-                                                        Row(
-                                                          children: [
-                                                            // Icon(Icons.edit,color:Colors.white ,),
-                                                            Text(
-                                                              "",
-                                                              style: TextStyle(
-                                                                  decoration: TextDecoration.underline,
-                                                                  fontSize: 16.sp,
-                                                                  color: Colors.white,
-                                                                  fontWeight: FontWeight.bold,
-                                                                  fontFamily: "Poppins"),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        IconButton(
-                                                            onPressed: () {
-                                                              Navigator.of(context).pop();
-                                                            },
-                                                            icon: Icon(
-                                                              Icons.close,
-                                                              color: Colors.white,
-                                                            ))
-                                                      ],
-                                                    ),
-                                                    Form(
-
-                                                      child: Column(
+                                                      Row(
                                                         children: [
-                                                          SizedBox(
-                                                            height: 2.h,
-                                                          ),
+                                                          // Icon(Icons.edit,color:Colors.white ,),
                                                           Text(
-                                                            "No Data Found!",
+                                                            "",
                                                             style: TextStyle(
-
+                                                                decoration: TextDecoration.underline,
                                                                 fontSize: 16.sp,
                                                                 color: Colors.white,
                                                                 fontWeight: FontWeight.bold,
                                                                 fontFamily: "Poppins"),
                                                           ),
-                                                          Text(
-                                                            "There is no data in stock",
-                                                            style: TextStyle(
+                                                        ],
+                                                      ),
+                                                      IconButton(
+                                                          onPressed: () {
+                                                            Navigator.of(context).pop();
+                                                          },
+                                                          icon: Icon(
+                                                            Icons.close,
+                                                            color: Colors.black,
+                                                          ))
+                                                    ],
+                                                  ),
+                                                  Form(
 
-                                                                fontSize: 13.sp,
-                                                                color: Colors.white,
-                                                                fontWeight: FontWeight.bold,
-                                                                fontFamily: "Poppins"),
-                                                          ),
+                                                    child: Column(
+                                                      children: [
+                                                        SizedBox(
+                                                          height: 2.h,
+                                                        ),
+                                                        Text(
+                                                          "No Data Found !",
+                                                          style: TextStyle(
 
-                                                          // TextFormField(
-                                                          //   controller: _title,
-                                                          //   keyboardType: TextInputType.text,
-                                                          //   validator: (value) {
-                                                          //     if (value!.isEmpty) {
-                                                          //       return 'Please enter your subject';
-                                                          //     }
-                                                          //     return null;
-                                                          //   },
-                                                          //   decoration: InputDecoration(
-                                                          //     contentPadding: EdgeInsets.all(2.0),
-                                                          //     prefixIcon: Icon(Icons.add,color: Colors.grey,),
-                                                          //     filled: true,
-                                                          //     hintText: "Subject",
-                                                          //     hintStyle: textstyle,
-                                                          //     fillColor: Colors.white,
-                                                          //     enabledBorder: OutlineInputBorder(
-                                                          //         borderSide: BorderSide.none,
-                                                          //         borderRadius: BorderRadius.circular(30.0)),
-                                                          //     focusedBorder: OutlineInputBorder(
-                                                          //         borderSide: BorderSide.none,
-                                                          //         borderRadius: BorderRadius.circular(30.0)),
-                                                          //   ),
-                                                          // ),
-                                                        
-                                                          Padding(
-                                                            padding: EdgeInsets.all(3.w),
-                                                            child: Container(
-                                                              width: 50.w,
-                                                              decoration: BoxDecoration(
-                                                                color: Color(0xfff5f5f5),
-                                                                borderRadius: BorderRadius.circular(30.0),
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    color: Colors.grey.shade700,
-                                                                    offset: Offset(0, 20),
-                                                                    blurRadius: 20,
-                                                                    spreadRadius: -5,
-                                                                  ),
-                                                                ],
-                                                                // border: Border.all(color: Colors.white,width: 1.0)
+                                                              fontSize: 12.sp,
+                                                              color: Colors.black,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontFamily: "Poppins"),
+                                                        ),
+                                                        Text(
+                                                          "There is no stock avaliable !",
+                                                          style: TextStyle(
+
+                                                              fontSize: 12.sp,
+                                                              color: Colors.black,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontFamily: "Poppins"),
+                                                        ),
+
+
+                                                        // TextFormField(
+                                                        //   controller: _title,
+                                                        //   keyboardType: TextInputType.text,
+                                                        //   validator: (value) {
+                                                        //     if (value!.isEmpty) {
+                                                        //       return 'Please enter your subject';
+                                                        //     }
+                                                        //     return null;
+                                                        //   },
+                                                        //   decoration: InputDecoration(
+                                                        //     contentPadding: EdgeInsets.all(2.0),
+                                                        //     prefixIcon: Icon(Icons.add,color: Colors.grey,),
+                                                        //     filled: true,
+                                                        //     hintText: "Subject",
+                                                        //     hintStyle: textstyle,
+                                                        //     fillColor: Colors.white,
+                                                        //     enabledBorder: OutlineInputBorder(
+                                                        //         borderSide: BorderSide.none,
+                                                        //         borderRadius: BorderRadius.circular(30.0)),
+                                                        //     focusedBorder: OutlineInputBorder(
+                                                        //         borderSide: BorderSide.none,
+                                                        //         borderRadius: BorderRadius.circular(30.0)),
+                                                        //   ),
+                                                        // ),
+
+                                                        Padding(
+                                                          padding: EdgeInsets.all(3.w),
+                                                          child: Container(
+                                                            width: 40.w,
+                                                            decoration: BoxDecoration(
+                                                              color: Color(0xff333389),
+                                                              borderRadius: BorderRadius.circular(30.0),
+
+                                                            ),
+                                                            height: 40.0,
+                                                            child: TextButton(
+                                                              style: ButtonStyle(
+                                                                alignment: Alignment.center,
+                                                                // backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+                                                                padding: MaterialStateProperty.all(
+                                                                  EdgeInsets.symmetric(vertical: 1.h),
+                                                                ),
+                                                                shape:
+                                                                MaterialStateProperty.all<RoundedRectangleBorder>(
+                                                                    RoundedRectangleBorder(
+                                                                      borderRadius: BorderRadius.circular(20.sp),
+                                                                    )),
                                                               ),
-                                                              height: 50.0,
-                                                              child: TextButton(
-                                                                style: ButtonStyle(
-                                                                  alignment: Alignment.center,
-                                                                  // backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
-                                                                  padding: MaterialStateProperty.all(
-                                                                    EdgeInsets.symmetric(vertical: 1.h),
+                                                              onPressed: () {
+                                                                Navigator.of(context).pop();
+
+                                                              },
+                                                              child: Row(
+                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                children: [
+                                                                  Text(
+                                                                    "Oky",
+                                                                    style: TextStyle(
+                                                                        color: Colors.white,
+                                                                        fontSize: 14.sp,
+                                                                        fontFamily: "Poppins",
+                                                                        fontWeight: FontWeight.bold),
                                                                   ),
-                                                                  shape:
-                                                                  MaterialStateProperty.all<RoundedRectangleBorder>(
-                                                                      RoundedRectangleBorder(
-                                                                        borderRadius: BorderRadius.circular(20.sp),
-                                                                      )),
-                                                                ),
-                                                                onPressed: () {
-                                                                  Navigator.of(context).pop();
+                                                                  SizedBox(
+                                                                    width: 5.0,
+                                                                  ),
+                                                                  // Icon(
+                                                                  //   Icon,
+                                                                  //   color: Colors.grey.shade700,
+                                                                  // )
 
-                                                                },
-                                                                child: Row(
-                                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                                  children: [
-                                                                    Text(
-                                                                      "Oky",
-                                                                      style: TextStyle(
-                                                                          color: Colors.grey.shade700,
-                                                                          fontSize: 14.sp,
-                                                                          fontFamily: "Poppins",
-                                                                          fontWeight: FontWeight.bold),
-                                                                    ),
-                                                                    SizedBox(
-                                                                      width: 5.0,
-                                                                    ),
-                                                                    // Icon(
-                                                                    //   Icon,
-                                                                    //   color: Colors.grey.shade700,
-                                                                    // )
-
-                                                                  ],
-                                                                ),
+                                                                ],
                                                               ),
                                                             ),
                                                           ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
-                                      );
-                                    },
-                                  ):
+                                      ),
+                                    );
+                                  },
+                                ):
 
 
 
-                                // showDialog(
-                                //   context: context,
-                                //   builder: (context) {
-                                //     return
-                                //       AlertDialog(
-                                //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                                //       content: Column(
-                                //         mainAxisSize: MainAxisSize.min,
-                                //         children: [
-                                //           Column(
-                                //
-                                //
-                                //             children: [
-                                //
-                                //               Align(
-                                //                 alignment: Alignment.topRight,
-                                //
-                                //
-                                //                 child: IconButton(onPressed: (){
-                                //                   Navigator.pop(context);
-                                //                 },
-                                //                     icon: Icon(Icons.close)  ),
-                                //               ),
-                                //
-                                //               Text(
-                                //                 "No Data Found !",
-                                //                 style: TextStyle(
-                                //                     color: Colors.red, fontWeight: FontWeight.w600,
-                                //                     fontSize: 2.h
-                                //                 ),
-                                //               ),
-                                //               SizedBox(height: 0.5.h),
-                                //               Text(
-                                //                 "There is no data in stock",
-                                //                 style: TextStyle(
-                                //                     color: Color(0xff6e6e6e), fontWeight: FontWeight.w600,
-                                //                 fontSize: 2.h
-                                //                 ),
-                                //               ),
-                                //
-                                //
-                                //
-                                //                 // Align(
-                                //                 //   alignment: Alignment.bottomRight,
-                                //                 //   child: TextButton(
-                                //                 //     child: Text('OK'),
-                                //                 //     onPressed: () {
-                                //                 //       Navigator.of(context).pop();
-                                //                 //     },
-                                //                 //   ),
-                                //                 // ),
-                                //
-                                //
-                                //               SizedBox(
-                                //                 height: 1.h,
-                                //               ),
-                                //               // Text(
-                                //               //   "you will be notified soon",
-                                //               //   style: TextStyle(
-                                //               //       color: Color(0xff6e6e6e), fontWeight: FontWeight.w600),
-                                //               // ),
-                                //             ],
-                                //           )
-                                //         ],
-                                //       ),
-                                //     );
-                                //   },
-
-                                // ):
 
 
 
@@ -7049,7 +6977,11 @@ class _product_2State extends State<product_2> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => summary()));
+                                        builder: (context) => summary(
+                                            pronamenevigatior:widget.pronamenevigatior.toString(),
+                                            coloridnevigator: widget.coloridnevigator.toString(),
+                                            gender:  gen == 0 ? "MEN" : "WOMEN"
+                                        )));
                                 setState(() {
                                   cart = 1;
                                   blockapi();

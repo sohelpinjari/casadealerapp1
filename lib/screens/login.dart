@@ -603,40 +603,180 @@ class _loginState extends State<login> {
               else{
                 showDialog(
                   context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
+                  builder: (BuildContext context) {
+                    return Dialog(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      backgroundColor: Colors.transparent,
+                      child: Container(
+                        height: 30.h,
+                        width: 80.w,
+                        // padding: EdgeInsets.all(5.w),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Stack(
+                          children: [
+
+                            Container(
+                              height: 30.h,
+                              width: 80.w,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              // borderRadius: BorderRadius.circular(16),
+                              padding: EdgeInsets.all(3.w),
                               child: Column(
                                 children: [
-                                  Align(
-                                    alignment: Alignment.topRight,
-                                    child: IconButton(onPressed: (){
-                                      Navigator.pop(context);
-                                    },
-                                      icon: Icon(Icons.close)  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+
+                                      Row(
+                                        children: [
+                                          // Icon(Icons.edit,color:Colors.white ,),
+                                          Text(
+                                            "",
+                                            style: TextStyle(
+                                                decoration: TextDecoration.underline,
+                                                fontSize: 16.sp,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: "Poppins"),
+                                          ),
+                                        ],
+                                      ),
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          icon: Icon(
+                                            Icons.close,
+                                            color: Colors.black,
+                                          ))
+                                    ],
                                   ),
-                                  // SizedBox(
-                                  //   height: 2.h,
-                                  // ),
-                                  Text(
-                                    "Your registration is pending approval",
-                                    style: TextStyle(
-                                        color: Color(0xff6e6e6e), fontWeight: FontWeight.w600),
+                                  Form(
+
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 2.h,
+                                        ),
+                                        Text(
+                                          "Your registration is pending approval",
+                                          style: TextStyle(
+
+                                              fontSize: 12.sp,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: "Poppins"),
+                                        ),
+                                        Text(
+                                          "you will be notified soon",
+                                          style: TextStyle(
+
+                                              fontSize: 12.sp,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: "Poppins"),
+                                        ),
+
+                                        // TextFormField(
+                                        //   controller: _title,
+                                        //   keyboardType: TextInputType.text,
+                                        //   validator: (value) {
+                                        //     if (value!.isEmpty) {
+                                        //       return 'Please enter your subject';
+                                        //     }
+                                        //     return null;
+                                        //   },
+                                        //   decoration: InputDecoration(
+                                        //     contentPadding: EdgeInsets.all(2.0),
+                                        //     prefixIcon: Icon(Icons.add,color: Colors.grey,),
+                                        //     filled: true,
+                                        //     hintText: "Subject",
+                                        //     hintStyle: textstyle,
+                                        //     fillColor: Colors.white,
+                                        //     enabledBorder: OutlineInputBorder(
+                                        //         borderSide: BorderSide.none,
+                                        //         borderRadius: BorderRadius.circular(30.0)),
+                                        //     focusedBorder: OutlineInputBorder(
+                                        //         borderSide: BorderSide.none,
+                                        //         borderRadius: BorderRadius.circular(30.0)),
+                                        //   ),
+                                        // ),
+
+                                        Padding(
+                                          padding: EdgeInsets.all(3.w),
+                                          child: Container(
+                                            width: 40.w,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xff333389),
+                                              borderRadius: BorderRadius.circular(30.0),
+                                              // boxShadow: [
+                                              //   BoxShadow(
+                                              //     color: Color(0xff333389),
+                                              //     offset: Offset(0, 10),
+                                              //     blurRadius: 10,
+                                              //     spreadRadius: -5,
+                                              //   ),
+                                              // ],
+                                              // border: Border.all(color: Colors.white,width: 1.0)
+                                            ),
+                                            height: 40.0,
+                                            child: TextButton(
+                                              style: ButtonStyle(
+                                                alignment: Alignment.center,
+                                                // backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+                                                padding: MaterialStateProperty.all(
+                                                  EdgeInsets.symmetric(vertical: 1.h),
+                                                ),
+                                                shape:
+                                                MaterialStateProperty.all<RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.circular(20.sp),
+                                                    )),
+                                              ),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+
+                                              },
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "Oky",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 14.sp,
+                                                        fontFamily: "Poppins",
+                                                        fontWeight: FontWeight.bold),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5.0,
+                                                  ),
+                                                  // Icon(
+                                                  //   Icon,
+                                                  //   color: Colors.grey.shade700,
+                                                  // )
+
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  // Text(
-                                  //   "you will be notified soon",
-                                  //   style: TextStyle(
-                                  //       color: Color(0xff6e6e6e), fontWeight: FontWeight.w600),
-                                  // ),
                                 ],
-                              ))
-                        ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -657,17 +797,172 @@ class _loginState extends State<login> {
               // );
               showDialog(
                 context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    content: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                            child: Text(
-                          'Invalid Login',
-                          style: TextStyle(color: Colors.red),
-                        ))
-                      ],
+                builder: (BuildContext context) {
+                  return Dialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    backgroundColor: Colors.transparent,
+                    child: Container(
+                      height: 30.h,
+                      width: 80.w,
+                      // padding: EdgeInsets.all(5.w),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Stack(
+                        children: [
+
+                          Container(
+                            height: 30.h,
+                            width: 80.w,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            // borderRadius: BorderRadius.circular(16),
+                            padding: EdgeInsets.all(3.w),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+
+                                    Row(
+                                      children: [
+                                        // Icon(Icons.edit,color:Colors.white ,),
+                                        Text(
+                                          "",
+                                          style: TextStyle(
+                                              decoration: TextDecoration.underline,
+                                              fontSize: 16.sp,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: "Poppins"),
+                                        ),
+                                      ],
+                                    ),
+                                    IconButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        icon: Icon(
+                                          Icons.close,
+                                          color: Colors.black,
+                                        ))
+                                  ],
+                                ),
+                                Form(
+
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                      Text(
+                                        "Your login is not correct !",
+                                        style: TextStyle(
+
+                                            fontSize: 12.sp,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: "Poppins"),
+                                      ),
+
+
+                                      // TextFormField(
+                                      //   controller: _title,
+                                      //   keyboardType: TextInputType.text,
+                                      //   validator: (value) {
+                                      //     if (value!.isEmpty) {
+                                      //       return 'Please enter your subject';
+                                      //     }
+                                      //     return null;
+                                      //   },
+                                      //   decoration: InputDecoration(
+                                      //     contentPadding: EdgeInsets.all(2.0),
+                                      //     prefixIcon: Icon(Icons.add,color: Colors.grey,),
+                                      //     filled: true,
+                                      //     hintText: "Subject",
+                                      //     hintStyle: textstyle,
+                                      //     fillColor: Colors.white,
+                                      //     enabledBorder: OutlineInputBorder(
+                                      //         borderSide: BorderSide.none,
+                                      //         borderRadius: BorderRadius.circular(30.0)),
+                                      //     focusedBorder: OutlineInputBorder(
+                                      //         borderSide: BorderSide.none,
+                                      //         borderRadius: BorderRadius.circular(30.0)),
+                                      //   ),
+                                      // ),
+
+                                      Padding(
+                                        padding: EdgeInsets.all(3.w),
+                                        child: Container(
+                                          width: 40.w,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xff333389),
+                                            borderRadius: BorderRadius.circular(30.0),
+                                            // boxShadow: [
+                                            //   BoxShadow(
+                                            //     color: Color(0xff333389),
+                                            //     offset: Offset(0, 10),
+                                            //     blurRadius: 10,
+                                            //     spreadRadius: -5,
+                                            //   ),
+                                            // ],
+                                            // border: Border.all(color: Colors.white,width: 1.0)
+                                          ),
+                                          height: 40.0,
+                                          child: TextButton(
+                                            style: ButtonStyle(
+                                              alignment: Alignment.center,
+                                              // backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+                                              padding: MaterialStateProperty.all(
+                                                EdgeInsets.symmetric(vertical: 1.h),
+                                              ),
+                                              shape:
+                                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                                  RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(20.sp),
+                                                  )),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+
+                                            },
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "Oky",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 14.sp,
+                                                      fontFamily: "Poppins",
+                                                      fontWeight: FontWeight.bold),
+                                                ),
+                                                SizedBox(
+                                                  width: 5.0,
+                                                ),
+                                                // Icon(
+                                                //   Icon,
+                                                //   color: Colors.grey.shade700,
+                                                // )
+
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
