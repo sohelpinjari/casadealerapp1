@@ -232,7 +232,7 @@ class _summaryState extends State<summary> {
                           // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
                           // horizontalTitleGap: 0.0,
 
-                          itemCount: 2,
+                          itemCount: 1,
                           itemBuilder: (BuildContext context, int index) {
                             return Column(
                               children: [
@@ -324,7 +324,9 @@ class _summaryState extends State<summary> {
                                                     color: Colors.black,
                                                     fontWeight:
                                                         FontWeight.bold)),
-                                            Text(' ₹250',
+                                            Text(
+                                                (blockView?.priceProduct?[0].minPrice).toString() == null ? "N/A":(blockView?.priceProduct?[0].minPrice).toString(),
+                                                // ' ₹250',
                                                 style: TextStyle(
                                                     color: Color(0xff35358a),
                                                     fontWeight:
@@ -345,7 +347,8 @@ class _summaryState extends State<summary> {
                                               ),
                                             ),
                                             Text(
-                                              ' ₹280',
+                                              (blockView?.priceProduct?[0].maxPrice).toString() == null ? "N/A":(blockView?.priceProduct?[0].minPrice).toString(),
+                                              // ' ₹280',
                                               style: TextStyle(
                                                 color: Color(0xff35358a),
                                                 fontWeight: FontWeight.bold,
@@ -393,7 +396,7 @@ class _summaryState extends State<summary> {
                                 SizedBox(height: 1.h),
                                 Padding(
                                   padding:
-                                      EdgeInsets.symmetric(horizontal: 3.h),
+                                  EdgeInsets.symmetric(horizontal: 3.h),
                                   child: Container(
                                     child: Row(
                                       children: [
@@ -405,8 +408,36 @@ class _summaryState extends State<summary> {
                                           width: 2.w,
                                         ),
                                         Text(
-                                          // gender.toString(),
-                                          'Male',
+                                          widget.gender.toString(),
+                                          // 'Male',
+                                          style: TextStyle(
+                                              fontSize: 2.3.h,
+                                              color: Color(0xff35358a),
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 2.h),
+
+                                Padding(
+                                  padding:
+                                  EdgeInsets.symmetric(horizontal: 3.h),
+                                  child: Container(
+                                    child: Row(
+                                      children: [
+                                        Text('State',
+                                            style: TextStyle(
+                                              color: Color(0xff848484),
+                                            )),
+                                        SizedBox(
+                                          width: 2.w,
+                                        ),
+                                        Text(
+                                          // (blockView?.blockMumbai?[0].warehouseName).toString() == null?(blockView?.blockMumbai?[0].warehouseName).toString():"N/A",
+
+                                          'Mumbai',
                                           style: TextStyle(
                                               fontSize: 2.3.h,
                                               color: Color(0xff35358a),
@@ -537,7 +568,10 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '20000',
+                                          (blockView?.blockMumbai?[0].size).toString() == "xs_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // blockView?.blockMumbai?[0].blockedQuantity ?? 'N/A',df
+                                          // '20000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -549,7 +583,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '30000',
+                                          (blockView?.blockMumbai?[0].size).toString() == "s_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '30000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -561,7 +597,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '0',
+                                          (blockView?.blockMumbai?[0].size).toString() == "m_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '0',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -573,7 +611,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '12500',
+                                          (blockView?.blockMumbai?[0].size).toString() == "l_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '12500',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -585,7 +625,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '13000',
+                                          (blockView?.blockMumbai?[0].size).toString() == "xl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '13000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -723,7 +765,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '20000',
+                                          (blockView?.blockMumbai?[0].size).toString() == "xxl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '20000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -735,7 +779,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '50000',
+                                          (blockView?.blockMumbai?[0].size).toString() == "3xl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '50000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -747,7 +793,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '75000',
+                                          (blockView?.blockMumbai?[0].size).toString() == "4xl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '75000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -759,7 +807,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '10000',
+                                          (blockView?.blockMumbai?[0].size).toString() == "5xl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '10000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -807,11 +857,11 @@ class _summaryState extends State<summary> {
                                 SizedBox(height: 2.h),
                                 Padding(
                                   padding:
-                                      EdgeInsets.symmetric(horizontal: 3.h),
+                                  EdgeInsets.symmetric(horizontal: 3.h),
                                   child: Container(
                                     child: Row(
                                       children: [
-                                        Text('Gender',
+                                        Text('State',
                                             style: TextStyle(
                                               color: Color(0xff848484),
                                             )),
@@ -819,7 +869,9 @@ class _summaryState extends State<summary> {
                                           width: 2.w,
                                         ),
                                         Text(
-                                          'Women',
+                                          // (blockView?.blockMumbai?[0].warehouseName).toString() == null?(blockView?.blockMumbai?[0].warehouseName).toString():"N/A",
+
+                                          'Tripur',
                                           style: TextStyle(
                                               fontSize: 2.3.h,
                                               color: Color(0xff35358a),
@@ -949,7 +1001,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '20000',
+                                          (blockView?.blockTirupur?[0].size).toString() == "xs_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '20000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -961,7 +1015,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '30000',
+                                          (blockView?.blockTirupur?[0].size).toString() == "s_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '30000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -973,7 +1029,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '0',
+                                          (blockView?.blockTirupur?[0].size).toString() == "m_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '0',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -985,7 +1043,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '12500',
+                                          (blockView?.blockTirupur?[0].size).toString() == "l_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '12500',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -997,7 +1057,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '13000',
+                                          (blockView?.blockTirupur?[0].size).toString() == "xl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '13000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -1135,7 +1197,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '20000',
+                                          (blockView?.blockTirupur?[0].size).toString() == "xxl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '20000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -1147,7 +1211,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '50000',
+                                          (blockView?.blockTirupur?[0].size).toString() == "3xl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '50000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -1159,7 +1225,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '75000',
+                                          (blockView?.blockTirupur?[0].size).toString() == "4xl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '75000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -1171,7 +1239,9 @@ class _summaryState extends State<summary> {
                                         height: 3.5.h,
                                         width: 15.w,
                                         child: Text(
-                                          '10000',
+                                          (blockView?.blockTirupur?[0].size).toString() == "5xl_block" ?  (blockView?.blockMumbai?[0].blockedQuantity).toString():"N/A",
+
+                                          // '10000',
                                           style: TextStyle(
                                               fontSize: 1.9.h,
                                               color: Colors.black,
@@ -2461,9 +2531,9 @@ class _summaryState extends State<summary> {
   }
   viewBlockSummary() async {
     final Map<String, String> data = {};
-    data['action'] = 'view_add_to_cart_product_single';
+    data['action'] = 'view_block_product_single';
     data['product_name'] = widget.pronamenevigatior.toString();
-    data['gender_type'] = gen == 0 ? "MEN" : "WOMEN";
+    data['gender_type'] = widget.gender.toString();
     data['color_name'] =  widget.coloridnevigator.toString();
     data['d_id'] = (userData?.logindata?.dId).toString();
 
