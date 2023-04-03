@@ -85,29 +85,29 @@ class _forgetpasswordState extends State<forgetpassword> {
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.08,
                       child: TextFormField(
-                        // validator: (value) {
-                        //   String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
-                        //       "\\@" +
-                        //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                        //       "(" +
-                        //       "\\." +
-                        //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                        //       ")+";
-                        //   //Convert string p to a RegE  x
-                        //   RegExp regExp = RegExp(p);
-                        //
-                        //   if (value!.isEmpty) {
-                        //     return 'Please enter Your Email';
-                        //   } else {
-                        //     //If email address matches pattern
-                        //     if (regExp.hasMatch(value)) {
-                        //       return null;
-                        //     } else {
-                        //       //If it doesn't match
-                        //       return 'Email is not valid';
-                        //     }
-                        //   }
-                        // },
+                        validator: (value) {
+                          String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+                              "\\@" +
+                              "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                              "(" +
+                              "\\." +
+                              "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                              ")+";
+                          //Convert string p to a RegE  x
+                          RegExp regExp = RegExp(p);
+
+                          if (value!.isEmpty) {
+                            return 'Please enter Your Email';
+                          } else {
+                            //If email address matches pattern
+                            if (regExp.hasMatch(value)) {
+                              return null;
+                            } else {
+                              //If it doesn't match
+                              return 'Email is not valid';
+                            }
+                          }
+                        },
                         controller: _email,
                         decoration: InputDecoration(
                           // suffixIcon: Icon(
@@ -164,38 +164,38 @@ class _forgetpasswordState extends State<forgetpassword> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 2.h),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.06,
-                      // color: Color(0xfff333389),
-                      // padding:
-                      //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // if (_formKey.currentState!.validate()) {
-                          //   print("Validate");
-                          //   forget_pass();
-                          //
-                          //
-                          // }
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => login()));
-                        },
-                        child: Text(
-                          'Back to login',
-                          style: TextStyle(fontSize: 2.h),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xfff333389),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // SizedBox(height: 2.h),
+                    // Container(
+                    //   width: MediaQuery.of(context).size.width * 0.9,
+                    //   height: MediaQuery.of(context).size.height * 0.06,
+                    //   // color: Color(0xfff333389),
+                    //   // padding:
+                    //   //     EdgeInsets.only(left: 35, right: 40, bottom: 10, top: 20),
+                    //   child: ElevatedButton(
+                    //     onPressed: () {
+                    //       // if (_formKey.currentState!.validate()) {
+                    //       //   print("Validate");
+                    //       //   forget_pass();
+                    //       //
+                    //       //
+                    //       // }
+                    //       Navigator.push(
+                    //           context,
+                    //           MaterialPageRoute(
+                    //               builder: (context) => login()));
+                    //     },
+                    //     child: Text(
+                    //       'Back to login',
+                    //       style: TextStyle(fontSize: 2.h),
+                    //     ),
+                    //     style: ElevatedButton.styleFrom(
+                    //       backgroundColor: Color(0xfff333389),
+                    //       shape: RoundedRectangleBorder(
+                    //         borderRadius: BorderRadius.circular(8),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
 
 
 
@@ -232,7 +232,7 @@ class _forgetpasswordState extends State<forgetpassword> {
                     ),
                     backgroundColor: Colors.transparent,
                     child: Container(
-                      height: 30.h,
+                      height: 25.h,
                       width: 80.w,
                       // padding: EdgeInsets.all(5.w),
                       decoration: BoxDecoration(
@@ -243,7 +243,7 @@ class _forgetpasswordState extends State<forgetpassword> {
                         children: [
 
                           Container(
-                            height: 30.h,
+                            height: 25.h,
                             width: 80.w,
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -428,23 +428,23 @@ class _forgetpasswordState extends State<forgetpassword> {
               //   gravity: ToastGravity.BOTTOM,
               //   backgroundColor: Colors.indigo,
               // );
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    content: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                            child: Text(
-                              'Invalid Login',
-                              style: TextStyle(color: Colors.red),
-                            ))
-                      ],
-                    ),
-                  );
-                },
-              );
+              // showDialog(
+              //   context: context,
+              //   builder: (context) {
+              //     return AlertDialog(
+              //       content: Column(
+              //         mainAxisSize: MainAxisSize.min,
+              //         children: [
+              //           Container(
+              //               child: Text(
+              //                 'Invalid Login',
+              //                 style: TextStyle(color: Colors.red),
+              //               ))
+              //         ],
+              //       ),
+              //     );
+              //   },
+              // );
             }
           });
         } else {}

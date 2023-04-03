@@ -217,7 +217,23 @@ class Productprovider with ChangeNotifier {
 
   Future<http.Response> summaryBlockViewProvider(Map<String, dynamic> bodyData) async {
     const url =
-        'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=add_to_cart';
+        'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=view_block_product_single';
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> viewcartapi(Map<String, dynamic> bodyData) async {
+    const url =
+        'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=view_add_to_cart_product_single';
     var responseJson;
 
     final response = await http

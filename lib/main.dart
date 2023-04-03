@@ -12,6 +12,15 @@ import 'package:sizer/sizer.dart';
 import 'provider/login_authprovider.dart';
 
 int? gen = 0;
+int? totals = 0;
+int? totalm = 0;
+int? totall = 0;
+int? totalxl = 0;
+int? total2xl = 0;
+int? total3xl = 0;
+int? total4xl = 0;
+int? total5xl = 0;
+int? totalxs = 0;
 void main() {
   runApp(const MyApp());
 }

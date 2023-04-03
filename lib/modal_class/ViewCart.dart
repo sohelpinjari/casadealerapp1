@@ -1,13 +1,13 @@
-class viewBlockProduct {
+class ViewCart {
   String? status;
   List<BlockMumbai>? blockMumbai;
   List<BlockTirupur>? blockTirupur;
   List<PriceProduct>? priceProduct;
 
-  viewBlockProduct(
+  ViewCart(
       {this.status, this.blockMumbai, this.blockTirupur, this.priceProduct});
 
-  viewBlockProduct.fromJson(Map<String, dynamic> json) {
+  ViewCart.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     if (json['block_mumbai'] != null) {
       blockMumbai = <BlockMumbai>[];
@@ -89,7 +89,6 @@ class BlockMumbai {
 }
 
 class BlockTirupur {
-  String? apColorName;
   String? tApdId;
   String? tApId;
   String? warehouseName;
@@ -98,8 +97,7 @@ class BlockTirupur {
   String? blockedQuantity;
 
   BlockTirupur(
-      {this.apColorName,
-        this.tApdId,
+      {this.tApdId,
         this.tApId,
         this.warehouseName,
         this.productName,
@@ -107,7 +105,6 @@ class BlockTirupur {
         this.blockedQuantity});
 
   BlockTirupur.fromJson(Map<String, dynamic> json) {
-    apColorName = json['ap_color_name'];
     tApdId = json['t_apd_id'];
     tApId = json['t_ap_id'];
     warehouseName = json['warehouse_name'];
@@ -118,7 +115,6 @@ class BlockTirupur {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['ap_color_name'] = this.apColorName;
     data['t_apd_id'] = this.tApdId;
     data['t_ap_id'] = this.tApId;
     data['warehouse_name'] = this.warehouseName;
