@@ -320,6 +320,9 @@ class _products_1State extends State<products_1> {
                                       //   ),
                                       // ),
 
+
+
+
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: (gen != index)
@@ -329,6 +332,8 @@ class _products_1State extends State<products_1> {
 
                                         shape: BoxShape.circle,
                                         // color: Colors.blueGrey,
+
+
                                         image: DecorationImage(
                                             image: NetworkImage(
                                           allproperty
@@ -611,35 +616,72 @@ class _products_1State extends State<products_1> {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(10.0),
-                                          child:  Image.network(
-                                                  allcatogaryproperty
-                                                          ?.diffProduct?[index]
-                                                          .prodImgDefault ??
-                                                      "",
-                                            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                                              return Image.asset( "assets/default_product_image.png",
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                    0.6,
-                                                height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                    0.3,
-                                                fit: BoxFit.cover
-                                                ,
-                                              );
-                                            },
+                                          child:
+
+
+                                          CachedNetworkImage( width: MediaQuery.of(context)
+                                              .size
+                                              .width *
+                                              0.6,
+                                              height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                                  0.3,
+                                              fit: BoxFit.cover,
+                                            imageUrl:allcatogaryproperty
+                                                ?.diffProduct?[index]
+                                                .prodImgDefault ??
+                                                "",
+                                            progressIndicatorBuilder: (context,
+                                                url, downloadProgress) =>
+                                                CircularProgressIndicator(
+                                                    value: downloadProgress
+                                                        .progress),
+                                            errorWidget: (context, url, error) =>
+                                                Image.asset( "assets/default_product_image.png",
                                                   width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
+                                                      .size
+                                                      .width *
                                                       0.6,
                                                   height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
+                                                      .size
+                                                      .height *
                                                       0.3,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                                  fit: BoxFit.cover
+                                                  ,
+                                                )
+                                          ),
+
+                                          // Image.network(
+                                          //         allcatogaryproperty
+                                          //                 ?.diffProduct?[index]
+                                          //                 .prodImgDefault ??
+                                          //             "",
+                                          //
+                                          //   errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                          //     return Image.asset( "assets/default_product_image.png",
+                                          //       width: MediaQuery.of(context)
+                                          //           .size
+                                          //           .width *
+                                          //           0.6,
+                                          //       height: MediaQuery.of(context)
+                                          //           .size
+                                          //           .height *
+                                          //           0.3,
+                                          //       fit: BoxFit.cover
+                                          //       ,
+                                          //     );
+                                          //   },
+                                          //         width: MediaQuery.of(context)
+                                          //                 .size
+                                          //                 .width *
+                                          //             0.6,
+                                          //         height: MediaQuery.of(context)
+                                          //                 .size
+                                          //                 .height *
+                                          //             0.3,
+                                          //         fit: BoxFit.cover,
+                                          //       ),
                                         ),
                                         // Padding(
                                         //   padding: EdgeInsets.only(

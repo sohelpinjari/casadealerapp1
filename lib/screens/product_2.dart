@@ -2551,19 +2551,15 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].xs).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].xs).toString()) >= 0 ||  regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].xs).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].xs).toString()) == [] ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].xs ??
-                                              //     ''):"":"0":"0":"0",
-                                              '432',
-
+                                              regex.hasMatch((displayallcolor
+                                                  ?.tripurStock?[0].xs).toString())?
+                                              int.parse((displayallcolor
+                                                  ?.tripurStock?[0].xs).toString()) >= 0 ?
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?   (displayallcolor
+                                                  ?.tripurStock?[0].xs ??
+                                                  ''):"":"0":"0",
+                                              // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2752,15 +2748,15 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].s).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].s).toString()) >= 0 ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].s ??
-                                              //     ''):"":"0":"0",
-                                              '432',
+                                              regex.hasMatch((displayallcolor
+                                                  ?.tripurStock?[0].s).toString())?
+                                              int.parse((displayallcolor
+                                                  ?.tripurStock?[0].s).toString()) >= 0 ?
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?   (displayallcolor
+                                                  ?.tripurStock?[0].s ??
+                                                  ''):"":"0":"0",
+                                              // '432',
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -2947,15 +2943,15 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].m).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].m).toString()) >= 0 ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].m ??
-                                              //     ''):"":"0":"0",
+                                              // '432',
+                                              regex.hasMatch((displayallcolor
+                                                  ?.tripurStock?[0].m).toString())?
+                                              int.parse((displayallcolor
+                                                  ?.tripurStock?[0].m).toString()) >= 0 ?
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?   (displayallcolor
+                                                  ?.tripurStock?[0].m ??
+                                                  ''):"":"0":"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3136,15 +3132,15 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].l).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].l).toString()) >= 0 ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].l ??
-                                              //     ''):"":"0":"0",
+                                              // '432',
+                                              regex.hasMatch((displayallcolor
+                                                  ?.tripurStock?[0].l).toString())?
+                                              int.parse((displayallcolor
+                                                  ?.tripurStock?[0].l).toString()) >= 0 ?
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?   (displayallcolor
+                                                  ?.tripurStock?[0].l ??
+                                                  ''):"":"0":"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3328,15 +3324,15 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].xl).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].xl).toString()) >= 0 ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].xl ??
-                                              //     ''):"":"0":"0",
+                                              // '432',
+                                              regex.hasMatch((displayallcolor
+                                                  ?.mumbaiStock?[0].xl).toString())?
+                                              int.parse((displayallcolor
+                                                  ?.mumbaiStock?[0].xl).toString()) >= 0 ?
+                                              (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)?   (displayallcolor
+                                                  ?.mumbaiStock?[0].xl ??
+                                                  ''):"":"0":"0",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3458,14 +3454,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              regex.hasMatch((displayallcolor
-                                                  ?.mumbaiStock?[0].xxl).toString())?
-                                              int.parse((displayallcolor
-                                                  ?.mumbaiStock?[0].xxl).toString()) >= 0 ?
                                               (displayallcolor
-                                                  ?.mumbaiStock?.length !=0)?   (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)? ( displayallcolor
                                                   ?.mumbaiStock?[0].xxl ??
-                                                  ''):"":"0":"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3516,15 +3508,11 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].xxl).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].xxl).toString()) >= 0 ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].xxl ??
-                                              //     ''):"":"0":"0",
+                                              // '432',
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)? ( displayallcolor
+                                                      ?.tripurStock?[0].xxl ??
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3650,14 +3638,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              regex.hasMatch((displayallcolor
-                                                  ?.mumbaiStock?[0].s3xl).toString())?
-                                              int.parse((displayallcolor
-                                                  ?.mumbaiStock?[0].s3xl).toString()) >= 0 ?
                                               (displayallcolor
-                                                  ?.mumbaiStock?.length !=0)?   (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)?  (displayallcolor
                                                   ?.mumbaiStock?[0].s3xl ??
-                                                  ''):"":"0":"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3708,15 +3692,11 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].s3xl).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].s3xl).toString()) >= 0 ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].s3xl ??
-                                              //     ''):"":"0":"0",
+                                              // '432',
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?  (displayallcolor
+                                                      ?.tripurStock?[0].s3xl ??
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3839,14 +3819,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              regex.hasMatch((displayallcolor
-                                                  ?.mumbaiStock?[0].s4xl).toString())?
-                                              int.parse((displayallcolor
-                                                  ?.mumbaiStock?[0].s4xl).toString()) >= 0 ?
                                               (displayallcolor
-                                                  ?.mumbaiStock?.length !=0)?   (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)? ( displayallcolor
                                                   ?.mumbaiStock?[0].s4xl ??
-                                                  ''):"":"0":"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -3897,15 +3873,11 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].s4xl).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].s4xl).toString()) >= 0 ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].s4xl ??
-                                              //     ''):"":"0":"0",
+                                              // '432',
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)? ( displayallcolor
+                                                      ?.tripurStock?[0].s4xl ??
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -4031,14 +4003,10 @@ class _product_2State extends State<product_2> {
                                           children: [
                                             Text(
                                               // '432',
-                                              regex.hasMatch((displayallcolor
-                                                  ?.mumbaiStock?[0].s5xl).toString())?
-                                              int.parse((displayallcolor
-                                                  ?.mumbaiStock?[0].s5xl).toString()) >= 0 ?
                                               (displayallcolor
-                                                  ?.mumbaiStock?.length !=0)?   (displayallcolor
+                                                  ?.mumbaiStock?.length !=0)?  ( displayallcolor
                                                   ?.mumbaiStock?[0].s5xl ??
-                                                  ''):"":"0":"0",
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -4089,15 +4057,11 @@ class _product_2State extends State<product_2> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '432',
-                                              // regex.hasMatch((displayallcolor
-                                              //     ?.tripurStock?[0].s5xl).toString())?
-                                              // int.parse((displayallcolor
-                                              //     ?.tripurStock?[0].s5xl).toString()) >= 0 ?
-                                              // (displayallcolor
-                                              //     ?.tripurStock?.length !=0)?   (displayallcolor
-                                              //     ?.tripurStock?[0].s5xl ??
-                                              //     ''):"":"0":"0",
+                                              // '432',
+                                              (displayallcolor
+                                                  ?.tripurStock?.length !=0)?  ( displayallcolor
+                                                      ?.tripurStock?[0].s5xl ??
+                                                  ''):"",
                                               style: TextStyle(
                                                   fontSize: 2.h,
                                                   fontWeight: FontWeight.bold),
@@ -4351,7 +4315,8 @@ class _product_2State extends State<product_2> {
                                                 Container(
                                                   alignment: Alignment.center,
                                                   child:   (displayallcolor?.mumbaiStock?.length != 0)?
-                                                  (displayallcolor?.mumbaiStock?[0].menImageArray?.length == 0)
+                                                 ( displayallcolor?.mumbaiStock?[0].sizeChart == "null")
+
                                                       ?  Image.asset(
                                                     "assets/default_product_image.png",
                                                     fit: BoxFit.cover,
@@ -4390,7 +4355,7 @@ class _product_2State extends State<product_2> {
                                                     height: 40.h,
                                                   ) :
                                                   (displayallcolor?.tripurStock?.length != 0)?
-                                                  (displayallcolor?.tripurStock?[0].menImageArray?.length == 0)?
+                                                  ( displayallcolor?.tripurStock?[0].sizeChart == "null")?
                                                    Image.asset(
                                                      "assets/default_product_image.png",
                                                         fit: BoxFit.cover,
