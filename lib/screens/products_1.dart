@@ -120,6 +120,7 @@ class _products_1State extends State<products_1> {
                       Container(
                         width: MediaQuery.of(context).size.width * 1,
                         height: 11.h,
+
                         child: Column(
                           children: [
                             SizedBox(height: 4.h),
@@ -276,8 +277,15 @@ class _products_1State extends State<products_1> {
                                 setState(() {
                                   gen = index;
                                   select = allproperty?.data?[index].id;
+
                                 });
+
+
+                                print("gfhfhgh");
                                 categorydisplay();
+
+
+
                               },
                               child: Container(
                                 height: 13.h,
@@ -292,12 +300,33 @@ class _products_1State extends State<products_1> {
                                       height:
                                           MediaQuery.of(context).size.height *
                                               0.10,
+                                      // child: TextFormField(
+                                      //   validator: (value) {
+                                      //     if (value!.isEmpty) {
+                                      //       return "";
+                                      //     }
+                                      //     return null;
+                                      //   },
+                                      //   // controller: _firstname,
+                                      //   decoration: InputDecoration(
+                                      //     border: InputBorder.none,
+                                      //     contentPadding: EdgeInsets.all(3.h),
+                                      //     hintText: 'Search by SKU/Brand',
+                                      //     suffixIcon: Icon(
+                                      //       Icons.search,
+                                      //       color: Color(0xfff333389),
+                                      //       size: 4.5.h,
+                                      //     ),
+                                      //   ),
+                                      // ),
+
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: (gen != index)
                                                 ? Colors.white
                                                 : Color(0xfff333389),
                                             width: 0.8.w),
+
                                         shape: BoxShape.circle,
                                         // color: Colors.blueGrey,
                                         image: DecorationImage(
@@ -338,7 +367,7 @@ class _products_1State extends State<products_1> {
                                             Container(
                                               height: 25.h,
                                               child: Text(
-                                                'Product not found',
+                                                'Not Found',
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 2.h,
@@ -360,7 +389,7 @@ class _products_1State extends State<products_1> {
                                       height: 2.h,
                                     ),
                                     Text(
-                                      'Product not found.',
+                                      'Not Found',
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 2.h,
@@ -383,7 +412,10 @@ class _products_1State extends State<products_1> {
                                       : searchproperty?.data?.length ?? 0,
                                   itemBuilder: (context, index) {
                                     return Container(
-
+                                      // height:40.h,
+                                      // width: 20.h,
+                                      // margin:
+                                      // EdgeInsets.only(right: 1.h, bottom: 1.h),
                                       child: GestureDetector(
                                         onTap: () async {
                                           Navigator.push(
@@ -460,12 +492,42 @@ class _products_1State extends State<products_1> {
                                                             15),
                                                     child: Image.asset(
                                                       "assets/default_product_image.png",
-
+                                                      // width: MediaQuery.of(context)
+                                                      //     .size
+                                                      //     .width *
+                                                      //     0.6,
+                                                      // height: MediaQuery.of(context)
+                                                      //     .size
+                                                      //     .height *
+                                                      //     0.3,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
+
+                                                // Container(
+                                                //   decoration: BoxDecoration(
+                                                //   borderRadius: BorderRadius.all(
+                                                //       Radius.circular(10.sp),
+                                                //     ),
+                                                //
+                                                //   ),
+                                                //   child: Image.asset(
+                                                //     "assets/product_1_img.png",
+                                                //     width: MediaQuery.of(context)
+                                                //         .size
+                                                //         .width *
+                                                //         0.6,
+                                                //     height: MediaQuery.of(context)
+                                                //         .size
+                                                //         .height *
+                                                //         0.3,
+                                                //     fit: BoxFit.cover,
+                                                //
+                                                //   ),
+                                                // )
                                               ),
+
                                               Container(
                                                 child: Flexible(
                                                   child: Column(
@@ -490,6 +552,13 @@ class _products_1State extends State<products_1> {
                                                   ),
                                                 ),
                                               ),
+                                              // Flexible(
+                                              //   child: Text(
+                                              //     searchproperty?.data?[index]
+                                              //         . ??
+                                              //         '',
+                                              //   ),
+                                              // ),
                                             ],
                                           ),
                                         ),
@@ -523,6 +592,7 @@ class _products_1State extends State<products_1> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => product_2(
+
                                               pronamenevigatior:
                                                   '${allcatogaryproperty?.diffProduct?[index].name}',
                                               // images[index]
@@ -541,38 +611,62 @@ class _products_1State extends State<products_1> {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(10.0),
-                                          child:
-                                          CachedNetworkImage(
-                                              width: MediaQuery.of(context)
-                                              .size
-                                              .width *
-                                              0.6,
-                                              height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                                  0.3,
-                                              fit: BoxFit.cover,
-                                            imageUrl:allcatogaryproperty
-                                                ?.diffProduct?[index]
-                                                .prodImgDefault ??
-                                                "",
-                                              placeholder: (context, url) => Center(
-                                                  child: CircularProgressIndicator()),
-                                            errorWidget: (context, url, error) =>
-                                                Image.asset( "assets/default_product_image.png",
+                                          child:  Image.network(
+                                                  allcatogaryproperty
+                                                          ?.diffProduct?[index]
+                                                          .prodImgDefault ??
+                                                      "",
+                                            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                              return Image.asset( "assets/default_product_image.png",
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                    0.6,
+                                                height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                    0.3,
+                                                fit: BoxFit.cover
+                                                ,
+                                              );
+                                            },
                                                   width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
+                                                          .size
+                                                          .width *
                                                       0.6,
                                                   height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
+                                                          .size
+                                                          .height *
                                                       0.3,
-                                                  fit: BoxFit.cover
-                                                  ,
-                                                )
-                                          ),
+                                                  fit: BoxFit.cover,
+                                                ),
                                         ),
+                                        // Padding(
+                                        //   padding: EdgeInsets.only(
+                                        //       left: MediaQuery.of(context).size.width *
+                                        //           0.33,
+                                        //       top: MediaQuery.of(context).size.height *
+                                        //           0.010),
+                                        //   child: Container(
+                                        //     alignment: Alignment.center,
+                                        //     width: 8.5.w,
+                                        //     height: 4.h,
+                                        //     decoration: BoxDecoration(
+                                        //       color: Colors.white,
+                                        //       borderRadius: BorderRadius.all(
+                                        //         Radius.circular(25),
+                                        //       ),
+                                        //     ),
+                                        //     child: IconButton(
+                                        //       icon: Icon(
+                                        //         Icons.favorite_border,
+                                        //         color: Colors.red,
+                                        //         size: 2.h,
+                                        //       ),
+                                        //       onPressed: () {},
+                                        //     ),
+                                        //   ),
+                                        // ),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
@@ -601,6 +695,16 @@ class _products_1State extends State<products_1> {
                                                     Radius.circular(5),
                                                   ),
                                                 ),
+                                                // child: Text(
+                                                //   images[index]
+                                                //       .Brand_Name
+                                                //       .toString(),
+                                                //   style: TextStyle(
+                                                //     fontStyle: FontStyle.italic,
+                                                //     fontSize: 1.1.h,
+                                                //     color: Colors.white,
+                                                //   ),
+                                                // ),
                                               ),
                                             ),
                                             Padding(
@@ -655,11 +759,90 @@ class _products_1State extends State<products_1> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
-
+                                    // Container(
+                                    //   padding: EdgeInsets.only(left: 0.8.h),
+                                    //   alignment: Alignment.centerLeft,
+                                    //   child: Text(
+                                    //     images[index].Artist_Name.toString(),
+                                    //     style: TextStyle(
+                                    //         fontSize: 1.3.h,
+                                    //         fontWeight: FontWeight.bold,
+                                    //         fontStyle: FontStyle.italic,
+                                    //         color: Colors.grey.shade500),
+                                    //   ),
+                                    // ),
                                     SizedBox(
                                       height: 0.5.h,
                                     ),
-
+                                    // Row(
+                                    //   // crossAxisAlignment: CrossAxisAlignment.start,
+                                    //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    //   children: [
+                                    //     Container(
+                                    //       alignment: Alignment.center,
+                                    //       width: MediaQuery.of(context).size.width * 0.07,
+                                    //       height:
+                                    //           MediaQuery.of(context).size.height * 0.03,
+                                    //       decoration: BoxDecoration(
+                                    //         color: Color(0xffeaeaf3),
+                                    //         borderRadius: BorderRadius.all(
+                                    //           Radius.circular(15),
+                                    //         ),
+                                    //       ),
+                                    //       child: Text(
+                                    //         images[index].size_s.toString(),
+                                    //         style: TextStyle(
+                                    //             fontSize: 2.h,
+                                    //             color: Color(0xff3f3f90),
+                                    //             fontWeight: FontWeight.bold),
+                                    //       ),
+                                    //     ),
+                                    //     SizedBox(
+                                    //       width: 1.w,
+                                    //     ),
+                                    //     Container(
+                                    //       alignment: Alignment.center,
+                                    //       width: MediaQuery.of(context).size.width * 0.07,
+                                    //       height:
+                                    //           MediaQuery.of(context).size.height * 0.03,
+                                    //       decoration: BoxDecoration(
+                                    //         color: Color(0xffeaeaf3),
+                                    //         borderRadius: BorderRadius.all(
+                                    //           Radius.circular(15),
+                                    //         ),
+                                    //       ),
+                                    //       child: Text(
+                                    //         images[index].size_m.toString(),
+                                    //         style: TextStyle(
+                                    //             fontSize: 2.h,
+                                    //             color: Color(0xff3f3f90),
+                                    //             fontWeight: FontWeight.bold),
+                                    //       ),
+                                    //     ),
+                                    //     // SizedBox(
+                                    //     //   width: 1.w,
+                                    //     // ),
+                                    //     // Container(
+                                    //     //   alignment: Alignment.center,
+                                    //     //   width: MediaQuery.of(context).size.width * 0.07,
+                                    //     //   height:
+                                    //     //       MediaQuery.of(context).size.height * 0.03,
+                                    //     //   decoration: BoxDecoration(
+                                    //     //     color: Color(0xffeaeaf3),
+                                    //     //     borderRadius: BorderRadius.all(
+                                    //     //       Radius.circular(15),
+                                    //     //     ),
+                                    //     //   ),
+                                    //     //   child: Text(
+                                    //     //     images[index].size_l.toString(),
+                                    //     //     style: TextStyle(
+                                    //     //         fontSize: 2.h,
+                                    //     //         color: Color(0xff3f3f90),
+                                    //     //         fontWeight: FontWeight.bold),
+                                    //     //   ),
+                                    //     // ),
+                                    //   ],
+                                    // ),
                                     SizedBox(
                                       height: 3.5,
                                     ),
@@ -707,6 +890,26 @@ class _products_1State extends State<products_1> {
                                             ),
                                           ),
                                         ),
+                                        // SizedBox(
+                                        //   width: 16.w,
+                                        // ),
+                                        // Container(
+                                        //   alignment: Alignment.center,
+                                        //   width: MediaQuery.of(context).size.width * 0.09,
+                                        //   height:
+                                        //       MediaQuery.of(context).size.height * 0.04,
+                                        //   decoration: BoxDecoration(
+                                        //     color: Color(0xffe2000f),
+                                        //     borderRadius: BorderRadius.all(
+                                        //       Radius.circular(15),
+                                        //     ),
+                                        //   ),
+                                        //   child: Icon(
+                                        //     Icons.shopping_cart_outlined,
+                                        //     color: Colors.white,
+                                        //     size: 2.h,
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
                                   ],
@@ -731,28 +934,32 @@ class _products_1State extends State<products_1> {
       if (internet) {
         Productprovider().allcatogeryapi(data).then((Response response) async {
           allproperty = allcategorydisplay.fromJson(json.decode(response.body));
+
+          isloading = false;
+
           if (response.statusCode == 200 && allproperty?.status == "success") {
             setState(() {
-              isloading = false;
               select = allproperty?.data?[0].id.toString();
               categorydisplay();
             });
-            if (kDebugMode) {}
-          } else {
 
-          }
+
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) { isloading = false;}
+          } else { isloading = false;}
         });
-      } else {
-        setState(() {
-        isloading = false;
-      });}
+      } else { isloading = false;}
     });
   }
+
   categorydisplay() async {
     final Map<String, String> data = {};
     data['action'] = 'category_wise_product';
     data['category_id'] = select.toString();
-
+    print(data);
     checkInternet().then((internet) async {
       if (internet) {
         Productprovider()
@@ -764,49 +971,45 @@ class _products_1State extends State<products_1> {
 
           if (response.statusCode == 200 &&
               allcatogaryproperty?.status == "success") {
-            setState(() {
-              isloading = false;
-            });
-            if (kDebugMode) { }
+            setState(() {});
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) { isloading = false;}
           } else {
-            setState(() {
-              isloading = false;
-            });
-          }
+
+            isloading = false;}
         });
-      } else {
-        setState(() {
-        isloading = false;
-      });
-      }
+      } else { isloading = false;}
     });
   }
+
   searchapi(body) async {
     final Map<String, String> data = {};
     data['action'] = 'searching_products';
     data['search'] = body;
 
-
+    print(data);
     checkInternet().then((internet) async {
       if (internet) {
         Productprovider().searchproduct(data).then((Response response) async {
           searchproperty = search.fromJson(json.decode(response.body));
 
+          isloading = false;
           if (response.statusCode == 200 &&
               searchproperty?.status == "success") {
-            setState(() {
-              isloading = false;
-            });
-            if (kDebugMode) { }
-          } else {
-            setState(() {
-            isloading = false;
-          });}
+            setState(() {});
+
+            print("img" + (searchproperty?.data?[0].prodImgDefault).toString());
+
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+
+            if (kDebugMode) { isloading = false;}
+          } else { isloading = false;}
         });
-      } else {
-        setState(() {
-        isloading = false;
-      });}
+      } else { isloading = false;}
     });
   }
 }

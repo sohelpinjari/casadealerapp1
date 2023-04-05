@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:casadealerapp/CONST.dart';
 import 'package:casadealerapp/loader.dart';
 import 'package:casadealerapp/modal_class/singlepro_class.dart';
@@ -51,12 +52,11 @@ class _your_orderState extends State<your_order> {
 
   @override
   Widget build(BuildContext context) {
-    return commanScreen( isLoading:isloading,
-      scaffold: Scaffold(
+    return  Scaffold(
         backgroundColor: Color(0xfffFFFFFF),
         drawer: drawer(context),
         key: _scaffoldKey,
-        body:isloading?Container(): SingleChildScrollView(
+        body: SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
@@ -169,12 +169,35 @@ class _your_orderState extends State<your_order> {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(12),
-                              child: Image.asset(
-                                'assets/product_1_img2.png',
-                                height: 11.h,
-                                width: 20.w,
-                                fit: BoxFit.cover,
+                              child:
+                              CachedNetworkImage(
+                                  height: 11.h,
+                                  width: 20.w,
+                                  fit: BoxFit.cover,
+                                  imageUrl:view
+                                      ?.data?[index]
+                                      .imageOne ??
+                                      "",
+                                  progressIndicatorBuilder: (context,
+                                      url, downloadProgress) =>
+                                      CircularProgressIndicator(
+                                          value: downloadProgress
+                                              .progress),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset( "assets/default_product_image.png",
+                                        height: 11.h,
+                                        width: 20.w,
+                                        fit: BoxFit.cover,
+
+                                      )
                               ),
+
+                              // Image.asset(
+                              //   'assets/product_1_img2.png',
+                              //   height: 11.h,
+                              //   width: 20.w,
+                              //   fit: BoxFit.cover,
+                              // ),
                             ),
                             // SizedBox(width: 5.w,),
 
@@ -188,7 +211,7 @@ class _your_orderState extends State<your_order> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Order ID #' +
+                                        'Order ID # ' +
                                                 (view?.data?[index].id)
                                                     .toString() ??
                                             "",
@@ -210,11 +233,12 @@ class _your_orderState extends State<your_order> {
                                         ),
                                       ),
                                       Text(
-                                        (view?.data?[index]
-                                                    .productNumberOrder)
-                                                .toString() ??
-                                            "",
-                                        // '550',
+                                        // (view?.data?[index]
+                                        //             .productNumberOrder)
+                                        //         .toString() == null ?"N/A": (view?.data?[index]
+                                        //     .productNumberOrder)
+                                        //     .toString(),
+                                        '550',
                                         style: TextStyle(
                                           color: Color(0xff5a5a9f),
                                         ),
@@ -262,8 +286,7 @@ class _your_orderState extends State<your_order> {
 
                             SizedBox(width: 9.w),
                             Text(
-                              '₹' + (view?.data?[index].price).toString() ??
-                                  "",
+                              '₹' + (view?.data?[index].price).toString() == null ? "N/A" :"₹" + (view?.data?[index].price).toString(),
                               // '₹5,925',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -366,8 +389,8 @@ class _your_orderState extends State<your_order> {
         ],
       ),
         ),
-      ),
-    );
+      );
+
   }
 
   viewapi() async {
@@ -382,7 +405,7 @@ class _your_orderState extends State<your_order> {
             .view_product_order(data)
             .then((Response response) async {
           view = view_orders.fromJson(json.decode(response.body));
-          isloading = false;
+          // isloading = false;
 
           if (response.statusCode == 200 && view?.status == "success") {
             setState(() {});
@@ -392,10 +415,16 @@ class _your_orderState extends State<your_order> {
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => loginsuccess()));
 
-            if (kDebugMode) {isloading = false;}
-          } else {isloading = false;}
+            if (kDebugMode) {
+              // isloading = false;
+            }
+          } else {
+            // isloading = false;
+          }
         });
-      } else {isloading = false;}
+      } else {
+        // isloading = false;
+      }
     });
   }
 }

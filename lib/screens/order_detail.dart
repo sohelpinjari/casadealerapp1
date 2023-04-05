@@ -1,5 +1,6 @@
 import 'package:casadealerapp/screens/alert_screen.dart';
 import 'package:casadealerapp/screens/drawer.dart';
+import 'package:casadealerapp/screens/order_id.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -1351,6 +1352,10 @@ class _order_detail_cState extends State<order_detail_c> {
                       children: [
                         GestureDetector(
                           onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => order_id()));
                             setState(() {});
                           },
                           child: Container(

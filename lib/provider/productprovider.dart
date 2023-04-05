@@ -6,10 +6,13 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../CONST.dart';
+
 class Productprovider with ChangeNotifier {
   Map<String, String> headers = {
     'Authorization': 'hXuRUGsEGuhGf6KG',
   };
+  String baseurl = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php';
   Future<http.Response> allcatogeryapi(Map<String, dynamic> bodyData) async {
     const url =
         'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=all_category_display';
@@ -247,6 +250,75 @@ class Productprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
+  Future<http.Response> profileProvider(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=fetch_distributor_data';
+
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> UpdateprofileProvider(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=update_distributor_data';
+
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> updatePasswordProvider(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=change_password_page';
+
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> blockViewProvider(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=view_order_block';
+
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
 
 
 }
