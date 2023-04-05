@@ -94,6 +94,7 @@ class _order_idState extends State<order_id> {
                         icon: Icon(
                           Icons.menu,
                           color: Colors.white,
+                          size: 4.h,
                         ),
                       ),
                       //

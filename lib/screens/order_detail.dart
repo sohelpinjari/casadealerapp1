@@ -69,6 +69,7 @@ class _order_detail_cState extends State<order_detail_c> {
                               icon: Icon(
                                 Icons.menu,
                                 color: Colors.white,
+                                size: 4.h,
                               ),
                             ),
                             SizedBox(

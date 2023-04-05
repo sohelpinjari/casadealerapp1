@@ -40,6 +40,8 @@ class _your_orderState extends State<your_order> {
   //
   // int cart = 0;
   //
+  TextEditingController _search = TextEditingController();
+  bool se_icon = false;
   bool isloading = true;
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
@@ -60,83 +62,153 @@ class _your_orderState extends State<your_order> {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width * 1,
-            height: 11.h,
-            child: Column(
-              children: [
-                SizedBox(height: 4.h),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 0.h, left: 2.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
+          Column(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width * 1,
+                height: 11.h,
+                child: Column(
+                  children: [
+                    SizedBox(height: 4.h),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 0.h, left: 2.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
-                            onPressed: () {
-                              _scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.menu,
-                              color: Colors.white,
-                            ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  _scaffoldKey.currentState?.openDrawer();
+                                },
+                                icon: Icon(
+                                  Icons.menu,
+                                  color: Colors.white,
+                                  size: 4.h,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 2.3.h,
+                              ),
+                              Container(
+                                // padding: EdgeInsets.only(top: 1.5.h),
+                                // alignment: Alignment.center,
+                                child: Text(
+                                  "Your Orders",
+                                  style:
+                                      TextStyle(fontSize: 2.h, color: Colors.white),
+                                ),
+                              ),
+                            ],
                           ),
                           SizedBox(
-                            width: 2.3.h,
+                            width: 11.h,
                           ),
-                          Container(
-                            // padding: EdgeInsets.only(top: 1.5.h),
-                            // alignment: Alignment.center,
-                            child: Text(
-                              "Your Orders",
-                              style:
-                                  TextStyle(fontSize: 2.h, color: Colors.white),
-                            ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    se_icon = !se_icon;
+                                  });
+                                  // _scaffoldKey.currentState?.openDrawer();
+                                },
+                                icon: Icon(
+                                  Icons.search,
+                                  color: Colors.white,
+                                  size: 3.5.h,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 1.h,
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  // Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //         builder: (context) =>
+                                  //             cart_order()));
+                                  // _scaffoldKey.currentState?.openDrawer();
+                                },
+                                icon: Icon(
+                                  Icons.shopping_bag_outlined,
+                                  color: Colors.white,
+                                  size: 3.h,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                      SizedBox(
-                        width: 11.h,
-                      ),
-                      Row(
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              // _scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.search,
-                              color: Colors.white,
-                              size: 3.h,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 1.h,
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              // _scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.shopping_bag_outlined,
-                              color: Colors.white,
-                              size: 3.h,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                    ),
+
+                  ],
+                ),
+                decoration: BoxDecoration(
+                  color: Color(0xfff333389),
+                  // borderRadius: BorderRadius.all(
+                  //   Radius.circular(10),
+                  // ),
+                ),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              (!se_icon)
+                  ? Container()
+                  : Container(
+                margin: EdgeInsets.symmetric(horizontal: 2.h),
+                padding: EdgeInsets.symmetric(horizontal: 2.h),
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width,
+                height:
+                MediaQuery.of(context).size.height * 0.075,
+                child: TextFormField(
+                  // validator: (value) {
+                  //   if (value!.isEmpty) {
+                  //     return "";
+                  //   }
+                  //   return null;
+                  // },
+                  onChanged: (value) {
+                    print(value);
+                    if (value.isNotEmpty) {
+                      // searchapi(value);
+                    } else if (value.isEmpty) {
+                      // Navigator.of(context).pushReplacement(
+                      //     MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             products_1()));
+                    } else {
+                      // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>RestaurantsScreen()));
+                    }
+                  },
+                  controller: _search,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(3.h),
+                    hintText: 'Search',
+                    suffixIcon: Icon(
+                      Icons.search,
+                      color: Color(0xfff333389),
+                      size: 3.h,
+                    ),
                   ),
                 ),
-              ],
-            ),
-            decoration: BoxDecoration(
-              color: Color(0xfff333389),
-              // borderRadius: BorderRadius.all(
-              //   Radius.circular(10),
-              // ),
-            ),
+                decoration: BoxDecoration(
+                  // shape: BoxShape.circle,
+                  color: Color(0xfff3faff),
+                  // image: DecorationImage(
+                  //     image: AssetImage("assets/product_1_img.png"),
+                  //     fit: BoxFit.fitWidth)
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
+                    // ),
+                  ),
+                ),
+              )
+            ],
           ),
           Column(
             children: [
