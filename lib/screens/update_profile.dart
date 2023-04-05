@@ -536,7 +536,7 @@ class _updateProfileState extends State<updateProfile> {
                                 obscureText: !_passwordVisible1,
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return "Please enter your Re-Enter password";
+                                    return "Please Re-Enter your password";
                                   }else if (value != _password.text) {
                                     return "Passwords do not match";
                                   }
