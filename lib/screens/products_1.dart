@@ -605,10 +605,10 @@ class _products_1State extends State<products_1> {
             ),
             Positioned(
               top: 20.h,
-              left: 2.h,
-              right: 2.h,
+              left: 1.h,
+              right: 1.h,
               child:check? Container(
-                height: 40.h,
+                height: 50.h,
                 width: MediaQuery.of(context).size.width,
                   color:Colors.white,
                 child:  (searchproperty == null
