@@ -329,7 +329,7 @@ class _profileViewState extends State<profileView> {
                       height: 5.h,
                       width: 45.w,
                       child: Text(
-                        (viewP?.data?.emailId)== null ?"": (viewP?.data?.emailId).toString(),
+                        (viewP?.data?.emailId)== null ?"N/A": (viewP?.data?.emailId).toString(),
                         // "xyz@gmail.com",
                         style: TextStyle(
                           fontSize: 5.w,

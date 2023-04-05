@@ -77,36 +77,36 @@ class _your_block_orderState extends State<your_block_order> {
                             ),
                           ],
                         ),
-                        // SizedBox(
-                        //   width: 4.h,
-                        // ),
-                        // Row(
-                        //   children: [
-                        //     IconButton(
-                        //       onPressed: () {
-                        //         // _scaffoldKey.currentState?.openDrawer();
-                        //       },
-                        //       icon: Icon(
-                        //         Icons.search,
-                        //         color: Colors.white,
-                        //         size: 3.h,
-                        //       ),
-                        //     ),
-                        //     SizedBox(
-                        //       width: 1.h,
-                        //     ),
-                        //     IconButton(
-                        //       onPressed: () {
-                        //         // _scaffoldKey.currentState?.openDrawer();
-                        //       },
-                        //       icon: Icon(
-                        //         Icons.shopping_bag_outlined,
-                        //         color: Colors.white,
-                        //         size: 3.h,
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
+                        SizedBox(
+                          width: 4.h,
+                        ),
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                // _scaffoldKey.currentState?.openDrawer();
+                              },
+                              icon: Icon(
+                                Icons.search,
+                                color: Colors.white,
+                                size: 3.h,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 1.h,
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                // _scaffoldKey.currentState?.openDrawer();
+                              },
+                              icon: Icon(
+                                Icons.shopping_bag_outlined,
+                                color: Colors.white,
+                                size: 3.h,
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -301,6 +301,7 @@ class _your_block_orderState extends State<your_block_order> {
                                         itemBuilder: (BuildContext bc) {
                                           return [
                                             PopupMenuItem(
+                                              // padding: EdgeInsets.only(left: 50.w),
 
                                               child: InkWell(
                                                 onTap: () {

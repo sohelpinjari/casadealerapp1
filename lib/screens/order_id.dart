@@ -110,36 +110,36 @@ class _order_idState extends State<order_id> {
                       ),
                     ],
                   ),
-                  // SizedBox(
-                  //   width: 11.h,
-                  // ),
-                  // Row(
-                  //   children: [
-                  //     IconButton(
-                  //       onPressed: () {
-                  //         // _scaffoldKey.currentState?.openDrawer();
-                  //       },
-                  //       icon: Icon(
-                  //         Icons.search,
-                  //         color: Colors.white,
-                  //         size: 3.h,
-                  //       ),
-                  //     ),
-                  //     SizedBox(
-                  //       width: 1.h,
-                  //     ),
-                  //     IconButton(
-                  //       onPressed: () {
-                  //         // _scaffoldKey.currentState?.openDrawer();
-                  //       },
-                  //       icon: Icon(
-                  //         Icons.shopping_bag_outlined,
-                  //         color: Colors.white,
-                  //         size: 3.h,
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
+                  SizedBox(
+                    width: 11.h,
+                  ),
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          // _scaffoldKey.currentState?.openDrawer();
+                        },
+                        icon: Icon(
+                          Icons.search,
+                          color: Colors.white,
+                          size: 3.h,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 1.h,
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          // _scaffoldKey.currentState?.openDrawer();
+                        },
+                        icon: Icon(
+                          Icons.shopping_bag_outlined,
+                          color: Colors.white,
+                          size: 3.h,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

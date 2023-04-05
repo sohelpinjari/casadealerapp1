@@ -85,36 +85,36 @@ class _order_detail_cState extends State<order_detail_c> {
                             ),
                           ],
                         ),
-                        // SizedBox(
-                        //   width: 14.h,
-                        // ),
-                        // Row(
-                        //   children: [
-                        //     IconButton(
-                        //       onPressed: () {
-                        //         // _scaffoldKey.currentState?.openDrawer();
-                        //       },
-                        //       icon: Icon(
-                        //         Icons.search,
-                        //         color: Colors.white,
-                        //         size: 3.h,
-                        //       ),
-                        //     ),
-                        //     SizedBox(
-                        //       width: 1.h,
-                        //     ),
-                        //     IconButton(
-                        //       onPressed: () {
-                        //         // _scaffoldKey.currentState?.openDrawer();
-                        //       },
-                        //       icon: Icon(
-                        //         Icons.shopping_bag_outlined,
-                        //         color: Colors.white,
-                        //         size: 3.h,
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
+                        SizedBox(
+                          width: 14.h,
+                        ),
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                // _scaffoldKey.currentState?.openDrawer();
+                              },
+                              icon: Icon(
+                                Icons.search,
+                                color: Colors.white,
+                                size: 3.h,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 1.h,
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                // _scaffoldKey.currentState?.openDrawer();
+                              },
+                              icon: Icon(
+                                Icons.shopping_bag_outlined,
+                                color: Colors.white,
+                                size: 3.h,
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
