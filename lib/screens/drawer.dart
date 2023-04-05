@@ -157,7 +157,7 @@ class _drawerState extends State<drawer> {
                           //   // color: Color(0xffb4776e6),
                           //   color: index[1] ? Color(0xffb4776e6) : Colors.black,
                           // ),
-                          leading: Icon(Icons.person_2_outlined,
+                          leading: Icon(Icons.person,
                               // color: Color(0xffb4776e6),
                               color: index[0]
                                   ? Color(0xffb4776e6)
@@ -451,8 +451,6 @@ class _drawerState extends State<drawer> {
     data['d_id'] = (userData?.logindata?.dId).toString();
 
     print(data);
-
-
 
     checkInternet().then((internet) async {
       if (internet) {

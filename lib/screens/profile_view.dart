@@ -120,9 +120,10 @@ class _profileViewState extends State<profileView> {
                       imageUrl:  "https://tse4.mm.bing.net/th?id=OIP.rvSWtRd_oPRTwDoTCmkP5gHaE8&pid=Api&P=0",
 
 
-                      progressIndicatorBuilder:
-                          (context, url, progress) =>
-                          CircularProgressIndicator(),
+                      placeholder: (context, url) =>
+                          Center(
+                              child:
+                              CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
                           Image.asset(
                             "assets/default_product_image.png",

@@ -6,13 +6,10 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:http/http.dart' as http;
 
-import '../CONST.dart';
-
 class Productprovider with ChangeNotifier {
   Map<String, String> headers = {
     'Authorization': 'hXuRUGsEGuhGf6KG',
   };
-  String baseurl = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php';
   Future<http.Response> allcatogeryapi(Map<String, dynamic> bodyData) async {
     const url =
         'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=all_category_display';
@@ -216,7 +213,7 @@ class Productprovider with ChangeNotifier {
     );
     responseJson = responses(response);
     return responseJson;
-  }
+   }
 
   Future<http.Response> summaryBlockViewProvider(Map<String, dynamic> bodyData) async {
     const url =
@@ -250,9 +247,8 @@ class Productprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
-
   Future<http.Response> profileProvider(Map<String, dynamic> bodyData) async {
-    const url = '$baseUrl/?action=fetch_distributor_data';
+    const url = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=fetch_distributor_data';
 
     var responseJson;
 
@@ -269,7 +265,7 @@ class Productprovider with ChangeNotifier {
   }
 
   Future<http.Response> UpdateprofileProvider(Map<String, dynamic> bodyData) async {
-    const url = '$baseUrl/?action=update_distributor_data';
+    const url = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=update_distributor_data';
 
     var responseJson;
 
@@ -286,7 +282,7 @@ class Productprovider with ChangeNotifier {
   }
 
   Future<http.Response> updatePasswordProvider(Map<String, dynamic> bodyData) async {
-    const url = '$baseUrl/?action=change_password_page';
+    const url = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=change_password_page';
 
     var responseJson;
 
@@ -301,9 +297,8 @@ class Productprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
-
   Future<http.Response> blockViewProvider(Map<String, dynamic> bodyData) async {
-    const url = '$baseUrl/?action=view_order_block';
+    const url = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=view_order_block';
 
     var responseJson;
 
@@ -318,7 +313,6 @@ class Productprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
-
 
 
 }
