@@ -142,7 +142,7 @@ class _profileViewState extends State<profileView> {
                     Container(
                       width: 50.w,
                       child: Text(
-                       "Hi " +  (viewP?.data?.fullName).toString(),
+                         (viewP?.data?.fullName) == null ?"": "Hi " + (viewP?.data?.fullName).toString(),
                         style: TextStyle(
                           fontSize: 5.w,
                           fontWeight: FontWeight.w500,
@@ -158,7 +158,7 @@ class _profileViewState extends State<profileView> {
                     Container(
                       width: 50.w,
                       child: Text(
-                        (viewP?.data?.phoneOne).toString(),
+                        (viewP?.data?.phoneOne) == null ?"":(viewP?.data?.phoneOne).toString(),
                         // "1234567890",
                         style: TextStyle(
                           fontSize: 5.w,
@@ -196,6 +196,8 @@ class _profileViewState extends State<profileView> {
                       height: 1.w,
                     ),
                     Container(
+                      alignment: Alignment.centerLeft,
+                      height: 5.h,
                       width: 45.w,
 
                       child: Text(
@@ -210,10 +212,12 @@ class _profileViewState extends State<profileView> {
                       ),
                     ),
                     SizedBox(
-                      height: 5.w,
+                      height: 6.w,
                     ),
 
                     Container(
+                      alignment: Alignment.centerLeft,
+                      height: 5.h,
                       width: 45.w,
                       child: Text(
                         "Phone no2 :",
@@ -226,9 +230,11 @@ class _profileViewState extends State<profileView> {
                       ),
                     ),
                     SizedBox(
-                      height: 5.w,
+                      height: 6.w,
                     ),
                     Container(
+                      alignment: Alignment.centerLeft,
+                      height: 5.h,
                       width: 45.w,
                       child: Text(
                         "Email Address :",
@@ -244,9 +250,11 @@ class _profileViewState extends State<profileView> {
 
 
                     SizedBox(
-                      height: 5.w,
+                      height: 6.w,
                     ),
                     Container(
+                      alignment: Alignment.centerLeft,
+                      height: 5.h,
                       width: 45.w,
                       child: Text(
                         "Company Address :",
@@ -279,9 +287,11 @@ class _profileViewState extends State<profileView> {
                       height: 1.w,
                     ),
                     Container(
+                      alignment: Alignment.centerLeft,
+                      height: 5.h,
                       width: 45.w,
                       child: Text(
-                        (viewP?.data?.companyName).toString(),
+                        (viewP?.data?.companyName)== null ?"N/A":(viewP?.data?.companyName).toString(),
                         // "Fab",
                         style: TextStyle(
                           fontSize: 5.w,
@@ -293,13 +303,15 @@ class _profileViewState extends State<profileView> {
                     ),
 
                     SizedBox(
-                      height: 5.w,
+                      height: 6.w,
                     ),
 
                     Container(
+                      alignment: Alignment.centerLeft,
+                      height: 5.h,
                       width: 45.w,
                       child: Text(
-                        (viewP?.data?.phoneTwo).toString(),
+                        (viewP?.data?.phoneTwo) == null ?"N/A": (viewP?.data?.phoneTwo).toString(),
                         // "xyz@gmail.com",
                         style: TextStyle(
                           fontSize: 5.w,
@@ -310,12 +322,14 @@ class _profileViewState extends State<profileView> {
                       ),
                     ),
                     SizedBox(
-                      height: 5.w,
+                      height: 6.w,
                     ),
                     Container(
+                      alignment: Alignment.centerLeft,
+                      height: 5.h,
                       width: 45.w,
                       child: Text(
-                        (viewP?.data?.emailId).toString(),
+                        (viewP?.data?.emailId)== null ?"": (viewP?.data?.emailId).toString(),
                         // "xyz@gmail.com",
                         style: TextStyle(
                           fontSize: 5.w,
@@ -329,12 +343,14 @@ class _profileViewState extends State<profileView> {
 
 
                     SizedBox(
-                      height: 5.w,
+                      height: 6.w,
                     ),
                     Container(
+                      alignment: Alignment.centerLeft,
+                      height: 5.h,
                       width: 45.w,
                       child: Text(
-                        (viewP?.data?.address).toString(),
+                        (viewP?.data?.address) == null ?"N/A":(viewP?.data?.address).toString(),
                         // "xyz",
                         maxLines: 5,
                         style: TextStyle(

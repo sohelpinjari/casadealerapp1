@@ -215,7 +215,7 @@ class _drawerState extends State<drawer> {
                           onTap: () {
                             Navigator.of(context).pop();
 
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => products_1()));
@@ -259,7 +259,7 @@ class _drawerState extends State<drawer> {
                           onTap: () {
                             setState(() {
                               Navigator.of(context).pop();
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => your_order()));
@@ -303,7 +303,7 @@ class _drawerState extends State<drawer> {
                             setState(() {
                               Navigator.of(context).pop();
 
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
@@ -390,7 +390,7 @@ class _drawerState extends State<drawer> {
                             setState(() {
                               Navigator.of(context).pop();
                               SaveDataLocal.clearUserData();
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => login()));
