@@ -1,14 +1,18 @@
 import 'dart:convert';
 
 import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/modal_class/profileV_class.dart';
+import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/screens/block_order.dart';
 import 'package:casadealerapp/screens/login.dart';
 import 'package:casadealerapp/screens/products_1.dart';
+import 'package:casadealerapp/screens/profile_view.dart';
 import 'package:casadealerapp/screens/your_block_order.dart';
 import 'package:casadealerapp/screens/your_order.dart';
 import 'package:casadealerapp/shared_preference.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:sizer/sizer.dart';
 
 class drawer extends StatefulWidget {
@@ -19,14 +23,17 @@ class drawer extends StatefulWidget {
 }
 
 class _drawerState extends State<drawer> {
-  List<bool> index = [false, false, false, false, false, false, false];
+  viewProfile? viewP;
+  List<bool> index = [false, false, false, false, false, false, false, false];
   // ViewModel? viewmodel;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     // view();
-    index = [false, false, false, false, false, false, false];
+    viewProapi();
+    index = [false, false, false, false, false, false, false, false];
+
     getdata();
   }
 
@@ -97,9 +104,9 @@ class _drawerState extends State<drawer> {
                                   height: 0.5.h,
                                 ),
                                 Text(
-                                  'Hi ' +
-                                      (userData?.logindata?.fullName)
-                                          .toString(),
+                                  'Hi ' + (viewP?.data?.fullName).toString(),
+                                      // (userData?.logindata?.fullName)
+                                      //     .toString(),
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 11.sp,
@@ -109,7 +116,9 @@ class _drawerState extends State<drawer> {
                                 SizedBox(
                                   height: 0.5.h,
                                 ),
-                                Text(userData?.logindata?.phoneOne ?? "",
+                                Text(
+                                    (viewP?.data?.phoneOne).toString(),
+                                    // userData?.logindata?.phoneOne ?? "",
                                     style: TextStyle(
                                         color: Color(0xff6161a3),
                                         fontWeight: FontWeight.w600)),
@@ -138,6 +147,46 @@ class _drawerState extends State<drawer> {
                   padding: EdgeInsets.symmetric(horizontal: 9.w),
                   child: Column(
                     children: [
+                      Container(
+                        color: index[0]
+                            ? Color(0xffb4776e6).withOpacity(0.2)
+                            : Colors.transparent,
+                        child: ListTile(
+                          // trailing: Icon(
+                          //   Icons.arrow_forward_ios,
+                          //   // color: Color(0xffb4776e6),
+                          //   color: index[1] ? Color(0xffb4776e6) : Colors.black,
+                          // ),
+                          leading: Icon(Icons.person_2_outlined,
+                              // color: Color(0xffb4776e6),
+                              color: index[0]
+                                  ? Color(0xffb4776e6)
+                                  : Color(0xff6161a3)),
+                          title: Text(
+                            'Profile',
+                            style: TextStyle(
+                              // color: Color(0xffb4776e6),
+                                color: index[0]
+                                    ? Color(0xffb4776e6)
+                                    : Colors.black,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          onTap: () {
+                            Navigator.of(context).pop();
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => profileView()));
+                            setState(() {
+                              index[0] = !index[0];
+                            });
+
+                            // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>mytrips1()));
+                          },
+                        ),
+                      ),
                       Container(
                         color: index[1]
                             ? Color(0xffb4776e6).withOpacity(0.2)
@@ -394,4 +443,58 @@ class _drawerState extends State<drawer> {
   //     }
   //   });
   // }
+
+
+  viewProapi() async {
+    final Map<String, String> data = {};
+    data['action'] = "fetch_distributor_data";
+    data['d_id'] = (userData?.logindata?.dId).toString();
+
+    print(data);
+
+
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider().profileProvider(data).then((Response response) async {
+          print(response.body);
+
+          viewP = viewProfile.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && viewP?.status == "success") {
+            print(viewP?.status);
+
+            setState(() {
+              isloading = false;
+              // viewProapi();
+            });
+            // SaveDataLocal.saveLogInData(userData!);
+            // Navigator.push(context,
+            //     MaterialPageRoute(builder: (context) => loginsuccess()));
+            // Fluttertoast.showToast(
+            //   msg: "Logged In Successfully",
+            //   textColor: Colors.white,
+            //   toastLength: Toast.LENGTH_SHORT,
+            //   timeInSecForIosWeb: 1,
+            //   gravity: ToastGravity.BOTTOM,
+            //   backgroundColor: Colors.indigo,
+            // );
+
+            if (kDebugMode) {}
+
+
+          } else {
+
+            setState(() {
+              isloading = false;
+
+            });
+
+
+          }
+        });
+      } else {}
+    });
+
+  }
 }

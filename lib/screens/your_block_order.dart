@@ -1,7 +1,15 @@
+import 'dart:convert';
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/modal_class/block_orderView.dart';
 import 'package:casadealerapp/modal_class/view_order.dart';
+import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/screens/drawer.dart';
 import 'package:casadealerapp/screens/order_detail.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:sizer/sizer.dart';
 
 class your_block_order extends StatefulWidget {
@@ -12,8 +20,16 @@ class your_block_order extends StatefulWidget {
 }
 
 class _your_block_orderState extends State<your_block_order> {
+  viewBlockOrder? blockview2;
   view_orders? view;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    blockViewOrderapi();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +135,7 @@ class _your_block_orderState extends State<your_block_order> {
                       // visualDensity: VisualDensity(horizontal: 4, vertical: 4),
                       // horizontalTitleGap: 0.0,
 
-                      itemCount: 10,
+                      itemCount: blockview2?.data?.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
                           // padding: EdgeInsets.all(0),
@@ -138,12 +154,31 @@ class _your_block_orderState extends State<your_block_order> {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
-                                    child: Image.asset(
-                                      'assets/product_1_img2.png',
-                                      height: 11.h,
-                                      width: 20.w,
-                                      fit: BoxFit.cover,
+                                    child:
+                                    CachedNetworkImage(
+                                        height: 11.h,
+                                        width: 20.w,
+                                        fit: BoxFit.cover,
+                                        imageUrl:blockview2
+                                            ?.data?[index]
+                                            .imageOne ??
+                                            "",
+                                        progressIndicatorBuilder: (context,
+                                            url, downloadProgress) =>
+                                            CircularProgressIndicator(
+                                                value: downloadProgress
+                                                    .progress),
+                                        errorWidget: (context, url, error) =>
+                                            Image.asset( "assets/default_product_image.png",
+                                                height: 11.h,
+                                                  width: 20.w,
+                                                  fit: BoxFit.cover,
+
+                                            )
                                     ),
+
+
+
                                   ),
                                   SizedBox(
                                     width: 2.w,
@@ -159,7 +194,7 @@ class _your_block_orderState extends State<your_block_order> {
                                         Row(
                                           children: [
                                             Text(
-                                              'Order ID #1234',
+                                              'Order ID # ' + (blockview2?.data?[index]?.id ?? "N/A"),
                                               // +  (view?.data?[index].productNumberOrder).toString() ?? "" ,
 
                                               style: TextStyle(
@@ -181,6 +216,8 @@ class _your_block_orderState extends State<your_block_order> {
                                             ),
                                             Text(
                                               // (view?.data?[index].productNumberOrder).toString() ?? "" ,
+
+                                               // (blockview2?.data?[index]?.productNumberOrder ?? ""),
                                               '550',
                                               style: TextStyle(
                                                 color: Color(0xff5a5a9f),
@@ -205,19 +242,19 @@ class _your_block_orderState extends State<your_block_order> {
                                                           ? Color(0xffe1f5e2)
                                                           : Color(0xfffae7e7)),
                                           child: Text(
-                                            (view?.data?[index].status == "1")
+                                            (blockview2?.data?[index].status == "1")
                                                 ? "Placed"
-                                                : (view?.data?[index].status ==
+                                                : (blockview2?.data?[index].status ==
                                                         "2")
                                                     ? "Confirmed"
                                                     : "Cancle",
                                             // 'Placed',
                                             style: TextStyle(
-                                                color: (view?.data?[index]
+                                                color: (blockview2?.data?[index]
                                                             .status ==
                                                         "1")
                                                     ? Color(0xfff98b54)
-                                                    : (view?.data?[index]
+                                                    : (blockview2?.data?[index]
                                                                 .status ==
                                                             "2")
                                                         ? Color(0xff48d34d)
@@ -234,8 +271,8 @@ class _your_block_orderState extends State<your_block_order> {
                               Row(
                                 children: [
                                   Text(
-                                    // '₹' + (view?.data?[index].price).toString() ?? "" ,
-                                    '₹5,925',
+                                    '₹' + (blockview2?.data?[index].price).toString() ?? "" ,
+                                    // '₹5,925',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 2.2.h,
@@ -422,4 +459,236 @@ class _your_block_orderState extends State<your_block_order> {
       ),
     );
   }
+
+  blockViewOrderapi() async {
+    final Map<String, String> data = {};
+    data['action'] = "view_order_block";
+    data['d_id'] = "36";
+
+        // (userData?.logindata?.dId).toString();
+
+
+
+
+    print(data);
+
+
+
+      checkInternet().then((internet) async {
+        if (internet) {
+          Productprovider().blockViewProvider(data).then((Response response) async {
+            print(response.body);
+
+            blockview2 = viewBlockOrder.fromJson(json.decode(response.body));
+
+            if (response.statusCode == 200 && blockview2?.status == "success") {
+
+              print("===================" + (blockview2?.status).toString());
+
+              setState(() {
+
+                // viewProapi();
+              });
+              // SaveDataLocal.saveLogInData(userData!);
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => order_detail_c()));
+              // Fluttertoast.showToast(
+              //   msg: "Logged In Successfully",
+              //   textColor: Colors.white,
+              //   toastLength: Toast.LENGTH_SHORT,
+              //   timeInSecForIosWeb: 1,
+              //   gravity: ToastGravity.BOTTOM,
+              //   backgroundColor: Colors.indigo,
+              // );
+
+              if (kDebugMode) {}
+
+
+            } else {
+
+              setState(() {
+
+
+              });
+
+              // showDialog(
+              //   context: context,
+              //   builder: (BuildContext context) {
+              //     return Dialog(
+              //       shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(16),
+              //       ),
+              //       backgroundColor: Colors.transparent,
+              //       child: Container(
+              //         height: 25.h,
+              //         width: 80.w,
+              //         // padding: EdgeInsets.all(5.w),
+              //         decoration: BoxDecoration(
+              //           color: Colors.white,
+              //           borderRadius: BorderRadius.circular(16),
+              //         ),
+              //         child: Stack(
+              //           children: [
+              //
+              //             Container(
+              //               height: 25.h,
+              //               width: 80.w,
+              //               decoration: BoxDecoration(
+              //                 color: Colors.white,
+              //                 borderRadius: BorderRadius.circular(16),
+              //               ),
+              //               // borderRadius: BorderRadius.circular(16),
+              //               padding: EdgeInsets.all(3.w),
+              //               child: Column(
+              //                 children: [
+              //                   Row(
+              //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //                     children: [
+              //
+              //                       Row(
+              //                         children: [
+              //                           // Icon(Icons.edit,color:Colors.white ,),
+              //                           Text(
+              //                             "",
+              //                             style: TextStyle(
+              //                                 decoration: TextDecoration.underline,
+              //                                 fontSize: 16.sp,
+              //                                 color: Colors.white,
+              //                                 fontWeight: FontWeight.bold,
+              //                                 fontFamily: "Poppins"),
+              //                           ),
+              //                         ],
+              //                       ),
+              //                       IconButton(
+              //                           onPressed: () {
+              //                             Navigator.of(context).pop();
+              //                           },
+              //                           icon: Icon(
+              //                             Icons.close,
+              //                             color: Colors.black,
+              //                           ))
+              //                     ],
+              //                   ),
+              //                   Form(
+              //
+              //                     child: Column(
+              //                       children: [
+              //                         SizedBox(
+              //                           height: 2.h,
+              //                         ),
+              //                         Text(
+              //                           "User already exist",
+              //                           style: TextStyle(
+              //
+              //                               fontSize: 12.sp,
+              //                               color: Colors.black,
+              //                               fontWeight: FontWeight.bold,
+              //                               fontFamily: "Poppins"),
+              //                         ),
+              //
+              //
+              //                         // TextFormField(
+              //                         //   controller: _title,
+              //                         //   keyboardType: TextInputType.text,
+              //                         //   validator: (value) {
+              //                         //     if (value!.isEmpty) {
+              //                         //       return 'Please enter your subject';
+              //                         //     }
+              //                         //     return null;
+              //                         //   },
+              //                         //   decoration: InputDecoration(
+              //                         //     contentPadding: EdgeInsets.all(2.0),
+              //                         //     prefixIcon: Icon(Icons.add,color: Colors.grey,),
+              //                         //     filled: true,
+              //                         //     hintText: "Subject",
+              //                         //     hintStyle: textstyle,
+              //                         //     fillColor: Colors.white,
+              //                         //     enabledBorder: OutlineInputBorder(
+              //                         //         borderSide: BorderSide.none,
+              //                         //         borderRadius: BorderRadius.circular(30.0)),
+              //                         //     focusedBorder: OutlineInputBorder(
+              //                         //         borderSide: BorderSide.none,
+              //                         //         borderRadius: BorderRadius.circular(30.0)),
+              //                         //   ),
+              //                         // ),
+              //
+              //                         Padding(
+              //                           padding: EdgeInsets.all(3.w),
+              //                           child: Container(
+              //                             width: 40.w,
+              //                             decoration: BoxDecoration(
+              //                               color: Color(0xff333389),
+              //                               borderRadius: BorderRadius.circular(30.0),
+              //                               // boxShadow: [
+              //                               //   BoxShadow(
+              //                               //     color: Color(0xff333389),
+              //                               //     offset: Offset(0, 10),
+              //                               //     blurRadius: 10,
+              //                               //     spreadRadius: -5,
+              //                               //   ),
+              //                               // ],
+              //                               // border: Border.all(color: Colors.white,width: 1.0)
+              //                             ),
+              //                             height: 40.0,
+              //                             child: TextButton(
+              //                               style: ButtonStyle(
+              //                                 alignment: Alignment.center,
+              //                                 // backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+              //                                 padding: MaterialStateProperty.all(
+              //                                   EdgeInsets.symmetric(vertical: 1.h),
+              //                                 ),
+              //                                 shape:
+              //                                 MaterialStateProperty.all<RoundedRectangleBorder>(
+              //                                     RoundedRectangleBorder(
+              //                                       borderRadius: BorderRadius.circular(20.sp),
+              //                                     )),
+              //                               ),
+              //                               onPressed: () {
+              //                                 Navigator.of(context).pop();
+              //
+              //                               },
+              //                               child: Row(
+              //                                 mainAxisAlignment: MainAxisAlignment.center,
+              //                                 children: [
+              //                                   Text(
+              //                                     "Oky",
+              //                                     style: TextStyle(
+              //                                         color: Colors.white,
+              //                                         fontSize: 14.sp,
+              //                                         fontFamily: "Poppins",
+              //                                         fontWeight: FontWeight.bold),
+              //                                   ),
+              //                                   SizedBox(
+              //                                     width: 5.0,
+              //                                   ),
+              //                                   // Icon(
+              //                                   //   Icon,
+              //                                   //   color: Colors.grey.shade700,
+              //                                   // )
+              //
+              //                                 ],
+              //                               ),
+              //                             ),
+              //                           ),
+              //                         ),
+              //                       ],
+              //                     ),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //     );
+              //   },
+              // );
+            }
+          });
+        } else {}
+      });
+
+
+  }
+
 }

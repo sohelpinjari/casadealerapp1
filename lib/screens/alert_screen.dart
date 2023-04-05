@@ -108,6 +108,10 @@ class _alert_screenState extends State<alert_screen> {
                                 onTap: () {
                                   setState(() {
                                     al = 1;
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => order_id()));
                                   });
                                 },
                                 child: Container(

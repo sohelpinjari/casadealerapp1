@@ -1,10 +1,10 @@
-class view_orders {
+class viewBlockOrder {
   String? status;
   List<Data>? data;
 
-  view_orders({this.status, this.data});
+  viewBlockOrder({this.status, this.data});
 
-  view_orders.fromJson(Map<String, dynamic> json) {
+  viewBlockOrder.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     if (json['data'] != null) {
       data = <Data>[];
