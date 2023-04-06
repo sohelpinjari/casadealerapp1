@@ -297,8 +297,43 @@ class Productprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> blockViewProvider(Map<String, dynamic> bodyData) async {
     const url = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=view_order_block';
+
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> summeryEditBlockProvider(Map<String, dynamic> bodyData) async {
+    const url = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=edit_block_single_product';
+
+    var responseJson;
+
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> summeryEditCartProvider(Map<String, dynamic> bodyData) async {
+    const url = 'https://distributor-app.fableadtechnolabs.com/admin/api/ajax.php?action=edit_add_to_cart_single_product';
 
     var responseJson;
 

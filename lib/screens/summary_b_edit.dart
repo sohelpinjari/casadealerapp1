@@ -1,7 +1,19 @@
+import 'dart:convert';
+
+import 'package:casadealerapp/CONST.dart';
+import 'package:casadealerapp/build_dialog.dart';
+import 'package:casadealerapp/main.dart';
+import 'package:casadealerapp/modal_class/summarEditBlock.dart';
+import 'package:casadealerapp/modal_class/summaryEditCart.dart';
+import 'package:casadealerapp/provider/productprovider.dart';
 import 'package:casadealerapp/screens/drawer.dart';
 import 'package:casadealerapp/screens/summary.dart';
+import 'package:casadealerapp/screens/your_block_order.dart';
+import 'package:casadealerapp/screens/your_order.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:sizer/sizer.dart';
 
 class summary_b_edit extends StatefulWidget {
@@ -12,6 +24,44 @@ class summary_b_edit extends StatefulWidget {
 }
 
 class _summary_b_editState extends State<summary_b_edit> {
+
+  RegExp regex = RegExp(r'^\d+$');
+  // Mumbai contriller
+  TextEditingController _search = TextEditingController();
+  TextEditingController _xs = TextEditingController();
+  TextEditingController _m = TextEditingController();
+  TextEditingController _s = TextEditingController();
+  TextEditingController _l = TextEditingController();
+  TextEditingController _xl = TextEditingController();
+  TextEditingController _xxl = TextEditingController();
+  TextEditingController _3xl = TextEditingController();
+  TextEditingController _4xl = TextEditingController();
+  TextEditingController _5xl = TextEditingController();
+
+  //Tripur controller
+
+  TextEditingController _txs = TextEditingController();
+  TextEditingController _tm = TextEditingController();
+  TextEditingController _ts = TextEditingController();
+  TextEditingController _tl = TextEditingController();
+  TextEditingController _txl = TextEditingController();
+  TextEditingController _txxl = TextEditingController();
+  TextEditingController _t3xl = TextEditingController();
+  TextEditingController _t4xl = TextEditingController();
+  TextEditingController _t5xl = TextEditingController();
+
+  //TOTAL CONTROLLLER
+  TextEditingController _totalms = TextEditingController();
+  TextEditingController _totalxs = TextEditingController();
+  TextEditingController _totalmm = TextEditingController();
+  TextEditingController _total_ll = TextEditingController();
+  TextEditingController _total_xl = TextEditingController();
+  TextEditingController _total_xxl = TextEditingController();
+  TextEditingController _total_3xl = TextEditingController();
+  TextEditingController _total_4xl = TextEditingController();
+  TextEditingController _total_5xl = TextEditingController();
+  summryEditBlockProduct? summeryeditblock;
+  summryEditCartProduct? summaryeditcart;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool? check = false;
   int sum = 0;
@@ -324,11 +374,13 @@ class _summary_b_editState extends State<summary_b_edit> {
                                       ),
                                       GestureDetector(
                                         onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      summary_b_edit()));
+                                          // Navigator.push(
+                                          //     context,
+                                          //     MaterialPageRoute(
+                                          //         builder: (context) =>
+                                          //             summary_b_edit()));
+
+                                          editBlock();
                                         },
                                         child: Container(
                                           alignment: Alignment.center,
@@ -374,6 +426,31 @@ class _summary_b_editState extends State<summary_b_edit> {
                                         ),
                                         Text(
                                           'Male',
+                                          style: TextStyle(
+                                              fontSize: 2.3.h,
+                                              color: Color(0xff35358a),
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 2.h),
+                                Padding(
+                                  padding:
+                                  EdgeInsets.symmetric(horizontal: 3.h),
+                                  child: Container(
+                                    child: Row(
+                                      children: [
+                                        Text('State',
+                                            style: TextStyle(
+                                              color: Color(0xff848484),
+                                            )),
+                                        SizedBox(
+                                          width: 2.w,
+                                        ),
+                                        Text(
+                                          'Mumbai',
                                           style: TextStyle(
                                               fontSize: 2.3.h,
                                               color: Color(0xff35358a),
@@ -509,6 +586,8 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                         // ( summeryeditblock?.status).toString(),
+                                          controller: _xs,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -527,6 +606,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _s,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -545,6 +625,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _m,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -563,6 +644,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _l,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -581,6 +663,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -725,6 +808,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _xxl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -743,6 +827,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _3xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -761,6 +846,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _4xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -779,6 +865,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _5xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -834,7 +921,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                   child: Container(
                                     child: Row(
                                       children: [
-                                        Text('Gender',
+                                        Text('State',
                                             style: TextStyle(
                                               color: Color(0xff848484),
                                             )),
@@ -842,7 +929,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                           width: 2.w,
                                         ),
                                         Text(
-                                          'Women',
+                                          'Tripur',
                                           style: TextStyle(
                                               fontSize: 2.3.h,
                                               color: Color(0xff35358a),
@@ -977,6 +1064,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _txs,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -995,6 +1083,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _ts,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1013,6 +1102,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _tm,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1031,6 +1121,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _tl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1049,6 +1140,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _txl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1193,6 +1285,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _txxl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1211,6 +1304,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _t3xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1229,6 +1323,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _t4xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1247,6 +1342,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _t5xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1369,7 +1465,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => summary()));
+                                            builder: (context) => your_block_order()));
                                     setState(() {
                                       cart = 0;
                                     });
@@ -1547,11 +1643,12 @@ class _summary_b_editState extends State<summary_b_edit> {
                                       ),
                                       GestureDetector(
                                         onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      summary_b_edit()));
+                                          // Navigator.push(
+                                          //     context,
+                                          //     MaterialPageRoute(
+                                          //         builder: (context) =>
+                                          //             summary_b_edit()));
+                                          editCart();
                                         },
                                         child: Container(
                                           alignment: Alignment.center,
@@ -1597,6 +1694,31 @@ class _summary_b_editState extends State<summary_b_edit> {
                                         ),
                                         Text(
                                           'Male',
+                                          style: TextStyle(
+                                              fontSize: 2.3.h,
+                                              color: Color(0xff35358a),
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 2.h),
+                                Padding(
+                                  padding:
+                                  EdgeInsets.symmetric(horizontal: 3.h),
+                                  child: Container(
+                                    child: Row(
+                                      children: [
+                                        Text('State',
+                                            style: TextStyle(
+                                              color: Color(0xff848484),
+                                            )),
+                                        SizedBox(
+                                          width: 2.w,
+                                        ),
+                                        Text(
+                                          'Mumbai',
                                           style: TextStyle(
                                               fontSize: 2.3.h,
                                               color: Color(0xff35358a),
@@ -1732,6 +1854,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _xs,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1750,6 +1873,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _s,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1768,6 +1892,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _m,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1786,6 +1911,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                            controller: _l,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1804,9 +1930,11 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
+
                                               fontSize: 2.h,
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold),
@@ -1948,6 +2076,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _xxl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1966,6 +2095,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _3xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -1984,6 +2114,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _4xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2002,6 +2133,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _5xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2057,7 +2189,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                   child: Container(
                                     child: Row(
                                       children: [
-                                        Text('Gender',
+                                        Text('State',
                                             style: TextStyle(
                                               color: Color(0xff848484),
                                             )),
@@ -2065,7 +2197,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                           width: 2.w,
                                         ),
                                         Text(
-                                          'Women',
+                                          'Tripur',
                                           style: TextStyle(
                                               fontSize: 2.3.h,
                                               color: Color(0xff35358a),
@@ -2200,6 +2332,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _txs,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2218,6 +2351,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _ts,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2236,6 +2370,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _tm,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2254,6 +2389,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _tl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2272,6 +2408,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _txl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2416,6 +2553,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _txxl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2434,6 +2572,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _t3xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2452,6 +2591,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _t4xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2470,6 +2610,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                             // border: Border.all(color: Colors.black),
                                             border: Border.all()),
                                         child: TextField(
+                                          controller: _t5xl,
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.number,
                                           style: TextStyle(
@@ -2592,7 +2733,7 @@ class _summary_b_editState extends State<summary_b_edit> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => summary()));
+                                            builder: (context) => your_order()));
                                     setState(() {
                                       cart = 0;
                                     });
@@ -2646,4 +2787,237 @@ class _summary_b_editState extends State<summary_b_edit> {
       ),
     );
   }
+
+
+
+  editBlock() async {
+    final Map<String, String> data = {};
+    data['action'] = 'edit_block_single_product';
+    data['t_ap_id'] = '2';
+    data['t_apd_id'] ='2';
+    data['m_ap_id'] = '1';
+    data['m_apd_id'] = '1';
+    data['d_id'] = (userData?.logindata?.dId).toString();
+    data['gender_type'] =gen == 0 ? "MEN" : "WOMEN";
+    //Mumbai Data
+    data['m_xs'] =
+    _xs.text.trim().toString() == "" ? "0" : _xs.text.trim().toString();
+
+    data['m_s'] =
+    _s.text.trim().toString() == "" ? "0" : _s.text.trim().toString();
+    data['m_m'] =
+    _m.text.trim().toString() == "" ? "0" : _m.text.trim().toString();
+    data['m_l'] =
+    _l.text.trim().toString() == "" ? "0" : _l.text.trim().toString();
+    data['m_xl'] =
+    _xl.text.trim().toString() == "" ? "0" : _xl.text.trim().toString();
+    data['m_xxl'] =
+    _xxl.text.trim().toString() == "" ? "0" : _xxl.text.trim().toString();
+    data['m_3xl'] =
+    _3xl.text.trim().toString() == "" ? "0" : _3xl.text.trim().toString();
+    data['m_4xl'] =
+    _4xl.text.trim().toString() == "" ? "0" : _4xl.text.trim().toString();
+    data['m_5xl'] =
+    _5xl.text.trim().toString() == "" ? "0" : _5xl.text.trim().toString();
+
+    //Tripur  Data
+
+    data['t_xs'] =
+    _txs.text.trim().toString() == "" ? "0" : _txs.text.trim().toString();
+    data['t_s'] =
+    _ts.text.trim().toString() == "" ? "0" : _ts.text.trim().toString();
+    data['t_m'] =
+    _tm.text.trim().toString() == "" ? "0" : _tm.text.trim().toString();
+    data['t_l'] =
+    _tl.text.trim().toString() == "" ? "0" : _tl.text.trim().toString();
+    data['t_xl'] =
+    _txl.text.trim().toString() == "" ? "0" : _txl.text.trim().toString();
+    data['t_xxl'] =
+    _txxl.text.trim().toString() == "" ? "0" : _txxl.text.trim().toString();
+    data['t_3xl'] =
+    _t3xl.text.trim().toString() == "" ? "0" : _t3xl.text.trim().toString();
+    data['t_4xl'] =
+    _t4xl.text.trim().toString() == "" ? "0" : _t4xl.text.trim().toString();
+    data['t_5xl'] =
+    _t5xl.text.trim().toString() == "" ? "0" : _t5xl.text.trim().toString();
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider()
+            .summeryEditBlockProvider(data)
+            .then((Response response) async {
+          summeryeditblock = summryEditBlockProduct.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && summeryeditblock?.status == "success") {
+
+            // Navigator.of(this.context).push(MaterialPageRoute(builder: (context)=>summary(pronamenevigatior: widget.pronamenevigatior,
+            //     coloridnevigator:  product2color
+            //         ?.data?[
+            //     selectbtn]
+            //         .colorName ,gender: gen == 0 ? "MEN" : "WOMEN")));
+            // // _s.text = "";
+            // _ts.text = "";
+            // _totalms.text = "";
+            //
+            // _xs.text = "";
+            // _txs.text = "";
+            // _totalxs.text = "";
+            //
+            // _m.text = "";
+            // _tm.text = "";
+            // _totalmm.text = "";
+            //
+            // _l.text = "";
+            // _tl.text = "";
+            // _total_ll.text = "";
+            //
+            // _xl.text = "";
+            // _txl.text = "";
+            // _total_xl.text = "";
+            //
+            // _xxl.text = "";
+            // _txxl.text = "";
+            // _total_xxl.text = "";
+            //
+            // _3xl.text = "";
+            // _t3xl.text = "";
+            // _total_3xl.text = "";
+            //
+            // _4xl.text = "";
+            // _t4xl.text = "";
+            // _total_4xl.text = "";
+            //
+            // _5xl.text = "";
+            // _t5xl.text = "";
+            // _total_5xl.text = "";
+            if (kDebugMode) {}
+          } else {
+            buildErrorDialog1(this.context, "",  'Already product added to cart');
+
+
+          }
+        });
+      } else {
+
+
+
+      }
+    });
+  }
+
+  editCart() async {
+    final Map<String, String> data = {};
+    data['action'] = 'edit_add_to_cart_single_product';
+    data['t_ap_id'] = '2';
+    data['t_apd_id'] ='2';
+    data['m_ap_id'] = '1';
+    data['m_apd_id'] = '1';
+    data['d_id'] = (userData?.logindata?.dId).toString();
+    data['gender_type'] =gen == 0 ? "MEN" : "WOMEN";
+    //Mumbai Data
+    data['m_xs'] =
+    _xs.text.trim().toString() == "" ? "0" : _xs.text.trim().toString();
+
+    data['m_s'] =
+    _s.text.trim().toString() == "" ? "0" : _s.text.trim().toString();
+    data['m_m'] =
+    _m.text.trim().toString() == "" ? "0" : _m.text.trim().toString();
+    data['m_l'] =
+    _l.text.trim().toString() == "" ? "0" : _l.text.trim().toString();
+    data['m_xl'] =
+    _xl.text.trim().toString() == "" ? "0" : _xl.text.trim().toString();
+    data['m_xxl'] =
+    _xxl.text.trim().toString() == "" ? "0" : _xxl.text.trim().toString();
+    data['m_3xl'] =
+    _3xl.text.trim().toString() == "" ? "0" : _3xl.text.trim().toString();
+    data['m_4xl'] =
+    _4xl.text.trim().toString() == "" ? "0" : _4xl.text.trim().toString();
+    data['m_5xl'] =
+    _5xl.text.trim().toString() == "" ? "0" : _5xl.text.trim().toString();
+
+    //Tripur  Data
+
+    data['t_xs'] =
+    _txs.text.trim().toString() == "" ? "0" : _txs.text.trim().toString();
+    data['t_s'] =
+    _ts.text.trim().toString() == "" ? "0" : _ts.text.trim().toString();
+    data['t_m'] =
+    _tm.text.trim().toString() == "" ? "0" : _tm.text.trim().toString();
+    data['t_l'] =
+    _tl.text.trim().toString() == "" ? "0" : _tl.text.trim().toString();
+    data['t_xl'] =
+    _txl.text.trim().toString() == "" ? "0" : _txl.text.trim().toString();
+    data['t_xxl'] =
+    _txxl.text.trim().toString() == "" ? "0" : _txxl.text.trim().toString();
+    data['t_3xl'] =
+    _t3xl.text.trim().toString() == "" ? "0" : _t3xl.text.trim().toString();
+    data['t_4xl'] =
+    _t4xl.text.trim().toString() == "" ? "0" : _t4xl.text.trim().toString();
+    data['t_5xl'] =
+    _t5xl.text.trim().toString() == "" ? "0" : _t5xl.text.trim().toString();
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        Productprovider()
+            .summeryEditCartProvider(data)
+            .then((Response response) async {
+          summaryeditcart = summryEditCartProduct.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && summaryeditcart?.status == "success") {
+
+            // Navigator.of(this.context).push(MaterialPageRoute(builder: (context)=>summary(pronamenevigatior: widget.pronamenevigatior,
+            //     coloridnevigator:  product2color
+            //         ?.data?[
+            //     selectbtn]
+            //         .colorName ,gender: gen == 0 ? "MEN" : "WOMEN")));
+            // // _s.text = "";
+            // _ts.text = "";
+            // _totalms.text = "";
+            //
+            // _xs.text = "";
+            // _txs.text = "";
+            // _totalxs.text = "";
+            //
+            // _m.text = "";
+            // _tm.text = "";
+            // _totalmm.text = "";
+            //
+            // _l.text = "";
+            // _tl.text = "";
+            // _total_ll.text = "";
+            //
+            // _xl.text = "";
+            // _txl.text = "";
+            // _total_xl.text = "";
+            //
+            // _xxl.text = "";
+            // _txxl.text = "";
+            // _total_xxl.text = "";
+            //
+            // _3xl.text = "";
+            // _t3xl.text = "";
+            // _total_3xl.text = "";
+            //
+            // _4xl.text = "";
+            // _t4xl.text = "";
+            // _total_4xl.text = "";
+            //
+            // _5xl.text = "";
+            // _t5xl.text = "";
+            // _total_5xl.text = "";
+            if (kDebugMode) {}
+          } else {
+            buildErrorDialog1(this.context, "",  'Already product added to cart');
+
+
+          }
+        });
+      } else {
+
+
+
+      }
+    });
+  }
+
 }

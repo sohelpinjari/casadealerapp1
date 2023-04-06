@@ -72,9 +72,9 @@ class _order_detail_cState extends State<order_detail_c> {
                                 size: 4.h,
                               ),
                             ),
-                            SizedBox(
-                              width: 2.3.h,
-                            ),
+                            // SizedBox(
+                            //   width: 2.3.h,
+                            // ),
                             Container(
                               // padding: EdgeInsets.only(top: 1.5.h),
                               // alignment: Alignment.center,
@@ -101,9 +101,9 @@ class _order_detail_cState extends State<order_detail_c> {
                                 size: 3.h,
                               ),
                             ),
-                            SizedBox(
-                              width: 1.h,
-                            ),
+                            // SizedBox(
+                            //   width: 1.h,
+                            // ),
                             IconButton(
                               onPressed: () {
                                 // _scaffoldKey.currentState?.openDrawer();

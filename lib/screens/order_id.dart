@@ -1338,7 +1338,7 @@ class _order_idState extends State<order_id> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => order_detail_c()));
+                        builder: (context) => summary_b_edit()));
               },
               child: Container(
                 alignment: Alignment.center,
